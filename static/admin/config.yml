@@ -1,6 +1,10 @@
 backend:
   name: github
   repo: edwardsmoses/edwardsmoses.com
+  accept_roles:
+    - admin
+    - editor
+  branch: main
 
 media_folder: static/assets
 public_folder: /assets
