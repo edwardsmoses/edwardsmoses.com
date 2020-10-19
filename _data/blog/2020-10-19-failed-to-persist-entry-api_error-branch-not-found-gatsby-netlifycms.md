@@ -27,5 +27,7 @@ backend:
   --- rest of config.yml file --- 
 ```
 
-Commit the changes, and then re-deloy to Netlify. \
-The error should be gone, and you should be able to publish a new entry now.
+Commit the changes, and then re-deploy to Netlify. \
+The error should be gone now, and you should be able to publish a new entry now.
+
+> If the error isn't gone yet, have a look at some solutions here: https://github.com/netlify/netlify-cms/issues/2544
