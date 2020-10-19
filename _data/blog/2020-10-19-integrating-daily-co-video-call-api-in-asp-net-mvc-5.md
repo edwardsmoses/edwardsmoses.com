@@ -1,6 +1,6 @@
 ---
 template: BlogPost
-path: /integrate-video-call-in-asp-net-mvc
+path: /integrating-daily-co-video-call-api-in-asp-net-mvc
 date: 2020-10-19T01:09:05.469Z
 title: Integrating Daily.Co Video Call API in ASP.NET MVC 5
 metaDescription: 'How to Integrate Daily.Co Video Call API in .NET MVC Application. '
@@ -14,22 +14,20 @@ To get started using the Daily.co video API. You’ll need to [sign up](https://
 
 ## Second step: Choose a Daily.co domain name
 
-All your video call URLs start with your own, custom, domain name. A video call URL looks like this:<https://your-domain.daily.co/hello>
+All your video call URLs start with your own, custom, domain name. A video call URL looks like this: <https://your-domain.daily.co/hello>
 
-As part of the sign-up process, you choose a “domain name” for your Daily.co account. Throughout this article, we’ll use `your-domain.daily.co `as an example domain name.
+As part of the sign-up process, you choose a “domain name” for your Daily.co account. Throughout this article, we’ll use `your-domain.daily.co  `as an example domain name.
 
 ## Third Step: Integrating the Video Call in your Web Solution
 
 In your MVC Solution, in any view of your choice. Open the View, and add the **Video Call & Container controls**, to your Razor view.
 
-```
+```html
 <div class="row" style="margin-bottom:20px;">
 
-<button class="btn btn-primary" style="float:left;margin-right:20px;" 
-onclick="mtgJoin()"> Join meeting </button>
+<button class="btn btn-primary" style="float:left;margin-right:20px;"  onclick="mtgJoin()"> Join meeting </button>
 
-<button class="btn btn-danger" style="float:left;" 
-onclick="mtgLeave()"> Leave meeting </button>
+<button class="btn btn-danger" style="float:left;"  onclick="mtgLeave()"> Leave meeting </button>
 
 </div>
 
@@ -41,11 +39,13 @@ style="height:400px;border:0;background-color:lightgrey;" />
 </div>
 ```
 
-Add the`daily.co js`file to the Scripts section:
+Add the `daily.co js`file to the Scripts section:
 
 ```
 <script crossorigin src=”https://unpkg.com/@daily-co/daily-js"></script>
 ```
+
+
 
 And then, this error happens:
 
@@ -53,7 +53,7 @@ And then, this error happens:
 
 ![Image for post](https://miro.medium.com/max/741/1*HAqg1kurtf8NDBhVbsQgJQ.png)
 
-So, to fix the above error. A workaround that I would recommend would be to simply create a variable named`daily `at the top of the view.
+So, to fix the above error. A workaround that I would recommend would be to simply create a variable named `daily `at the top of the view.
 
 ```
 @{
@@ -61,9 +61,9 @@ var daily = "@daily";
 }
 ```
 
-And then,**Voila!** the error is gone.
+And then, **Voila!** the error is gone.
 
-So, the next step will be to implement the JavaScript functions for the buttons in the **Scripts** section:`mtgJoin()`and`mtgLeave()`
+So, the next step would be to implement the JavaScript functions for the buttons in the **Scripts** section: `mtgJoin() `and `mtgLeave()`
 
 ```
 <script>
@@ -88,16 +88,14 @@ window.frame.leave();
 </script>
 ```
 
-And, you are done.. When you click on **Join Meeting**, your page should look something like this..
+And, you are done... When you click on **Join Meeting**, your page should look something like this...
 
 ![Image for post](https://miro.medium.com/max/30/1*ACRCBitE4KeU8dvweW5PNg.png?q=20)
 
 ![Image for post](https://miro.medium.com/max/1366/1*ACRCBitE4KeU8dvweW5PNg.png)
 
-## Finished! Done
+## Finished! Done!
 
-Now we actually have a real life video calling system in our application.
+Now we actually have a real-life video calling system in your web application.
 
 > *The Working version of this project is available on GitHub —*<https://github.com/edwardsmoses/DailyCo-Api-Integration>
->
->
