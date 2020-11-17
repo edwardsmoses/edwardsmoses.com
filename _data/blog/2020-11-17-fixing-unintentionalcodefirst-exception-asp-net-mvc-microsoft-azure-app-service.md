@@ -22,6 +22,11 @@ To learn more about Code First, Database First, and Model First see the Entity F
 at LearnFloUtilities.Data.HuddleAfricaDBEntities.OnModelCreating(DbModelBuilder modelBuilder)
 ```
 
+Fix:\
+Remove the `ConenctionString` using the same name in Azure Portal, which is overriding the configuration in `Web.Config`. 
+
+![](/assets/Azure.png "Azure Portal Configruation, Connection Strings")
 
 
-Fix:
+
+After deleting the connection string using the same name, the error should be gone now.
