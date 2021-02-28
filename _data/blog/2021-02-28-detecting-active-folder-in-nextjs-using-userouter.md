@@ -1,8 +1,8 @@
 ---
 template: BlogPost
-path: /detecting-active-folder-using-nextjs-using-useRouter
+path: /detecting-the-active-folder-using-nextjs-using-useRouter
 date: 2021-02-28T21:24:32.212Z
-title: Determine The Active Folder in NextJS using useRouter
+title: Detecting the Active Folder in NextJS using useRouter
 metaDescription: >-
   How to determine the active folder of the Current URL using useRouter in
   NextJS
@@ -12,7 +12,7 @@ Recently, while working on an application, I came across having to determine the
 
 ## How did I achieve this?
 
- In my Navbar component, I checked if the current pathname (URL) segment matches the Link's route, and if it matches, we add the Active class (`activeClassName`) to the Link.
+ In my Navbar component, I checked if the current pathname (URL) segment matches the Link's route, and if it matches, I add the Active class (`activeClassName`) to the Link.
 
 ```
 import Link from 'next/link'
@@ -20,28 +20,26 @@ import { useRouter } from 'next/router'
 ....
 
 const Navbar = () => {
-const router = useRouter();
 
-const appRoutes = [{route: "/dashboard", name: "Dashboard"}, {route: "/users", name: "Users" }]
+  const router = useRouter();
 
+  const appRoutes = [{route: "/dashboard", name: "Dashboard"}, {route: "/users", name: "Users" }]
 
 return (
-...
-<div>
-{appRoutes.map(link => (
-  <Link key={link.route} href={link.route}>
-    <span
-      className={`${
-        `/${router.pathname.split('/')[1]}` === link.route ? 'activeClassName' : ''
-      } linkClassName`}>
-      {link.name}
-    </span>
-  </Link>
-))}
-</div>
-...
-)}
 
+  <div>
+    {appRoutes.map(link => (
+      <Link key={link.route} href={link.route}>
+          <span
+            className={`linkClassName ${
+              `/${router.pathname.split('/')[1]}` === link.route ? 'activeClassName' : '' }`}>
+           {link.name}
+          </span>
+      </Link>
+     ))}
+   </div>
+
+)}
 ```
 
 ## What is happening above:
@@ -55,5 +53,7 @@ In line 15, I checked if the first segment of the current URL matches the Link's
 
 * For Detail, Edit, and New pages inside of Folders.
 
-Inspired by:\
+
+
+**Inspired by:**\
 https://gist.github.com/remy/0dde38897d6d660f0b63867c2344fb59#gistcomment-2393414
