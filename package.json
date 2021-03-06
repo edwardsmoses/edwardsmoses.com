@@ -29,7 +29,8 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "tailwindcss": "^2.0.3"
   },
   "homepage": "edwardsmoses.com",
   "keywords": [
