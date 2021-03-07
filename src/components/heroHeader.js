@@ -24,6 +24,7 @@ export default () => (
           I've {new Date().getFullYear() - 2016} years of experience as a Software Developer, with a focus on developing Web & Mobile Apps.   <br/>  <br/>
           Currently, I'm part of the team that develops <a href="https://learnflo.co.uk">LearnFlo</a>, a Learning Management System that helps training providers deliver their courses effectively to their students.  <br/>
         </div>
+        <div className="bg-green-300">Tailwind is finally here....</div>
         <Link to='/contact' className="button -primary">Get in touch &rarr;</Link>
       </div>
     )}
