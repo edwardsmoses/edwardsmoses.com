@@ -59,5 +59,6 @@ module.exports = {
     // siteURL is a must for sitemap generation
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-offline`,
+    `gatsby-plugin-postcss`, //Plugin for integrating POSTCss and Tailwind....
   ],
 }
