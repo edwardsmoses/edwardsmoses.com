@@ -2,8 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-$font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans,
-  Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+$font-family: -apple-system, 'Inter', sans-serif;
 
 html,
 body {
@@ -404,8 +405,4 @@ body.light {
 
 .topSiteWrapper {
   padding-bottom: 0px;
-}
-
-.heroHeaderMeImage {
-  // animation: slideIn 1.3s forwards cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.25s
 }
