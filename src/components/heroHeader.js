@@ -49,7 +49,7 @@ export default () => (
                     <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                       <div className="mt-3 sm:mt-0 sm:ml-3">
                         <a
-                          href="mailto://hi@edwardsmoses.com"
+                          href="mailto://edwardsmoses3@gmail.com"
                           className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-xl font-medium rounded-md text-app-purple bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
                         >
                           Get In Touch. Start your Project.
@@ -72,10 +72,31 @@ export default () => (
 
         <div className="bg-gray-100 mt-44 md:mt-0">
           <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-            <div className="mt-6 grid grid-cols-2 gap-x-12 md:grid-cols-6 lg:grid-cols-4">
-              <a href="https://github.com/edwardsmoses" target="_blank" className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1 cursor-pointer">
+            <div className="mt-6 grid grid-cols-2 gap-x-6 md:grid-cols-6 lg:grid-cols-5">
+             <a href="https://www.trouthousetech.com/" target="_blank" className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1 cursor-pointer">
+                <img
+                  className="h-16 md:h-20 mt-3"
+                  src="/icons/trouthousetech.png"
+                  alt="Edwards Moses works at Trouthouse Tech"
+                />
+              </a>
+              <a href="https://learnflo.co.uk/" target="_blank" className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1 cursor-pointer">
                 <img
                   className="h-16 md:h-24"
+                  src="/icons/learnflo.png"
+                  alt="Edwards Moses works at Learnflo"
+                />
+              </a>
+              <a href="https://verticadev.com/" target="_blank" className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1 cursor-pointer">
+                <img
+                  className="h-16 md:h-24"
+                  src="/icons/verticadev.png"
+                  alt="Edwards Moses works at VerticaDev"
+                />
+              </a>
+              <a href="https://github.com/edwardsmoses" target="_blank" className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1 cursor-pointer">
+                <img
+                  className="h-16 md:h-24 mt-3"
                   src="/icons/github.png"
                   alt="Edwards Moses Github Profile"
                 />
@@ -85,13 +106,6 @@ export default () => (
                   className="h-16 md:h-24"
                   src="/icons/linkedin.png"
                   alt="Edwards Moses Linkedin Profile"
-                />
-              </a>
-              <a href="https://www.upwork.com/freelancers/~013da23dfa6724ea97?viewMode=1" target="_blank" className="col-span-1 flex justify-center md:col-span-2 md:col-start-2 lg:col-span-1">
-                <img
-                  className="h-16 md:h-24"
-                  src="/icons/upwork.png"
-                  alt="Edwards Moses Upwork Profile"
                 />
               </a>
             </div>
