@@ -72,7 +72,7 @@ export default () => (
 
         <div className="bg-gray-100 mt-44 md:mt-0">
           <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-            <div className="mt-6 grid grid-cols-2 gap-12 md:grid-cols-6 lg:grid-cols-4">
+            <div className="mt-6 grid grid-cols-2 gap-x-12 md:grid-cols-6 lg:grid-cols-4">
               <a href="https://github.com/edwardsmoses" target="_blank" className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1 cursor-pointer">
                 <img
                   className="h-16 md:h-24"
