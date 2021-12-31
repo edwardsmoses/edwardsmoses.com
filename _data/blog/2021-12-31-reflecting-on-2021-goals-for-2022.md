@@ -3,7 +3,8 @@ template: BlogPost
 path: /reflecting-on-2021-goals-for-2022
 date: 2021-12-31T09:08:54.808Z
 title: Reflecting on 2021 - My Goals for 2022
-thumbnail: /assets/images (1).jpg
+thumbnail: >-
+  /assets/new-year-2022-celebration-gold-foil-balloons-royalty-free-image-1639158747.jpg
 ---
 <!--StartFragment-->
 
@@ -12,6 +13,12 @@ We are closing the year soon, and I'm still at work this week - lot's of stuff t
 But, I wanted to take some time out, on the last day of the year, to reflect on 2021, and what I look forward to in 2022. 
 
 This year, the most significant event in my life was been asked by Matt to start full-time in his firm. It has been a rewarding experience - working with him on diverse projects. 
+
+
+
+
+
+
 
 # Work
 
@@ -27,11 +34,21 @@ This year working with THT has been great - I have had the wonderful opportunity
 
 Next year, I plan to get better at being a better enabler of others in the team. I'm looking for resources on doing this - if you have any, please do recommend them. 
 
+
+
+
+
+
+
 # Health
 
 I entered 2021 with the pounds and more I gained in 2020. I had, at many points in the year, tried to start a regular workout routine, and the most consistent I was, was at 2 weeks straight - but I couldn't just do it. 
 
 I plan to do better next year. 
+
+
+
+
 
 # Learning new things
 
@@ -46,6 +63,12 @@ I plan to read more books next year. This time around, I'd love to read some fic
 
 I also started learning Rust, a wonderful programming language that helps you write reliable and performant software. When I get better at it, I plan on exploring how to use it with React Native to write cross-platform native code - not sure how feasible this is. But, it's something I'd love to explore. 
 
+
+
+
+
+
+
 # 2022
 
 A new year is a new beginning. My overarching goals for the year are to continue learning rust and get better at it,     enough to contribute to open-source Rust projects. 
@@ -57,10 +80,6 @@ And in the interesting dynamic startup ecosystem we have in my city, Lagos Niger
 I also want to spend some time writing more on this blog, I had some interesting ideas this year to write on, but I couldn't find the time to do it — plan on doing better next year. 
 
 I quite hope that by putting this here in writing, I'd be more motivated to achieve all of this. 
-
-
-
-
 
 I'm hoping next year will be a better year for all of us. Happy New Year.
 
