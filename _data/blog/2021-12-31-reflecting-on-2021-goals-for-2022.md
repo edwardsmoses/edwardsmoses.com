@@ -2,7 +2,7 @@
 template: BlogPost
 path: /reflecting-on-2021-goals-for-2022
 date: 2021-12-31T09:08:54.808Z
-title: Reflecting on 2021 - My Goals for 2022
+title: Reflecting on 2021,My Goals for 2022
 thumbnail: >-
   /assets/new-year-2022-celebration-gold-foil-balloons-royalty-free-image-1639158747.jpg
 ---
