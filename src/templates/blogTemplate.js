@@ -1,23 +1,43 @@
-import React from "react"
-import Helmet from 'react-helmet';
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
+import React from "react";
+import Helmet from "react-helmet";
+import { graphql } from "gatsby";
+import Layout from "../components/layout";
+import { Comment } from "../components/comment";
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }) {
-  const { site, markdownRemark } = data // data.markdownRemark holds your post data
-  const { siteMetadata } = site
-  const { frontmatter, html } = markdownRemark
+  const { site, markdownRemark } = data; // data.markdownRemark holds your post data
+  const { siteMetadata } = site;
+  const { frontmatter, html } = markdownRemark;
+
+  const commentBox = React.createRef();
+  React.useEffect(() => {
+    const scriptEl = document.createElement("script");
+    scriptEl.async = true;
+    scriptEl.src = "https://utteranc.es/client.js";
+    scriptEl.setAttribute("repo", "edwardsmoses/edwardsmoses.com");
+    scriptEl.setAttribute("issue-term", "title");
+    scriptEl.setAttribute("id", "utterances");
+    scriptEl.setAttribute("theme", "github-light");
+    scriptEl.setAttribute("crossorigin", "anonymous");
+    if (commentBox && commentBox.current) {
+      commentBox.current.appendChild(scriptEl);
+    } else {
+      console.log(`Error adding utterances comments on: ${commentBox}`);
+    }
+  }, []);
+
   return (
     <Layout>
       <Helmet>
-        <title>{frontmatter.title} | {siteMetadata.title}</title>
+        <title>
+          {frontmatter.title} | {siteMetadata.title}
+        </title>
         <meta name="description" content={frontmatter.metaDescription} />
       </Helmet>
       <div className="blog-post-container">
         <article className="post">
-          
           {!frontmatter.thumbnail && (
             <div className="post-thumbnail">
               <h1 className="post-title">{frontmatter.title}</h1>
@@ -25,19 +45,21 @@ export default function Template({
             </div>
           )}
           {!!frontmatter.thumbnail && (
-            <div className="post-thumbnail" style={{backgroundImage: `url(${frontmatter.thumbnail})`}}>
+            <div className="post-thumbnail" style={{ backgroundImage: `url(${frontmatter.thumbnail})` }}>
               <h1 className="post-title">{frontmatter.title}</h1>
               <div className="post-meta">{frontmatter.date}</div>
             </div>
           )}
-          <div
-            className="blog-post-content"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
+          <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: html }} />
+
+          <div className="commentsWrapper">
+            <h1 className="post-title">Comments</h1>
+            <Comment commentBox={commentBox} />
+          </div>
         </article>
       </div>
     </Layout>
-  )
+  );
 }
 
 export const pageQuery = graphql`
@@ -58,4 +80,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
