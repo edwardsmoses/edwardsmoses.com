@@ -10,7 +10,7 @@ thumbnail: https://miro.medium.com/max/1400/1*oMC83-7fB27k1tTMxDfRaQ.png
 
 Git aliases are stored in the user's configuration in the `~/.gitconfig` file. To add the alias, open the file and add/edit the `[alias]`  section. 
 
-Here are the aliases I use personally:
+### Here is the list of all aliases I use day-to-day: 
 ```
 [alias]
     s = status
@@ -25,5 +25,5 @@ Here are the aliases I use personally:
     lg = !git log --pretty=format:\"%C(magenta)%h%Creset -%C(red)%d%Creset %s %C(dim green)(%cr) [%an]\" --abbrev-commit -30
 	gbr = !git branch | grep -v master | xargs git branch -D
 	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-	cm = commit -am 
+    cm = !git add -A && git commit -m 
 ```
