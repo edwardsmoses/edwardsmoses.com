@@ -9,13 +9,11 @@ thumbnail: /assets/notionhomepage.jpg
 
 Here're the tools I use day-to-day to get productive and get started working. All of these tools can be used for free. So, here we go. 
 
-## Notion ([Website](https://www.notion.so/)) 
+## Notion ([Website](https://www.notion.so/))
 
 Notion is the bread and butter of my productivity workflow. Note taking, Idea inbox, reminders, journaling, development resources storage, tracking my budget (plan on writing an article in the future on my budget system on Notion), sharing my portfolio with potential clients, everything. It's what keeps me sane in the world of information overload. A gamechanger!!
 
-
-
-## TickTick ([Website](https://ticktick.com/)) 
+## TickTick ([Website](https://ticktick.com/))
 
 I use TickTick to keep track of my day-day tasks. When I get a message on Slack to get on a task, I add it straight to TickTick and tag it with the project. Pretty organized. It also allows you to track time on the tasks you're working on. Great for when you're a contractor and need to share the hours you spend on a task. 
 
@@ -23,21 +21,17 @@ Another great feature it has is the ability to set reminders on the Tasks - pret
 
 When I'm done writing this article, heading over there to tick the 'Write an article on Tools workflow' - ..daily dose of serotonin. 🤗
 
-## Google Calendar 
+## Google Calendar
 
 Pretty straightforward - helps me keep track of meetings I've been invited to. Without the screaming reminders on my phone, I sure would have missed lots of meetings. 
 
-
-
 ## Nota
 
-One of the things that Notion can't do is allow you to take notes with an Apple Pen on an iPad. And during meetings and client calls, it's pretty hard to wipe out Notion and start typing, writing helps with that. 
+One of the things that Notion can't do is allow you to take notes with an Apple Pen on an iPad. And during meetings and client calls, it's pretty hard to whip out Notion and start typing, writing helps with that. 
 
 There're lots of note-taking tools out there, but I'm pretty obsessed with all information all in one place. And having another tool handle my notes isn't that great. 
 
 So shameless plug, building an App that lets you take your notes with Apple Pen, and syncs to Notion using their API (thanks to Notion for getting this out there) - still very much in development mode, but looking to get it out there soon... someday. 
-
-  
 
 ### That's it!
 
@@ -47,7 +41,5 @@ Looking for more tools so I can upgrade my working stack - I hope to be updating
 \
 This article was inspired by Cassidy's article:\
 https://dev.to/cassidoo/the-productivity-apps-i-use-in-2022-ea6
-
-
 
 <!--EndFragment-->
