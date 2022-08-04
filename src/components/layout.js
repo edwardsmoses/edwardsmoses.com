@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useStaticQuery, graphql } from "gatsby";
+import { Link } from "gatsby";
 
 import Footer from "../components/footer";
 
@@ -7,17 +7,7 @@ import Navigation from "../components/navigation";
 import "prismjs/themes/prism-okaidia.css";
 
 export default ({ children, header }) => {
-  const data = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `
-  );
+ 
   return (
     <>
       <div className="site-wrapper topSiteWrapper">
