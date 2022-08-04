@@ -36,26 +36,33 @@ const gateway = new braintree.BraintreeGateway({
   privateKey: process.env.BRAINTREE_PRIVATE_KEY,
 });
 
-export const createPaymentTransaction = async (paymentData) => {
+app.post('/createPaymentTransaction', async (req, res) => {
+  const { body } = req;
+
   try {
+
+    //create a transaction 
     const result = await gateway.transaction.sale({
-      amount: paymentData.amount,
-      paymentMethodNonce: paymentData.nonce,
+      amount: body.amount,
+      paymentMethodNonce: body.nonce,
       options: {
         submitForSettlement: true
       }
     });
 
-    return {
+    res.status(200).json({
       isPaymentSuccessful: result.success,
       errorText: result.transaction?.processorResponseText || "",
-    }
+    });
 
   } catch (error) {
     console.log("Error in creating transaction ", error);
-    return { isPaymentSuccessful: false, errorText: "Error in creating the payment transaction" + error };
+    res.status(400).json({
+      isPaymentSuccessful: false, errorText: "Error in creating the payment transaction" + error
+    });
+
   }
-};
+});
 ```
 
 To test if the above is working properly, you can pass 'fake-valid-nonce' to the \`nonce\` key in the \`paymentData\` request param. 
@@ -106,20 +113,21 @@ The express routing to serve the html file:
 ```
 const path = require('path');
 
-router.get('/braintree', function(req, res) {
-    res.sendFile(path.join(__dirname, '../braintree.html'));
- });
+app.get('/braintree', function (req, res) {
+  res.sendFile(path.join(__dirname, 'braintree.html'));
+});
 ```
-
-
 
 ## Lastly, Setup React Native Client
 
 We want to embed the HTML served by express in a webview on react native. First, install the react-native-webview package. 
+
 ```
 npm install --save react-native-webview
 ```
+
 Or if you're using Expo, 
+
 ```
 expo install react-native-webview
 ```
@@ -178,19 +186,12 @@ And, we are done... When you click on Complete Payment, the app should show an a
 
 ### Finished! Done!
 
-
-
-
 The Working version of this project is available on GitHub —
-
-
+https://github.com/edwardsmoses/braintree-rn-integration-sample
 
 Here are some resources that could be helpful during your integration:
 
 https://developer.paypal.com/braintree/docs/start/overview
-
 https://developer.paypal.com/braintree/docs/guides/authorization/tokenization-key/javascript/v3
-
-
 
 <!--EndFragment-->
