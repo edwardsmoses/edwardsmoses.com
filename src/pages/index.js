@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import PostLink from "../components/post-link";
 import HeroHeader from "../components/heroHeader";
+import { SEO } from "../components/seo";
 
 const IndexPage = ({
   data: {
@@ -17,10 +18,7 @@ const IndexPage = ({
 
   return (
     <Layout header={<HeroHeader />}>
-      <Helmet>
-        <title>{site.siteMetadata.title}</title>
-        <meta name="description" content={site.siteMetadata.description} />
-      </Helmet>
+      <SEO />
       <span className="text-sm mt-8 text-gray-500 uppercase leading-4 tracking-widest font-semibold">Edwards Moses</span>
       <h2 className="text-4xl text-gray-700 font-bold">Blog Posts &darr;</h2>
       <div className="grids">{Posts}</div>
