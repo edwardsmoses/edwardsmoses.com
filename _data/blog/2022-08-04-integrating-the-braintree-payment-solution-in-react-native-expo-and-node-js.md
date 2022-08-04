@@ -184,6 +184,8 @@ When you click on Complete Payment, the app should show an alert informing you t
 The Working version of this project is available on GitHub —
 https://github.com/edwardsmoses/braintree-rn-integration-sample
 
+![](https://user-images.githubusercontent.com/19548998/182822484-49b19ae7-62fb-4e80-b827-591ff8072fbf.png)
+
 
 
 Here are some resources that could be helpful during your integration:
