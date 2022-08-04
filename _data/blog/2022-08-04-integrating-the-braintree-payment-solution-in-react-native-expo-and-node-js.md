@@ -105,8 +105,9 @@ We want to collect the customer payment information. The easiest way to get up a
 
 Some key things from the html file above: 
 
-* The authorization property when setting up the braintree dropin ui. We'd be using the Braintree tokenization key, here's [Braintree's guide](https://developer.paypal.com/braintree/docs/guides/authorization/tokenization-key/javascript/v3) on getting the key.  
-* When the drop-in client SDK communicates the customer's card information to Braintree, Braintree returns a payment method nonce, and we want to send that to React Native. We do that by using the \`window.ReactNativeWebView.postMessage\` [method](https://github.com/react-native-webview/react-native-webview/blob/master/docs/Guide.md#the-windowreactnativewebviewpostmessage-method-and-onmessage-prop) 
+1. The authorization property when setting up the braintree dropin ui. We'd be using the Braintree tokenization key, here's [Braintree's guide](https://developer.paypal.com/braintree/docs/guides/authorization/tokenization-key/javascript/v3) on getting the key.  
+
+2. When the drop-in client SDK communicates the customer's card information to Braintree, Braintree returns a payment method nonce, and we want to send that to React Native. We do that by using the \`window.ReactNativeWebView.postMessage\` [method](https://github.com/react-native-webview/react-native-webview/blob/master/docs/Guide.md#the-windowreactnativewebviewpostmessage-method-and-onmessage-prop) 
 
 The express routing to serve the html file: 
 
@@ -135,19 +136,20 @@ expo install react-native-webview
 After installing the webview package, we'd be creating the component to embed the `/braintree` route in the Webview. 
 
 ```
-export const BrainTreePaymentWebView = ({
+const HOST = "http://10.0.2.2:3000";
+
+const BrainTreePaymentWebView = ({
   onNonceRetrieved
 }) => {
- const host = "http://localhost:3000"; 
 
   return (
-    <View style={{ height: 450' }}>
+    <View style={{ height: 450 }}>
+      <Text style={{fontSize: 30, fontWeight: '500'}}>BrainTree Payment Integration</Text>
       <WebView
-        source={{ uri: `${host}/braintree` }}
+        source={{ uri: `${HOST}/braintree` }}
         onMessage={(event) => {
           onNonceRetrieved(event.nativeEvent.data);
         }}
-
       />
     </View>
   )
@@ -157,41 +159,42 @@ export const BrainTreePaymentWebView = ({
 After creating the Braintree component, we'd want to get the payment nonce to the Braintree payment transaction resolver route, `createPaymentTransaction`. 
 
 ```
-const onPaymentNonceRetrieved = async (nonce: string) => {
-    const host = "http://localhost:3000"; 
-
-const response = await axios.post(`${host}/payment/createBrainTreePaymentTransaction`, 
-{
-      amount: 10, //change to price gotten from your user
-      nonce: nonce,
-    }
-, {
-   headers: {
-      "Access-Control-Allow-Origin": "*",
-    },
-  });
-
-  const { isPaymentSuccessful, errorText } = await response.data;
-
-
-
-
-    Alert.alert(isPaymentSuccessful ? "Payment successful" : "Payment error");
- 
-
-  };
+  <BrainTreePaymentWebView
+        onNonceRetrieved={async (nonce) => {
+          const response = await axios.post(`${HOST}/createPaymentTransaction`, {
+            amount: 10, //change to price gotten from your user
+            nonce: nonce,
+          });
+          const { isPaymentSuccessful, errorText } = await response.data;
+          Alert.alert(isPaymentSuccessful ? "Payment successful" : `Payment error - ${errorText}`);
+        }}
+      />
 ```
 
-And, we are done... When you click on Complete Payment, the app should show an alert informing you that Payment is sucessful. 
+And, we are done... 
+
+To test the Braintree payment integration, use the following test cards provided by [Braintree](https://developer.paypal.com/braintree/docs/guides/credit-cards/testing-go-live/php). 
+
+When you click on Complete Payment, the app should show an alert informing you that the Payment is successful. 
+
+
 
 ### Finished! Done!
 
 The Working version of this project is available on GitHub —
 https://github.com/edwardsmoses/braintree-rn-integration-sample
 
+
+
 Here are some resources that could be helpful during your integration:
 
 https://developer.paypal.com/braintree/docs/start/overview
+
+
 https://developer.paypal.com/braintree/docs/guides/authorization/tokenization-key/javascript/v3
+
+https://developer.paypal.com/braintree/docs/guides/credit-cards/testing-go-live/php
+
+https://developer.paypal.com/braintree/articles/control-panel/important-gateway-credentials/#api-credentials
 
 <!--EndFragment-->
