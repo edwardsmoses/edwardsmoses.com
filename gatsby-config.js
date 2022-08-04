@@ -52,13 +52,21 @@ module.exports = {
         icon: "src/images/avatar.png",
       },
     },
-    `gatsby-plugin-sass`, 
+    `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-react-helmet-canonical-urls`,
       options: {
         siteUrl: `https://edwardsmoses.com`,
       },
+    },
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        host: `https://edwardsmoses.com`,
+        sitemap: `https://edwardsmoses.com/sitemap.xml`,
+        policy: [{ userAgent: '*', allow: '/', disallow: ['/confirmation', '/admin'] }]
+      }
     },
     `gatsby-plugin-netlify-cms`,
     'gatsby-plugin-dark-mode',
