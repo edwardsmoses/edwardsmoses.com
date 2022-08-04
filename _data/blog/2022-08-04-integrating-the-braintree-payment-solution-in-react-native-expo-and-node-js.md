@@ -65,7 +65,12 @@ app.post('/createPaymentTransaction', async (req, res) => {
 });
 ```
 
-To test if the above is working properly, you can pass 'fake-valid-nonce' to the \`nonce\` key in the \`paymentData\` request param. 
+To test if the above is working properly, you can pass 'fake-valid-nonce' to the nonce` key using Postman or other API clients.
+
+![](/assets/postman.jpg)
+
+
+
 
 ## Next, Setup HTML client
 
@@ -103,15 +108,13 @@ We want to collect the customer payment information. The easiest way to get up a
 </html>
 ```
 
-Some key things from the html file above: 
+### Key things from the html file above: 
 
-1. 1. The authorization property when setting up the braintree dropin ui. We'd be using the Braintree tokenization key, here's [Braintree's guide](https://developer.paypal.com/braintree/docs/guides/authorization/tokenization-key/javascript/v3) on getting the key.  
+The authorization property when setting up the braintree dropin ui. We'd be using the Braintree tokenization key, here's [Braintree's guide](https://developer.paypal.com/braintree/docs/guides/authorization/tokenization-key/javascript/v3) on getting the key.  
 
+When the drop-in client SDK communicates the customer's card information to Braintree, Braintree returns a payment method nonce, and we want to send that to React Native. We do that by using the \`window.ReactNativeWebView.postMessage\` [method](https://github.com/react-native-webview/react-native-webview/blob/master/docs/Guide.md#the-windowreactnativewebviewpostmessage-method-and-onmessage-prop)
 
-
-2. 2. When the drop-in client SDK communicates the customer's card information to Braintree, Braintree returns a payment method nonce, and we want to send that to React Native. We do that by using the \`window.ReactNativeWebView.postMessage\` [method](https://github.com/react-native-webview/react-native-webview/blob/master/docs/Guide.md#the-windowreactnativewebviewpostmessage-method-and-onmessage-prop) 
-
-The express routing to serve the html file: 
+The express routing to serve the HTML file: 
 
 ```
 const path = require('path');
@@ -179,14 +182,10 @@ To test the Braintree payment integration, use the following test cards provided
 
 When you click on Complete Payment, the app should show an alert informing you that the Payment is successful. 
 
-
-
 ### Finished! Done!
 
 The Working version of this article is available on GitHub —
 https://github.com/edwardsmoses/braintree-rn-integration-sample
-
-
 
 Here are some resources/documentation that could be helpful during your integration:
 
