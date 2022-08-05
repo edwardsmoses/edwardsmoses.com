@@ -69,6 +69,7 @@ module.exports = {
       }
     },
     `gatsby-plugin-netlify-cms`,
+    'gatsby-plugin-netlify',
     'gatsby-plugin-dark-mode',
     // siteURL is a must for sitemap generation
     `gatsby-plugin-sitemap`,
