@@ -3,6 +3,7 @@ import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import { Comment } from "../components/comment";
+import { SEO } from "../components/seo";
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
@@ -30,12 +31,7 @@ export default function Template({
 
   return (
     <Layout>
-      <Helmet>
-        <title>
-          {frontmatter.title} | {siteMetadata.title}
-        </title>
-        <meta name="description" content={frontmatter.metaDescription} />
-      </Helmet>
+      <SEO article={frontmatter} />
       <div className="blog-post-container">
         <article className="post">
           {!frontmatter.thumbnail && (
