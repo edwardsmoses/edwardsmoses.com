@@ -49,7 +49,7 @@ module.exports = {
         background_color: `#fff`,
         theme_color: `#381696`,
         display: `standalone`,
-        icon: "src/images/EdwardsMosesAvatar.png",
+        icon: "src/images/edwards_moses_avatar.png",
       },
     },
     `gatsby-plugin-sass`,
