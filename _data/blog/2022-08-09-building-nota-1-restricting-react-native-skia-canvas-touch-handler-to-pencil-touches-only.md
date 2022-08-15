@@ -5,7 +5,7 @@ date: 2022-08-09T20:50:57.918Z
 title: "Building Nota #1 - Restricting React Native Skia Canvas Touch Handler to
   Pencil touches only"
 metaDescription: Restricting React Native Skia Canvas Touch Handler to Pencil touches only
-thumbnail: /assets/nota-look-august-9th-min.jpg
+thumbnail: /assets/edwards_moses_avatar.png
 ---
 This will be the first part of a series of articles where I write about my journey building Nota. 
 
@@ -55,7 +55,7 @@ We want to edit the `handleTouches` function, we'll be updating the bit that loo
     }
 ```
 
-The integral part of the change we're making is updating the code to only handle the touch when the `touch.type `is [UITouchTypePencil](https://developer.apple.com/documentation/uikit/uitouchtype/uitouchtypepencil). 
+The integral part of the change we're making is updating the code to only handle the touch when the `touch.type` is [UITouchTypePencil](https://developer.apple.com/documentation/uikit/uitouchtype/uitouchtypepencil). 
 
 Next, we'll want to make sure that the changes made to the package remains even after a fresh `yarn/npm install`. And we'll be using patch-package. 
 
