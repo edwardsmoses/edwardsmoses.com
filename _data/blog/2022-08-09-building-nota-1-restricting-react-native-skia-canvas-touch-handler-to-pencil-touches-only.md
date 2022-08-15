@@ -5,7 +5,7 @@ date: 2022-08-09T20:50:57.918Z
 title: "Building Nota #1 - Restricting React Native Skia Canvas Touch Handler to
   Pencil touches only"
 metaDescription: Restricting React Native Skia Canvas Touch Handler to Pencil touches only
-thumbnail: /assets/edwards_moses_avatar.png
+thumbnail: /assets/nota-look-august-9th-min.jpg
 ---
 This will be the first part of a series of articles where I write about my journey building Nota. 
 
