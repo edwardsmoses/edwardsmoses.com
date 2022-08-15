@@ -14,7 +14,7 @@ export default ({ children, header }) => {
         <header className="site-header">
           <div className="site-title">
             <Link to="/">
-              <img className="h-16" src="/icons/edwards_moses_avatar.png" alt="Edwards Moses" />
+              <img className="h-16" src="/assets/edwards_moses_avatar.png" alt="Edwards Moses" />
               <span className="text-2xl font-medium tracking-tighter capitalize" style={{
                 color: 'var(--logo-color)',
               }}>
