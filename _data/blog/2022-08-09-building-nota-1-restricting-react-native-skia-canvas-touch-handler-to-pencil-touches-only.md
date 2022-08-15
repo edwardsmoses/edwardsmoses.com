@@ -55,9 +55,11 @@ We want to edit the `handleTouches` function, we'll be updating the bit that loo
     }
 ```
 
-The integral part of the change is checking if the touch.type is [UITouchTypePencil](https://developer.apple.com/documentation/uikit/uitouchtype/uitouchtypepencil). 
+The integral part of the change we're making is updating the code to only handle the touch when the `touch.type `is [UITouchTypePencil](https://developer.apple.com/documentation/uikit/uitouchtype/uitouchtypepencil). 
 
-Next, we'll want to make sure that changes we made to the package remains. And we'll be using patch-package. There are a number of articles on doing that. Here's one I used: \
+Next, we'll want to make sure that the changes made to the package remains even after a fresh `yarn/npm install`. And we'll be using patch-package. 
+
+There are a number of articles on doing that. Here's one I used: \
 https://dev.to/roshangm1/make-changes-to-nodemodule-files-with-patch-package-30h4 
 
 And when you have the `shopify/react-native-skia` package patched, you'll have a patch file similar to [this](https://github.com/edwardsmoses/nota/blob/8377ad054a7e0735db170e9b29452523836ca928/patches/%40shopify%2Breact-native-skia%2B0.1.134.patch). And re-building the app should allow only Pencil touches on the Canvas. 
