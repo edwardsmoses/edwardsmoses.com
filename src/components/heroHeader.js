@@ -3,8 +3,8 @@ import React from "react";
 export default () => (
   <>
     <div className="relative">
-      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100"></div>
-      <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+      <div className="absolute inset-x-0 bottom-0 bg-gray-100 h-1/2"></div>
+      <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
           <div className="absolute inset-0">
             <div
@@ -13,9 +13,9 @@ export default () => (
             ></div>
           </div>
           <div className="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
-            <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+            <main className="px-4 mx-auto mt-10 max-w-7xl sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
               <div className="sm:text-center lg:text-left">
-                <h1 className="text-3xl tracking-tight font-extrabold text-white sm:text-4xl md:text-4xl">
+                <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-4xl">
                   <span className="block xl:inline">
                     Hello, I'm Edwards Moses.
                     <small className="block mr-5">
@@ -36,7 +36,7 @@ export default () => (
                   <div className="mt-3 sm:mt-0 sm:ml-3">
                     <a
                       href="mailto://edwardsmoses3@gmail.com"
-                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-xl font-medium rounded-md text-app-purple bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
+                      className="flex items-center justify-center w-full px-8 py-3 text-xl font-medium bg-indigo-100 border border-transparent rounded-md text-app-purple hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
                     >
                       Get In Touch. Start your Project.
                     </a>
@@ -47,7 +47,7 @@ export default () => (
           </div>
           <div className="absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
             <img
-              className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full heroHeaderMeImage"
+              className="object-cover w-full h-56 sm:h-72 md:h-96 lg:w-full lg:h-full heroHeaderMeImage"
               src="/assets/i.JPG"
               alt="Edwards Moses, Software Developer, Lagos Nigeria"
             />
@@ -57,39 +57,39 @@ export default () => (
     </div>
 
     <div className="bg-gray-100 mt-44 md:mt-0">
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <div className="mt-6 grid grid-cols-2 gap-x-6 md:grid-cols-6 lg:grid-cols-5">
-          <a href="https://app.gun.io/app/freelancer/4c7e2438-8f8d-4d37-a43b-4de6ad3bdba7/" target="_blank" className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1 cursor-pointer">
+      <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 mt-6 gap-x-6 md:grid-cols-6 lg:grid-cols-5">
+          <a href="https://app.gun.io/app/freelancer/4c7e2438-8f8d-4d37-a43b-4de6ad3bdba7/" target="_blank" className="flex justify-center col-span-1 cursor-pointer md:col-span-2 lg:col-span-1">
             <img
-              className="h-16 md:h-20 my-auto"
+              className="h-16 my-auto md:h-20"
               src="/icons/gun.io.png"
               alt="Edwards Moses freelances at Gun.io"
             />
           </a>
-          <a href="https://www.upwork.com/freelancers/~013da23dfa6724ea97" target="_blank" className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1 cursor-pointer">
+          <a href="https://www.upwork.com/freelancers/~013da23dfa6724ea97" target="_blank" className="flex justify-center col-span-1 cursor-pointer md:col-span-2 lg:col-span-1">
             <img
-              className="h-16 md:h-24 my-auto"
+              className="h-16 my-auto md:h-24"
               src="/icons/upwork.png"
               alt="Edwards Moses Upwork Profile"
             />
           </a>
-          <a href="https://github.com/edwardsmoses" target="_blank" className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1 cursor-pointer">
+          <a href="https://github.com/edwardsmoses" target="_blank" className="flex justify-center col-span-1 cursor-pointer md:col-span-2 lg:col-span-1">
             <img
-              className="h-16 md:h-24 my-auto"
+              className="h-16 my-auto md:h-24"
               src="/icons/github.png"
               alt="Edwards Moses Github Profile"
             />
           </a>
-          <a href="https://www.linkedin.com/in/edwards-moses/" target="_blank" className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
+          <a href="https://www.linkedin.com/in/edwards-moses/" target="_blank" className="flex justify-center col-span-1 md:col-span-2 lg:col-span-1">
             <img
-              className="h-16 md:h-24 my-auto"
+              className="h-16 my-auto md:h-24"
               src="/icons/linkedin.png"
               alt="Edwards Moses Linkedin Profile"
             />
           </a>
-          <a href="https://learnflo.co.uk/" target="_blank" className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1 cursor-pointer">
+          <a href="https://learnflo.co.uk/" target="_blank" className="flex justify-center col-span-1 cursor-pointer md:col-span-2 lg:col-span-1">
             <img
-              className="h-16 md:h-24 my-auto"
+              className="h-16 my-auto md:h-24"
               src="/icons/learnflo.png"
               alt="Edwards Moses works at Learnflo"
             />

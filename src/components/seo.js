@@ -101,7 +101,7 @@ export const SEO = ({ article }) => {
               name: author,
               logo: {
                 '@type': 'ImageObject',
-                url: `${siteUrl}/icons/avatar.png`,
+                url: `${siteUrl}/icons/EdwardsMosesAvatar.png`,
               },
             },
             datePublished: article.date,

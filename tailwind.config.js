@@ -6,6 +6,9 @@ module.exports = {
       colors: {
         'app-black': '#242531',
         'app-purple': '#8847fb',
+        'app-brand': '#22293a',
+        'app-brand-white': '#fffff9',
+        'app-brand-yellow': '#b69962',
       }
     },
   },
