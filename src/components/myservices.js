@@ -127,7 +127,7 @@ export const MyServices = () => {
           </p>
         </div>
         <div className="mt-8 block">
-          <div className="flex flex-col lg:flex-row space-y-4 space-x-0 lg:space-x-4">
+          <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 space-x-0 lg:space-x-4">
             {services.map((service, index) => (
               <div key={index}>
                 <service.icon />
