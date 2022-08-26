@@ -7,7 +7,7 @@ const services = [
       "Have an idea? I’ve been building software for nearly a decade. Let's work together - let's get your project launched!",
     icon: () => {
       return (
-        <div className="bg-app-brand-yellow p-1 rounded-md w-min flex">
+        <div className="bg-app-brand-yellow p-2 rounded-md w-min flex">
           <svg
             className="h-8 w-8 mx-auto self-center text-white"
             viewBox="0 0 24 24"
@@ -36,7 +36,7 @@ const services = [
       "Have an app? Your users not getting enough value? If your app is under-performing, I can be of help. ",
     icon: () => {
       return (
-        <div className="bg-app-brand-yellow p-1 rounded-md w-min flex">
+        <div className="bg-app-brand-yellow p-2 rounded-md w-min flex">
           <svg
             className="h-7 w-7 mx-auto self-center text-white"
             viewBox="0 -3.4 105.608 105.608"
@@ -78,44 +78,30 @@ const services = [
       "What to build, for whom and when? When building an app, these questions can be tough — so let me help you. Let's brainstorm together!",
     icon: () => {
       return (
-        <div className="bg-app-brand-yellow p-1 rounded-md w-min flex">
+        <div className="bg-app-brand-yellow p-2 rounded-md w-min flex">
           <svg
-            className="h-7 w-6 mx-auto self-center text-white"
-            version="1.1"
-            x="0px"
-            y="0px"
-            viewBox="0 0 58 58"
+            className="h-8 w-8 mx-auto self-center text-white"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 48 48"
             fill="currentColor"
             stroke="currentColor"
           >
-            <g>
-              <path
-                d="M46,11.693c0-0.359-0.193-0.69-0.505-0.869c-0.312-0.177-0.696-0.175-1.004,0.009L30,19.408V1
-		c0-0.347-0.18-0.668-0.474-0.851c-0.295-0.183-0.663-0.198-0.973-0.044l-16,8C12.214,8.275,12,8.621,12,9v19
-		c0,0.254,0.097,0.495,0.264,0.677C12.099,28.858,12,29.094,12,29.347V47c0,0.359,0.193,0.69,0.505,0.869
-		C12.658,47.956,12.829,48,13,48c0.176,0,0.352-0.047,0.509-0.14L28,39.284V57c0,0.338,0.17,0.652,0.453,0.837
-		C28.618,57.945,28.809,58,29,58c0.136,0,0.272-0.027,0.401-0.084l16-7C45.765,50.757,46,50.397,46,50V30
-		c0-0.114-0.026-0.222-0.062-0.326C45.974,29.569,46,29.461,46,29.347V11.693z M44,13.447v14.146l-11.952-7.073L44,13.447z
-		 M14,9.618l14-7v17.728l-14,6.125V9.618z M14,45.246V31.1l11.952,7.072L14,45.246z M28.553,37.105
-		c-0.081,0.041-0.155,0.093-0.221,0.152l-14.451-8.552l15.52-6.79c0.185-0.081,0.336-0.215,0.441-0.378l13.669,8.089L28.553,37.105z
-		 M44,49.346l-14,6.125V38.618l14-7V49.346z"
-              />
+            <defs></defs>
+            <g id="Layer_2" data-name="Layer 2">
+              <g id="layer_1-2" data-name="layer 1">
+                <path
+                  class="cls-1"
+                  d="M47 48H29a1 1 0 0 1-1-1v-4.81a5.84 5.84 0 0 1-3 .81 6 6 0 0 1 0-12 5.84 5.84 0 0 1 3 .81V25a1 1 0 0 1 1-1h3.81a5.87 5.87 0 0 1-.81-3 6 6 0 0 1 12 0 5.87 5.87 0 0 1-.81 3H47a1 1 0 0 1 1 1v9a1 1 0 0 1-1.8.6A4 4 0 0 0 43 33a4 4 0 1 0 3.2 6.38A1 1 0 0 1 48 40v7a1 1 0 0 1-1 1zm-17-2h16v-3.81a5.87 5.87 0 0 1-3 .81 6 6 0 0 1 0-12 5.87 5.87 0 0 1 3 .81V26h-5a1 1 0 0 1-.59-1.8 4 4 0 1 0-4.75 0A1 1 0 0 1 35 26h-5v8a1 1 0 0 1-.68.95 1 1 0 0 1-1.12-.35A3.94 3.94 0 0 0 25 33a4 4 0 0 0 0 8 4 4 0 0 0 3.2-1.62 1 1 0 0 1 1.12-.38 1 1 0 0 1 .68 1zM10 12c-2.76 0-5-2.69-5-6s2.24-6 5-6 5 2.69 5 6-2.24 6-5 6zm0-10C8.35 2 7 3.79 7 6s1.35 4 3 4 3-1.79 3-4-1.35-4-3-4zM2 46h16v2H2z"
+                />
+                <path class="cls-1" d="M4 16h2v31H4zM9 31h2v16H9z" />
+                <path
+                  class="cls-1"
+                  d="M16 47h-2V16a1 1 0 0 1 .45-.83 1 1 0 0 1 .93-.09l9.24 3.84A1 1 0 0 0 26 18a.55.55 0 0 0-.32-.5L18 14a19.12 19.12 0 0 0-4.74-1.45L10 12l-5.3.59a3 3 0 0 0-2.67 3V27a1 1 0 0 0 1 1H4V16h2v13a1 1 0 0 1-1 1H3a3 3 0 0 1-3-3V15.58a5 5 0 0 1 4.45-5L9.89 10h.27l3.41.57a20.9 20.9 0 0 1 5.24 1.6l7.7 3.5A2.56 2.56 0 0 1 28 18a3 3 0 0 1-4.15 2.77L16 17.5z"
+                />
+                <path class="cls-1" d="M5 26h10v2H5z" />
+                <path class="cls-1" d="M9 11h2v16H9z" />
+              </g>
             </g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
           </svg>
         </div>
       );
@@ -139,7 +125,7 @@ export const MyServices = () => {
         <div className="mt-8 block">
           <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 space-x-0 lg:space-x-4">
             {services.map((service, index) => (
-              <div key={index}>
+              <div key={index} className="bg-gray-50 p-1 py-2 rounded-sm">
                 <service.icon />
                 <p className="mt-3 mb-0 font-display font-medium text-2xl text-slate-900">{service.title}</p>
                 <p className="mt-2 mb-0 text-base text-slate-600">{service.description}</p>
