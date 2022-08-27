@@ -5,7 +5,7 @@ date: 2020-10-19T01:13:06.143Z
 title: "Failed to persist entry: API_ERROR: Branch not found - Gatsby & NetlifyCMS"
 metaDescription: "Failed to persist entry: API_ERROR: Branch not found - Gatsby
   Delog Starter - NetlifyCMS"
-thumbnail: /assets/quote.png
+thumbnail: /assets/68747470733a2f2f77336c61796f7574732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032302f30332f64656c6f672e6a7067.jpg
 ---
 While creating your Gatsby Blog, if you chose the Gatsby Starter[ **Delog - Blog for Developer and Designer**](https://delog-w3layouts.netlify.app/) developed by **W3Layouts,** chances are that while you create a new entry to **Publish** on Neltify CMS, you would get the error:
 
