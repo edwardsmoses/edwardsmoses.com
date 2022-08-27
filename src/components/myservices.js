@@ -131,7 +131,7 @@ export const MyServices = () => {
         <div className="mt-8 block">
           <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 space-x-0 lg:space-x-4">
             {services.map((service, index) => (
-              <div key={index} className="bg-gray-50 p-1 py-2 rounded-md">
+              <div key={index} className="bg-gray-50 py-2 rounded-xl px-2">
                 <service.icon />
                 <p className="mt-3 mb-0 font-display font-medium text-2xl text-slate-900" style={{color: "#000"}}>{service.title}</p>
                 <p className="mt-2 mb-0 text-base text-slate-600" style={{color: "#000"}}>{service.description}</p>

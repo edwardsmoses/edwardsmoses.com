@@ -25,7 +25,7 @@ const testimonials = [
   [
     {
       content:
-        "Anytime a new development challenge arose, Edwards was the one to tackle it. Annotations, custom CRMs, Admin Panels, emails, CI/CD, PDF generation, etc. He did it all when I couldn't. Your team would be lucky to have Edwards and I urge you to reach out.",
+        "Anytime a new development challenge arose, Edwards was the one to tackle it. Annotations, custom CRMs, emails, CI/CD, Stripe subscriptions, uber-like queue system, notifications, in-app messaging, PDF generation, etc. He did it all when I couldn't. Your team would be lucky to have Edwards and I urge you to reach out.",
       author: {
         name: "Matt Ruiz",
         role: "Founder of TrouthouseTech",
@@ -54,7 +54,7 @@ const testimonials = [
     },
     {
       content:
-        "I first met Edwards when I joined a startup as a Product Designer to design their learning web app and he was the full-stack developer. Working with Edwards was a real pleasure. His communication is always pleasant and clear, which helped him built many strong relationships within the the team and with our customers",
+        "I first met Edwards when I joined a startup as a Product Designer to design their learning web app and he was the developer on the team. Working with Edwards was a real pleasure. His communication is always pleasant and clear, which helped him built many strong relationships within the the team and with our customers",
       author: {
         name: "Jerry Ibeawuchi",
         role: "Senior Product Designer at AKQA",
