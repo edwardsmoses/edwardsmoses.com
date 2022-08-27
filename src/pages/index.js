@@ -5,6 +5,7 @@ import PostLink from "../components/post-link";
 import { Hero_WorkWithMe } from "../components/heroWorkWithMe";
 import { SEO } from "../components/seo";
 import { MyServices } from "../components/myservices";
+import { Testimonials } from "../components/testimonial";
 
 const IndexPage = ({
   data: {
@@ -21,8 +22,11 @@ const IndexPage = ({
 
       <MyServices />
 
-      <span className="mt-8 text-sm font-semibold leading-4 tracking-widest text-gray-500 uppercase">Edwards Moses</span>
-      <h2 className="text-4xl font-bold text-gray-700">Blog Posts &darr;</h2>
+      <Testimonials />
+
+      <h2 className="font-display text-3xl mt-16 tracking-tight sm:text-4xl">
+        My <i>Articles</i>
+      </h2>
       <div className="grids">{Posts}</div>
     </Layout>
   );

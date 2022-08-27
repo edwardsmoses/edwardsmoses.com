@@ -23,8 +23,8 @@ export const Hero_WorkWithMe = () => {
         <span>automate processes</span> to bring <span>new products to market</span> and{" "}
         <span>achieve your business goals</span>.
       </p>
-      <div className="flex justify-center mt-10 space-x-6">
-        <div className="mt-3 sm:mt-0 sm:ml-3">
+      <div className="flex justify-center mt-10 flex-col md:flex-row space-x-0 md:space-x-3 space-y-3 md:space-y-0">
+        <div className="">
           <a
             href="https://calendly.com/edwardsmoses/30min"
             target="blank"
@@ -33,7 +33,7 @@ export const Hero_WorkWithMe = () => {
             Book a call. I love to chat!
           </a>
         </div>
-        <div className="mt-3 sm:mt-0 sm:ml-3">
+        <div>
           <a
             href="mailto://hi@edwardsmoses.com"
             className="flex items-center justify-center w-full px-8 py-3 text-xl font-medium border border-transparent rounded-md border-app-brand md:py-4 md:text-lg md:px-10"

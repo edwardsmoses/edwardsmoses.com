@@ -1,5 +1,8 @@
 import React from "react";
 
+import "./css/services.css";
+
+
 const services = [
   {
     title: "Development & prototyping",
@@ -32,8 +35,7 @@ const services = [
   },
   {
     title: "Improving your app",
-    description:
-      "Have an app? Want to build a next set of features? Your app is under-performing? I love to help!",
+    description: "Have an app? Want to build a next set of features? Your app is under-performing? I love to help!",
     icon: () => {
       return (
         <div className="bg-app-brand-yellow p-2 rounded-md w-min flex">
@@ -115,7 +117,11 @@ export const MyServices = () => {
       <div className="mx-auto max-w-7xl">
         <div className="mx-auto max-w-2xl md:text-center">
           <h2 id="secondary-features-title" className="font-display text-5xl mb-0 tracking-tight text-slate-900">
-            How can I help
+            How can {" "}
+            <span className="relative inline-block">
+              <span class="lines"></span>
+              I help
+            </span>
           </h2>
           <p className="mt-3 text-xl tracking-tight text-slate-700">
             With experience working with a range of companies, I'll help your company bring your product to market
@@ -127,8 +133,8 @@ export const MyServices = () => {
             {services.map((service, index) => (
               <div key={index} className="bg-gray-50 p-1 py-2 rounded-md">
                 <service.icon />
-                <p className="mt-3 mb-0 font-display font-medium text-2xl text-slate-900">{service.title}</p>
-                <p className="mt-2 mb-0 text-base text-slate-600">{service.description}</p>
+                <p className="mt-3 mb-0 font-display font-medium text-2xl text-slate-900" style={{color: "#000"}}>{service.title}</p>
+                <p className="mt-2 mb-0 text-base text-slate-600" style={{color: "#000"}}>{service.description}</p>
               </div>
             ))}
           </div>
