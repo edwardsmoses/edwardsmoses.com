@@ -14,7 +14,7 @@ const testimonials = [
     },
     {
       content:
-        "Having worked with Edwards with more than a year, I recommend Edwards. His skills in building applications and his support on the rest of the team is tremendous",
+        "Having worked with Edwards for more than a year, I highly recommend Edwards. His skills in building applications and his support on the rest of the team is tremendous.",
       author: {
         name: "Sardorek Aminjonov",
         role: "Engineer, TroutHouseTech",
@@ -34,7 +34,7 @@ const testimonials = [
     },
     {
       content:
-        "I worked with Edwards for more than 4 years , on so many projects ranging from educational web apps, supply chain apps to networking. he has delivered a very commendable job. specifically he pays detailed attention to software design and project direction",
+        "I worked with Edwards for more than 4 years, on so many projects ranging from educational web apps, supply chain apps to networking. He has delivered a very commendable job, specifically paying detailed attention to software design and project directions.",
       author: {
         name: "Nureni Awayewaserere",
         role: "CEO at RedoxCorp",
@@ -45,7 +45,7 @@ const testimonials = [
   [
     {
       content:
-        "Edwards can be a valuable member of the team as a engineering lead developer. His hard work, dedication and skillfulness contribute greatly to serving our customers and users well.",
+        "Edwards can be a valuable member of the team as a lead engineering developer. His hard work, dedication and skillfulness contribute greatly to serving our customers and users well.",
       author: {
         name: "Segun Aderinto",
         role: "Co-founder at Learnflo",
@@ -54,7 +54,7 @@ const testimonials = [
     },
     {
       content:
-        "I first met Edwards when I joined a startup as a Product Designer to design their learning web app and he was the developer on the team. Working with Edwards was a real pleasure. His communication is always pleasant and clear, which helped him built many strong relationships within the the team and with our customers",
+        "I first met Edwards when I joined a startup as a Product Designer to design their learning web app and he was the developer on the team. Working with Edwards was a real pleasure. His communication is always pleasant and clear, which helped him build strong relationships within the the team and with our customers.",
       author: {
         name: "Jerry Ibeawuchi",
         role: "Senior Product Designer at AKQA",
@@ -67,10 +67,10 @@ const testimonials = [
 export const Testimonials = () => {
   return (
     <>
-      <section className="relative overflow-hidden bg-testimonial-brand py-32 mt-8">
-        <div className="mx-auto relative">
-          <div className="mx-auto max-w-lg text-center">
-            <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl">
+      <section className="relative py-32 mt-8 overflow-hidden bg-testimonial-brand">
+        <div className="relative mx-auto">
+          <div className="max-w-lg mx-auto text-center">
+            <h2 className="text-3xl tracking-tight text-white font-display sm:text-4xl">
               Don't take <i>my word</i> for it
             </h2>
             <p className="mt-4 text-lg tracking-tight text-white">
@@ -78,20 +78,22 @@ export const Testimonials = () => {
               say about working with me.
             </p>
           </div>
-          <ul className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-3">
+          <ul className="grid max-w-2xl grid-cols-1 gap-6 mx-auto mt-16 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-3">
             {testimonials.map((column, columnIndex) => (
               <li key={columnIndex}>
                 <ul className="space-y-7 sm:space-y-8">
                   {column.map((testimonial, testimonialIndex) => (
                     <li key={testimonialIndex}>
-                      <figure className="relative rounded-2xl bg-white bg-testimonial-card p-6 shadow-xl shadow-slate-900/10 fade-in">
-                        <img src="/assets/quote.png" className="absolute bottom-1 right-0 quote opacity-20" />
+                      <figure className="relative p-6 bg-white shadow-xl rounded-2xl bg-testimonial-card shadow-slate-900/10 fade-in">
+                        <img src="/assets/quote.png" className="absolute right-0 bottom-1 quote opacity-20" />
                         <blockquote className="relative">
-                          <p className="text-lg tracking-tight" style={{color: "#000"}}>{testimonial.content}</p>
+                          <p className="text-lg tracking-tight" style={{ color: "#000" }}>
+                            {testimonial.content}
+                          </p>
                         </blockquote>
-                        <figcaption className="relative mt-6 flex items-center justify-between border-t border-slate-100 pt-6">
+                        <figcaption className="relative flex items-center justify-between pt-6 mt-6 border-t border-slate-100">
                           <a href={testimonial.author.link || "#"} target="_blank" className="hover:no-underline">
-                            <div className="font-display text-base">{testimonial.author.name}</div>
+                            <div className="text-base font-display">{testimonial.author.name}</div>
                             <div className="mt-1 text-sm">{testimonial.author.role}</div>
                           </a>
                         </figcaption>
@@ -102,6 +104,17 @@ export const Testimonials = () => {
               </li>
             ))}
           </ul>
+          <div>
+            <div className="flex justify-center mb-5 mt-14">
+              <a
+                href="https://calendly.com/edwardsmoses/30min"
+                target="blank"
+                className="flex items-center justify-center px-8 py-3 mx-auto text-xl font-medium bg-white border border-transparent rounded-md md:py-4 md:text-lg md:px-10 min-w-min hover:no-underline"
+              >
+                Book a call with me today {'->'}
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </>
