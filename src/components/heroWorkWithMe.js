@@ -23,12 +23,12 @@ export const Hero_WorkWithMe = () => {
         <span>automate processes</span> to bring <span>new products to market</span> and{" "}
         <span>achieve your business goals</span>.
       </p>
-      <div className="flex justify-center mt-10 flex-col md:flex-row space-x-0 md:space-x-3 space-y-3 md:space-y-0">
+      <div className="flex flex-col justify-center mt-10 space-x-0 space-y-3 md:flex-row md:space-x-3 md:space-y-0">
         <div className="">
           <a
             href="https://calendly.com/edwardsmoses/30min"
             target="blank"
-            className="flex items-center justify-center w-full px-8 py-3 text-xl font-medium border border-transparent rounded-md bg-app-brand text-app-brand-white md:py-4 md:text-lg md:px-10 hover:no-underline"
+            className="flex items-center justify-center w-full px-8 py-3 text-xl font-medium border border-transparent rounded-md bg-app-brand text-app-brand-white md:py-4 md:text-lg md:px-10 hover:no-underline hover:opacity-80"
           >
             Book a call. I love to chat!
           </a>
@@ -36,7 +36,7 @@ export const Hero_WorkWithMe = () => {
         <div>
           <a
             href="mailto://hi@edwardsmoses.com"
-            className="flex items-center justify-center w-full px-8 py-3 text-xl font-medium border border-transparent rounded-md border-app-brand md:py-4 md:text-lg md:px-10"
+            className="flex items-center justify-center w-full px-8 py-3 text-xl font-medium border border-transparent rounded-md border-app-brand md:py-4 md:text-lg md:px-10 hover:no-underline hover:opacity-80"
           >
             Get In Touch {"->"}
           </a>
