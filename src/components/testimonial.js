@@ -109,7 +109,7 @@ export const Testimonials = () => {
               <a
                 href="https://calendly.com/edwardsmoses/30min"
                 target="blank"
-                className="flex items-center justify-center px-8 py-3 mx-auto text-xl font-medium bg-white border border-transparent rounded-md md:py-4 md:text-lg md:px-10 min-w-min hover:no-underline"
+                className="flex items-center justify-center px-8 py-3 mx-auto text-xl font-medium bg-white border border-transparent rounded-md md:py-4 md:text-lg md:px-10 min-w-min hover:no-underline hover:opacity-80"
               >
                 Book a call with me today {'->'}
               </a>
