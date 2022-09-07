@@ -68,6 +68,21 @@ module.exports = {
         policy: [{ userAgent: '*', allow: '/', disallow: ['/confirmation', '/admin'] }]
       }
     },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        // You can add multiple tracking ids and a pageview event will be fired for all of them.
+        trackingIds: [
+          "UA-86119661-11", // Google Analytics / GA
+          "AW-10977570295", // Google Ads / Adwords / AW
+        ],
+        // This object is used for configuration specific to this plugin
+        pluginConfig: {
+          // Puts tracking script in the head instead of the body
+          head: true,
+        },
+      },
+    },
     `gatsby-plugin-netlify-cms`,
     'gatsby-plugin-netlify',
     'gatsby-plugin-dark-mode',
