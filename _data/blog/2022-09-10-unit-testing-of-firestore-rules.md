@@ -5,7 +5,6 @@ date: 2022-09-10T12:11:25.330Z
 title: Testing Firestore Rules
 thumbnail: /assets/cloudfirestore.png
 ---
-
 ## Introduction
 
 I recently got on a project to build a mobile application using Cloud Firestore as the NoSQL database for the application.
@@ -26,11 +25,9 @@ To get started, we'd want to install the Firebase CLI on our local machine. Fire
 After installing the Firebase CLI on your machine, we'd want to copy the existing rules from the Firebase project to our local machine.
 
 ```bash
-
 mkdir firebase_rules && cd firebase_rules
 
 firebase init firestore
-
 ```
 
 Then, we'll want to setup the testing environment by installing the packages we'll need for testing and also install the Firestore Emulators (Java must be installed on your machine for the emulator to work).
@@ -43,7 +40,6 @@ npm i jest --dev
 
 
 firebase setup:emulators:firestore
-
 ```
 
 To confirm that everything is configured appropriately, let's run the emulator,
@@ -52,12 +48,14 @@ To confirm that everything is configured appropriately, let's run the emulator,
 firebase emulators:start --only firestore
 ```
 
+![emulators-setup-local-machine](/assets/firestoreemulatorsetup.jpg)
+
 ## Testing the Firestore Rules
 
 So far, we have achieved two things:
 
-- Copying the firestore rules from our project to our local machine
-- Installing and Running the Firebase emulator suite.
+* Copying the firestore rules from our project to our local machine
+* Installing and Running the Firebase emulator suite.
 
 ### Setup Mock Data
 
@@ -151,7 +149,7 @@ What is happening above?
 
 First, we have the firestore rules read into the `FIRESTORE_RULES` variable
 
-Then, we initialize the Firebase project and the Admin SDK. We're using the ADMIN sdk to bypass the rules so we can create the mock documents.
+Then, we initialize the Firebase project and the Admin SDK. We're using the Admin SDK to bypass the rules so we can create the mock documents.
 
 We apply the rules using `loadFirestoreRules`
 
@@ -161,7 +159,7 @@ And, lastly, we implement custom Jest matchers to improve the readability of our
 
 ### Testing Firestore Rules
 
-Now that we have all the configuration we need setup, we'll want to move on to actually testing the Firestore rules.
+Now that we have all the configurations we need setup, we'll want to move on to actually testing the Firestore rules.
 
 #### Writing the tests
 
@@ -181,14 +179,13 @@ describe("Database Rules", () => {
 });
 ```
 
-Let's get started on the test-cases.
+Let's get started on the test cases.
 
 #### 1. Users should only be able to update their own document and not others
 
 The related rule:
 
 ```javascript
-
 match /users/{userId} {
       allow read: if isAuthenticated();
       allow write: if isAuthenticated() && request.auth.uid == userId
@@ -197,7 +194,6 @@ match /users/{userId} {
 function isAuthenticated() {
       return request.auth != null;
 }
-
 ```
 
 And testing the above rule:
@@ -218,14 +214,13 @@ test("should deny a user from updating another user document", async () => {
 
 Each test in the test suite initializes a fresh database instance with a different authenticated user, and uses the same mock data.
 
-In the above, _edwards_ would be able to update his document, but _michael_ would fail to update _edwards_ document.
+In the above, *edwards* would be able to update his document, but *michael* would fail to update *edwards* document.
 
 #### 2. Users can read all posts but can't update posts not created by them
 
 The related rule:
 
 ```javascript
-
 match /posts/{postId} {
       allow read: if isAuthenticated();
       allow write: if isAuthenticated() && request.auth.uid == request.resource.data.written_by
@@ -234,7 +229,6 @@ match /posts/{postId} {
  function isAuthenticated() {
       return request.auth != null;
 }
-
 ```
 
 And testing the above test case:
@@ -253,7 +247,7 @@ test("should deny a user from updating posts written by another user", async () 
 });
 ```
 
-Notice how every test above uses the Mock data we have in the setup method. In the above, _michael_ can read a post created by _edwards_, but can't update it.
+Notice how every test above uses the Mock data we have in the setup method. In the above, *michael* can read a post created by *edwards*, but can't update it.
 
 ### Running the Tests
 
@@ -262,11 +256,9 @@ To run the tests,
 Update the `test` scripts in your `package.json` to:
 
 ```json
-
  "scripts": {
     "test": "jest"
   },
-
 ```
 
 Then run:
@@ -286,13 +278,10 @@ The `debug` function only works in the local Firebase Emulator suite, and plays 
 If we wanted to identify what the `request.auth.uid` was returning in the `post` rules, here's how we do it.
 
 ```javascript
-
 match /posts/{postId} {
       allow read: if isAuthenticated();
       allow write: if isAuthenticated() && debug(request.auth.uid) == request.resource.data.written_by
 }
-
-
 ```
 
 And when we run our test suite, in the `firestore-debug.log` file, we should have the following output.
@@ -302,7 +291,6 @@ And when we run our test suite, in the `firestore-debug.log` file, we should hav
 string_value: "michael" // for debug(request.auth.uid)
 
 ---
-
 ```
 
 Here's Firestore comprehensive [documentation](https://firebase.google.com/docs/reference/rules/rules.debug) on the debug function.
@@ -319,7 +307,6 @@ How would we do that?
 The related rule:
 
 ```javascript
-
 match /posts/{postId} {
       allow read: if isAuthenticated();
       allow write: if isAuthenticated() && request.auth.uid == request.resource.data.written_by
@@ -329,7 +316,6 @@ match /posts/{postId} {
  function isAdmin() {
       return request.auth.token.admin == true;
 }
-
 ```
 
 And testing the above rule:
@@ -344,6 +330,10 @@ test("should allow users with the admin ROLE to update posts written by other us
 ```
 
 And what we're doing above is initializing the Firebase instance with an authenticated user, but with a custom user claim named `admin`
+
+###### And, all tests passed: 
+
+![all-firestore-tests-passed](/assets/firestoretestspassed.jpg "Firestore Tests passed")
 
 ## The End
 
