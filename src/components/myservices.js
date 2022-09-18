@@ -2,7 +2,6 @@ import React from "react";
 
 import "./css/services.css";
 
-
 const services = [
   {
     title: "Development & prototyping",
@@ -117,24 +116,33 @@ export const MyServices = () => {
       <div className="mx-auto max-w-7xl">
         <div className="mx-auto max-w-2xl md:text-center">
           <h2 id="secondary-features-title" className="font-display text-5xl mb-0 tracking-tight text-slate-900">
-            How can {" "}
+            How can{" "}
             <span className="relative inline-block">
-              <span class="lines"></span>
-              I help
+              <span class="lines"></span>I help
             </span>
           </h2>
-          <p className="mt-3 text-xl tracking-tight text-slate-700">
+          <p className="mt-3 mb-1 text-xl tracking-tight text-slate-700">
             With experience working with a range of companies, I'll help your company bring your product to market
             whichever way I can.
           </p>
+          <a
+            href="https://edwardsmoses.com/behind-the-scenes-working-with-me-as-my-client"
+            className="text-app-brand-yellow font-display"
+          >
+            Learn more about my process
+          </a>
         </div>
         <div className="mt-8 block">
           <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 space-x-0 lg:space-x-4">
             {services.map((service, index) => (
               <div key={index} className="bg-gray-50 py-2 rounded-xl px-2">
                 <service.icon />
-                <p className="mt-3 mb-0 font-display font-medium text-2xl text-slate-900" style={{color: "#000"}}>{service.title}</p>
-                <p className="mt-2 mb-0 text-base text-slate-600" style={{color: "#000"}}>{service.description}</p>
+                <p className="mt-3 mb-0 font-display font-medium text-2xl text-slate-900" style={{ color: "#000" }}>
+                  {service.title}
+                </p>
+                <p className="mt-2 mb-0 text-base text-slate-600" style={{ color: "#000" }}>
+                  {service.description}
+                </p>
               </div>
             ))}
           </div>
