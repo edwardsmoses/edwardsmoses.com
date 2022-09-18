@@ -14,11 +14,11 @@ const testimonials = [
     },
     {
       content:
-        "Having worked with Edwards for more than a year, I highly recommend Edwards. His skills in building applications and his support on the rest of the team is tremendous.",
+        "Edwards was great on many levels. Very good and broad skill set, flexibility, communication, and self-management. He was proactively looking for work rather than waiting for the next task and finding better solutions than we anticipated. He was very transparent and updated us about all steps every day so there was never the question of what work has been done. The team was very happy working with him and we can recommend him to any team at any time.",
       author: {
-        name: "Sardorek Aminjonov",
-        role: "Engineer, TroutHouseTech",
-        link: "https://www.linkedin.com/in/sardorek-aminjonov-059a981b1/",
+        name: "Max Kuck",
+        role: "Product Designer",
+        link: "https://www.upwork.com/freelancers/~013da23dfa6724ea97",
       },
     },
   ],
@@ -45,7 +45,7 @@ const testimonials = [
   [
     {
       content:
-        "Edwards can be a valuable member of the team as a lead engineering developer. His hard work, dedication and skillfulness contribute greatly to serving our customers and users well.",
+        "Edwards was a valuable member of the team as a lead engineering developer. His hard work, dedication and skillfulness contributed greatly to serving our customers and users well.",
       author: {
         name: "Segun Aderinto",
         role: "Co-founder at Learnflo",

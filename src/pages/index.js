@@ -33,6 +33,7 @@ const IndexPage = ({
 };
 
 export default IndexPage;
+
 export const pageQuery = graphql`
   query indexPageQuery {
     site {

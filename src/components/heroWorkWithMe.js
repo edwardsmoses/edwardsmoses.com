@@ -3,7 +3,7 @@ import React from "react";
 export const Hero_WorkWithMe = () => {
   return (
     <div className="px-4 pb-16 mx-auto space-y-4 text-center pt-7 max-w-7xl sm:px-6 lg:px-8">
-      <p className="max-w-2xl mx-auto mt-0 mb-2 text-lg tracking-tight ">Hi there 👋 — I'm Edwards</p>
+      <p className="max-w-2xl mx-auto mt-0 mb-2 text-lg tracking-tight ">Hi there! 👋 Welcome — I'm Edwards</p>
       <h1
         className="max-w-4xl mx-auto mt-0 text-5xl font-medium tracking-tight font-display sm:text-7xl"
         style={{ lineHeight: 1.1 }}

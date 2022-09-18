@@ -25,7 +25,7 @@ export const SEO = ({ article }) => {
           "title": "Edwards Moses, Full Stack Developer",
           "author": "Edwards Moses",
           "siteUrl": "https://edwardsmoses.com",
-          "description": "I'm Edwards from Lagos, Nigeria. I've 7+ years of experience as a Full-Stack Software Dev, with a focus on developing Web & Mobile Apps using React & React Native."
+          "description": "I'm Edwards Moses from Lagos, Nigeria. I've 7+ years of professional experience as a Full-Stack Software Developer. I focus on developing Apps using React & React Native."
         };
 
         // schema.org in JSONLD format
