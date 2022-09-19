@@ -14,11 +14,11 @@ const testimonials = [
     },
     {
       content:
-        "Edwards was great on many levels. Very good and broad skill set, flexibility, communication, and self-management. He was proactively looking for work rather than waiting for the next task and finding better solutions than we anticipated. He was very transparent and updated us about all steps every day so there was never the question of what work has been done. The team was very happy working with him and we can recommend him to any team at any time.",
+        "I worked with Edwards for more than 4 years, on so many projects ranging from educational web apps, supply chain apps to networking. He has delivered a very commendable job, specifically paying detailed attention to software design and project directions.",
       author: {
-        name: "Max Kuck",
-        role: "Product Designer",
-        link: "https://www.upwork.com/freelancers/~013da23dfa6724ea97",
+        name: "Nureni Awayewaserere",
+        role: "CEO at RedoxCorp",
+        link: "https://www.linkedin.com/in/zhul-nuraen-awayewaserere-4910b988/",
       },
     },
   ],
@@ -34,11 +34,11 @@ const testimonials = [
     },
     {
       content:
-        "I worked with Edwards for more than 4 years, on so many projects ranging from educational web apps, supply chain apps to networking. He has delivered a very commendable job, specifically paying detailed attention to software design and project directions.",
+        "Edwards was great on many levels. Very good and broad skill set, flexibility, communication, and self-management. He was proactively looking for work rather than waiting for the next task and finding better solutions than we anticipated. He was very transparent and updated us about all steps every day so there was never the question of what work has been done. The team was very happy working with him and we can recommend him to any team at any time.",
       author: {
-        name: "Nureni Awayewaserere",
-        role: "CEO at RedoxCorp",
-        link: "https://www.linkedin.com/in/zhul-nuraen-awayewaserere-4910b988/",
+        name: "Max Kuck",
+        role: "Product Designer",
+        link: "https://www.upwork.com/freelancers/~013da23dfa6724ea97",
       },
     },
   ],
@@ -54,7 +54,7 @@ const testimonials = [
     },
     {
       content:
-        "I first met Edwards when I joined a startup as a Product Designer to design their learning web app and he was the developer on the team. Working with Edwards was a real pleasure. His communication is always pleasant and clear, which helped him build strong relationships within the the team and with our customers.",
+        "I first met Edwards when I joined a startup as a Product Designer to design their learning web app and he was the developer on the team. Working with Edwards was a real pleasure. His communication was always pleasant and clear, which helped him build strong relationships within the the team and with our customers.",
       author: {
         name: "Jerry Ibeawuchi",
         role: "Senior Product Designer at AKQA",
@@ -111,7 +111,7 @@ export const Testimonials = () => {
                 target="blank"
                 className="flex items-center justify-center px-8 py-3 mx-auto text-xl font-medium bg-white border border-transparent rounded-md md:py-4 md:text-lg md:px-10 min-w-min hover:no-underline hover:opacity-80"
               >
-                Book a call with me today {'->'}
+                Book a call with me today {"->"}
               </a>
             </div>
           </div>
