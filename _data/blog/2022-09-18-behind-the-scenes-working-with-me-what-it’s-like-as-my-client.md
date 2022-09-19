@@ -50,3 +50,7 @@ And when they are ready, we publish the app and launch it LIVE!
 After the app is launched, most times, from feedback from their users, the clients get new features they like to add or bugs that are only discovered when actual users start using the app.
 
 This is one of my favorite phases of the development, as the app is in the users' hands, and we're building new features based on real users' feedback.
+
+### Want to learn more?
+
+If you have more questions about what it’s like to work with me, feel free to reach out to me! You can email me at hi@edwardsmoses.com
