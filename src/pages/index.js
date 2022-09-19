@@ -24,10 +24,12 @@ const IndexPage = ({
 
       <Testimonials />
 
-      <h2 className="mt-16 text-3xl tracking-tight font-display sm:text-4xl">
-        My <i>Articles</i>
-      </h2>
-      <div className="grid gap-8 mx-auto mt-12 lg:grid-cols-3">{Posts}</div>
+      <section id="articles" className="pt-10">
+        <h2 className="mt-16 text-3xl tracking-tight font-display sm:text-4xl">
+          My <i>Articles</i>
+        </h2>
+        <div className="grid gap-8 mx-auto mt-12 lg:grid-cols-3">{Posts}</div>
+      </section>
     </Layout>
   );
 };

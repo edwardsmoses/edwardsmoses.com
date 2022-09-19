@@ -25,7 +25,7 @@ const PostLink = ({ post }) => (
         <div class="mt-3 flex items-center">
           <div>
             <div class="flex space-x-1 text-sm text-gray-500">
-              <time datetime="{post.frontmatter.date}"> {post.frontmatter.date} </time>
+              <time dateTime="{post.frontmatter.date}"> {post.frontmatter.date} </time>
             </div>
           </div>
         </div>

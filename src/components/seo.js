@@ -22,10 +22,10 @@ export const SEO = ({ article }) => {
       render={({ site }) => {
 
         const { siteUrl, title, description, author } = {
-          "title": "Edwards Moses, Full Stack Developer",
+          "title": "Edwards Moses -  Web, Mobile - React & React Native Software Developer",
           "author": "Edwards Moses",
           "siteUrl": "https://edwardsmoses.com",
-          "description": "I'm Edwards Moses from Lagos, Nigeria. I've 7+ years of professional experience as a Full-Stack Software Developer. I focus on developing Apps using React & React Native."
+          "description": "I'm Edwards Moses from Lagos, Nigeria. I've 7+ years of professional experience as a Full-Stack Software Developer. I focus on developing Web & Mobile apps for companies using React & React Native."
         };
 
         // schema.org in JSONLD format
@@ -143,7 +143,7 @@ export const SEO = ({ article }) => {
             <Helmet>
               <title>{site.siteMetadata.title}</title>
               <meta name="description" content={site.siteMetadata.description} />
-              <meta name="keywords" content="edwardsmoses,react developer,react native developer,build a mobile app, edwards moses, edwards, full stack developer, firebase developer,react native consultancy" />
+              <meta name="keywords" content="edwardsmoses,react developer,react native developer,build a mobile app, edwards moses, edwards, full stack developer, firebase developer,react native consultancy, app development, mobile app development, website development" />
               <meta property="og:title" content={site.siteMetadata.title} />
               <meta property="og:description" content={site.siteMetadata.description} />
               <meta property="og:type" content="website" />
