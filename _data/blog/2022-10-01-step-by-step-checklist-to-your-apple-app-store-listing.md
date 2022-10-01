@@ -87,6 +87,10 @@ You could use your own EULA or use the [default one from Apple.](https://www.app
 
 An anonymous number you use internally for identify your app, and used as a unique product reference ID on the sales reports.
 
+## 13. Copyright information
+
+Information used to show who has copyright of the application. For example: 2022 BakingRecipes Ltd
+
 ## Conclusion
 
 That concludes the checklist to get your app listed on the Apple App store. If you're publishing your app to the Google Play store, here's a similar [checklist](https://edwardsmoses.com/ultimate-checklist-for-successful-google-play-store-listing) that would be helpful.
