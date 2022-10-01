@@ -8,6 +8,6 @@ metaDescription: >+
   show you what information you need to complete your Apple Play listing while
   also providing examples of some successful and less successful listings.
 
-thumbnail: /assets/jeremy-bezanger-3gb1ojpnhgm-unsplash.jpg
+thumbnail: /assets/maulik-sutariya-ztl-f6mxcis-unsplash.jpg
 ---
 You’ve built an awesome app! Signed up for an Apple Developer Account. I'll show you what information you need to complete your Apple Play listing while also providing examples of some successful and less successful listings.
