@@ -53,7 +53,7 @@ The app icon must adhere exactly to a 1024\*1024px size. Apple has a [list of be
 
 ## 6. App Pricing
 
-Pricing for your app is organized into various tiers provided by Apple. You've have 94 tiers (87 price tiers and 7 alternate price tiers) to choose from. Find all [available pricing tiers](https://docs.google.com/spreadsheets/d/1UAY4XeZ_fqBPJ-j4YdQF40CWjeiglGGeS5qn5-3pETo/edit?usp=sharing).
+Pricing for your app is organized into various tiers provided by Apple. You've have 94 tiers (87 price tiers and 7 alternate price tiers) to choose from. Find all [available pricing tiers](https://edwardsmoses.com/assets/apple-apps-pricing-tiers-edwardsmoses.pdf).
 
 ## 7. App Screenshots
 
