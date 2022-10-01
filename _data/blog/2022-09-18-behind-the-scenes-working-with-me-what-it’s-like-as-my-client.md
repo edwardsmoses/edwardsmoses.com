@@ -41,7 +41,7 @@ During this process, feedback shared from the client's beta users is addressed.
 
 ## Launch
 
-I help the client set up the App on the Google Play Store and the Apple App store and help them get ready to launch the app. I usually share a list of requirements that each App stores need, so they can get them all prepared.
+I help the client set up the App on the Google Play Store and the Apple App store and help them get ready to launch the app. I usually share a checklist of items that [Google Play Store](https://edwardsmoses.com/ultimate-checklist-for-successful-google-play-store-listing) and the [Apple App Store](https://edwardsmoses.com/guide-to-your-apple-store-listing/) needs, so they can get them all prepared.
 
 And when they are ready, we publish the app and launch it LIVE!
 

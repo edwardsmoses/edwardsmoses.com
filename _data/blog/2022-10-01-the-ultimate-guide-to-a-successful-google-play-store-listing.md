@@ -7,31 +7,43 @@ metaDescription: You've built an awesome app! And finally, you're ready to uploa
 thumbnail: /assets/pathum-danthanarayana-t8tomke6xzu-unsplash.jpg
 ---
 
-You've built an awesome app! And finally, you're ready to upload it to the Google Play store. Your users finally can get the app on their hands. In this article, I'll share with you a checklist of information you'll need to get your app listed and published to the Google Play store.
+You've built an awesome app! And finally, you're ready to upload it to the Google Play store. Your users can finally get the app on their hands.
+
+In this article, I'll share with you a checklist of information you'll need to get your app listed and published to the Google Play store.
 
 Your listing on the Google Play Store is meant to be a visual summary of the app - with a brief description, information and the screenshots of the app. So, let's get to it!
 
 ## 1. App Title
 
-The title is the most important part of your app listing. It's what your users see first and what they use to identify your app.
+The title is the most important part of your app listing. It's what your users see first and what they search for when looking for your app.
+
 One thing to keep in mind though is that it can be different from your App's name on your users' device when downloaded.
 
-I'd recommend putting the main keywords you'd expect your users to be searching for. For example, with an app, BakeAlong, "BakeAlong—Your Baking Recipes" could be the title. It's important though to remember that you can only use up to 30 characters, so use relevant keywords!
+I'd recommend putting the main keywords you'd expect your users to be searching for. For example, with an app, **BakeAlong**, "*BakeAlong—Your Baking Recipes*" could be the title.
+
+It's important though to remember that you can only use up to 30 characters, so use relevant keywords!
 
 ## 2. App Short Description
 
-A short description about your application. You want to carefully select a set of keywords that best describes what your app is. You can use a maximum of 80 characters, so it's important that you're as concise as possible.
+A short description about your application - You want to carefully interweave a set of keywords that best describes what your app is. You can use a maximum of 80 characters, so it's important that you're as concise as possible.
 
 ## 3. App Description
 
-The app description is a crucial part of your marketing strategy. You can use a maxiumum of 4000 characters, so you'll want to present the features of your app, convince your users why they download your app. One way to help improve the copy for your description, is by keeping in your mind eye - Who are my users? What do they want? How can my app help them? And keeping those questions in mind, write a convincing and interesting description for your app.
+The app description is a crucial part of the marketing strategy for your app.
+
+You can use a maximum of 4000 characters, so you'll want to best present the features of your app, convince your users why they should download your app.
+
+One way to help improve your description, is by keeping in your mind eye - Who are my users? What do they want? How can my app help them?
+
+And keeping those questions in mind, write a convincing, interesting hook for your app.
 
 Here are [Google guidelines](https://support.google.com/googleplay/android-developer/answer/9898842) on writing your app description.
 
 ## 4. App icon
 
 The app icon is the face of your app. Like the title, it can be different from the Icon displayed on your users' device.
-The app icon must adhere to a 512\*512 size. Google has an awesome [guide](https://developer.android.com/distribute/google-play/resources/icon-design-specifications) on designing your app icon.
+
+The icon must adhere to a 512\*512px size. Google has an awesome [guide](https://developer.android.com/distribute/google-play/resources/icon-design-specifications) on designing your app icon.
 
 ## 5. Category
 
@@ -40,6 +52,7 @@ The app category helps Google determine the relevant category for your app. Here
 ## 6. Featured graphic
 
 The feature graphic is one of the most important visual asset for your app. It's displayed at the top of your App store listing.
+
 The feature graphic must adhere to the 1024 \* 500px size. To get the most of the feature graphic for your app, Google has some recommended [guidelines](https://support.google.com/googleplay/android-developer/answer/9866151?hl=en#zippy=%2Cscreenshots%2Cfeature-graphic).
 
 ## 7. App Screenshots
@@ -52,24 +65,23 @@ Here are Google [guidelines](https://support.google.com/googleplay/android-devel
 
 ## 8. Promotional Video
 
-A Youtube URL to a video promoting your app. Your users can play the video by clicking on the 'play' button overlaid on top of your featured graphic.
+A Youtube URL to a video promoting your app. Your users can play the video by clicking on the *play* button overlaid on top of your featured graphic.
 
 ## 9. Contact details
 
 Contact details for your app are included in the listing on Google Play store.
-They include:
-
-- An email address (required)
-- A website address (optional)
-- A contact phone number (optional)
+They include: an email address (required), a website address (optional), and a contact phone number (optional).
 
 ## 10. App Pricing
 
 When publishing your app to the Play store, you decide how the application is priced. You can choose to set it as Free, or Paid.
+
 If you choose a Paid application, there are a number of options, and Google official [guide](https://support.google.com/googleplay/android-developer/answer/6334373?hl=en) can be very helpful in this regard.
 
 ## 11. Privacy policy URL
 
 If your application collects any personal information, or if it's designed for children, you must provide a website URL to your privacy policy. This will be displayed on the Google Play store listing.
+
+## Conclusion
 
 That concludes the checklist to get your app listed on the Google Play store. If you're publishing your app to the Apple App store, here's a similar [checklist](https://edwardsmoses.com/guide-to-your-apple-store-listing) that would be helpful.
