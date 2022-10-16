@@ -1,8 +1,8 @@
 ---
 template: BlogPost
-path: /creating-browser-extension-with-react-and-typescript
+path: /creating-browser-extension-using-react-and-typescript-with-plasmo-framework
 date: 2022-10-16T11:12:18.502Z
-title: Creating Browser Extensions with React and Typescript
+title: Creating a Browser Extension using React and Typescript - with the Plasmo Framework
 thumbnail: /assets/edwards_browser_extensions.png
 ---
 
