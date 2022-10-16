@@ -26,7 +26,7 @@ export default function Template({
       console.log(`Error adding utterances comments on: ${commentBox}`);
     }
   }, []);
-
+  
   return (
     <Layout>
       <SEO article={frontmatter} />

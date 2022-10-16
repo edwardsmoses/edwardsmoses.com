@@ -3,29 +3,29 @@ import { Helmet } from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 
 export const SEO = ({ article }) => {
-
   return (
-
     <StaticQuery
       query={graphql`
-      query HeadingQuery {
-        site {
-          siteMetadata {
-            title
-            description 
-            siteUrl
-            author
+        query HeadingQuery {
+          site {
+            siteMetadata {
+              title
+              description
+              siteUrl
+              author
+            }
           }
         }
-      }
-    `}
-      render={({ site }) => {
-
-        const { siteUrl, title, description, author } = {
-          "title": "Edwards Moses -  Web, Mobile - React & React Native Software Developer",
-          "author": "Edwards Moses",
-          "siteUrl": "https://edwardsmoses.com",
-          "description": "I'm Edwards Moses from Lagos, Nigeria. I've 7+ years of professional experience as a Full-Stack Software Developer. I focus on developing Web & Mobile apps for companies using React & React Native."
+      `}
+      render={({}) => {
+        const { siteUrl, title, articleTitle, description, author } = {
+          title: "Edwards Moses -  Web, Mobile - React & React Native Software Developer",
+          articleTitle: article?.title,
+          author: "Edwards Moses",
+          siteUrl: "https://edwardsmoses.com",
+          description:
+            article?.metaDescription ||
+            "I'm Edwards Moses from Lagos, Nigeria. I've 7+ years of professional experience as a Full-Stack Software Developer. I focus on developing Web & Mobile apps for companies using React & React Native.",
         };
 
         // schema.org in JSONLD format
@@ -33,8 +33,8 @@ export const SEO = ({ article }) => {
         // You can fill out the 'author', 'creator' with more data or another type (e.g. 'Organization')
 
         const schemaOrgWebPage = {
-          '@context': 'http://schema.org',
-          '@type': 'WebPage',
+          "@context": "http://schema.org",
+          "@type": "WebPage",
           url: siteUrl,
           headline: title,
           inLanguage: "en-us",
@@ -42,65 +42,65 @@ export const SEO = ({ article }) => {
           description: description,
           name: title,
           author: {
-            '@type': 'Person',
+            "@type": "Person",
             name: author,
           },
           copyrightHolder: {
-            '@type': 'Person',
+            "@type": "Person",
             name: author,
           },
           copyrightYear: new Date().getFullYear(),
           creator: {
-            '@type': 'Person',
+            "@type": "Person",
             name: author,
           },
           publisher: {
-            '@type': 'Person',
+            "@type": "Person",
             name: author,
           },
           image: {
-            '@type': 'ImageObject',
+            "@type": "ImageObject",
             url: `${siteUrl}/assets/i.JPG`,
           },
-        }
+        };
 
         // Initial breadcrumb list
 
         const itemListElement = [
           {
-            '@type': 'ListItem',
+            "@type": "ListItem",
             item: {
-              '@id': siteUrl,
-              name: 'Homepage',
+              "@id": siteUrl,
+              name: "Homepage",
             },
             position: 1,
           },
-        ]
+        ];
 
-        let schemaArticle = null
+        let schemaArticle = null;
 
         if (article) {
           schemaArticle = {
-            '@context': 'http://schema.org',
-            '@type': 'Article',
+            "@context": "http://schema.org",
+            "@type": "Article",
             author: {
-              '@type': 'Person',
+              "@type": "Person",
               name: author,
             },
             copyrightHolder: {
-              '@type': 'Person',
+              "@type": "Person",
               name: author,
             },
             copyrightYear: new Date().getFullYear(),
             creator: {
-              '@type': 'Person',
+              "@type": "Person",
               name: author,
             },
             publisher: {
-              '@type': 'Person',
+              "@type": "Person",
               name: author,
               logo: {
-                '@type': 'ImageObject',
+                "@type": "ImageObject",
                 url: `${siteUrl}/icons/edwards_moses_avatar.png`,
               },
             },
@@ -108,54 +108,59 @@ export const SEO = ({ article }) => {
             dateModified: article.date,
             description: article.description,
             headline: article.title,
-            inLanguage: 'en-us',
+            inLanguage: "en-us",
             url: `${siteUrl}/${article.path}`,
             name: article.title,
             image: {
-              '@type': 'ImageObject',
+              "@type": "ImageObject",
               url: `${siteUrl}/${article.thumbnail}`,
             },
             mainEntityOfPage: `${siteUrl}/${article.path}`,
-          }
+          };
 
           // Push current blogpost into breadcrumb list
           itemListElement.push({
-            '@type': 'ListItem',
+            "@type": "ListItem",
             item: {
-              '@id': `${siteUrl}/${article.path}`,
+              "@id": `${siteUrl}/${article.path}`,
               name: article.title,
             },
             position: 2,
-          })
+          });
         }
 
         const breadcrumb = {
-          '@context': 'http://schema.org',
-          '@type': 'BreadcrumbList',
-          description: 'Breadcrumbs list',
-          name: 'Breadcrumbs',
+          "@context": "http://schema.org",
+          "@type": "BreadcrumbList",
+          description: "Breadcrumbs list",
+          name: "Breadcrumbs",
           itemListElement,
-        }
-
+        };
 
         return (
           <>
             <Helmet>
-              <title>{site.siteMetadata.title}</title>
-              <meta name="description" content={site.siteMetadata.description} />
-              <meta name="keywords" content="edwardsmoses,react developer,react native developer,build a mobile app, edwards moses, edwards, full stack developer, firebase developer,react native consultancy, app development, mobile app development, website development" />
-              <meta property="og:title" content={site.siteMetadata.title} />
-              <meta property="og:description" content={site.siteMetadata.description} />
+              <title>
+                {articleTitle ? `${articleTitle} | ` : ""}{title}
+              </title>
+              <meta name="description" content={description} />
+              <meta
+                name="keywords"
+                content="edwardsmoses,react developer,react native developer,build a mobile app, edwards moses, edwards, full stack developer, firebase developer,react native consultancy, app development, mobile app development, website development"
+              />
+              <meta property="og:title" content={title} />
+              <meta property="og:description" content={description} />
               <meta property="og:type" content="website" />
-              <meta name="twitter:title" content={site.siteMetadata.title} />
-              <meta name="twitter:description" content={site.siteMetadata.description} />
+              <meta name="twitter:title" content={title} />
+              <meta name="twitter:description" content={description} />
 
               {!article && <script type="application/ld+json">{JSON.stringify(schemaOrgWebPage)}</script>}
               {article && <script type="application/ld+json">{JSON.stringify(schemaArticle)}</script>}
               <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
-
             </Helmet>
-          </>)
+          </>
+        );
       }}
-    />);
+    />
+  );
 };
