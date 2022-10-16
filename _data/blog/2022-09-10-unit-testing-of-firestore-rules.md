@@ -2,7 +2,7 @@
 template: BlogPost
 path: /unit-testing-firestore-rules
 date: 2022-09-10T12:11:25.330Z
-title: Testing Firestore Rules
+title: Unit Testing your Cloud Firestore Security Rules - Firebase
 thumbnail: /assets/cloudfirestore.png
 ---
 ## Introduction
@@ -331,7 +331,7 @@ test("should allow users with the admin ROLE to update posts written by other us
 
 And what we're doing above is initializing the Firebase instance with an authenticated user, but with a custom user claim named `admin`
 
-###### And, all tests passed: 
+###### And, all tests passed
 
 ![all-firestore-tests-passed](/assets/firestoretestspassed.jpg "Firestore Tests passed")
 
