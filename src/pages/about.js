@@ -18,7 +18,7 @@ const AboutPage = ({ data }) => {
               <div className="max-w-xs px-2.5 lg:max-w-none">
                 <img
                   src="/assets/i.JPG"
-                  alt="Edwards Moses - Software Developer"
+                  alt="Edwards Moses - Web & Mobile — React & React Native Consultant"
                   className="aspect-square rounded-2xl bg-zinc-100 object-cover"
                   loading="lazy"
                 />

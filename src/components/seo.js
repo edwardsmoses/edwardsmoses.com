@@ -141,7 +141,8 @@ export const SEO = ({ article }) => {
           <>
             <Helmet>
               <title>
-                {articleTitle ? `${articleTitle} | ` : ""}{title}
+                {articleTitle ? `${articleTitle} | ` : ""}
+                {title}
               </title>
               <meta name="description" content={description} />
               <meta
