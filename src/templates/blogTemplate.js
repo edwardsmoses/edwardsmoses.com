@@ -5,6 +5,8 @@ import { Comment } from "../components/comment";
 import { SEO } from "../components/seo";
 import { InfoBlurb } from "../components/InfoBlurb";
 
+import Helmet from "react-helmet";
+
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }) {
@@ -30,6 +32,9 @@ export default function Template({
 
   return (
     <Layout>
+      <Helmet>
+        <script src="/canvas.js" />
+      </Helmet>
       <SEO article={frontmatter} />
       <div className="blog-post-container">
         <article className="post">
