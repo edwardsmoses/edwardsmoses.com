@@ -12,7 +12,7 @@ Here're the tools I use day-to-day to get productive and get started working. Al
 
 ## Notion ([Website](https://www.notion.so/))
 
-Notion is the bread and butter of my productivity workflow. Note taking, Idea inbox, reminders, journaling, development resources storage, tracking my budget (plan on sharing my budget system on Notion in the future; EDIT: 30/10/2022 - Here's a [Budget template](https://edwardsmoses.notion.site/Budget-Template-ff8e1d1b33274191a8f3cbd22331d2b7) I created, and here's a [How-To](https://www.loom.com/share/47180fc6adb747deb7167fc986adb938)), sharing my portfolio with potential clients, everything. It's what keeps me sane in the world of information overload. A gamechanger!!
+Notion is the bread and butter of my productivity workflow. Note taking, Idea inbox, reminders, journaling, development resources storage, tracking my budget (plan on sharing my budget system on Notion in the future **- EDIT - 30/10/2022** - Here's a [Budget template](https://edwardsmoses.notion.site/Budget-Template-ff8e1d1b33274191a8f3cbd22331d2b7) I created, and a [How-To](https://www.loom.com/share/47180fc6adb747deb7167fc986adb938)), sharing my portfolio with potential clients, everything. It's what keeps me sane in the world of information overload. A gamechanger!!
 
 ## TickTick ([Website](https://ticktick.com/))
 
