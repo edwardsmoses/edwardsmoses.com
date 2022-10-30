@@ -35,7 +35,6 @@ export default function Template({
     const scriptEl = document.createElement("script");
     scriptEl.async = true;
     scriptEl.src = "/canvas.js";
-    console.log(!!(canvasBox && canvasBox.current));
     if (canvasBox && canvasBox.current) {
       canvasBox.current.appendChild(scriptEl);
     }

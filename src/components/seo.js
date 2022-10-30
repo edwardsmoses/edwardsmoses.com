@@ -137,22 +137,21 @@ export const SEO = ({ article }) => {
           itemListElement,
         };
 
+        const siteTitle = `${articleTitle ? `${articleTitle} | ` : ""} ${title}`;
+
         return (
           <>
             <Helmet>
-              <title>
-                {articleTitle ? `${articleTitle} | ` : ""}
-                {title}
-              </title>
+              <title>{siteTitle}</title>
               <meta name="description" content={description} />
               <meta
                 name="keywords"
                 content="edwardsmoses,react developer,react native developer,build a mobile app, edwards moses, edwards, full stack developer, firebase developer,react native consultancy, app development, mobile app development, website development"
               />
-              <meta property="og:title" content={title} />
+              <meta property="og:title" content={siteTitle} />
               <meta property="og:description" content={description} />
               <meta property="og:type" content="website" />
-              <meta name="twitter:title" content={title} />
+              <meta name="twitter:title" content={siteTitle} />
               <meta name="twitter:description" content={description} />
 
               {!article && <script type="application/ld+json">{JSON.stringify(schemaOrgWebPage)}</script>}
