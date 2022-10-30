@@ -65,7 +65,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-load-script',
       options: {
-        src: '/canvas.js', 
+        src: '/gradient.js', 
       },
     },
     {
