@@ -11,7 +11,7 @@ thumbnail: /assets/react_router_v6.png
 
 I recently got on a project to build a web application using React, and I wanted to explore the new React Router v6 library. This latest version of React Router introduces several new features.
 
-One key improvement in the new version is the `action` and `loader` flow. With this new flow, React Router v6 provides better support for asynchronous actions and data loading, compared to previous versions.
+One key improvement in the new version is the introduction of the `action` and `loader` flow. With this new flow, React Router v6 provides better support for asynchronous actions and data loading, compared to previous versions.
 
 It has a more declarative and explicit model; we can be able to clearly define and control the components, actions and data loaders that are used in our application in a more predictable way.
 
@@ -95,7 +95,7 @@ const SignUpPage = () => {
 
   return (
     <form method="post" onSubmit={formik.handleSubmit}>
-      <input
+      <Input
         id="email"
         type="email"
         label="Email"
@@ -110,7 +110,9 @@ const SignUpPage = () => {
 };
 ```
 
-Above, we specifically make use of the `useSubmit` hook from the new Router API. The `useSubmit` hook is a custom hook provided that allows us to handle form submissions. The hook allows for declarative definition of actions that submit form data and handle responses.
+Above, we specifically make use of the `useSubmit` hook from the new Router API.
+
+The `useSubmit` hook is a custom hook provided that allows us to handle form submissions. The hook allows for declarative definition of actions that submit form data and handle responses.
 
 In the above example, we'll use the `useSubmit` hook to handle the SignUp form submission after the user values from the form passes the Yup validation.
 
@@ -131,14 +133,20 @@ export const SignUpAction = async ({ request }: ActionFunctionArgs) => {
 };
 ```
 
-Above, we'll first get the values from the form data, and we can then pass those values to an external backend API. Notice, in the `catch` block of the above, we return a sample `error` property, this is pretty convenient. Because, in our SignUp component, we can then display the `error` property:
+Above, we'll first get the values from the form data, and we can then pass those values to an external backend API.
+
+Notice, in the `catch` block of the above, we return a sample `error` property, this is pretty convenient.
+
+Because then, in our SignUp component, we can then display the `error` property:
 
 ```typescript
 const actionData = useActionData();
 const { error } = actionData || {};
 ```
 
-Another pretty nice part of the new React Router API is the `navigation` component. We can use the `navigation.state` to determine if the form is submitting, which is nice because we don't have to create a `[processing]` state to manage that.
+Another pretty nice part of the new React Router API is the `navigation` component. 
+
+We can use the `navigation.state` to determine if the form is submitting, which is nice because we don't have to create a `[processing]` state to manage that.
 
 ```typescript
 const navigation = useNavigation();
@@ -159,6 +167,6 @@ And that's it!
 
 In conclusion, the React Router v6 is a powerful and flexible routing library for React applications, and it offers many new features and improvements that make it easier and more convenient to manage the data flow for routes in our application.
 
-With the combination of the `useSubmit` look and `action` property, we can define when we want to handle form submissions and validation, and also benefit from the declarative and consistent handling of data-flow in the new API.
+With the combination of the `useSubmit` hook and `action` property, we can define when we want to handle form submissions and validation, and also benefit from the declarative and consistent handling of data-flow in the new API.
 
 Whether you are building a simple single-page application or a complex enterprise application, React Router v6 is an essential tool for creating and maintaining efficient and user-friendly routing in your React applications.
