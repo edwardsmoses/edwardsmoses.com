@@ -25,7 +25,7 @@ So, to get started, the first step would be to:
 - Set up the service to our current version code number. Say the current version code of the app is 22, we want the service to start incrementing from that number. 
 We do that by running the following command in the terminal (where `edwardsmoses-app` is a unique name you'll want to use for your app):
 
-```
+```bash
  curl https://increment.build/edwardsmoses-app/set/22
 ```
 
