@@ -10,8 +10,13 @@ const projects = [
   {
     name: "FirebaseElevate",
     description: "Enhancing your Firebase experience - designed to simplify navigation within Firestore. ",
-    link: { href: 'hhttps://chrome.google.com/webstore/detail/firebaseelevate/gdkmeifhinconkjfelkgmamndiimafcb?hl=en&authuser=0', label: 'FirebaseElevate@chrome' },
-    logo: "https://lh3.googleusercontent.com/uwRkaz1uYocpWqYpsqmDIlR6oJF_XlwHUEyaz74FwvNPx_IqREk-d5oxUrGAK1slUQF9YmuATv8yL0t-ufC08qLXWg=w128-h128-e365-rj-sc0x00ffffff",
+    link: {
+      href:
+        "hhttps://chrome.google.com/webstore/detail/firebaseelevate/gdkmeifhinconkjfelkgmamndiimafcb?hl=en&authuser=0",
+      label: "FirebaseElevate@chrome",
+    },
+    logo:
+      "https://lh3.googleusercontent.com/uwRkaz1uYocpWqYpsqmDIlR6oJF_XlwHUEyaz74FwvNPx_IqREk-d5oxUrGAK1slUQF9YmuATv8yL0t-ufC08qLXWg=w128-h128-e365-rj-sc0x00ffffff",
   },
 ];
 
@@ -32,21 +37,22 @@ export default function Projects() {
       <Layout>
         <SEO />
         <Helmet>
-        <title>My Projects — Edwards Moses</title>
+          <title>My Projects — Edwards Moses</title>
         </Helmet>
 
         <div className="lg:order-first lg:row-span-2">
-              <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-             my Projects
-              </h1>
-              <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400 mb-16">
-                <p>
-                I’ve worked on tons of projects over the years but these are the ones ('one' for now) that I’ve founded and most proud of.  <br />
-                Many of them are open-source, so if you see something that sparks your interest, check out the code and contribute if you have ideas for how it can be improved - I'll appreciate the collab.
-                </p>
-               
-              </div>
-            </div>
+          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+            my Projects
+          </h1>
+          <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400 mb-16">
+            <p>
+              I’ve worked on tons of projects over the years but these are the ones ('one' for now) that I’ve founded
+              and most proud of. <br />
+              Many of them are open-source, so if you see something that sparks your interest, check out the code and
+              contribute if you have ideas for how it can be improved - I'll appreciate the collab.
+            </p>
+          </div>
+        </div>
 
         <div className="relative px-4 sm:px-8 lg:px-12">
           <ul role="list" className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
