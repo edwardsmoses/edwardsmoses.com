@@ -11,7 +11,7 @@ export default ({ children, header }) => {
   return (
     <>
       <div className="site-wrapper topSiteWrapper">
-        <header className="site-header">
+        <header className="site-header flex flex-col lg:flex-row">
           <div className="site-title">
             <Link to="/">
               <img className="h-16" src="/assets/edwards_moses_avatar.png" alt="Edwards Moses" />
