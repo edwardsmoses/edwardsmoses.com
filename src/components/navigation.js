@@ -6,6 +6,9 @@ export default (props) => (
     <a href="/about" className="font-medium">
       About
     </a>
+    <a href="/products" className="font-medium">
+      Products
+    </a>
     <a href="mailto:hi@edwardsmoses.com" className="font-medium">
       Contact
     </a>
