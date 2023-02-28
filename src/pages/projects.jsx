@@ -12,8 +12,8 @@ const projects = [
     description: "Enhancing your Firebase experience - designed to simplify navigation within Firestore. ",
     link: {
       href:
-        "hhttps://chrome.google.com/webstore/detail/firebaseelevate/gdkmeifhinconkjfelkgmamndiimafcb?hl=en&authuser=0",
-      label: "FirebaseElevate@chrome",
+        "https://chrome.google.com/webstore/detail/firebaseelevate/gdkmeifhinconkjfelkgmamndiimafcb",
+      label: "FirebaseElevate@Chrome",
     },
     logo:
       "https://lh3.googleusercontent.com/uwRkaz1uYocpWqYpsqmDIlR6oJF_XlwHUEyaz74FwvNPx_IqREk-d5oxUrGAK1slUQF9YmuATv8yL0t-ufC08qLXWg=w128-h128-e365-rj-sc0x00ffffff",
@@ -57,19 +57,34 @@ export default function Projects() {
         <div className="relative px-4 sm:px-8 lg:px-12">
           <ul role="list" className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
             {projects.map((project) => (
-              <Card as="li" key={project.name}>
-                <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-                  <img src={project.logo} alt="" className="h-8 w-8" />
+              <div className="flex flex-col">
+                <Card as="li" key={project.name}>
+                  <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+                    <img src={project.logo} alt="" className="h-8 w-8" />
+                  </div>
+                  <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
+                    <Card.Link href={project.link.href}>{project.name}</Card.Link>
+                  </h2>
+                  <Card.Description>{project.description}</Card.Description>
+                  <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
+                    <LinkIcon className="h-6 w-6 flex-none" />
+                    <span
+                      className="ml-2">{project.link.label}</span>
+                  </p>
+                </Card>
+                <div>
+                  <a href="https://www.producthunt.com/posts/firebaseelevate?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-firebaseelevate" target="_blank">
+                    <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=381786&theme=light"
+                      alt="FirebaseElevate - Elevate&#0032;your&#0032;Firebase&#0032;experience&#0033; | Product Hunt"
+                      width="250" height="54" style={{
+                        width: 250,
+                        height: 54,
+                      }} />
+                  </a>
                 </div>
-                <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-                  <Card.Link href={project.link.href}>{project.name}</Card.Link>
-                </h2>
-                <Card.Description>{project.description}</Card.Description>
-                <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
-                  <LinkIcon className="h-6 w-6 flex-none" />
-                  <span className="ml-2">{project.link.label}</span>
-                </p>
-              </Card>
+
+              </div>
+
             ))}
           </ul>
         </div>
