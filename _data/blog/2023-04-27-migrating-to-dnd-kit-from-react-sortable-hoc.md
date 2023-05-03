@@ -29,6 +29,4 @@ To get started, as we're used to, via `npm` / `yarn`, install the core library a
 ```bash
 npm install @dnd-kit/core @dnd-kit/sortable
 
-
-``
 ```
