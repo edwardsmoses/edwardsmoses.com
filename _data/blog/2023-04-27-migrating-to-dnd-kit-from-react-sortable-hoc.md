@@ -20,11 +20,11 @@ Previously, the interface only allowed for dragging and dropping across one list
 
 So, we looked into React DND Kit, and voila, it allowed for both sorting across one list, and dragging/dropping across to a different list, albeit with a relatively complex API. And so, we set out to migrate from React Sortable HOC to React DND kit, with some little hiccups.
 
-So, in this article, we'll together be migrating a project that initially used to React Sortable HOC to the new React DND Kit.
+So, in this article, we'll together be migrating a project from React Sortable HOC to the new React DND Kit.
 
 ## Getting started
 
-To get started, as we're used to via `npm` / `yarn`, install the core library and the sortable preset:
+To get started, as we're used to, via `npm` / `yarn`, install the core library and the sortable preset:
 
 ```bash
 npm install @dnd-kit/core @dnd-kit/sortable
