@@ -2,7 +2,7 @@
 template: BlogPost
 path: /migrating-to-dnd-kit-from-react-sortable-hoc
 date: 2023-04-27T03:03:46.203Z
-title: Migrating to React DND Kit from React Sortable Hoc [In Progress]
+title: Migrating to React DND Kit from React Sortable Hoc
 thumbnail: /assets/edwardsmoses_react_dnd_kit.png
 ---
 
