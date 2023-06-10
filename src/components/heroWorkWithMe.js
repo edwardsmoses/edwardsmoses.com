@@ -14,7 +14,7 @@ export const Hero_WorkWithMe = () => {
         </span>{" "}
         software.
       </h1>
-      <p className="max-w-2xl mx-auto text-xl tracking-tight">
+      <p className="max-w-2xl mx-auto text-xl tracking-tight prose dark:prose-invert">
         Whether you're taking your first steps into building your app or you need to improve your existing application,
         I can help. <br /> <br />
         I'm a freelance <b>React/React Native developer</b> and <b>a web & mobile development consultant</b> who works

@@ -9,9 +9,9 @@ const services = [
       "Have an idea? I’ve been building software for nearly a decade. Let's work together - let's get your project launched!",
     icon: () => {
       return (
-        <div className="bg-app-brand-yellow p-2 rounded-md w-min flex">
+        <div className="flex p-2 rounded-md bg-app-brand-yellow w-min">
           <svg
-            className="h-8 w-8 mx-auto self-center text-white"
+            className="self-center w-8 h-8 mx-auto text-white"
             viewBox="0 0 24 24"
             fill=""
             xmlns="http://www.w3.org/2000/svg"
@@ -37,9 +37,9 @@ const services = [
     description: "Have an app? Want to build a next set of features? Your app is under-performing? I love to help!",
     icon: () => {
       return (
-        <div className="bg-app-brand-yellow p-2 rounded-md w-min flex">
+        <div className="flex p-2 rounded-md bg-app-brand-yellow w-min">
           <svg
-            className="h-7 w-7 mx-auto self-center text-white"
+            className="self-center mx-auto text-white h-7 w-7"
             viewBox="0 -3.4 105.608 105.608"
             fill="currentColor"
             stroke="currentColor"
@@ -79,9 +79,9 @@ const services = [
       "What to build, for whom and when? When building an app, these questions can be tough — so let me help you. Let's brainstorm together!",
     icon: () => {
       return (
-        <div className="bg-app-brand-yellow p-2 rounded-md w-min flex">
+        <div className="flex p-2 rounded-md bg-app-brand-yellow w-min">
           <svg
-            className="h-8 w-8 mx-auto self-center text-white"
+            className="self-center w-8 h-8 mx-auto text-white"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 48 48"
             fill="currentColor"
@@ -114,14 +114,14 @@ export const MyServices = () => {
   return (
     <section id="my-services" className="pb-14">
       <div className="mx-auto max-w-7xl">
-        <div className="mx-auto max-w-2xl md:text-center">
-          <h2 id="secondary-features-title" className="font-display text-5xl mb-0 tracking-tight text-slate-900">
+        <div className="max-w-2xl mx-auto prose md:text-center dark:prose-invert">
+          <h2 id="secondary-features-title" className="mb-0 text-5xl tracking-tight font-display">
             How can{" "}
             <span className="relative inline-block">
               <span className="lines"></span>I help
             </span>
           </h2>
-          <p className="mt-3 mb-1 text-xl tracking-tight text-slate-700">
+          <p className="mt-3 mb-1 text-xl tracking-tight">
             With experience working with a range of companies, I'll help your company bring your product to market
             whichever way I can.
           </p>
@@ -132,12 +132,12 @@ export const MyServices = () => {
             Learn more about my process
           </a>
         </div>
-        <div className="mt-8 block">
-          <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 space-x-0 lg:space-x-4">
+        <div className="block mt-8">
+          <div className="flex flex-col space-x-0 space-y-4 lg:flex-row lg:space-y-0 lg:space-x-4">
             {services.map((service, index) => (
-              <div key={index} className="bg-gray-50 py-2 rounded-xl px-2">
+              <div key={index} className="px-2 py-2 bg-gray-50 rounded-xl">
                 <service.icon />
-                <p className="mt-3 mb-0 font-display font-medium text-2xl text-slate-900" style={{ color: "#000" }}>
+                <p className="mt-3 mb-0 text-2xl font-medium font-display text-slate-900" style={{ color: "#000" }}>
                   {service.title}
                 </p>
                 <p className="mt-2 mb-0 text-base text-slate-600" style={{ color: "#000" }}>
