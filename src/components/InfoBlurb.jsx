@@ -29,11 +29,13 @@ export const InfoBlurb = () => {
                       Edwards Moses <br />
                       Web & Mobile — React & React Native Consultant
                     </h1>
-                    <p className="mt-6 text-base `text-blue-900">
-                      I'm Edwards, a software developer based in Lagos, Nigeria. <br />
-                      I'm a freelancer Software Developer, working with teams to produce amazing products. From
-                      conception through to completion, I love seeing how an idea evolves into a product in the hands of
-                      the users.
+                    <p className="mt-6 text-base text-blue-900 info-blurb-info-about-me">
+                      I'm Edwards, based in Lagos, Nigeria. <br /> 
+                      <b>Freelancer Software Developer</b> — collaborating with teams to craft extraordinary products.
+                      <br />
+                      From conception through to completion, I find immense joy in witnessing the evolution of an idea into a fully realized product in the hands of users.
+                      <br /> <br />
+                      Ready to bring your ideas to life? Let's connect
                     </p>
 
                     <div className="">
