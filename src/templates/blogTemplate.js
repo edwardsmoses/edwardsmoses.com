@@ -52,7 +52,7 @@ export default function Template({
           {!!frontmatter.thumbnail && (
             <div className="post-thumbnail blog-post-content-image" style={{ backgroundImage: `url(${frontmatter.thumbnail})` }} />
           )}
-          <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: html }} />
+          <div className="prose blog-post-content lg:prose-xl dark:prose-invert dark:text-gray-300! blog-post-content-article" dangerouslySetInnerHTML={{ __html: html }} />
 
           <div className="commentsWrapper">
             <h1 className="post-title">Comments</h1>
