@@ -15,7 +15,7 @@ Closing out the year soon, and unlike [last year](https://edwardsmoses.com/refle
 
 This year, the most significant event in my life was moving out to my own place, the agency this afforded me was life-altering.
 
-# Work
+## Work
 
 Middle of this year, I took the plunge and became a full-time freelancer. While it hasn't been easy financially, it's been incredibly rewarding in terms of the freedom and opportunities it has afforded me.
 
@@ -27,13 +27,13 @@ Speaking of next year, I have big plans to diversify the projects and languages 
 
 In 2023, I want to branch out and try building apps for desktop (Windows and Mac) and also get involved in the browser extensions space.
 
-# Health
+## Health
 
 I had hoped to get my workout routine on track this year, but unfortunately it was a bit hit or miss; hence I had some **really** tough days both physically and mentally.
 
 But hey, there's always next year, right? I'm planning to be more consistent in 2023 and create some solid workout plans to keep me on track.
 
-# Learnings
+## Learnings
 
 In terms of learning new things, I made the goal to learn Rust this year, and while I'm still a beginner, it's been a great experience overall. I'm also excited to explore using it in the open source space in the future.
 
@@ -43,30 +43,26 @@ Another one I enjoyed reading was, [Communicating at the Right Altitude](https:/
 
 I'm always on the lookout for new and thought-provoking pieces to read, and I'm excited to see what else the coming year has in store.
 
-# 2022 in Books
+## 2022 in Books
 
 As far as reading goes, I really enjoyed diving into non-fiction books this year, with The Anthropocene Reviewed by John Green being a particular highlight — a review of the world we live in. Aside that, I had some interesting reads like:
 
-<ul>
-<li> - <b>Kingdom of Lies</b> by Kate Fazzini </li>
-<li> - <b>I want to die but i want to eat tteokbokki</b> by Baek Sehee - I loved reading this book, it was a ride from beginning to end. </li>
-</ul>
+- **Kingdom of Lies** by Kate Fazzini
+- **I want to die but i want to eat tteokbokki** by Baek Sehee - I loved reading this book, it was a ride from beginning to end.
 
-# Looking back
+## Looking back
 
 As I look back on this year, I am filled with gratitude for all of the positive things that have happened. I am grateful for the opportunities that have come my way, the opportunities to work with some amazing clients and people as a freelancer.
 
 And although there have been challenges and struggles, I am grateful for the lessons I've learned and the growth I've experienced as a result — truly thankful for all that this year has brought, and excited to see what the future holds.
 
-# 2023
+## 2023
 
 A new year is a new beginning. Last year (2021), I had some goals, and I managed to complete some of them:
 
-<ul>
-<li> - Spent more time writing - I wrote about 12 posts this year</li>
-<li> - Learnt Rust - still very much a beginner at this, but it's been great. </li>
-<li> - Dipped my toes in some open-source projects - the Digital ocean hacktoberfest really motivated me to do this</li>
-</ul>
+- Spent more time writing - I wrote about 12 posts this year
+- Learnt Rust - still very much a beginner at this, but it's been great.
+- Dipped my toes in some open-source projects - the Digital ocean hacktoberfest really motivated me to do this
 
 Next year, my biggest goal is getting a Google Cloud Certification.
 
@@ -76,7 +72,7 @@ Public speaking has been one of my long-lived fear - and next year, I plan on ov
 
 I'll be joining a Public speaking workshop next week - so I'm happy to explore this - and in a way, as I pen my plans on speaking publicly next year, I'm combatting my fear just a bit.
 
-# Towards a better year
+## Towards a better year
 
 I quite hope that by putting this here in writing, I'd be more motivated to achieve all of this.
 
