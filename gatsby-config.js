@@ -83,6 +83,8 @@ module.exports = {
         trackingIds: [
           "UA-86119661-11", // Google Analytics / GA
           "AW-10977570295", // Google Ads / Adwords / AW
+          "G-KPS455BYW5", //GA4 Measurement iD
+          "5392885394" //GA4 Stream ID
         ],
         // This object is used for configuration specific to this plugin
         pluginConfig: {
