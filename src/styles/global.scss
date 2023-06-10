@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Ubuntu&display=swap');
+
 
 $font-family: -apple-system, "Inter", sans-serif;
 
@@ -489,4 +491,30 @@ body.light {
   --gradient-color-2: #6ec3f4;
   --gradient-color-3: #eae2ff;
   --gradient-color-4: #b9beff;
+}
+
+.blog-post-content-article-date {
+  font-family: Ubuntu, sans-serif;
+  font-weight: 300;
+  font-size: 0.85rem;
+  line-height: 1.35rem;
+  letter-spacing: 0.0675rem;
+  text-transform: uppercase;
+  color: rgba(var(--caption-color), 0.5);
+}
+
+.blog-post-content-article-title {
+  font-family: Merriweather, serif;
+  font-weight: 300;
+  font-size: 2.2rem;
+  line-height: 1.558;
+  letter-spacing: -0.01rem;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  max-width: 800px;
+}
+
+.blog-post-content-image {
+  border-radius: 2.3rem;
+  margin-bottom: 3.5rem;
 }
