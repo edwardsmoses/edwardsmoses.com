@@ -153,7 +153,9 @@ const Payment = () => {
 export default Payment;
 ```
 
-We're getting close to the finish line, we have the paymentIntent created and passign the client secret to the Elements component, next we want to drop in our `PaymentElement` component:
+We're getting close to the finish line, we have the paymentIntent created and passing the client secret to the Elements component.
+
+Next we want to drop in our `PaymentElement` component:
 
 ```tsx
 "pay.index.tsx";
@@ -173,7 +175,8 @@ export default Index;
 ```
 
 And voila, we have the Payment form rendered on the page, and the user can input their Card details.
-And at the final step of this process, we want to handle the form submission, and then pass the payment details to Stripe to confirm the payment.
+
+And as the final step of this process, we want to handle the form submission, and then pass the payment details to Stripe to confirm the payment.
 
 ```tsx
 
@@ -211,7 +214,7 @@ export default Index;
 
 ```
 
-Notice above, we're passing in a `return_url` to Stripe. So let's handle that, let's work on the `pay/success` route:
+Notice above, we're passing in a `return_url` to Stripe. Let's handle that, and update the `pay/success` route:
 
 ```tsx
 
@@ -264,7 +267,7 @@ export default Index;
 
 And yes!! yes!! We are done!!!!
 
-To test the payment integration, we can use the following test cards provided by [Stripe](https://stripe.com/docs/testing#cards)
+To test the payment integration, we can use the [following test cards provided by Stripe](https://stripe.com/docs/testing#cards)
 
 When you click on 'Complete Payment', the app should redirect to the `pay/success` route confirming that the Payment was successful.
 
