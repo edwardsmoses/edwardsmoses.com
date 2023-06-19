@@ -2,7 +2,7 @@
 template: BlogPost
 path: /guide-to-integrating-stripe-with-remix
 date: 2023-05-10T10:07:46.203Z
-title: Accepting Payments with Stripe in Remix Run [In Progress]
+title: Accepting Payments with Stripe in Remix Run
 thumbnail: /assets/edwardsmoses_stripe_remix.png
 ---
 
@@ -56,7 +56,7 @@ Now that we've the environment all setup. We want to create new routes called "p
 app/
  - routes/
   - pay.tsx
-  - pay.index.tsx
+  - pay._index.tsx
   - pay.success.tsx
 ```
 
@@ -67,20 +67,23 @@ To have the Stripe Payment form rendered in our application, we need to add the 
 Here's a peek of what it looks like:
 
 ```tsx
-
-"pay.tsx"
+"pay.tsx";
 
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import { Outlet } from "@remix-run/react";
 
+const stripePromise = loadStripe("pk_test...");
 
-const stripePromise = loadStripe('pk_test...')
+const Index = () => {
+  return (
+    <Elements stripe={stripePromise} options={{}}>
+      <Outlet />
+    </Elements>
+  );
+};
 
-
-<Elements stripe={stripePromise} options={{  }}>
-  <Outlet />
-</Elements>
-
+export default Index;
 ```
 
 Above, we use the Stripe Public key to initialize the Stripe client - to get your keys, check out the link highlighted earlier.
@@ -94,12 +97,12 @@ Now that we have the elements wrapping our routes, we want to render the `Paymen
 ```ts
 "pay.tsx";
 
-import Stripe from "stripe";
 import { json } from "@remix-run/node";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
 export async function loader() {
+
+  const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+
   const paymentIntent = await stripe.paymentIntents.create({
     amount: 2000,
     currency: "usd",
@@ -118,18 +121,19 @@ Now, that we have the paymentIntent, we want to pass the `client_secret` from th
 ```tsx
 "pay.tsx";
 
-import Stripe from "stripe";
 import { json } from "@remix-run/node";
 
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
-import { useLoaderData } from "@remix-run/react";
+import { Outlet, useLoaderData } from "@remix-run/react";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const stripePromise = loadStripe("pk_test...");
 
 export async function loader() {
+
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+
   const paymentIntent = await stripe.paymentIntents.create({
     amount: 2000,
     currency: "usd",
@@ -145,6 +149,7 @@ const Payment = () => {
 
   return (
     <Elements stripe={stripePromise} options={{ clientSecret: paymentIntent.client_secret }}>
+      <h1>Make Payment</h1>
       <Outlet />
     </Elements>
   );
@@ -158,7 +163,7 @@ We're getting close to the finish line, we have the paymentIntent created and pa
 Next we want to drop in our `PaymentElement` component:
 
 ```tsx
-"pay.index.tsx";
+"pay._index.tsx";
 
 import { PaymentElement } from "@stripe/react-stripe-js";
 
@@ -180,35 +185,36 @@ And as the final step of this process, we want to handle the form submission, an
 
 ```tsx
 
-"pay.index.tsx"
+"pay._index.tsx"
 
-import {PaymentElement} from '@stripe/react-stripe-js'
-import {useStripe, useElements} from '@stripe/react-stripe-js'
+import { PaymentElement } from "@stripe/react-stripe-js";
+import { useStripe, useElements } from '@stripe/react-stripe-js'
 
 const Index = () => {
 
-const stripe = useStripe();
-const elements = useElements();
+    const stripe = useStripe();
+    const elements = useElements();
 
-const handleSubmit = = async (e: any) => {
-  e.preventDefault();
+    const handleSubmit = async (e: any) => {
+        e.preventDefault();
 
-  await stripe.confirmPayment({
-    elements,
-    confirmParams: {
-      return_url: 'http://localhost:3000/pay/success'
+        if (stripe && elements) {
+            await stripe.confirmPayment({
+                elements,
+                confirmParams: {
+                    return_url: 'http://localhost:3000/pay/success'
+                }
+            })
+        }
     }
-  })
-}
 
-  return (
-    <form onSubmit={handleSubmit}>
-     <PaymentElement / >
-     <button>Complete Payment</button>
-    </form>
-  )
-
-}
+    return (
+        <form onSubmit={handleSubmit}>
+            <PaymentElement />
+            <button>Complete Payment</button>
+        </form>
+    );
+};
 
 export default Index;
 
@@ -220,20 +226,16 @@ Notice above, we're passing in a `return_url` to Stripe. Let's handle that, and 
 
 "pay.success.tsx"
 
-
-import {useStripe} from '@stripe/react-stripe-js'
-import { useEffect. useState } from "react";
-
+import { useStripe } from '@stripe/react-stripe-js'
+import { useEffect, useState } from "react";
 
 const Index = () => {
 
-const stripe = useStripe();
-const elements = useElements();
+    const stripe = useStripe();
 
+    const [paymentStatus, setPaymentStatus] = useState("");
 
-const [paymentStatus, setPaymentStatus] = useState("");
-
-   useEffect(() => {
+    useEffect(() => {
         if (!stripe) {
             return;
         }
@@ -247,14 +249,14 @@ const [paymentStatus, setPaymentStatus] = useState("");
         }
 
         stripe.retrievePaymentIntent(clientSecret as string).then(({ paymentIntent }) => {
-            setPaymentStatus(paymentIntent?.status);
+            setPaymentStatus(paymentIntent?.status as string);
         });
     }, [stripe]);
 
 
-  return (
-    <h3>{paymentStatus}</h3>
-  )
+    return (
+        <h3>{paymentStatus}</h3>
+    )
 
 }
 
@@ -272,3 +274,4 @@ To test the payment integration, we can use the [following test cards provided b
 When you click on 'Complete Payment', the app should redirect to the `pay/success` route confirming that the Payment was successful.
 
 The Working version of this article is available on GitHub —
+<https://github.com/edwardsmoses/remix-run-stripe-sample>
