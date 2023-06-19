@@ -18,7 +18,7 @@ export const Hero_WorkWithMe = () => {
         Whether you're taking your first steps into building your app or you need to improve your existing application,
         I can help. <br /> <br />
         I'm a freelance <b>React/React Native developer</b> and <b>a web & mobile development consultant</b> who works
-        with companies in United States, England, and around the world to build and improve their web & mobile presence
+        with companies in United States, Europe, and around the world to build and improve their web & mobile presence
         on the internet, Android & iOS. I <span>design MVPs</span>, <span>build software</span>,{" "}
         <span>automate processes</span> to bring <span>new products to market</span> and{" "}
         <span>achieve your business goals</span>.
