@@ -137,7 +137,7 @@ export const SEO = ({ article }) => {
           itemListElement,
         };
 
-        const siteTitle = `${articleTitle ? `${articleTitle} · ` : ""} ${title}`;
+        const siteTitle = `${articleTitle ? `${articleTitle} • ` : ""} ${title}`;
 
         return (
           <>
