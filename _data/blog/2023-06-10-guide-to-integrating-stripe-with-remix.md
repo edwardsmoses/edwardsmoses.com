@@ -1,7 +1,7 @@
 ---
 template: BlogPost
-path: /guide-to-integrating-stripe-with-remix
-date: 2023-05-10T10:07:46.203Z
+path: /guide-to-accepting-payments-with-stripe-in-remix-run
+date: 2023-06-10T10:07:46.203Z
 title: Accepting Payments with Stripe in Remix Run
 thumbnail: /assets/edwardsmoses_stripe_remix.png
 ---
