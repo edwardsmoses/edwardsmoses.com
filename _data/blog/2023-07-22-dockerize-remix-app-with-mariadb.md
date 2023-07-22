@@ -73,9 +73,9 @@ CMD ["npm", "run", "start"]
 
 ```
 
-The Dockerfile begins with defining a base image `node:16-bullseye-slim``. It then follows through various stages namely deps, production-deps, build, and the final stage.
+The Dockerfile begins with defining a base image `node:16-bullseye-slim`. It then follows through various stages namely deps, production-deps, build, and the final stage.
 
-In the deps stage, it creates an application directory, copies over the package files, and runs `npm install`` to install all dependencies including dev dependencies.
+In the deps stage, it creates an application directory, copies over the package files, and runs `npm install` to install all dependencies including dev dependencies.
 
 In the production-deps stage, it copies the installed dependencies from deps stage and prunes any dev dependencies, leaving behind only the production dependencies.
 
@@ -87,7 +87,7 @@ It sets the command `CMD ["npm", "run", "start"]` to start the server when the c
 
 ## Docker Compose
 
-Now, let's have a look at our `docker-compose.yml` file.
+Now, let's create a `docker-compose.yml` file.
 
 ```yaml
 version: '3.1'
@@ -142,14 +142,14 @@ For example, suppose you have an SQL script `init.sql` that you want to use to i
 
 /* Create a table named 'users' */
 CREATE TABLE users(
-   id INT AUTO_INCREMENT PRIMARY KEY,
+   id int auto_increment,
    name VARCHAR(40) NOT NULL,
-   email VARCHAR(60) NOT NULL UNIQUE
+   email VARCHAR(60) NOT NULL UNIQUE,
+   primary key(id)
 );
 
 /* Seed initial data */
-INSERT INTO users (name, email) VALUES
-('John Doe', 'john@example.com'),
+INSERT INTO users (name, email) VALUES ('John Doe', 'john@example.com')
 ```
 
 With the above script in the `db` directory and the mapping we have in our `docker-compose.yml`.
@@ -177,7 +177,7 @@ Now, to get the whole system running, you just need to run the following command
 docker-compose up
 ```
 
-And, we can then visit our application at `localhost:3000`
+And, we can then visit our application at `[localhost:3000](http://localhost:3000/)`
 
 ### Done
 
