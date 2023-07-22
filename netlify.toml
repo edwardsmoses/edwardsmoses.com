@@ -19,3 +19,28 @@
   to = "https://edwardsmoses.notion.site/Hey-I-m-Edwards-Moses-42fae7d7e5054601b11787407af84e75/:splat"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/app-633b695464e978b698b9.js"
+  to = "https://edwardsmoses.notion.site/app-633b695464e978b698b9.js"
+  status = 200
+  force = true
+
+
+[[redirects]]
+  from = "/4536-eb280429881d27cdfeab.js"
+  to = "https://edwardsmoses.notion.site/4536-eb280429881d27cdfeab.js"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/app-da4b0c1e7ec33f7aeeb3.css"
+  to = "https://edwardsmoses.notion.site/app-da4b0c1e7ec33f7aeeb3.css"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/print.5c792172.css"
+  to = "https://edwardsmoses.notion.site/print.5c792172.css"
+  status = 200
+  force = true
