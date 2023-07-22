@@ -16,6 +16,6 @@
 
 [[redirects]]
   from = "/resume/*"
-  to = "https://edwardsmoses.notion.site/Hey-I-m-Edwards-Moses-42fae7d7e5054601b11787407af84e75"
+  to = "https://edwardsmoses.notion.site/Hey-I-m-Edwards-Moses-42fae7d7e5054601b11787407af84e75/:splat"
   status = 200
   force = true
