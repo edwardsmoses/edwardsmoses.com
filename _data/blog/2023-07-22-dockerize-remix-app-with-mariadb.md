@@ -177,7 +177,7 @@ Now, to get the whole system running, you just need to run the following command
 docker-compose up
 ```
 
-And, we can then visit our application at `[localhost:3000](http://localhost:3000/)`
+And, we can then visit our application at `http://localhost:3000/`
 
 ### Done
 
