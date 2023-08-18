@@ -15,8 +15,8 @@
   status = 302
 
 [[redirects]]
-  from = "/resume/*"
-  to = "https://edwardsmoses.notion.site/Hey-I-m-Edwards-Moses-42fae7d7e5054601b11787407af84e75/:splat"
+  from = "/resume"
+  to = "https://www.toptal.com/resume/edwards-moses"
   status = 302
 
 [[redirects]]
@@ -25,7 +25,7 @@
   status = 302
 
 [[redirects]]
-  from = "/full-stack-dev"
+  from = "/hire-me"
   to = "https://contra.com/s/UZqEkRqv-full-stack-web-and-mobile-app-development"
   status = 302
   
