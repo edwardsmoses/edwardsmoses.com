@@ -24,4 +24,11 @@
   to = "https://contra.com/edwardsmosesi58z1tbl"
   status = 302
 
+[[redirects]]
+  from = "/full-stack-dev"
+  to = "https://contra.com/s/UZqEkRqv-full-stack-web-and-mobile-app-development"
+  status = 302
+  
+  
+
   
