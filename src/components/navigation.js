@@ -3,9 +3,11 @@ import { AnchorLink } from "gatsby-plugin-anchor-links";
 
 export default (props) => (
   <nav className="navigation">
-
     <AnchorLink to="/#articles">
-      <a href="#" className="font-medium border-b-2 dark:border-white border-black">
+      <a
+        href="#"
+        className="font-medium border-b-2 dark:border-white border-black"
+      >
         Articles
       </a>
     </AnchorLink>
@@ -21,11 +23,14 @@ export default (props) => (
       Contact
     </a>
 
-    <button onClick={() => {
-      window.open("https://calendly.com/edwardsmoses/30min", "_blank")
-    }} className="inline-flex justify-center rounded-sm text-sm font-semibold py-2 px-4 text-white bg-app-brand -my-2.5 ml-5">
+    <button
+      onClick={() => {
+        window.open("https://calendly.com/edwardsmoses/30min", "_blank");
+        window.gtag("book_call", "click");
+      }}
+      className="inline-flex justify-center rounded-sm text-sm font-semibold py-2 px-4 text-white bg-app-brand -my-2.5 ml-5"
+    >
       Book a call
     </button>
-
   </nav>
 );
