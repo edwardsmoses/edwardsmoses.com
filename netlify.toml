@@ -11,7 +11,7 @@
 # Redirect with a 302
 [[redirects]]
   from = "/portfolio"
-  to = "https://contra.com/edwardsmoses"
+  to = "https://portfolio.edwardsmoses.com/"
   status = 302
 
 [[redirects]]
@@ -21,12 +21,12 @@
 
 [[redirects]]
   from = "/showcase"
-  to = "https://contra.com/edwardsmoses"
+  to = "https://portfolio.edwardsmoses.com/"
   status = 302
 
 [[redirects]]
   from = "/hire-me"
-  to = "https://contra.com/s/UZqEkRqv-full-stack-web-and-mobile-app-development"
+  to = "https://portfolio.edwardsmoses.com/s/UZqEkRqv-full-stack-web-app-development"
   status = 302
   
   
