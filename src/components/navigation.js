@@ -3,13 +3,8 @@ import { AnchorLink } from "gatsby-plugin-anchor-links";
 
 export default (props) => (
   <nav className="navigation">
-    <AnchorLink to="/#articles">
-      <a
-        href="#"
-        className="font-medium border-b-2 dark:border-white border-black"
-      >
-        Articles
-      </a>
+    <AnchorLink to="/#articles" className="font-medium border-b-2 border-black dark:border-white">
+      Articles
     </AnchorLink>
 
     <a href="/about" className="font-medium">
