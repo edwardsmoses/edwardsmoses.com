@@ -22,7 +22,6 @@
 [[redirects]]
   from = "/showcase"
   to = "https://contra.com/edwardsmosesi58z1tbl"
-  status = 200
-  force = true
+  status = 302
 
   
