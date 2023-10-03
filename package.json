@@ -56,7 +56,7 @@
     "url": "git+https://github.com/edwardsmoses/edwardsmoses.com.git"
   },
   "scripts": {
-    "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true NODE_OPTIONS=--openssl-legacy-provider gatsby build --log-pages",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider && GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "develop": "gatsby develop",
     "dev": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
