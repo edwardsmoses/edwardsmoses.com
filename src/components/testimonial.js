@@ -119,8 +119,8 @@ export const Testimonials = () => {
                 <OutboundLink
                   href="https://portfolio.edwardsmoses.com/#projects"
                   target="blank"
-                  className="flex items-start justify-start md:items-center md:justify-center px-2 text-base md:text-xl border border-transparent rounded-md md:px-10 min-w-min hover:no-underline hover:opacity-80">
-                  or check out the projects I've been a part of {"->"}
+                  className="flex items-start justify-start md:items-center md:justify-center text-base md:text-xl min-w-min hover:no-underline hover:opacity-80 mx-2 md:mx-10 text-app-brand-white tracking-tightest border-b border-white">
+                  or check out the projects I've been a part of
                 </OutboundLink>
 
 

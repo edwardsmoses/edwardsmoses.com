@@ -1,17 +1,16 @@
 import React from "react";
-import { AnchorLink } from "gatsby-plugin-anchor-links";
 import { OutboundLink } from "gatsby-plugin-google-gtag"
-
+import { Link } from "gatsby";
 
 export default (props) => (
   <nav className="navigation">
-    <AnchorLink to="/#articles" className="font-medium border-b-2 border-black dark:border-white">
+    <Link to="/articles" className="font-medium" activeClassName="font-bold !text-app-black ">
       Articles
-    </AnchorLink>
+    </Link>
 
-    <a href="/about" className="font-medium">
+    <Link to="/about" className="font-medium" activeClassName="font-bold !text-app-black">
       About
-    </a>
+    </Link>
 
     <OutboundLink href="https://portfolio.edwardsmoses.com/#projects" className="font-medium" target="_blank">
       Projects
