@@ -1,4 +1,6 @@
 import React from "react";
+import { OutboundLink } from "gatsby-plugin-google-gtag"
+
 import "./css/testimonial.css";
 
 const testimonials = [
@@ -106,13 +108,23 @@ export const Testimonials = () => {
           </ul>
           <div>
             <div className="flex justify-center mb-5 mt-14">
-              <a
-                href="https://calendly.com/edwardsmoses/30min"
-                target="blank"
-                className="flex items-center justify-center px-8 py-3 mx-auto text-xl font-medium bg-white border border-transparent rounded-md md:py-4 md:text-lg md:px-10 min-w-min hover:no-underline hover:opacity-80"
-              >
-                Book a call with me today {"->"}
-              </a>
+              <div className="mx-auto flex flex-col space-y-2 px-3 md:px-0">
+
+                <OutboundLink href="https://calendly.com/edwardsmoses/30min"
+                  target="blank"
+                  className="flex items-center justify-center px-8 py-3 text-xl font-medium bg-white border border-transparent rounded-md md:py-4 md:text-lg md:px-10 min-w-min hover:no-underline hover:opacity-80">
+                  Book a call with me today {"->"}
+                </OutboundLink>
+
+                <OutboundLink
+                  href="https://portfolio.edwardsmoses.com/#projects"
+                  target="blank"
+                  className="flex items-start justify-start md:items-center md:justify-center px-2 text-base md:text-xl border border-transparent rounded-md md:px-10 min-w-min hover:no-underline hover:opacity-80">
+                  or check out the projects I've been a part of {"->"}
+                </OutboundLink>
+
+
+              </div>
             </div>
           </div>
         </div>
