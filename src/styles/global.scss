@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Ubuntu&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Ubuntu&display=swap");
 
 $font-family: -apple-system, "Inter", sans-serif;
 
@@ -358,36 +357,6 @@ a {
     }
   }
 }
-/* Portrait and Landscape */
-@media only screen and (min-width: 768px) {
-  .grids {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .site-header {
-    align-items: flex-start;
-  }
-  .navigation {
-    margin-top: 10px;
-  }
-  .navigation a {
-    margin-left: 0px !important;
-    margin-right: 20px !important;
-  }
-}
-
-@media only screen and (min-width: 1024px) {
-  .grids {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-  .two-grids {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 64px;
-  }
-}
 
 // theme-changer
 .theme-changer {
@@ -517,4 +486,38 @@ body.light {
 
 .info-blurb-info-about-me {
   width: 110%;
+}
+
+/* Portrait and Landscape */
+@media only screen and (min-width: 768px) {
+  .grids {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .site-header {
+    align-items: flex-start;
+  }
+  .navigation {
+    margin-top: 10px;
+  }
+  .navigation a {
+    margin-left: 0px !important;
+    margin-right: 20px !important;
+  }
+  .info-blurb-info-about-me {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .grids {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .two-grids {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 64px;
+  }
 }

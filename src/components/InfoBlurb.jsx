@@ -38,7 +38,7 @@ export const InfoBlurb = () => {
                       Ready to bring your ideas to life? Let's connect
                     </p>
 
-                    <div className="">
+                    <div className="mt-5">
                       <ul
                         role="list"
                         className="flex flex-col space-x-0 space-y-3 lg:flex-row lg:space-y-0 lg:space-x-4"
