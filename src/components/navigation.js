@@ -1,5 +1,7 @@
 import React from "react";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
+import { OutboundLink } from "gatsby-plugin-google-gtag"
+
 
 export default (props) => (
   <nav className="navigation">
@@ -11,21 +13,13 @@ export default (props) => (
       About
     </a>
 
-    <a href="/projects" className="font-medium">
+    <OutboundLink href="https://portfolio.edwardsmoses.com/#projects" className="font-medium" target="_blank">
       Projects
-    </a>
-    <a href="mailto:hi@edwardsmoses.com" className="font-medium">
-      Contact
-    </a>
+    </OutboundLink>
 
-    <button
-      onClick={() => {
-        window.open("https://calendly.com/edwardsmoses/30min", "_blank");
-        window.gtag("book_call", "click");
-      }}
-      className="inline-flex justify-center rounded-sm text-sm font-semibold py-2 px-4 text-white bg-app-brand -my-2.5 ml-5"
-    >
-      Book a call
-    </button>
+    <OutboundLink href="https://calendly.com/edwardsmoses/30min" target="_blank" className="inline-flex justify-center rounded-sm text-sm font-semibold py-2 px-4 !text-white bg-app-brand -my-2.5 ml-5">
+      Let's chat
+    </OutboundLink>
+
   </nav>
 );
