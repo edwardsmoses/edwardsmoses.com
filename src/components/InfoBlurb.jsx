@@ -1,4 +1,6 @@
 import React from "react";
+import { OutboundLink } from "gatsby-plugin-google-gtag"
+import { Link } from "gatsby";
 
 export const InfoBlurb = () => {
   return (
@@ -30,12 +32,17 @@ export const InfoBlurb = () => {
                       Web & Mobile — React & React Native Consultant
                     </h1>
                     <p className="mt-6 text-base text-blue-900 info-blurb-info-about-me">
-                      I'm Edwards, based in Lagos, Nigeria. <br /> 
+                      I'm Edwards, based in Lagos, Nigeria. <br />
                       <b>Freelancer Software Developer</b> — collaborating with teams to craft extraordinary products.
-                      <br />
-                      From conception through to completion, I find immense joy in witnessing the evolution of an idea into a fully realized product in the hands of users.
                       <br /> <br />
-                      Ready to bring your ideas to life? Let's connect
+                      From conception through to completion, I find immense joy in witnessing the evolution of an idea into a fully realized product in the hands of users.
+
+                      Check out my <OutboundLink href="https://portfolio.edwardsmoses.com/#projects" target="_blank" className="underline underline-offset-4">projects</OutboundLink> and <Link href="/articles" className="underline underline-offset-4">articles</Link> to see what I've been up to lately.
+                      <br /> <br />
+                      Ready to bring your ideas to life? Let's{' '}
+                      <OutboundLink href="https://calendly.com/edwardsmoses/30min" target="_blank" className="underline underline-offset-4">
+                        connect
+                      </OutboundLink>
                     </p>
 
                     <div className="mt-5">
