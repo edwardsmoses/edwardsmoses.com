@@ -41,7 +41,7 @@ export const InfoBlurb = () => {
                       <br /> <br />
                       Ready to bring your ideas to life? Let's{' '}
                       <OutboundLink href="https://calendly.com/edwardsmoses/30min" target="_blank" className="underline underline-offset-4">
-                        connect
+                        connect.
                       </OutboundLink>
                     </p>
 
