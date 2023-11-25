@@ -54,6 +54,7 @@ export const pageQuery = graphql`
             path
             title
             thumbnail
+            metaDescription
             externalLink
           }
         }

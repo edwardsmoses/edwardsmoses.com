@@ -15,8 +15,9 @@ const PostLinkImage = ({ post }) => {
 
 const PostLinkHeader = ({ post }) => {
   return (
-    <p className="block mt-2">
-      <p className="text-xl font-semibold">{post.frontmatter.title}</p>
+    <p className="block mt-2 space-y-2">
+      <h2 className="text-xl font-semibold">{post.frontmatter.title}</h2>
+      {post.frontmatter.metaDescription && <p className="text-sm truncate text-ellipsis text-gray-700">{post.frontmatter.metaDescription}</p>}
     </p>
   );
 };
@@ -52,7 +53,7 @@ const PostLink = ({ post }) => (
         </div>
         <div className="mt-3 flex items-center">
           <div>
-            <div className="flex space-x-1 text-sm text-gray-500">
+            <div className="flex space-x-1 text-xs text-gray-400">
               <time dateTime="{post.frontmatter.date}"> {post.frontmatter.date} </time>
             </div>
           </div>
