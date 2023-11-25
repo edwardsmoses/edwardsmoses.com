@@ -28,7 +28,7 @@ const AboutPage = ({ data }) => {
               <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
                 I’m Edwards Moses. <br />I live in the beating heart of Lagos, Nigeria — where I build the future.
               </h1>
-              <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
+              <div className="mt-6 space-y-7 text-base text-zinc-600 dark:!text-zinc-100">
                 <p>
                   My name is Edwards Moses. I’ve spent the last decade as a software developer building great products
                   for diverse industries (eCommerce, Sporting, eLearning, Legal, Logistics, Retail, and many others).
@@ -39,7 +39,7 @@ const AboutPage = ({ data }) => {
                   into an app in the hands of the users.
                 </p>
               </div>
-              <div className="mt-6 space-y-3 text-base text-zinc-600 dark:text-zinc-400">
+              <div className="mt-6 space-y-3 text-base text-zinc-600 dark:!text-zinc-100">
               <hr />
                 <h3>Credentials Collection 🎖️</h3>
                 <ul className="list-disc list-inside text-slate-900 text-sm dark:text-app-brand-white">
