@@ -176,7 +176,7 @@ export const SEO = ({ article, articlesList }) => {
 
           // Push articles page into breadcrumb list
           itemListElement.push({
-            "@type": "AllArticles",
+            "@type": "ListItem",
             item: {
               "@id": `${siteUrl}/articles`,
               name: "All Article",
