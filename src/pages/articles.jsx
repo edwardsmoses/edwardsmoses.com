@@ -18,7 +18,7 @@ const Articles = ({
   return (
     <>
       <Layout>
-        <SEO />
+        <SEO articlesList={edges.map((edge) => edge.node.frontmatter)} />
         <Helmet>
           <title>All Articles | Edwards Moses</title>
         </Helmet>

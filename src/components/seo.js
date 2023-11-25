@@ -1,8 +1,9 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
+import moment from 'moment';
 
-export const SEO = ({ article }) => {
+export const SEO = ({ article, articlesList }) => {
   return (
     <StaticQuery
       query={graphql`
@@ -78,6 +79,7 @@ export const SEO = ({ article }) => {
         ];
 
         let schemaArticle = null;
+        let schemaArticleList = null;
 
         if (article) {
           schemaArticle = {
@@ -86,12 +88,13 @@ export const SEO = ({ article }) => {
             author: {
               "@type": "Person",
               name: author,
+              url: `${siteUrl}`,
             },
             copyrightHolder: {
               "@type": "Person",
               name: author,
             },
-            copyrightYear: new Date().getFullYear(),
+            copyrightYear: moment(article.date).year(),
             creator: {
               "@type": "Person",
               name: author,
@@ -104,9 +107,9 @@ export const SEO = ({ article }) => {
                 url: `${siteUrl}/icons/edwards_moses_avatar.png`,
               },
             },
-            datePublished: article.date,
-            dateModified: article.date,
-            description: article.description,
+            datePublished:moment(article.date).format('YYYY-MM-DDTHH:mm:ssZ'),
+            dateModified: moment(article.date).format('YYYY-MM-DDTHH:mm:ssZ'),
+            description: article.description || article.metaDescription,
             headline: article.title,
             inLanguage: "en-us",
             url: `${siteUrl}/${article.path}`,
@@ -124,6 +127,59 @@ export const SEO = ({ article }) => {
             item: {
               "@id": `${siteUrl}/${article.path}`,
               name: article.title,
+            },
+            position: 2,
+          });
+        }
+
+        if (articlesList) {
+          schemaArticleList = articlesList.map((artC) => {
+            return {
+              "@context": "http://schema.org",
+              "@type": "Article",
+              author: {
+                "@type": "Person",
+                name: author,
+                url: `${siteUrl}`,
+              },
+              copyrightHolder: {
+                "@type": "Person",
+                name: author,
+              },
+              copyrightYear: moment(artC.date).year(),
+              creator: {
+                "@type": "Person",
+                name: author,
+              },
+              publisher: {
+                "@type": "Person",
+                name: author,
+                logo: {
+                  "@type": "ImageObject",
+                  url: `${siteUrl}/icons/edwards_moses_avatar.png`,
+                },
+              },
+              datePublished: moment(artC.date).format('YYYY-MM-DDTHH:mm:ssZ'),
+              dateModified: moment(artC.date).format('YYYY-MM-DDTHH:mm:ssZ'),
+              description: artC.description || artC.metaDescription,
+              headline: artC.title,
+              inLanguage: "en-us",
+              url: `${siteUrl}/${artC.path}`,
+              name: artC.title,
+              image: {
+                "@type": "ImageObject",
+                url: `${siteUrl}/${artC.thumbnail}`,
+              },
+              mainEntityOfPage: `${siteUrl}/${artC.path}`,
+            };
+          });
+
+          // Push articles page into breadcrumb list
+          itemListElement.push({
+            "@type": "AllArticles",
+            item: {
+              "@id": `${siteUrl}/articles`,
+              name: "All Article",
             },
             position: 2,
           });
@@ -156,6 +212,7 @@ export const SEO = ({ article }) => {
 
               {!article && <script type="application/ld+json">{JSON.stringify(schemaOrgWebPage)}</script>}
               {article && <script type="application/ld+json">{JSON.stringify(schemaArticle)}</script>}
+              {articlesList && <script type="application/ld+json">{JSON.stringify(schemaArticleList)}</script>}
               <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
             </Helmet>
           </>
