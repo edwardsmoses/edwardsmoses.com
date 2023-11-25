@@ -193,7 +193,18 @@ const Footer = () => {
             </svg>
           </a>
 
-          <ThemeChanger />
+          <a
+            href="https://www.duolingo.com/profile/edwardsmoses"
+            target="_blank"
+            className="text-gray-400 dark:text-white hover:text-gray-500"
+          >
+            <span className="sr-only">Duolingo</span>
+
+            
+            <img src="/assets/duolingo.svg" alt="" className="h-6 w-6" />
+          </a>
+
+
         </div>
         <div className="mt-8 md:mt-0 md:order-2">
           <OutboundLink
@@ -204,7 +215,8 @@ const Footer = () => {
             <p className="text-base font-light text-center text-gray-400">View Source</p>
           </OutboundLink>
         </div>
-        <div className="mt-8 md:mt-0 md:order-1">
+        <div className="mt-8 md:mt-0 md:order-1 flex flex-row space-x-3">
+        <ThemeChanger />
           <p className="text-base text-center text-gray-400">
             Edwards Moses <span>©</span> {new Date().getFullYear()}
           </p>
