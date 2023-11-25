@@ -3,8 +3,23 @@ import Helmet from "react-helmet";
 import { SEO } from "../components/seo";
 import Layout from "../components/layout";
 import { graphql } from "gatsby";
+import moment from "moment";
+
+import Stories from "react-insta-stories";
+import { STORIES_DATA } from "../utils/stories";
 
 const AboutPage = ({ data }) => {
+  const stories = STORIES_DATA.map((story) => {
+    return {
+      url: story.url,
+      duration: 5000,
+      header: {
+        heading: story.heading,
+        subheading: moment(new Date(story.dateAdded * 1000)).fromNow(),
+      },
+    };
+  });
+
   return (
     <Layout>
       <SEO />
@@ -40,31 +55,55 @@ const AboutPage = ({ data }) => {
                 </p>
               </div>
               <div className="mt-6 space-y-3 text-base text-zinc-600 dark:!text-zinc-100">
-              <hr />
+                <hr />
                 <h3>Credentials Collection 🎖️</h3>
                 <ul className="list-disc list-inside text-slate-900 text-sm dark:text-app-brand-white">
-                  <li>Google Cloud Certified Professional Cloud Developer - <a className="text-blue-500" href="https://google.accredible.com/cfd9602d-5a55-4631-bcad-d2600224d38b" target="_blank">Credential</a></li>
-                  <li>Stripe Certified Professional Developer - <a className="text-blue-500" href="https://stripecertifications.credential.net/a6e25aca-1787-47c6-95ff-ac12b4ff3cb4#gs.6h3r5a" target="_blank">Credential</a></li>
-                  <li>McKinsey Forward Program - <a className="text-blue-500" href="https://www.credly.com/badges/1b2ef4b5-29f3-4d8f-b5b4-f70691d51cdd/linked_in_profile" target="_blank">Credential</a></li>
+                  <li>
+                    Google Cloud Certified Professional Cloud Developer -{" "}
+                    <a
+                      className="text-blue-500"
+                      href="https://google.accredible.com/cfd9602d-5a55-4631-bcad-d2600224d38b"
+                      target="_blank"
+                    >
+                      Credential
+                    </a>
+                  </li>
+                  <li>
+                    Stripe Certified Professional Developer -{" "}
+                    <a
+                      className="text-blue-500"
+                      href="https://stripecertifications.credential.net/a6e25aca-1787-47c6-95ff-ac12b4ff3cb4#gs.6h3r5a"
+                      target="_blank"
+                    >
+                      Credential
+                    </a>
+                  </li>
+                  <li>
+                    McKinsey Forward Program -{" "}
+                    <a
+                      className="text-blue-500"
+                      href="https://www.credly.com/badges/1b2ef4b5-29f3-4d8f-b5b4-f70691d51cdd/linked_in_profile"
+                      target="_blank"
+                    >
+                      Credential
+                    </a>
+                  </li>
                 </ul>
               </div>
 
-<div className="mt-6 space-y-3 text-base text-zinc-600  dark:!text-zinc-100">
-<h3>Stories</h3>
-<ul>
-  <li>
-    <open-stories src="./feeds/good-bear-min.json"></open-stories>
-  </li>
-</ul>
-
-</div>
-
+              <div className="mt-6 space-y-3 text-base text-zinc-600  dark:!text-zinc-100">
+                <hr />
+                <h3>Stories</h3>
+                <Stories stories={stories}
+                
+                 loop keyboardNavigation />
+              </div>
             </div>
             <div className="lg:pl-20">
               <ul role="list">
                 <li className="flex">
                   <a
-                    className="group flex text-sm font-medium text-zinc-800 transition text-gray-400 dark:text-white hover:text-gray-500"
+                    className="group flex text-sm font-medium text-zinc-800 transition dark:text-white hover:text-gray-500"
                     href="https://twitter.com/atedwardsmoses"
                     target="_blank"
                   >
@@ -82,7 +121,7 @@ const AboutPage = ({ data }) => {
 
                 <li className="mt-4 flex">
                   <a
-                    className="group flex text-sm font-medium text-zinc-800 transition text-gray-400 dark:text-white hover:text-gray-500"
+                    className="group flex text-sm font-medium text-zinc-800 transition dark:text-white hover:text-gray-500"
                     href="https://github.com/edwardsmoses"
                     target="_blank"
                   >
@@ -103,7 +142,7 @@ const AboutPage = ({ data }) => {
                 </li>
                 <li className="mt-4 flex">
                   <a
-                    className="group flex text-sm font-medium text-zinc-800 transition text-gray-400 dark:text-white hover:text-gray-500"
+                    className="group flex text-sm font-medium text-zinc-800 transition  dark:text-white hover:text-gray-500"
                     href="https://www.linkedin.com/in/edwards-moses/"
                     target="_blank"
                   >
@@ -116,7 +155,7 @@ const AboutPage = ({ data }) => {
 
                 <li className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40 flex">
                   <a
-                    className="group flex text-sm font-medium text-zinc-800 transition text-gray-400 dark:text-white hover:text-gray-500"
+                    className="group flex text-sm font-medium text-zinc-800 transition dark:text-white hover:text-gray-500"
                     href="mailto:hi@edwardsmoses.com"
                   >
                     <svg
