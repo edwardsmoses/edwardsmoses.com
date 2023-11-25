@@ -1,11 +1,12 @@
 import React from "react";
 import ThemeChanger from "./themeChanger";
+import { OutboundLink } from "gatsby-plugin-google-gtag";
 
 const Footer = () => {
   return (
     <footer className="site-footer">
-      <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
-        <div className="flex justify-center space-x-4 md:order-2">
+      <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 md:flex md:items-center md:justify-evenly lg:px-8">
+        <div className="flex justify-center space-x-4 md:order-3">
           <a
             href="https://www.linkedin.com/in/edwards-moses/"
             target="_blank"
@@ -193,6 +194,15 @@ const Footer = () => {
           </a>
 
           <ThemeChanger />
+        </div>
+        <div className="mt-8 md:mt-0 md:order-2">
+          <OutboundLink
+            href="https://github.com/edwardsmoses/edwardsmoses.com"
+            target="_blank"
+            className="underline underline-offset-4"
+          >
+            <p className="text-base font-light text-center text-gray-400">View Source</p>
+          </OutboundLink>
         </div>
         <div className="mt-8 md:mt-0 md:order-1">
           <p className="text-base text-center text-gray-400">
