@@ -48,6 +48,17 @@ const AboutPage = ({ data }) => {
                   <li>McKinsey Forward Program - <a className="text-blue-500" href="https://www.credly.com/badges/1b2ef4b5-29f3-4d8f-b5b4-f70691d51cdd/linked_in_profile" target="_blank">Credential</a></li>
                 </ul>
               </div>
+
+<div className="mt-6 space-y-3 text-base text-zinc-600  dark:!text-zinc-100">
+<h3>Stories</h3>
+<ul>
+  <li>
+    <open-stories src="./feeds/good-bear-min.json"></open-stories>
+  </li>
+</ul>
+
+</div>
+
             </div>
             <div className="lg:pl-20">
               <ul role="list">
