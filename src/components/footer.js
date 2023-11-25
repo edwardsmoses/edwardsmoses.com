@@ -47,7 +47,7 @@ const Footer = () => {
           </a>
 
           <a
-            href="https://www.cloudskillsboost.google/public_profiles/3d59bd2b-25b6-4cf2-8c8e-82ec5030f107"
+            href="https://google.accredible.com/cfd9602d-5a55-4631-bcad-d2600224d38b"
             target="_blank"
             className="text-gray-400 dark:text-white hover:text-gray-500"
           >

@@ -42,7 +42,7 @@ const AboutPage = ({ data }) => {
               <div className="mt-6 space-y-3 text-base text-zinc-600 dark:text-zinc-400">
               <hr />
                 <h3>Credentials Collection 🎖️</h3>
-                <ul className="list-disc list-inside text-slate-900 text-sm">
+                <ul className="list-disc list-inside text-slate-900 text-sm dark:text-app-brand-white">
                   <li>Google Cloud Certified Professional Cloud Developer - <a className="text-blue-500" href="https://google.accredible.com/cfd9602d-5a55-4631-bcad-d2600224d38b" target="_blank">Credential</a></li>
                   <li>Stripe Certified Professional Developer - <a className="text-blue-500" href="https://stripecertifications.credential.net/a6e25aca-1787-47c6-95ff-ac12b4ff3cb4#gs.6h3r5a" target="_blank">Credential</a></li>
                   <li>McKinsey Forward Program - <a className="text-blue-500" href="https://www.credly.com/badges/1b2ef4b5-29f3-4d8f-b5b4-f70691d51cdd/linked_in_profile" target="_blank">Credential</a></li>
