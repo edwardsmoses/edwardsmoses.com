@@ -8,7 +8,7 @@ thumbnail: https://miro.medium.com/max/1400/1*oMC83-7fB27k1tTMxDfRaQ.png
 ---
 ### Setting Git Alias - How?
 
-Git aliases are stored in the user's configuration in the `~/.gitconfig` file. To add the alias, open the file and add/edit the `[alias]`  section. 
+Git aliases are stored in the user's configuration in the `~/.gitconfig` file (for Windows, `C:\Users\<user-name>\.gitconfig`. To add the alias, open the file and add/edit the `[alias]`  section. 
 
 ### Here is the list of all aliases I use day-to-day: 
 ```
