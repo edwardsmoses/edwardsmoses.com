@@ -2,10 +2,22 @@ import React from "react";
 import { OutboundLink } from "gatsby-plugin-google-gtag";
 import { Link } from "gatsby";
 
-import { useMixpanel } from "gatsby-plugin-mixpanel";
+import { useABTest } from "../hooks/useABTest";
 
 export default (props) => {
-  const mixpanel = useMixpanel();
+  const { copyVersion, handleTrackEvent } = useABTest({
+    "versionA": "clickedLetsChat",
+    "versionB": "clickedHireMe",
+    "versionC": "clickedScheduleCall",
+    "versionD": "clickedLetsWorkTogether",
+  });
+
+  const copy = {
+    "versionA": "Let's chat",
+    "versionB": "Hire me",
+    "versionC": "Schedule a call",
+    "versionD": "Let's work together",
+  };
 
   return (
     <nav className="navigation">
@@ -35,13 +47,11 @@ export default (props) => {
 
       <OutboundLink
         href="https://calendly.com/edwardsmoses/30min"
-        onClick={() => {
-          mixpanel.track("clickedLetsChat");
-        }}
+        onClick={handleTrackEvent}
         target="_blank"
         className="text-xs whitespace-nowrap lg:text-base inline-flex justify-center rounded-sm font-semibold py-2 px-4 !text-app-brand-white bg-app-brand dark:bg-app-brand-white dark:!text-black -my-2.5 ml-5"
       >
-        Let's chat
+        {copy[copyVersion]}
       </OutboundLink>
     </nav>
   );
