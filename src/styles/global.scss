@@ -488,6 +488,22 @@ body.light {
   width: 110%;
 }
 
+
+.gatsby-remark-prismjs-copy-button{
+  border-radius: 0.375rem; 
+  margin-right: 15px;  
+  background-color: #333333;
+  cursor: pointer;
+  position: absolute;
+  top: -15px;
+  font-family: "Inter";
+  font-weight: 600;
+}
+
+.gatsby-remark-prismjs-copy-button:hover{
+  background-color: #666666;
+}
+
 /* Portrait and Landscape */
 @media only screen and (min-width: 768px) {
   .grids {
