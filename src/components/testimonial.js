@@ -1,7 +1,8 @@
 import React from "react";
-import { OutboundLink } from "gatsby-plugin-google-gtag"
+import { OutboundLink } from "gatsby-plugin-google-gtag";
 
 import "./css/testimonial.css";
+import { useABTest } from "../hooks/useABTest";
 
 const testimonials = [
   [
@@ -67,6 +68,22 @@ const testimonials = [
 ];
 
 export const Testimonials = () => {
+  const buttonCopy = {
+    "versionOriginal": "Let's discuss your project today",
+    "versionA": "Let's work together today",
+    "versionB": "Hire me today! Let's collaborate",
+    "versionC": "Let's schedule a call",
+    "versionD": "Schedule your free consultation today",
+  };
+
+  const { copyVersion, handleTrackEvent } = useABTest({
+    "versionOriginal": "onTestimonialButtonClickedOriginal",
+    "versionA": "onTestimonialButtonClickedLetsWorkTogetherToday",
+    "versionB": "onTestimonialButtonClickedHireMeToday",
+    "versionC": "onTestimonialButtonClickedLetsScheduleACall",
+    "versionD": "onTestimonialButtonClickedScheduleYourFreeConsultationToday",
+  });
+
   return (
     <>
       <section className="relative py-32 mt-8 overflow-hidden bg-testimonial-brand">
@@ -108,22 +125,23 @@ export const Testimonials = () => {
           </ul>
           <div>
             <div className="flex justify-center mb-5 mt-14">
-              <div className="mx-auto flex flex-col space-y-2 px-3 md:px-0">
-
-                <OutboundLink href="https://calendly.com/edwardsmoses/30min"
+              <div className="flex flex-col px-3 mx-auto space-y-2 md:px-0">
+                <OutboundLink
+                  href="https://calendly.com/edwardsmoses/30min"
                   target="blank"
-                  className="flex items-center justify-center px-8 py-3 text-xl font-medium bg-white border border-transparent rounded-md md:py-4 md:text-lg md:px-10 min-w-min hover:no-underline hover:opacity-80 dark:text-black">
-                  Let's discuss your project today {"->"}
+                  onClick={handleTrackEvent}
+                  className="flex items-center justify-center px-8 py-3 text-xl font-medium bg-white border border-transparent rounded-md md:py-4 md:text-lg md:px-10 min-w-min hover:no-underline hover:opacity-80 dark:text-black"
+                >
+                  {buttonCopy[copyVersion]} {"->"}
                 </OutboundLink>
 
                 <OutboundLink
                   href="https://portfolio.edwardsmoses.com/#projects"
                   target="blank"
-                  className="flex items-start justify-start md:items-center md:justify-center text-base md:text-xl min-w-min hover:no-underline hover:opacity-80 mx-2 md:mx-10 text-app-brand-white tracking-tightest border-b border-white">
+                  className="flex items-start justify-start mx-2 text-base border-b border-white md:items-center md:justify-center md:text-xl min-w-min hover:no-underline hover:opacity-80 md:mx-10 text-app-brand-white tracking-tightest"
+                >
                   or check out the projects I've been a part of
                 </OutboundLink>
-
-
               </div>
             </div>
           </div>

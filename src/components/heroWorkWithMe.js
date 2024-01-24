@@ -5,12 +5,12 @@ export const Hero_WorkWithMe = () => {
   const hiCopy = {
     "versionOriginal": "Hi there! 👋 Welcome — I'm Edwards",
     "versionA": "Hi there! 👋 Welcome — I'm Edwards. I help companies build and design software.",
-    "versionB": "Hi there! 👋 Welcome — I'm Edwards. Let's work together today",
+    "versionB": "Hi there! 👋 Welcome — I'm Edwards. Let's work together today!",
     "versionC": "Hi there! 👋 Welcome — I'm Edwards. I'm available for hire!",
-    "versionD": "👋 Hi, I'm Edwards, a Certified Google Cloud Professional Cloud Developer. Let's work together",
-    "versionE": "👋 Hi, I'm Edwards, a Certified Stripe Professional Developer. Let's work together",
+    "versionD": "👋 Hi, I'm Edwards, a Certified Google Cloud Professional Cloud Developer. Let's work together!",
+    "versionE": "👋 Hi, I'm Edwards, a Certified Stripe Professional Developer. Let's work together!",
     "versionF":
-      "👋 Hi there! Welcome, I'm Edwards, a Certified Google and Stripe Professional Developer. Let's work together",
+      "👋 Hi there! Welcome, I'm Edwards, a Certified Google and Stripe Professional Developer. Let's work together!",
   };
 
   const { copyVersion: hiCopyVersion, handleTrackEvent: handleTrackEventHiCopy } = useABTest({
