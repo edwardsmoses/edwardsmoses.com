@@ -7,8 +7,11 @@ import moment from "moment";
 
 import Stories from "react-insta-stories";
 import { STORIES_DATA } from "../utils/stories";
+import { useMixpanel } from "gatsby-plugin-mixpanel";
 
 const AboutPage = ({ data }) => {
+  const mixpanel = useMixpanel();
+
   const stories = STORIES_DATA.map((story) => {
     return {
       url: story.url,
@@ -94,7 +97,17 @@ const AboutPage = ({ data }) => {
               <div className="mt-6 space-y-3 text-base text-zinc-600  dark:!text-zinc-100">
                 <hr />
                 <h3>Stories</h3>
-                <Stories stories={stories} loop keyboardNavigation />
+                <Stories
+                  stories={stories}
+                  loop
+                  keyboardNavigation
+                  onStoryStart={() => {
+                    mixpanel.track("viewedStory");
+                  }}
+                  onStoryEnd={() => {
+                    mixpanel.track("viewedStoryEnd");
+                  }}
+                />
               </div>
             </div>
             <div className="lg:pl-20">
