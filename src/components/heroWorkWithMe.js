@@ -28,8 +28,8 @@ export const Hero_WorkWithMe = () => {
     "versionA": "Book a call. Let's chat!",
     "versionB": "Book a call. Let's work together!",
     "versionC": "Book a call. I'm available for hire!",
-    "versionD": "Book a call. Let's learn about your project!",
-    "versionE": "Hire me today!",
+    "versionD": "Book a call. Let's explore your project!",
+    "versionE": "Hire me today! Let's collaborate!",
   };
 
   const { copyVersion: bookButtonCopyVersion, handleTrackEvent: handleTrackEventBookButtonCopy } = useABTest({
@@ -39,6 +39,27 @@ export const Hero_WorkWithMe = () => {
     "versionC": "onBookCallButtonClickedHireMe",
     "versionD": "onBookCallButtonClickedLetsLearnAboutYourProject",
     "versionE": "onBookCallButtonClickedHireMeToday",
+  });
+
+  const excerptCopy = {
+    "versionOriginal":
+      "Whether you're taking your first steps into building your app or you need to improve your existing application, I can help.",
+    "versionA":
+      "With a rich experience of nearly a decade in the field, I'm excited to announce that I currently have openings in my schedule to welcome new projects and clients.",
+    "versionB":
+      "Interested in discussing your project? I'd love to hear about it and explore how we can work together. Feel free to reach out and book a call with me.",
+    "versionC":
+      "I'm available for hire! Interested in discussing your project? I'd love to hear about it and explore how we can work together. Feel free to reach out and book a call with me.",
+    "versionD":
+      "Looking to elevate your existing app or kickstart a new project? I'd love to learn more about your project. Feel free to reach out and book a call with me.",
+  };
+
+  const { copyVersion: excerptCopyVersion, handleTrackEvent: handleTrackEventExcerptCopy } = useABTest({
+    "versionOriginal": "onExcerptOriginal",
+    "versionA": "onExcerptWithRichExperience",
+    "versionB": "onExcerptInterestedInDiscussingYourProject",
+    "versionC": "onExcerptAvailableForHire",
+    "versionD": "onExcerptLookingToElevateYourExistingApp",
   });
 
   return (
@@ -55,8 +76,8 @@ export const Hero_WorkWithMe = () => {
         software.
       </h1>
       <p className="max-w-2xl mx-auto text-xl tracking-tight prose dark:prose-invert">
-        Whether you're taking your first steps into building your app or you need to improve your existing application,
-        I can help. <br /> <br />
+        {excerptCopy[excerptCopyVersion]}
+        <br /> <br />
         I'm a freelance <b>React/React Native developer</b> and <b>a web & mobile development consultant</b> who works
         with companies in United States, Europe, and around the world to build and improve their web & mobile presence
         on the internet, Android & iOS. I <span>design MVPs</span>, <span>build software</span>,{" "}
@@ -71,6 +92,7 @@ export const Hero_WorkWithMe = () => {
             onClick={() => {
               handleTrackEventBookButtonCopy();
               handleTrackEventHiCopy();
+              handleTrackEventExcerptCopy();
             }}
             className="flex items-center justify-center w-full px-8 py-3 text-xl font-medium border border-transparent rounded-md bg-app-brand text-app-brand-white md:py-4 md:text-lg md:px-10 hover:no-underline hover:opacity-80"
           >
