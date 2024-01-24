@@ -2,21 +2,12 @@ import React from "react";
 import { OutboundLink } from "gatsby-plugin-google-gtag";
 import { Link } from "gatsby";
 import { useABTest } from "../hooks/useABTest";
+import { WebsiteCopy } from "../copy/copy-constants";
 
 export const InfoBlurb = () => {
-  const { copyVersion, handleTrackEvent } = useABTest({
-    "versionA": "onArticleFooterClickedLetsConnect",
-    "versionB": "onArticleFooterClickedLetsChat",
-    "versionC": "onArticleFooterClickedHireMe",
-    "versionD": "onArticleFooterClickedLetsWorkTogether",
-  });
-
-  const copy = {
-    "versionA": "Let's connect!",
-    "versionB": "Let's chat!",
-    "versionC": "Hire me!",
-    "versionD": "Let's work together!",
-  };
+  
+  const copy = WebsiteCopy.InfoBlurbButton.text_copies;
+  const { copyVersion, handleTrackEvent } = useABTest(WebsiteCopy.InfoBlurbButton.tracked_events);
 
   return (
     <>

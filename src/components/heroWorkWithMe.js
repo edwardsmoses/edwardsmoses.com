@@ -1,66 +1,22 @@
 import React from "react";
 import { useABTest } from "../hooks/useABTest";
+import { WebsiteCopy } from "../copy/copy-constants";
 
 export const Hero_WorkWithMe = () => {
-  const hiCopy = {
-    "versionOriginal": "Hi there! 👋 Welcome — I'm Edwards",
-    "versionA": "Hi there! 👋 Welcome — I'm Edwards. I help companies build and design software.",
-    "versionB": "Hi there! 👋 Welcome — I'm Edwards. Let's work together today!",
-    "versionC": "Hi there! 👋 Welcome — I'm Edwards. I'm available for hire!",
-    "versionD": "👋 Hi, I'm Edwards, a Certified Google Cloud Professional Cloud Developer. Let's work together!",
-    "versionE": "👋 Hi, I'm Edwards, a Certified Stripe Professional Developer. Let's work together!",
-    "versionF":
-      "👋 Hi there! Welcome, I'm Edwards, a Certified Google and Stripe Professional Developer. Let's work together!",
-  };
+  const hiCopy = WebsiteCopy.HiWelcome.text_copies;
+  const { copyVersion: hiCopyVersion, handleTrackEvent: handleTrackEventHiCopy } = useABTest(
+    WebsiteCopy.HiWelcome.tracked_events
+  );
 
-  const { copyVersion: hiCopyVersion, handleTrackEvent: handleTrackEventHiCopy } = useABTest({
-    "versionOriginal": "onPageLoadHiOriginal",
-    "versionA": "onPageLoadHiThere",
-    "versionB": "onPageLoadHiThereLetsWorkTogether",
-    "versionC": "onPageLoadHiThereHireMe",
-    "versionD": "onPageLoadHiThereGoogleCloud",
-    "versionE": "onPageLoadHiThereStripe",
-    "versionF": "onPageLoadHiThereGoogleCloudAndStripe",
-  });
+  const bookButtonCopy = WebsiteCopy.BookButton.text_copies;
+  const { copyVersion: bookButtonCopyVersion, handleTrackEvent: handleTrackEventBookButtonCopy } = useABTest(
+    WebsiteCopy.BookButton.tracked_events
+  );
 
-  const bookButtonCopy = {
-    "versionOriginal": "Book a call. I love to chat!",
-    "versionA": "Book a call. Let's chat!",
-    "versionB": "Book a call. Let's work together!",
-    "versionC": "Book a call. I'm available for hire!",
-    "versionD": "Book a call. Let's explore your project!",
-    "versionE": "Hire me today! Let's collaborate!",
-  };
-
-  const { copyVersion: bookButtonCopyVersion, handleTrackEvent: handleTrackEventBookButtonCopy } = useABTest({
-    "versionOriginal": "onBookCallButtonClickedOriginal",
-    "versionA": "onBookCallButtonClickedLetsChat",
-    "versionB": "onBookCallButtonClickedLetsWorkTogether",
-    "versionC": "onBookCallButtonClickedHireMe",
-    "versionD": "onBookCallButtonClickedLetsLearnAboutYourProject",
-    "versionE": "onBookCallButtonClickedHireMeToday",
-  });
-
-  const excerptCopy = {
-    "versionOriginal":
-      "Whether you're taking your first steps into building your app or you need to improve your existing application, I can help.",
-    "versionA":
-      "With a rich experience of nearly a decade in the field, I'm excited to announce that I currently have openings in my schedule to welcome new projects and clients.",
-    "versionB":
-      "Interested in discussing your project? I'd love to hear about it and explore how we can work together. Feel free to reach out and book a call with me.",
-    "versionC":
-      "I'm available for hire! Interested in discussing your project? I'd love to hear about it and explore how we can work together. Feel free to reach out and book a call with me.",
-    "versionD":
-      "Looking to elevate your existing app or kickstart a new project? I'd love to learn more about your project. Feel free to reach out and book a call with me.",
-  };
-
-  const { copyVersion: excerptCopyVersion, handleTrackEvent: handleTrackEventExcerptCopy } = useABTest({
-    "versionOriginal": "onExcerptOriginal",
-    "versionA": "onExcerptWithRichExperience",
-    "versionB": "onExcerptInterestedInDiscussingYourProject",
-    "versionC": "onExcerptAvailableForHire",
-    "versionD": "onExcerptLookingToElevateYourExistingApp",
-  });
+  const excerptCopy = WebsiteCopy.HeroExcerpt.text_copies;
+  const { copyVersion: excerptCopyVersion, handleTrackEvent: handleTrackEventExcerptCopy } = useABTest(
+    WebsiteCopy.HeroExcerpt.tracked_events
+  );
 
   return (
     <div className="px-4 pb-16 mx-auto space-y-4 text-center pt-7 max-w-7xl sm:px-6 lg:px-8">
@@ -75,14 +31,11 @@ export const Hero_WorkWithMe = () => {
         </span>{" "}
         software.
       </h1>
-      <p className="max-w-2xl mx-auto text-xl tracking-tight prose dark:prose-invert">
-        {excerptCopy[excerptCopyVersion]}
+      <p className="max-w-3xl mx-auto text-xl tracking-tight prose dark:prose-invert">
+        I'm a freelance <b>developer</b> and <b>a web & mobile development consultant</b> who works with companies
+        around the world to build and improve their web & mobile presence on the internet, <b>Android</b> & <b>iOS</b>.
         <br /> <br />
-        I'm a freelance <b>React/React Native developer</b> and <b>a web & mobile development consultant</b> who works
-        with companies in United States, Europe, and around the world to build and improve their web & mobile presence
-        on the internet, Android & iOS. I <span>design MVPs</span>, <span>build software</span>,{" "}
-        <span>automate processes</span> to bring <span>new products to market</span> and{" "}
-        <span>achieve your business goals</span>.
+        {excerptCopy[excerptCopyVersion]}
       </p>
       <div className="flex flex-col justify-center mt-10 space-x-0 space-y-3 md:flex-row md:space-x-3 md:space-y-0">
         <div className="">

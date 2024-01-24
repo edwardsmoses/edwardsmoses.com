@@ -3,6 +3,7 @@ import { OutboundLink } from "gatsby-plugin-google-gtag";
 
 import "./css/testimonial.css";
 import { useABTest } from "../hooks/useABTest";
+import { WebsiteCopy } from "../copy/copy-constants";
 
 const testimonials = [
   [
@@ -68,21 +69,8 @@ const testimonials = [
 ];
 
 export const Testimonials = () => {
-  const buttonCopy = {
-    "versionOriginal": "Let's discuss your project today",
-    "versionA": "Let's work together today",
-    "versionB": "Hire me today! Let's collaborate",
-    "versionC": "Let's schedule a call",
-    "versionD": "Schedule your free consultation today",
-  };
-
-  const { copyVersion, handleTrackEvent } = useABTest({
-    "versionOriginal": "onTestimonialButtonClickedOriginal",
-    "versionA": "onTestimonialButtonClickedLetsWorkTogetherToday",
-    "versionB": "onTestimonialButtonClickedHireMeToday",
-    "versionC": "onTestimonialButtonClickedLetsScheduleACall",
-    "versionD": "onTestimonialButtonClickedScheduleYourFreeConsultationToday",
-  });
+  const buttonCopy = WebsiteCopy.TestimonialCallToAction.text_copies;
+  const { copyVersion, handleTrackEvent } = useABTest(WebsiteCopy.TestimonialCallToAction.tracked_events);
 
   return (
     <>

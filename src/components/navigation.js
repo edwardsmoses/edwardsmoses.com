@@ -3,21 +3,14 @@ import { OutboundLink } from "gatsby-plugin-google-gtag";
 import { Link } from "gatsby";
 
 import { useABTest } from "../hooks/useABTest";
+import { WebsiteCopy } from "../copy/copy-constants";
+import { useMixpanel } from "gatsby-plugin-mixpanel";
 
-export default (props) => {
-  const { copyVersion, handleTrackEvent } = useABTest({
-    "versionA": "clickedLetsChat",
-    "versionB": "clickedHireMe",
-    "versionC": "clickedScheduleCall",
-    "versionD": "clickedLetsWorkTogether",
-  });
+export default () => {
+  const copy = WebsiteCopy.NavigationCallToAction.text_copies;
+  const { copyVersion, handleTrackEvent } = useABTest(WebsiteCopy.NavigationCallToAction.tracked_events);
 
-  const copy = {
-    "versionA": "Let's chat",
-    "versionB": "Hire me",
-    "versionC": "Schedule a call",
-    "versionD": "Let's work together",
-  };
+  const mixpanel = useMixpanel();
 
   return (
     <nav className="navigation">
@@ -38,6 +31,9 @@ export default (props) => {
       </Link>
 
       <OutboundLink
+        onClick={() => {
+          mixpanel.track("clickedMyPortfolio");
+        }}
         href="https://portfolio.edwardsmoses.com/#projects"
         className="text-xs font-medium lg:text-base whitespace-nowrap"
         target="_blank"
