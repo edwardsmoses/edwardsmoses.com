@@ -6108,6 +6108,13 @@ gatsby-plugin-manifest@^3.0.0:
     semver "^7.3.5"
     sharp "^0.29.0"
 
+gatsby-plugin-mixpanel@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-mixpanel/-/gatsby-plugin-mixpanel-4.1.0.tgz#a719c462cf869a0f659e0445decc6e7d1b6a2f4e"
+  integrity sha512-ANcCYoqFL28TuD++yVJZBUdEczk7Qdu8mNKqAjuwd2z3LNTlE3NyI6aYpVQtuELDN9GDszTKriq9TzpZr9Vbxg==
+  dependencies:
+    mixpanel-browser "^2.41.0"
+
 gatsby-plugin-netlify-cms@^5.0.0:
   version "5.15.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify-cms/-/gatsby-plugin-netlify-cms-5.15.0.tgz#17bebfaafcbd3c67d8325eb98074f9a181188582"
@@ -9684,6 +9691,11 @@ mixin-deep@^1.2.0:
   dependencies:
     for-in "^1.0.2"
     is-extendable "^1.0.1"
+
+mixpanel-browser@^2.41.0:
+  version "2.48.1"
+  resolved "https://registry.yarnpkg.com/mixpanel-browser/-/mixpanel-browser-2.48.1.tgz#0fec03d87f57fe2e72c6a4b1df5924436840ece7"
+  integrity sha512-vXTuUzZMg+ht7sRqyjtc3dUDy/81Z/H6FLFgFkUZJqKFaAqcx1JSXmOdY/2kmsxCkUdy5JN5zW9m9TMCk+rxGQ==
 
 mkdirp-classic@^0.5.2, mkdirp-classic@^0.5.3:
   version "0.5.3"

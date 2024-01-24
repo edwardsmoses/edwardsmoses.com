@@ -18,19 +18,21 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [{
-          resolve: `gatsby-remark-prismjs`,
-          options: {
-            classPrefix: "language-",
-            inlineCodeMarker: null,
-            aliases: {},
-            showLineNumbers: false,
-            noInlineHighlight: false,
+        plugins: [
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: "language-",
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: false,
+              noInlineHighlight: false,
+            },
           },
-        },
-        {
-          resolve: 'gatsby-remark-emojis',
-        }],
+          {
+            resolve: "gatsby-remark-emojis",
+          },
+        ],
       },
     },
     {
@@ -38,7 +40,7 @@ module.exports = {
       options: {
         trackingId: "UA-86119661-11",
         head: true,
-      }
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -63,9 +65,9 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-load-script',
+      resolve: "gatsby-plugin-load-script",
       options: {
-        src: '/gradient.js', 
+        src: "/gradient.js",
       },
     },
     {
@@ -73,8 +75,8 @@ module.exports = {
       options: {
         host: `https://edwardsmoses.com`,
         sitemap: `https://edwardsmoses.com/sitemap.xml`,
-        policy: [{ userAgent: '*', allow: '/', disallow: ['/confirmation', '/admin'] }]
-      }
+        policy: [{ userAgent: "*", allow: "/", disallow: ["/confirmation", "/admin"] }],
+      },
     },
     {
       resolve: `gatsby-plugin-google-gtag`,
@@ -84,7 +86,7 @@ module.exports = {
           "UA-86119661-11", // Google Analytics / GA
           "AW-10977570295", // Google Ads / Adwords / AW
           "G-KPS455BYW5", //GA4 Measurement iD
-          "5392885394" //GA4 Stream ID
+          "5392885394", //GA4 Stream ID
         ],
         // This object is used for configuration specific to this plugin
         pluginConfig: {
@@ -93,12 +95,21 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: "gatsby-plugin-mixpanel",
+      options: {
+        apiToken: "4486b11e469d4b4420462814dbdcadc6",
+        enableOnDevMode: true, 
+        pageViews: "all", 
+        trackPageViewsAs: 'Page view',
+      },
+    },
     `gatsby-plugin-netlify-cms`,
-    'gatsby-plugin-netlify',
-    'gatsby-plugin-dark-mode',
+    "gatsby-plugin-netlify",
+    "gatsby-plugin-dark-mode",
     // siteURL is a must for sitemap generation
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-postcss`, //Plugin for integrating POSTCss and Tailwind....
   ],
-}
+};
