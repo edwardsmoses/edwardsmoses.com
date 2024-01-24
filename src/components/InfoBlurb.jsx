@@ -1,8 +1,23 @@
 import React from "react";
-import { OutboundLink } from "gatsby-plugin-google-gtag"
+import { OutboundLink } from "gatsby-plugin-google-gtag";
 import { Link } from "gatsby";
+import { useABTest } from "../hooks/useABTest";
 
 export const InfoBlurb = () => {
+  const { copyVersion, handleTrackEvent } = useABTest({
+    "versionA": "onArticleFooterClickedLetsConnect",
+    "versionB": "onArticleFooterClickedLetsChat",
+    "versionC": "onArticleFooterClickedHireMe",
+    "versionD": "onArticleFooterClickedLetsWorkTogether",
+  });
+
+  const copy = {
+    "versionA": "Let's connect!",
+    "versionB": "Let's chat!",
+    "versionC": "Hire me!",
+    "versionD": "Let's work together!",
+  };
+
   return (
     <>
       <section id="info" className="my-14">
@@ -35,13 +50,29 @@ export const InfoBlurb = () => {
                       I'm Edwards, based in Lagos, Nigeria. <br />
                       <b>Freelancer Software Developer</b> — collaborating with teams to craft extraordinary products.
                       <br /> <br />
-                      From conception through to completion, I find immense joy in witnessing the evolution of an idea into a fully realized product in the hands of users.
-
-                      Check out my <OutboundLink href="https://portfolio.edwardsmoses.com/#projects" target="_blank" className="underline underline-offset-4">projects</OutboundLink> and <Link href="/articles" className="underline underline-offset-4">articles</Link> to see what I've been up to lately.
+                      From conception through to completion, I find immense joy in witnessing the evolution of an idea
+                      into a fully realized product in the hands of users. Check out my{" "}
+                      <OutboundLink
+                        href="https://portfolio.edwardsmoses.com/#projects"
+                        target="_blank"
+                        className="underline underline-offset-4"
+                      >
+                        projects
+                      </OutboundLink>{" "}
+                      and{" "}
+                      <Link href="/articles" className="underline underline-offset-4">
+                        articles
+                      </Link>{" "}
+                      to see what I've been up to lately.
                       <br /> <br />
-                      Ready to bring your ideas to life? Let's{' '}
-                      <OutboundLink href="https://calendly.com/edwardsmoses/30min" target="_blank" className="underline underline-offset-4">
-                        connect.
+                      Ready to bring your ideas to life?{" "}
+                      <OutboundLink
+                        onClick={handleTrackEvent}
+                        href="https://calendly.com/edwardsmoses/30min"
+                        target="_blank"
+                        className="underline underline-offset-4"
+                      >
+                        {copy[copyVersion]}
                       </OutboundLink>
                     </p>
 
