@@ -104,6 +104,12 @@ module.exports = {
         trackPageViewsAs: 'Page view',
       },
     },
+    {
+      resolve: 'gatsby-plugin-load-script',
+      options: {
+        src: 'https://static.mobilemonkey.com/js/mm_2859918c-e24c-4d90-8833-817ff193496e-58488972.js',
+      },
+    },
     `gatsby-plugin-netlify-cms`,
     "gatsby-plugin-netlify",
     "gatsby-plugin-dark-mode",
