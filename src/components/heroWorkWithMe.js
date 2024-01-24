@@ -1,9 +1,49 @@
 import React from "react";
+import { useABTest } from "../hooks/useABTest";
 
 export const Hero_WorkWithMe = () => {
+  const hiCopy = {
+    "versionOriginal": "Hi there! 👋 Welcome — I'm Edwards",
+    "versionA": "Hi there! 👋 Welcome — I'm Edwards. I help companies build and design software.",
+    "versionB": "Hi there! 👋 Welcome — I'm Edwards. Let's work together today",
+    "versionC": "Hi there! 👋 Welcome — I'm Edwards. I'm available for hire!",
+    "versionD": "👋 Hi, I'm Edwards, a Certified Google Cloud Professional Cloud Developer. Let's work together",
+    "versionE": "👋 Hi, I'm Edwards, a Certified Stripe Professional Developer. Let's work together",
+    "versionF":
+      "👋 Hi there! Welcome, I'm Edwards, a Certified Google and Stripe Professional Developer. Let's work together",
+  };
+
+  const { copyVersion: hiCopyVersion, handleTrackEvent: handleTrackEventHiCopy } = useABTest({
+    "versionOriginal": "onPageLoadHiOriginal",
+    "versionA": "onPageLoadHiThere",
+    "versionB": "onPageLoadHiThereLetsWorkTogether",
+    "versionC": "onPageLoadHiThereHireMe",
+    "versionD": "onPageLoadHiThereGoogleCloud",
+    "versionE": "onPageLoadHiThereStripe",
+    "versionF": "onPageLoadHiThereGoogleCloudAndStripe",
+  });
+
+  const bookButtonCopy = {
+    "versionOriginal": "Book a call. I love to chat!",
+    "versionA": "Book a call. Let's chat!",
+    "versionB": "Book a call. Let's work together!",
+    "versionC": "Book a call. I'm available for hire!",
+    "versionD": "Book a call. Let's learn about your project!",
+    "versionE": "Hire me today!",
+  };
+
+  const { copyVersion: bookButtonCopyVersion, handleTrackEvent: handleTrackEventBookButtonCopy } = useABTest({
+    "versionOriginal": "onBookCallButtonClickedOriginal",
+    "versionA": "onBookCallButtonClickedLetsChat",
+    "versionB": "onBookCallButtonClickedLetsWorkTogether",
+    "versionC": "onBookCallButtonClickedHireMe",
+    "versionD": "onBookCallButtonClickedLetsLearnAboutYourProject",
+    "versionE": "onBookCallButtonClickedHireMeToday",
+  });
+
   return (
     <div className="px-4 pb-16 mx-auto space-y-4 text-center pt-7 max-w-7xl sm:px-6 lg:px-8">
-      <p className="max-w-2xl mx-auto mt-0 mb-2 text-lg tracking-tight ">Hi there! 👋 Welcome — I'm Edwards</p>
+      <p className="max-w-2xl mx-auto mt-0 mb-2 text-lg tracking-tight ">{hiCopy[hiCopyVersion]}</p>
       <h1
         className="max-w-4xl mx-auto mt-0 text-5xl font-medium tracking-tight font-display sm:text-7xl"
         style={{ lineHeight: 1.1 }}
@@ -28,9 +68,13 @@ export const Hero_WorkWithMe = () => {
           <a
             href="https://calendly.com/edwardsmoses/30min"
             target="blank"
+            onClick={() => {
+              handleTrackEventBookButtonCopy();
+              handleTrackEventHiCopy();
+            }}
             className="flex items-center justify-center w-full px-8 py-3 text-xl font-medium border border-transparent rounded-md bg-app-brand text-app-brand-white md:py-4 md:text-lg md:px-10 hover:no-underline hover:opacity-80"
           >
-            Book a call. I love to chat!
+            {bookButtonCopy[bookButtonCopyVersion]}
           </a>
         </div>
         <div>
