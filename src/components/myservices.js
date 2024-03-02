@@ -34,7 +34,8 @@ const services = [
   },
   {
     title: "Improving your app",
-    description: "Have an app? Want to build a next set of features? Your app is under-performing? I love to help!",
+    description:
+      "Have an app? Want to build a next set of features? Let’s discuss your requirements, share ideas — I love to help!",
     icon: () => {
       return (
         <div className="flex p-2 rounded-md bg-app-brand-yellow w-min">
@@ -74,35 +75,28 @@ const services = [
     },
   },
   {
-    title: "Product Management",
+    title: "Web & Mobile Agencies",
     description:
-      "What to build, for whom and when? When building an app, these questions can be tough — so let me help you. Let's brainstorm together!",
+      "I can help pick up excess workload to get your project delivered on schedule and on budget. Let's team up to ensure your project exceeds expectations",
     icon: () => {
       return (
         <div className="flex p-2 rounded-md bg-app-brand-yellow w-min">
           <svg
-            className="self-center w-8 h-8 mx-auto text-white"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 48 48"
+            version="1.1"
+            id="Layer_1"
+            className="self-center mx-auto text-white h-7 w-7"
             fill="currentColor"
             stroke="currentColor"
+            viewBox="0 0 256 170"
           >
-            <defs></defs>
-            <g id="Layer_2" data-name="Layer 2">
-              <g id="layer_1-2" data-name="layer 1">
-                <path
-                  className="cls-1"
-                  d="M47 48H29a1 1 0 0 1-1-1v-4.81a5.84 5.84 0 0 1-3 .81 6 6 0 0 1 0-12 5.84 5.84 0 0 1 3 .81V25a1 1 0 0 1 1-1h3.81a5.87 5.87 0 0 1-.81-3 6 6 0 0 1 12 0 5.87 5.87 0 0 1-.81 3H47a1 1 0 0 1 1 1v9a1 1 0 0 1-1.8.6A4 4 0 0 0 43 33a4 4 0 1 0 3.2 6.38A1 1 0 0 1 48 40v7a1 1 0 0 1-1 1zm-17-2h16v-3.81a5.87 5.87 0 0 1-3 .81 6 6 0 0 1 0-12 5.87 5.87 0 0 1 3 .81V26h-5a1 1 0 0 1-.59-1.8 4 4 0 1 0-4.75 0A1 1 0 0 1 35 26h-5v8a1 1 0 0 1-.68.95 1 1 0 0 1-1.12-.35A3.94 3.94 0 0 0 25 33a4 4 0 0 0 0 8 4 4 0 0 0 3.2-1.62 1 1 0 0 1 1.12-.38 1 1 0 0 1 .68 1zM10 12c-2.76 0-5-2.69-5-6s2.24-6 5-6 5 2.69 5 6-2.24 6-5 6zm0-10C8.35 2 7 3.79 7 6s1.35 4 3 4 3-1.79 3-4-1.35-4-3-4zM2 46h16v2H2z"
-                />
-                <path className="cls-1" d="M4 16h2v31H4zM9 31h2v16H9z" />
-                <path
-                  className="cls-1"
-                  d="M16 47h-2V16a1 1 0 0 1 .45-.83 1 1 0 0 1 .93-.09l9.24 3.84A1 1 0 0 0 26 18a.55.55 0 0 0-.32-.5L18 14a19.12 19.12 0 0 0-4.74-1.45L10 12l-5.3.59a3 3 0 0 0-2.67 3V27a1 1 0 0 0 1 1H4V16h2v13a1 1 0 0 1-1 1H3a3 3 0 0 1-3-3V15.58a5 5 0 0 1 4.45-5L9.89 10h.27l3.41.57a20.9 20.9 0 0 1 5.24 1.6l7.7 3.5A2.56 2.56 0 0 1 28 18a3 3 0 0 1-4.15 2.77L16 17.5z"
-                />
-                <path className="cls-1" d="M5 26h10v2H5z" />
-                <path className="cls-1" d="M9 11h2v16H9z" />
-              </g>
-            </g>
+            <path
+              d="M127.7,34.7c0,17.9-14.5,32.4-32.4,32.4C77.5,67,63,52.5,63,34.7C63,16.8,77.5,2.3,95.3,2.3c2.1,0,4.3,0.2,6.3,0.6L94,19.2
+	c-0.3,0-0.6,0-1,0c-7.6,0-13.8,6.2-13.8,13.8c0,7.6,6.2,13.8,13.8,13.8c7.6,0,13.8-6.2,13.8-13.8c0-3.7-1.5-7.1-3.9-9.6l8-17.1
+	C120.9,11.8,127.7,22.4,127.7,34.7z M254,147.9h-23.3c4.9-1.4,9.1-4.6,12-8.9c4-6.2,4.6-13.8,1.6-20.5l-24.8-55.5l-11.3-4.3
+	l15.2-52.1l-14.9-4.3l-32.2,110.6l14.9,4.3l13.5-46.3l5.4,2l22.7,50.7c1.3,2.8,1,5.9-0.7,8.5c-1.7,2.6-4.4,4.1-7.5,4.1H191v11.8
+	h-31.5c-0.3-11.1-9-19.7-19.7-19.7H96.5c0,0-19.2-50.5-19.6-51.3c-4-10.5-12.9-18.1-24.4-18.1c-14.7,0-25.9,12.2-33.9,29.8
+	C7.9,112.2,2.1,140.4,2,167.8l252-0.1V147.9z"
+            />
           </svg>
         </div>
       );
@@ -122,8 +116,8 @@ export const MyServices = () => {
             </span>
           </h2>
           <p className="mt-3 mb-1 text-xl tracking-tight">
-            With experience working with a range of companies, I'll help your company bring your product to market
-            whichever way I can.
+            With close to a decade of experience working with a range of companies and industries, I'll help launch your
+            product whichever way I can.
           </p>
           <a
             href="https://edwardsmoses.com/behind-the-scenes-working-with-me-as-my-client"
@@ -133,7 +127,7 @@ export const MyServices = () => {
           </a>
         </div>
         <div className="block mt-8">
-          <div className="flex flex-col space-x-0 space-y-4 lg:flex-row lg:space-y-0 lg:space-x-4">
+          <div className="flex flex-col space-x-0 space-y-4 lg:grid lg:grid-cols-3 lg:space-y-0 lg:space-x-4">
             {services.map((service, index) => (
               <div key={index} className="px-2 py-2 bg-gray-50 rounded-xl">
                 <service.icon />
