@@ -62,6 +62,17 @@ const AboutPage = ({ data }) => {
                 <h3>Credentials Collection 🎖️</h3>
                 <ul className="text-sm list-disc list-inside text-slate-900 dark:text-app-brand-white">
                   <li>
+                    Google Cloud Certified Professional Cloud Developer -{" "}
+                    <a
+                      className="text-blue-500"
+                      href="https://google.accredible.com/cfd9602d-5a55-4631-bcad-d2600224d38b"
+                      target="_blank"
+                    >
+                      Credential
+                    </a>
+                  </li>
+
+                  <li>
                     AWS Certified Developer - Associate -{" "}
                     <a
                       className="text-blue-500"
@@ -73,16 +84,6 @@ const AboutPage = ({ data }) => {
                   </li>
 
                   <li>
-                    Google Cloud Certified Professional Cloud Developer -{" "}
-                    <a
-                      className="text-blue-500"
-                      href="https://google.accredible.com/cfd9602d-5a55-4631-bcad-d2600224d38b"
-                      target="_blank"
-                    >
-                      Credential
-                    </a>
-                  </li>
-                  <li>
                     Stripe Certified Professional Developer -{" "}
                     <a
                       className="text-blue-500"
@@ -92,6 +93,18 @@ const AboutPage = ({ data }) => {
                       Credential
                     </a>
                   </li>
+
+                  <li>
+                    Google Cybersecurity - Google Career Certificates
+                    <a
+                      className="text-blue-500"
+                      href="https://coursera.org/share/de165814b64faf96c045f06f2bbf12cd"
+                      target="_blank"
+                    >
+                      Credential
+                    </a>
+                  </li>
+
                   <li>
                     McKinsey Forward Program -{" "}
                     <a
