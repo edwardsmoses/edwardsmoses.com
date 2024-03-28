@@ -18,6 +18,11 @@ In this article, we will discuss how to set up automated backups for a Firestore
 
 Firestore is a NoSQL document database that is built for fast and flexible querying, and it is a popular choice for web and mobile applications. It is fully managed by Google Cloud, which means that it handles the infrastructure and scaling for you, so you can focus on building your application.
 
+## Updates
+
+Here's a updated guide on setting up automatic backups for your Cloud Firestore project:
+<https://edwardsmoses.com/updated-guide-on-setting-up-automated-backups-cloud-firestore>
+
 ## Getting Started
 
 We use Firebase Cloud Functions to initiate the backups, so billing should be enabled on your Firebase Project.
