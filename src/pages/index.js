@@ -23,14 +23,16 @@ const IndexPage = ({
     .map((edge) => <PostLink key={edge.node.id} post={edge.node} />);
 
   return (
-    <Layout header={<Hero_WorkWithMe />}>
+    <Layout
+      header={
+        <div className="-mt-16">
+          <Hero_WorkWithMe />
+        </div>
+      }
+    >
       <SEO />
 
-      <MyServices />
-
-      <Testimonials />
-
-      <section id="articles" className="pt-10">
+      <section id="articles" className="pb-10 -mt-24">
         <h2 className="mt-16 text-3xl tracking-tight font-display sm:text-4xl">
           Recent <i>Articles</i>
         </h2>
@@ -48,6 +50,10 @@ const IndexPage = ({
           </Link>
         </div>
       </section>
+
+      <MyServices />
+
+      <Testimonials />
     </Layout>
   );
 };
