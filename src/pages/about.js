@@ -62,6 +62,13 @@ const AboutPage = ({ data }) => {
                 <h3>Credentials Collection 🎖️</h3>
                 <ul className="text-sm list-disc list-inside text-slate-900 dark:text-app-brand-white">
                   <li>
+                    Introduction to Kubernetes (In Prep of the CKAD cert) -{" "}
+                    <a className="text-blue-500" href="https://verify.acloud.guru/77471179F841" target="_blank">
+                      Credential
+                    </a>
+                  </li>
+
+                  <li>
                     Google Cloud Certified Professional Cloud Developer -{" "}
                     <a
                       className="text-blue-500"
