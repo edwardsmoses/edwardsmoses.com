@@ -11,11 +11,14 @@ thumbnail: /assets/edwardsmoses-dynamic-links-firebase-react-native-greg-rosenke
 
 ## Introduction
 
-In a mobile project I invoked, we recently switched from email and password style to a magic link style. We use Firebase. In this article, we dive in how we implemented the magic link for Firebase and React Native.
+In a mobile project I am a part of, we recently transitioned from traditional email and password authentication to a magic link system using Firebase.
+
+This article explores how I implemented email magic links in the project using Firebase with React Native.
+
 
 ## Getting started
 
-First things first, we'll need to setup the Firebase console to enable the email link sign-in. How do we do that?
+To begin, we want to set up the Firebase console to enable email link sign-in:
 
 - Open the Firebase console
 - Navigate to the **Authentication** section.
@@ -27,17 +30,18 @@ First things first, we'll need to setup the Firebase console to enable the email
 <sub><sup>_a little bit of trivia, this is the firebase project I used in the app that got me into Toptal. that's what I now use for all my firebase testing_ </sup></sub>
 
 - Under the **Settings** tab, and under the **Authorized domains** section:
-- Add the domains that you want to use for the `url` in the magic link, or you can leave as it is, and use the default domains, `project_name.web.app`
-  ![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 11.17.47.png)
+- Add the domains for the `url` in the magic link setup, or use the default domains, `project_name.web.app`.
 
-#### Configuring Firebase Dynamic Links
+![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 11.17.47.png)
 
-I assume you'd already have your React Native project up and running already. With similar values as you have configured in your React Native project, you should have your iOS app configured.
+### Configuring Firebase Dynamic Links
+
+I assume you'd already have your React Native project up and running already. 
+
+We want to use the values from our app, and add to the Firebase console. 
 ![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 14.12.59.png)
 
-- For IOS, you need to have an iOS app configured.
-- Add an app or specify the following on the firebase console
-
+- For iOS, add your app with the following details on the Firebase console:
   - Bundle ID
   - Apple Developer Team ID
     ![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 14.17.55.png)
@@ -58,9 +62,9 @@ We want to setup our Xcode project configuration for the firebase universal link
 
   ![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 15.05.25.png)
 
-### Packages
+### Installing Packages
 
-We'll need `react-native-firebase` setup. You can find more information on setting up that in the library's documentation (<https://rnfirebase.io>).
+You can find more information on this in the library's documentation (<https://rnfirebase.io>).
 
 First, we want to install:
 
@@ -100,12 +104,12 @@ When running the above command, if you run into the below error: you can follow 
 ![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 14.33.21.png)
 <sub><sup>_guess who ran into the above error_</sup></sub>
 
-If you haven't yet configured your Firebase project,follow the below steps in the documentation:
+If you haven't yet configured your Firebase project, follow the below steps in the documentation:
 <https://rnfirebase.io/#generating-ios-credentials>
 
-### Sending the Link to the User Email
+### Sending the Magic link
 
-We want to use the `sendSignInLinkToEmail` method to send the a magic link to the user email.
+To send a magic link to the user’s email, we want to use the `sendSignInLinkToEmail` method. 
 
 ```jsx
 import React, { useState, useEffect } from "react";
@@ -295,7 +299,7 @@ const EmailLinkHandler = () => {
 
 ### Handling the successful sign-in
 
-When the user successfully signs in, we want to use the `onAuthStateChanged` listener to trigger the new
+When the user successfully signs in, we want to use the `onAuthStateChanged` listener to monitor the
 authentication state of the user.
 
 ```jsx
@@ -356,9 +360,11 @@ function App(): React.JSX.Element {
 }
 ```
 
-### How to test
+### Testing
 
-- Copy the link address from your email, and paste the below into your terminal to open the app on your simulator:
+We can test the integration by simulating link handling in our simulator:
+
+- Copy the link address from your email, and paste the below into the terminal to open the app:
 
 ```bash
 
@@ -368,16 +374,18 @@ xcrun simctl openurl booted {paste_the_link_here}
 
 And here we have it, the user is automatically signed into the app:
 ![screenshots](/assets/edwardsmoses-Simulator Screenshot - iPhone 15 Pro Max - 2024-07-20 at 15.37.18.png)
-<sub><sup>_guess the similarity between both screenshots. hint: peep the minute_</sup></sub>
+<sub><sup>_interesting coincidence: what's the similarity between both screenshots. hint: peep the minute_</sup></sub>
 
-### GitHub Repo
+### Conclusion
 
-Here's the Github repo for this article:
+This setup allows users to sign into your React Native app using Firebase magic links.
+
+Here's the accompanying GitHub repo for this article:
 <https://github.com/edwardsmoses/integrating-magic-links-with-firebase-react-native>
 
 
 ## Notes:
 
-Firebase mentions they're shutting down their dynamic links service. According to them though, they're keeping the email authentication link setup; see Firebase [FAQ](https://firebase.google.com/support/dynamic-links-faq#im_currently_using_or_need_to_use_dynamic_links_for_email_link_authentication_in_firebase_authentication_will_this_feature_continue_to_work_after_the_sunset) on the topic.
+Firebase has announced the shutdown of their dynamic links service, but they will continue to support email link authentication; see Firebase [FAQ](https://firebase.google.com/support/dynamic-links-faq#im_currently_using_or_need_to_use_dynamic_links_for_email_link_authentication_in_firebase_authentication_will_this_feature_continue_to_work_after_the_sunset) on the topic.
 
 <!--EndFragment-->
