@@ -17,6 +17,7 @@ In a mobile project I involed, we recently siwtched from email and password styl
 
 First things first, we'll need to setup the Firebase console to enable the email link sign-in. How do we do that?
 
+- Open the Firebase console
 - Navigate to the **Authentication** section.
 
   - Under the **Sign-in method** tab, enable the **Email/Password** provider. Note that email/password sign-in must be enabled to use email link sign-in.
@@ -29,136 +30,133 @@ First things first, we'll need to setup the Firebase console to enable the email
 - Add the domains that you want to use for the magic link, or you can leave as it is, and use the default domains, `project_name.web.app`
   ![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 11.17.47.png)
 
-## Setting up our React Native project
-
-I assume you'd already have your React Native project completely setup already.
-
-### Firebase Project Configuration
-
-#### Open the Firebase Console
-
-1. **Prepare Firebase Instance (Email Link Sign-In):**
-   - Navigate to the **Auth** section.
-   - Under the **Sign-in method** tab, enable the **Email/Password** provider. Note that email/password sign-in must be enabled to use email link sign-in.
-   - In the same section, enable the **Email link (passwordless sign-in)** method.
-   - Under the **Authorized domains** tab:
-     - Add any domains that will be used. For example, the domain for the URL from `ActionCodeSettings` needs to be included here.
-
 #### Configuring Firebase Dynamic Links
 
-2. **For iOS:**
-   - You need to have an iOS app configured. Add an app or specify the following throughout the Firebase console:
-     - **Bundle ID**
-     - **App Store ID**
-     - **Apple Developer Team ID**
-3. **For Android:**
+I assume you'd already have your React Native project completely setup already. With similar values as you have configured in your React Native project, you should have your iOS app configured.
+![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 14.12.59.png)
 
-   - You just need to have an Android app configured with a package name.
+- For IOS - you need to have an ios app configured - Add an app or specify the following throughout the firebase console
 
-4. **Enable Firebase Dynamic Links:**
+  - Bundle ID
+  - App Store ID
+  - Apple Developer Team ID
+    ![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 14.17.55.png)
 
-   - Open the **Dynamic Links** section.
+- For Android - you just need to have an Android app configured with a package name
 
-   > "Firebase Auth uses Firebase Dynamic Links when sending a link that is meant to be opened in a mobile application. To use this feature, Dynamic Links need to be configured in the Firebase Console."
+- Next, we want to enable Firebase dynamic links
+  screenshot
 
-   - For iOS only, you can verify that your Firebase project is properly configured to use Dynamic Links in your iOS app by opening the following URL: `https://your_dynamic_links_domain/apple-app-site-association`
-   - It should show something like:
-     ```json
-     {
-       "applinks": {
-         "apps": [],
-         "details": [
-           {
-             "appID": "AP_ID123.com.example.app",
-             "paths": ["NOT /_/", "/"]
-           }
-         ]
-       }
-     }
-     ```
+## Setting up our React Native project
 
-#### iOS Xcode Project Configuration for Universal Links
+We want to setup our Xcode project configuration for the firebase universal links.
 
-5. **Open the Xcode Project:**
+- Open the Xcode project, and in the **Capabilities** tab, enable **Associated Domains**
+  ![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 14.21.46.png)
 
-   - Go to the **Info** tab and create a new URL type to be used for Dynamic Links.
-   - Enter a unique value in the **Identifier** field and set the **URL scheme** field to be your bundle identifier, which is the default URL scheme used by Dynamic Links.
+  - Add the following to the associated domains list: your dynamic links domain,
 
-6. **Enable Associated Domains:**
-   - In the **Capabilities** tab, enable **Associated Domains** and add the following to the Associated Domains list: `applinks:your_dynamic_links_domain`
-   - Note: This should be only the domain - no `https://` prefix.
-
-#### Android Configuration
-
-7. **No Additional Configuration Needed:**
-   - Android doesn’t need additional configuration for default or custom domains.
+  ![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 14.23.11.png)
 
 ### Packages
 
-8. **React-Native Project Setup:**
-   - A working React-Native project setup with `react-native-firebase` is required. This is thoroughly covered in the library's documentation. Here are the specific packages used:
-     - Note: The `dynamicLinks` package can be replaced with React Native's own `Linking` module and the code would be almost identical.
-     - Exact packages used:
-       ```json
-       {
-         "@react-native-firebase/app": "^6.7.1",
-         "@react-native-firebase/auth": "^6.7.1",
-         "@react-native-firebase/dynamic-links": "^6.7.1"
-       }
-       ```
+** Firebase setup:**
+
+We'll need `react-native-firebase` setup. You can find more information on setting up that in the library's documentation (<https://rnfirebase.io>).
+
+First, we want to install:
+
+```bash
+yarn add @react-native-firebase/app
+```
+
+Then install the authentication package (<https://rnfirebase.io/auth/usage>):
+
+```bash
+yarn add @react-native-firebase/auth
+
+```
+
+Then finally install the dynamic links package (<https://rnfirebase.io/dynamic-links/usage>)
+
+```bash
+yarn add @react-native-firebase/dynamic-links
+
+```
+
+Also install the below for async storage:
+
+```bash
+yarn add @react-native-async-storage/async-storage
+
+
+```
+
+After which, we'd run to install :
+
+```bash
+npx pod install
+```
+
+When running the above command, if you run in the below error: follow the steps in this section: <https://rnfirebase.io/#altering-cocoapods-to-use-frameworks>
+![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 14.33.21.png)
+
+If you haven't yet configured your Firebase project,follow the below steps in the documentation:
+<https://rnfirebase.io/#generating-ios-credentials>
 
 ### Sending the Link to the User Email
 
-9. **Using the `sendSignInLinkToEmail` Method:**
+We want to use the `sendSignInLinkToEmail` method to send the a magic link to the user email.
 
-   - This method accepts an email and action code configuration. Firebase sends an email with a magic link to the provided email. Following the link has different behavior depending on the action code configuration.
+```jsx
+import React, { useState } from "react";
+import { Alert, Button, TextInput, View } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-   ```jsx
-   import React, { useState } from "react";
-   import { Alert, AsyncStorage, Button, TextInput, View } from "react-native";
-   import auth from "@react-native-firebase/auth";
+import auth from "@react-native-firebase/auth";
 
-   const EmailLinkSignIn = () => {
-     const [email, setEmail] = useState("");
+const MagicLinkSignIn = () => {
+  const [email, setEmail] = useState("");
 
-     return (
-       <View>
-         <TextInput value={email} onChangeText={(text) => setEmail(text)} />
-         <Button
-           title="Send login link"
-           onPress={() => sendSignInLink(email)}
-         />
-       </View>
-     );
-   };
+  return (
+    <View>
+      <TextInput value={email} onChangeText={(text) => setEmail(text)} />
+      <Button title="Send login link" onPress={() => sendSignInLink(email)} />
+    </View>
+  );
+};
 
-   const BUNDLE_ID = "com.example.ios";
+const BUNDLE_ID =
+  "org.reactjs.native.example.reactnative-firebase-magiclink-app";
 
-   const sendSignInLink = async (email) => {
-     const actionCodeSettings = {
-       handleCodeInApp: true,
-       url: "https://www.example.com/magic-link",
-       iOS: {
-         bundleId: BUNDLE_ID,
-       },
-       android: {
-         packageName: BUNDLE_ID,
-         installApp: true,
-         minimumVersion: "12",
-       },
-     };
+const sendSignInLink = async (email) => {
+  try {
+    const actionCodeSettings = {
+      handleCodeInApp: true,
+      iOS: {
+        bundleId: BUNDLE_ID,
+      },
+      android: {
+        packageName: BUNDLE_ID,
+      },
+    };
 
-     await AsyncStorage.setItem("emailForSignIn", email);
-     await auth().sendSignInLinkToEmail(email, actionCodeSettings);
+    await AsyncStorage.setItem("emailForSignIn", email);
+    await auth().sendSignInLinkToEmail(email, actionCodeSettings);
 
-     Alert.alert(`Login link sent to ${email}`);
-   };
+    Alert.alert(`Login link sent to ${email}`);
+  } catch (error) {
+    console.log("what is the error", error);
+  }
+};
+```
 
-   export default EmailLinkSignIn;
-   ```
+- We're setting `handleCodeInApp` to true since we want the link from the email to open our app and be handled there.
+- More details on supported options can be found [here](https://firebase.google.com/docs/auth/web/email-link-auth#actioncodesettings).
 
-   - We're setting `handleCodeInApp` to true since we want the link from the email to open our app and be handled there. The `url` parameter is a fallback in case the link is opened from a desktop or another device that does not have the app installed. They will be redirected to the provided URL, which is a required parameter. It's also required to have that URL's domain whitelisted in the Firebase console under Authentication -> Sign-in method.
-   - More details on supported options can be found [here](https://firebase.google.com/docs/auth/web/email-link-auth#actioncodesettings).
+Here's our how our app looks:
+![screenshots](/assets/edwardsmoses-Simulator Screenshot - iPhone 15 Pro Max - 2024-07-20 at 14.57.42.png)
+<sub><sup>_definitely not winning any awards for the aesthetics on the app_</sup></sub>
 
 ### Handling the Link Inside the App
 
