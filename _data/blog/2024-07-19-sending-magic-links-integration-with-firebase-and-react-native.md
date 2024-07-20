@@ -27,7 +27,7 @@ First things first, we'll need to setup the Firebase console to enable the email
 <sub><sup>_a little bit of trivia, this is the firebase project I used in the app that got me into toptal. that's what I now use for all my firebase testing_ </sup></sub>
 
 - Under the **Settings** tab, and under the **Authorized domains** section:
-- Add the domains that you want to use for the magic link, or you can leave as it is, and use the default domains, `project_name.web.app`
+- Add the domains that you want to use for the `url` in the magic link, or you can leave as it is, and use the default domains, `project_name.web.app`
   ![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 11.17.47.png)
 
 #### Configuring Firebase Dynamic Links
@@ -44,8 +44,8 @@ I assume you'd already have your React Native project completely setup already. 
 
 - For Android - you just need to have an Android app configured with a package name
 
-- Next, we want to enable Firebase dynamic links
-  screenshot
+- Next, we want to enable Firebase dynamic links, enter the domain you want to use. In this case, I'm using: `edwardsmosesapp.page.link`
+  ![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 15.03.18.png)
 
 ## Setting up our React Native project
 
@@ -54,13 +54,11 @@ We want to setup our Xcode project configuration for the firebase universal link
 - Open the Xcode project, and in the **Capabilities** tab, enable **Associated Domains**
   ![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 14.21.46.png)
 
-  - Add the following to the associated domains list: your dynamic links domain,
+  - Add the following to the associated domains list: your dynamic links domain, mine is `edwardsmosesapp.page.link`
 
-  ![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 14.23.11.png)
+  ![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 15.05.25.png)
 
 ### Packages
-
-** Firebase setup:**
 
 We'll need `react-native-firebase` setup. You can find more information on setting up that in the library's documentation (<https://rnfirebase.io>).
 
@@ -98,8 +96,9 @@ After which, we'd run to install :
 npx pod install
 ```
 
-When running the above command, if you run in the below error: follow the steps in this section: <https://rnfirebase.io/#altering-cocoapods-to-use-frameworks>
+When running the above command, if you run into the below error: you can follow the steps in this section: <https://rnfirebase.io/#altering-cocoapods-to-use-frameworks>
 ![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 14.33.21.png)
+<sub><sup>_guess who ran into the above error_</sup></sub>
 
 If you haven't yet configured your Firebase project,follow the below steps in the documentation:
 <https://rnfirebase.io/#generating-ios-credentials>
@@ -156,7 +155,7 @@ const sendSignInLink = async (email) => {
 
 Here's our how our app looks:
 ![screenshots](/assets/edwardsmoses-Simulator Screenshot - iPhone 15 Pro Max - 2024-07-20 at 14.57.42.png)
-<sub><sup>_definitely not winning any awards for the aesthetics on the app_</sup></sub>
+<sub><sup>_definitely not winning any awards for the aesthetics on this app_</sup></sub>
 
 ### Handling the Link Inside the App
 
