@@ -32,13 +32,13 @@ First things first, we'll need to setup the Firebase console to enable the email
 
 #### Configuring Firebase Dynamic Links
 
-I assume you'd already have your React Native project completely setup already. With similar values as you have configured in your React Native project, you should have your iOS app configured.
+I assume you'd already have your React Native project up and running already. With similar values as you have configured in your React Native project, you should have your iOS app configured.
 ![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 14.12.59.png)
 
-- For IOS - you need to have an ios app configured - Add an app or specify the following throughout the firebase console
+- For IOS, you need to have an iOS app configured.
+- Add an app or specify the following on the firebase console
 
   - Bundle ID
-  - App Store ID
   - Apple Developer Team ID
     ![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 14.17.55.png)
 
@@ -324,8 +324,8 @@ const MagicLinkSignIn = () => {
   }
 
   return (
-    <View>
-      <Text>Welcome {user.email}</Text>
+    <View style={styles.authContainer}>
+      <Text style={styles.sectionTitle}>Welcome {user.email}</Text>
     </View>
   );
 };
@@ -358,7 +358,7 @@ function App(): React.JSX.Element {
 
 ### How to test
 
-- Copy the link address from your email, and paste the below into your terminal:
+- Copy the link address from your email, and paste the below into your terminal to open the app on your simulator:
 
 ```bash
 
@@ -366,8 +366,18 @@ xcrun simctl openurl booted {paste_the_link_here}
 
 ```
 
+And here we have it, the user is automatically signed into the app:
+![screenshots](/assets/edwardsmoses-Simulator Screenshot - iPhone 15 Pro Max - 2024-07-20 at 15.37.18.png)
+<sub><sup>_guess the similarity between both screenshots. hint: peep the minute_</sup></sub>
+
+### GitHub Repo
+
+Here's the Github repo for this article:
+<https://github.com/edwardsmoses/integrating-magic-links-with-firebase-react-native>
+
+
 ## Notes:
 
-Firebase mentions they're shutting down their dynamic links service. According to them though, they're keeping the magic link setup; see Firebase [FAQ](https://firebase.google.com/support/dynamic-links-faq#im_currently_using_or_need_to_use_dynamic_links_for_email_link_authentication_in_firebase_authentication_will_this_feature_continue_to_work_after_the_sunset) on the topic.
+Firebase mentions they're shutting down their dynamic links service. According to them though, they're keeping the email authentication link setup; see Firebase [FAQ](https://firebase.google.com/support/dynamic-links-faq#im_currently_using_or_need_to_use_dynamic_links_for_email_link_authentication_in_firebase_authentication_will_this_feature_continue_to_work_after_the_sunset) on the topic.
 
 <!--EndFragment-->
