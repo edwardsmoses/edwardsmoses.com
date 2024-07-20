@@ -11,7 +11,7 @@ thumbnail: /assets/edwardsmoses-dynamic-links-firebase-react-native-greg-rosenke
 
 ## Introduction
 
-In a mobile project I involed, we recently siwtched from email and password style to a magic link style. We use Firebase. In this article, we dive in how we implemented the magic link for Firebase and React Native.
+In a mobile project I invoked, we recently switched from email and password style to a magic link style. We use Firebase. In this article, we dive in how we implemented the magic link for Firebase and React Native.
 
 ## Getting started
 
@@ -24,7 +24,7 @@ First things first, we'll need to setup the Firebase console to enable the email
   - In the same section, enable the **Email link (passwordless sign-in)** method.
 
 ![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 11.09.01.png)
-<sub><sup>_a little bit of trivia, this is the firebase project I used in the app that got me into toptal. that's what I now use for all my firebase testing_ </sup></sub>
+<sub><sup>_a little bit of trivia, this is the firebase project I used in the app that got me into Toptal. that's what I now use for all my firebase testing_ </sup></sub>
 
 - Under the **Settings** tab, and under the **Authorized domains** section:
 - Add the domains that you want to use for the `url` in the magic link, or you can leave as it is, and use the default domains, `project_name.web.app`
@@ -108,157 +108,266 @@ If you haven't yet configured your Firebase project,follow the below steps in th
 We want to use the `sendSignInLinkToEmail` method to send the a magic link to the user email.
 
 ```jsx
-import React, { useState } from "react";
-import { Alert, Button, TextInput, View } from "react-native";
+import React, { useState, useEffect } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Alert,
+  TextInput,
+  Button,
+  ActivityIndicator,
+} from "react-native";
+
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
 import auth from "@react-native-firebase/auth";
+import dynamicLinks from "@react-native-firebase/dynamic-links";
 
-const MagicLinkSignIn = () => {
+const MagicLinkLogin = () => {
   const [email, setEmail] = useState("");
 
+  const BUNDLE_ID =
+    "org.reactjs.native.example.reactnative-firebase-magiclink-app";
+
+  const sendSignInLink = async (email: string) => {
+    try {
+      await AsyncStorage.setItem("emailForSignIn", email);
+      await auth().sendSignInLinkToEmail(email, {
+        handleCodeInApp: true,
+        url: "https://bike-rentals-5f360.web.app",
+        iOS: {
+          bundleId: BUNDLE_ID,
+        },
+        android: {
+          packageName: BUNDLE_ID,
+        },
+      });
+
+      Alert.alert(`Login link sent to ${email}`);
+    } catch (error) {
+      console.error(error);
+      Alert.alert("Error sending login link");
+    }
+  };
+
   return (
-    <View>
-      <TextInput value={email} onChangeText={(text) => setEmail(text)} />
-      <Button title="Send login link" onPress={() => sendSignInLink(email)} />
+    <View style={styles.authContainer}>
+      <Text style={styles.sectionTitle}>Magic Link Sign In</Text>
+      <TextInput
+        style={styles.textInput}
+        value={email}
+        onChangeText={(text) => setEmail(text)}
+      />
+      <Button
+        color={"007AFF"}
+        title="Send login link"
+        onPress={() => sendSignInLink(email)}
+      />
     </View>
   );
-};
-
-const BUNDLE_ID =
-  "org.reactjs.native.example.reactnative-firebase-magiclink-app";
-
-const sendSignInLink = async (email) => {
-  try {
-    const actionCodeSettings = {
-      handleCodeInApp: true,
-      iOS: {
-        bundleId: BUNDLE_ID,
-      },
-      android: {
-        packageName: BUNDLE_ID,
-      },
-    };
-
-    await AsyncStorage.setItem("emailForSignIn", email);
-    await auth().sendSignInLinkToEmail(email, actionCodeSettings);
-
-    Alert.alert(`Login link sent to ${email}`);
-  } catch (error) {
-    console.log("what is the error", error);
-  }
 };
 ```
 
 - We're setting `handleCodeInApp` to true since we want the link from the email to open our app and be handled there.
 - More details on supported options can be found [here](https://firebase.google.com/docs/auth/web/email-link-auth#actioncodesettings).
 
+Then, use it in our `App.js`:
+
+```jsx
+function App(): React.JSX.Element {
+  const isDarkMode = useColorScheme() === "dark";
+
+  const backgroundStyle = {
+    backgroundColor: "lightgray",
+  };
+
+  return (
+    <SafeAreaView style={backgroundStyle}>
+      <StatusBar
+        barStyle={isDarkMode ? "light-content" : "dark-content"}
+        backgroundColor={backgroundStyle.backgroundColor}
+      />
+      <View style={styles.sectionContainer}>
+        <MagicLinkLogin />
+      </View>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  sectionContainer: {
+    paddingHorizontal: 24,
+    height: "100%",
+  },
+  authContainer: {
+    flex: 1,
+    justifyContent: "center",
+  },
+  loadingContainer: {
+    backgroundColor: "rgba(250,250,250,0.33)",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  textInput: {
+    borderColor: "blue",
+    borderWidth: 1,
+    marginTop: 16,
+    backgroundColor: "white",
+    padding: 10,
+    borderRadius: 8,
+    fontSize: 16,
+  },
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: "600",
+  },
+  sectionDescription: {
+    marginTop: 8,
+    fontSize: 18,
+    fontWeight: "400",
+  },
+  highlight: {
+    fontWeight: "700",
+  },
+});
+```
+
 Here's our how our app looks:
 ![screenshots](/assets/edwardsmoses-Simulator Screenshot - iPhone 15 Pro Max - 2024-07-20 at 14.57.42.png)
 <sub><sup>_definitely not winning any awards for the aesthetics on this app_</sup></sub>
 
+If you have everything configured sucessfully, you should get a link in your email.
+![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 15.09.34.png)
+<sub><sup>_guess how I'm spending my weekend._</sup></sub>
+
 ### Handling the Link Inside the App
 
-10. **Native Project Configuration:**
+We want to use the `@react-native-firebase/dynamic-links` package to handle the link inside our app.
 
-    - Native projects need to be configured so that the app can be launched by a universal link as described above.
-    - Use the built-in Linking API from React Native or the `dynamicLinks` package from `@react-native-firebase/dynamic-links` to intercept and handle the link inside your app.
+```jsx
+const useEmailLinkEffect = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-    ```jsx
-    import React, { useState, useEffect } from "react";
-    import {
-      ActivityIndicator,
-      AsyncStorage,
-      StyleSheet,
-      Text,
-      View,
-    } from "react-native";
-    import auth from "@react-native-firebase/auth";
-    import dynamicLinks from "@react-native-firebase/dynamic-links";
+  useEffect(() => {
+    const handleDynamicLink = async (link: any) => {
+      console.log('what is link', link);
+      if (auth().isSignInWithEmailLink(link.url)) {
+        setLoading(true);
 
-    const EmailLinkHandler = () => {
-      const { loading, error } = useEmailLinkEffect();
-
-      if (loading || error) {
-        return (
-          <View style={styles.container}>
-            {Boolean(error) && <Text>{error.message}</Text>}
-            {loading && <ActivityIndicator />}
-          </View>
-        );
+        try {
+          const email = await AsyncStorage.getItem('emailForSignIn');
+          await auth().signInWithEmailLink(email as string, link.url);
+        } catch (e: any) {
+          setError(e);
+        } finally {
+          setLoading(false);
+        }
       }
-
-      return null;
     };
 
-    const useEmailLinkEffect = () => {
-      const [loading, setLoading] = useState(false);
-      const [error, setError] = useState(null);
+    const unsubscribe = dynamicLinks().onLink(handleDynamicLink);
+    dynamicLinks()
+      .getInitialLink()
+      .then(link => link && handleDynamicLink(link));
 
-      useEffect(() => {
-        const handleDynamicLink = async (link) => {
-          if (auth().isSignInWithEmailLink(link.url)) {
-            setLoading(true);
+    return () => unsubscribe();
+  }, []);
 
-            try {
-              const email = await AsyncStorage.getItem("emailForSignIn");
-              await auth().signInWithEmailLink(email, link.url);
-            } catch (e) {
-              setError(e);
-            } finally {
-              setLoading(false);
-            }
-          }
-        };
+  return {error, loading};
+};
 
-        const unsubscribe = dynamicLinks().onLink(handleDynamicLink);
-        dynamicLinks()
-          .getInitialLink()
-          .then((link) => link && handleDynamicLink(link));
 
-        return () => unsubscribe();
-      }, []);
+const EmailLinkHandler = () => {
+  const {loading, error} = useEmailLinkEffect();
 
-      return { error, loading };
-    };
-
-    const styles = StyleSheet.create({
-      container: {
-        ...StyleSheet.absoluteFill,
-        backgroundColor: "rgba(250,250,250,0.33)",
-        justifyContent: "center",
-        alignItems: "center",
-      },
-    });
-
-    const App = () => (
-      <View>
-        <EmailLinkHandler />
-        <AppScreens />
+  if (loading || error) {
+    return (
+      <View style={[StyleSheet.absoluteFillObject, styles.loadingContainer]}>
+        {loading && <ActivityIndicator />}
       </View>
     );
+  }
 
-    export default App;
-    ```
+  return null;
+};
+```
 
-    - You can use the component in the root of your app or as a separate screen/route. In the latter case, the user should be redirected to it after the `sendSignInLinkToEmail` action.
-    - Upon successful sign-in, any `onAuthStateChanged` listeners will trigger with the new authentication state of the user. The result from the `signInWithEmailLink` can also be used to retrieve information about the user that signed in.
+### Handling the successful sign-in
 
-### Testing the Email Login Link in the Simulator
+When the user successfully signs in, we want to use the `onAuthStateChanged` listener to trigger the new
+authentication state of the user.
 
-11. **Testing Steps:**
+```jsx
+const MagicLinkSignIn = () => {
+  // Set an initializing state whilst Firebase connects
+  const [initializing, setInitializing] = useState(true);
+  const [user, setUser] = (useState < FirebaseAuthTypes.User) | (null > null);
 
-    - Have the app installed on the running simulator.
-    - Go through the flow that will send the magic link to the email.
-    - Go to your inbox and copy the link address.
-    - Open a terminal and paste the following code:
-      ```bash
-      xcrun simctl openurl booted {paste_the_link_here}
-      ```
-    - This will start the app if it’s not running and trigger the `onLink` hook (if you have a listener for it as shown above).
+  // Handle user state changes
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged((authUser) => {
+      setUser(authUser);
+      if (initializing) {
+        setInitializing(false);
+      }
+    });
+    return () => subscriber(); // unsubscribe on unmount
+  }, [initializing]);
 
-    ## Notes:
+  if (initializing) {
+    return null;
+  }
 
-    Firebase mentions they're shutting down their dynamic links service. According to them though, they're keeping the magic link setup; see Firebase [FAQ](https://firebase.google.com/support/dynamic-links-faq#im_currently_using_or_need_to_use_dynamic_links_for_email_link_authentication_in_firebase_authentication_will_this_feature_continue_to_work_after_the_sunset) on the topic.
+  if (!user) {
+    return <MagicLinkLogin />;
+  }
+
+  return (
+    <View>
+      <Text>Welcome {user.email}</Text>
+    </View>
+  );
+};
+```
+
+Then, let's update our `App.js`:
+
+```jsx
+function App(): React.JSX.Element {
+  const isDarkMode = useColorScheme() === "dark";
+
+  const backgroundStyle = {
+    backgroundColor: "lightgray",
+  };
+
+  return (
+    <SafeAreaView style={backgroundStyle}>
+      <StatusBar
+        barStyle={isDarkMode ? "light-content" : "dark-content"}
+        backgroundColor={backgroundStyle.backgroundColor}
+      />
+      <View style={styles.sectionContainer}>
+        <EmailLinkHandler />
+        <MagicLinkSignIn />
+      </View>
+    </SafeAreaView>
+  );
+}
+```
+
+### How to test
+
+- Copy the link address from your email, and paste the below into your terminal:
+
+```bash
+
+xcrun simctl openurl booted {paste_the_link_here}
+
+```
+
+## Notes:
+
+Firebase mentions they're shutting down their dynamic links service. According to them though, they're keeping the magic link setup; see Firebase [FAQ](https://firebase.google.com/support/dynamic-links-faq#im_currently_using_or_need_to_use_dynamic_links_for_email_link_authentication_in_firebase_authentication_will_this_feature_continue_to_work_after_the_sunset) on the topic.
 
 <!--EndFragment-->
