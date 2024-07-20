@@ -4,61 +4,225 @@ path: /integrating-magic-links-with-firebase-react-native
 date: 2024-07-19T01:05:32.403Z
 title: Integrating Magic Links with Firebase and React Native
 metaDescription: How to setup dynamic links with Firebase and React Native
-thumbnail: /assets/edwards-moses-pexels-pixabay-270348.jpg
+thumbnail: /assets/edwardsmoses-dynamic-links-firebase-react-native-greg-rosenke-4TpmzpI8Du0-unsplash.jpg
 ---
 
 <!--StartFragment-->
+### Firebase Project Configuration
 
-In a previous [article](https://edwardsmoses.com/automated-backups-cloud-firestore), we explored how to setup automated backups for Firestore database, but recently Google released a [new feature](https://firebase.google.com/docs/firestore/backups) that allows for creating backups for your Firestore data.
+#### Open the Firebase Console
 
-This article, we'd be exploring how to setup automated daily Firestore backups, without the need of coding.
+1. **Prepare Firebase Instance (Email Link Sign-In):**
+   - Navigate to the **Auth** section.
+   - Under the **Sign-in method** tab, enable the **Email/Password** provider. Note that email/password sign-in must be enabled to use email link sign-in.
+   - In the same section, enable the **Email link (passwordless sign-in)** method.
+   - Under the **Authorized domains** tab:
+     - Add any domains that will be used. For example, the domain for the URL from `ActionCodeSettings` needs to be included here.
 
-## Introduction to Automated Backups
+#### Configuring Firebase Dynamic Links
 
-We use the new `gcloud` command: `gcloud alpha firestore backups` to initiate and manage the backups, so billing should be enabled on your Firebase Project.
+2. **For iOS:**
+   - You need to have an iOS app configured. Add an app or specify the following throughout the Firebase console:
+     - **Bundle ID**
+     - **App Store ID**
+     - **Apple Developer Team ID**
+   
+3. **For Android:**
+   - You just need to have an Android app configured with a package name.
 
-### Setting up the Backup Schedule
+4. **Enable Firebase Dynamic Links:**
+   - Open the **Dynamic Links** section.
 
-We want to create a schedule to run daily:
+   > "Firebase Auth uses Firebase Dynamic Links when sending a link that is meant to be opened in a mobile application. To use this feature, Dynamic Links need to be configured in the Firebase Console."
 
-``` bash
-gcloud alpha firestore backups schedules create \
---database='your-database-name' \
---recurrence=daily \
---retention=5w
-```
+   - For iOS only, you can verify that your Firebase project is properly configured to use Dynamic Links in your iOS app by opening the following URL: `https://your_dynamic_links_domain/apple-app-site-association`
+   - It should show something like:
+     ```json
+     {
+         "applinks": {
+             "apps": [],
+             "details": [
+                 {
+                     "appID": "AP_ID123.com.example.app",
+                     "paths": [
+                         "NOT /_/", "/"
+                     ]
+                 }
+             ]
+         }
+     }
+     ```
 
-Where:
+#### iOS Xcode Project Configuration for Universal Links
 
-- `your-database-name` is the name of the Firestore database we want to backup. If you're using the default Firestore instance, it's likely to be `(default)`
-- `5w` is how long we want to keep this backup for, this value can be setup up to 14 weeks.
+5. **Open the Xcode Project:**
+   - Go to the **Info** tab and create a new URL type to be used for Dynamic Links.
+   - Enter a unique value in the **Identifier** field and set the **URL scheme** field to be your bundle identifier, which is the default URL scheme used by Dynamic Links.
 
-![screenshots](/assets/edwards_moses.com_Screenshot 2024-03-28 202526.png)
+6. **Enable Associated Domains:**
+   - In the **Capabilities** tab, enable **Associated Domains** and add the following to the Associated Domains list: `applinks:your_dynamic_links_domain`
+   - Note: This should be only the domain - no `https://` prefix.
 
-## Verifying the Setup
+#### Android Configuration
 
-To confirm that the schedule was succesfull, you can run the below command to display a list of backup schedules:
+7. **No Additional Configuration Needed:**
+   - Android doesn’t need additional configuration for default or custom domains.
 
-```bash
-gcloud alpha firestore backups schedules list \
---database='(default)'
-```
+### Packages
 
-![screenshots](/assets/edwards_moses.com_Screenshot 2024-03-28 202731.png)
+8. **React-Native Project Setup:**
+   - A working React-Native project setup with `react-native-firebase` is required. This is thoroughly covered in the library's documentation. Here are the specific packages used:
+     - Note: The `dynamicLinks` package can be replaced with React Native's own `Linking` module and the code would be almost identical.
+     - Exact packages used:
+       ```json
+       {
+         "@react-native-firebase/app": "^6.7.1",
+         "@react-native-firebase/auth": "^6.7.1",
+         "@react-native-firebase/dynamic-links": "^6.7.1"
+       }
+       ```
 
-## Viewing Available Backups
+### Sending the Link to the User Email
 
-And, lastly, we can see the available backups for the Firestore database.
+9. **Using the `sendSignInLinkToEmail` Method:**
+   - This method accepts an email and action code configuration. Firebase sends an email with a magic link to the provided email. Following the link has different behavior depending on the action code configuration.
 
-```bash
-gcloud alpha firestore backups list \
---format="table(name, database, state)"
+   ```jsx
+   import React, { useState } from 'react';
+   import { Alert, AsyncStorage, Button, TextInput, View } from 'react-native';
+   import auth from '@react-native-firebase/auth';
 
-```
+   const EmailLinkSignIn = () => {
+     const [email, setEmail] = useState('');
 
-## Conclusion
+     return (
+       <View>
+         <TextInput value={email} onChangeText={text => setEmail(text)} />
+         <Button title="Send login link" onPress={() => sendSignInLink(email)} />
+       </View>
+     );
+   };
 
-The introduction of ths new commands has significantly simplified the process of setting up automated backups for Firestore.
-By following the steps in this guide, you should have an automated backup system up and running.
+   const BUNDLE_ID = 'com.example.ios';
+
+   const sendSignInLink = async (email) => {
+     const actionCodeSettings = {
+       handleCodeInApp: true,
+       url: 'https://www.example.com/magic-link',
+       iOS: {
+         bundleId: BUNDLE_ID,
+       },
+       android: {
+         packageName: BUNDLE_ID,
+         installApp: true,
+         minimumVersion: '12',
+       },
+     };
+
+     await AsyncStorage.setItem('emailForSignIn', email);
+     await auth().sendSignInLinkToEmail(email, actionCodeSettings);
+
+     Alert.alert(`Login link sent to ${email}`);
+   };
+
+   export default EmailLinkSignIn;
+   ```
+
+   - We're setting `handleCodeInApp` to true since we want the link from the email to open our app and be handled there. The `url` parameter is a fallback in case the link is opened from a desktop or another device that does not have the app installed. They will be redirected to the provided URL, which is a required parameter. It's also required to have that URL's domain whitelisted in the Firebase console under Authentication -> Sign-in method.
+   - More details on supported options can be found [here](https://firebase.google.com/docs/auth/web/email-link-auth#actioncodesettings).
+
+### Handling the Link Inside the App
+
+10. **Native Project Configuration:**
+    - Native projects need to be configured so that the app can be launched by a universal link as described above.
+    - Use the built-in Linking API from React Native or the `dynamicLinks` package from `@react-native-firebase/dynamic-links` to intercept and handle the link inside your app.
+
+    ```jsx
+    import React, { useState, useEffect } from 'react';
+    import { ActivityIndicator, AsyncStorage, StyleSheet, Text, View } from 'react-native';
+    import auth from '@react-native-firebase/auth';
+    import dynamicLinks from '@react-native-firebase/dynamic-links';
+
+    const EmailLinkHandler = () => {
+      const { loading, error } = useEmailLinkEffect();
+
+      if (loading || error) {
+         return (
+          <View style={styles.container}>
+            {Boolean(error) && <Text>{error.message}</Text>}
+            {loading && <ActivityIndicator />}
+          </View>
+        );
+      }
+
+      return null;
+    };
+
+    const useEmailLinkEffect = () => {
+      const [loading, setLoading] = useState(false);
+      const [error, setError] = useState(null);
+
+      useEffect(() => {
+        const handleDynamicLink = async (link) => {
+          if (auth().isSignInWithEmailLink(link.url)) {
+            setLoading(true);
+
+            try {
+              const email = await AsyncStorage.getItem('emailForSignIn');
+              await auth().signInWithEmailLink(email, link.url);
+            }
+            catch (e) {
+              setError(e);
+            }
+            finally {
+              setLoading(false);
+            }
+          }
+        };
+
+        const unsubscribe = dynamicLinks().onLink(handleDynamicLink);
+        dynamicLinks().getInitialLink()
+          .then(link => link && handleDynamicLink(link));
+
+        return () => unsubscribe();
+      }, []);
+
+      return { error, loading };
+    };
+
+    const styles = StyleSheet.create({
+      container: {
+        ...StyleSheet.absoluteFill,
+        backgroundColor: 'rgba(250,250,250,0.33)',
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+    });
+
+    const App = () => (
+      <View>
+        <EmailLinkHandler />
+        <AppScreens />
+      </View>
+    );
+
+    export default App;
+    ```
+
+    - You can use the component in the root of your app or as a separate screen/route. In the latter case, the user should be redirected to it after the `sendSignInLinkToEmail` action.
+    - Upon successful sign-in, any `onAuthStateChanged` listeners will trigger with the new authentication state of the user. The result from the `signInWithEmailLink` can also be used to retrieve information about the user that signed in.
+
+### Testing the Email Login Link in the Simulator
+
+11. **Testing Steps:**
+    - Have the app installed on the running simulator.
+    - Go through the flow that will send the magic link to the email.
+    - Go to your inbox and copy the link address.
+    - Open a terminal and paste the following code:
+      ```bash
+      xcrun simctl openurl booted {paste_the_link_here}
+      ```
+    - This will start the app if it’s not running and trigger the `onLink` hook (if you have a listener for it as shown above).
+
 
 <!--EndFragment-->
