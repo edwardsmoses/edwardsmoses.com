@@ -11,15 +11,17 @@ thumbnail: /assets/edwardsmoses-vaida-krau-lCCesILyHS4-unsplash.jpg
 
 ## **Introduction**
 
-In this article, we want to explore how we can integrate Magic links with Supabase in a Remix application.
+In this article, we’ll explore how to integrate magic links with Supabase in a Remix application. 
 
-Supabase built-in email service is rate limited, and at the time of this writing, only allows for sending 3 emails per hour; so we want to reach for an external email service, and we'll be using Postmark for this purpose.
+Supabase’s built-in email service is rate-limited (at time of writing) at 3 emails per hour; so we want to reach for an external service provider, and we'll be using Postmark for this. 
 
-So, let's get started.
+
+Let’s get started!
+
 
 ## Getting started
 
-First things first, let's create our remix project using the `create-remix` CLI, and follow the steps
+First things first, let's create our remix project using the `create-remix` CLI:
 
 ```bash
 npx create-remix@latest
@@ -33,7 +35,9 @@ After setting up our project, we want to install the supabase dependencies.
 npm install @supabase/supabase-js @supabase/ssr
 ```
 
-If you don't have a Supabase project already, go ahead and create one. Head over to your Supabase dashboard, and get the URL and Anon Key from the project API settings, and copy to a `.env.local` file.
+If you don’t have a Supabase project yet, create one and head over to your Supabase dashboard. 
+
+Get the URL and Anon Key from the project API settings, and add them to a `.env.local` file:
 
 ```bash
 
@@ -44,7 +48,7 @@ SUPABASE_ANON_API_KEY=<your_supabase_api_key>
 
 ## Supabase Client functions
 
-Now that we have Supabase setup, we want to setup up the supabase clients on our app. Let's do by creating: `app/supabase/supabase.server.ts`
+Next, set up the Supabase client in your app by creating: `app/supabase/supabase.server.ts`
 
 ```js
 import {
@@ -79,13 +83,14 @@ export const createSupabaseServerClient = (request: Request) => {
 
 ```
 
-## Setting up sign-in page
+## Setting up the sign-in page
 
-Let' proceed to setting up our sign-in page - in the route: `app/routes/auth.tsx`
+Let's create our sign-in page at: `app/routes/auth.tsx`
 
 ```jsx
+
 import { json } from "@remix-run/node";
-import { Form, useActionData } from "@remix-run/react";
+import { Form, useActionData, useNavigation } from "@remix-run/react";
 import type { ActionFunctionArgs } from "@remix-run/node";
 import { createSupabaseServerClient } from "~/supabase/supabase.server";
 
@@ -98,6 +103,8 @@ export const action = async ({ request }: ActionFunctionArgs) => {
       emailRedirectTo: "http://localhost:5174/auth-callback",
     },
   });
+  console.log('what is error', error);
+  
   if (error) {
     return json({ success: false }, { headers });
   }
@@ -106,6 +113,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 
 const SignIn = () => {
   const actionData = useActionData<typeof action>();
+  const { state } = useNavigation();
 
   return (
     <div className="bg-orange-50 h-screen flex justify-center items-center">
@@ -133,9 +141,10 @@ const SignIn = () => {
 
             <button
               type="submit"
+              disabled={state === "submitting"}
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
-              Sign in
+              {state === "submitting" ? "Signing in..." : "Sign in"}
             </button>
           </div>
         </Form>
@@ -146,6 +155,7 @@ const SignIn = () => {
   );
 };
 export default SignIn;
+
 
 ```
 
@@ -181,8 +191,16 @@ In the above callback, when the user successfully signs-in, we redirect the user
 
 ```jsx
 
+
+
 import type { MetaFunction, LoaderFunctionArgs } from "@remix-run/node";
-import { Form, json, Link, useLoaderData } from "@remix-run/react";
+import {
+  Form,
+  json,
+  Link,
+  useLoaderData,
+  useNavigation,
+} from "@remix-run/react";
 import { createSupabaseServerClient } from "~/supabase/supabase.server";
 
 export const meta: MetaFunction = () => {
@@ -202,6 +220,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 
 export default function Index() {
   const loaderData = useLoaderData<typeof loader>();
+  const { state } = useNavigation();
 
   return (
     <div className="bg-orange-50 h-screen flex justify-center items-center">
@@ -216,9 +235,10 @@ export default function Index() {
           <Form action="/auth-sign-out" method="POST" className="mt-2">
             <button
               type="submit"
+              disabled={state === "submitting"}
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
-              Sign out
+              {state === "submitting" ? "Signing out..." : "Sign out"}
             </button>
           </Form>
         </div>
@@ -226,7 +246,7 @@ export default function Index() {
         <div>
           <h1 className="text-3xl">Welcome to Remix</h1>
 
-          <h1 className="text-xl text-slate-600">Please sign in</h1>
+          <h1 className="text-xl text-slate-600 mb-2">Please sign in</h1>
           <Link
             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             to="/auth"
@@ -240,10 +260,9 @@ export default function Index() {
 }
 
 
-
 ```
 
-Let's also create a simple sign-out route, which we defined in the Form action above, `/app/routes/auth-sign-out`
+Let's also create a simple sign-out route, which we defined in the `Form` action above, `/app/routes/auth-sign-out`
 
 ```ts
 import { redirect } from "@remix-run/node";
@@ -272,7 +291,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 
 ## Configuring Postmark as Custom SMTP for Supabase.
 
-Now, that we have the magic link functional, we want to configure Postmark as the email provider for supabase.
+Now, that we have the magic link functional, we want to configure Postmark as the SMTP provider for supabase.
 
 You want to head over to the Auth settings of your Supabase project, and enable Custom SMTP.
 ![screenshots](</assets/edwardsmoses.com-Screenshot 2024-07-27 at 11.42.19.png>)
@@ -287,6 +306,8 @@ Then, you'd want to use your Postmark Server API Token as the SMTP username and 
 ![screenshots](</assets/edwardsmoses.com-Screenshot 2024-07-27 at 11.50.23.png>)
 
 ### Done 🥳
+
+And that’s it! We’ve successfully integrated magic links using Supabase, Postmark, and Remix. 
 
 The working version of this article is available on GitHub —
 <https://github.com/edwardsmoses/magic-links-supabase-remix>
