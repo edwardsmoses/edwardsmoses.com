@@ -2,6 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 import moment from 'moment';
+import { YEARS_OF_EXPERIENCE } from "../copy/copy-constants";
 
 export const SEO = ({ article, articlesList }) => {
   return (
@@ -26,7 +27,7 @@ export const SEO = ({ article, articlesList }) => {
           siteUrl: "https://edwardsmoses.com",
           description:
             article?.metaDescription ||
-            "I'm Edwards Moses from Lagos, Nigeria. I've 7+ years of professional experience as a Full-Stack Software Developer. I focus on developing Web & Mobile apps for companies using React & React Native.",
+            `I'm Edwards Moses from Lagos, Nigeria. I've ${YEARS_OF_EXPERIENCE}+ years of professional experience as a Full-Stack Software Developer. I focus on developing Web & Mobile apps for companies using React & React Native.`,
         };
 
         // schema.org in JSONLD format

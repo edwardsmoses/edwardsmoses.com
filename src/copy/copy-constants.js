@@ -1,4 +1,6 @@
 
+export const YEARS_OF_EXPERIENCE = new Date().getFullYear() - 2016;
+
 export const WebsiteCopy = {
     "HiWelcome": {
         text_copies: {

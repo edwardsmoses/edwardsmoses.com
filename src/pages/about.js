@@ -44,17 +44,21 @@ const AboutPage = ({ data }) => {
             </div>
             <div className="lg:order-first lg:row-span-2">
               <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-                I’m Edwards Moses. <br />I live in the beating heart of Lagos, Nigeria — where I build the future.
+                I’m Edwards Moses. <br />I live in the beating heart of Lagos,
+                Nigeria — where I build the future.
               </h1>
               <div className="mt-6 space-y-7 text-base text-zinc-600 dark:!text-zinc-100">
                 <p>
-                  My name is Edwards Moses. I’ve spent the last decade as a software developer building great products
-                  for diverse industries (eCommerce, Sporting, eLearning, Legal, Logistics, Retail, and many others).
+                  My name is Edwards Moses. I’ve spent the last decade as a
+                  software developer building great products for diverse
+                  industries (eCommerce, Sporting, eLearning, Legal, Logistics,
+                  Retail, and many others).
                 </p>
                 <p>
-                  I spend my days as a freelancer Software Developer, working with teams to produce amazing products to
-                  customer-centric problems. From conception through to completion, I love seeing how an idea evolves
-                  into an app in the hands of the users.
+                  I spend my days as a freelancer Software Developer, working
+                  with teams to produce amazing products to customer-centric
+                  problems. From conception through to completion, I love seeing
+                  how an idea evolves into an app in the hands of the users.
                 </p>
               </div>
               <div className="mt-6 space-y-3 text-base text-zinc-600 dark:!text-zinc-100">
@@ -62,8 +66,25 @@ const AboutPage = ({ data }) => {
                 <h3>Credentials Collection 🎖️</h3>
                 <ul className="text-sm list-disc list-inside text-slate-900 dark:text-app-brand-white">
                   <li>
-                    Introduction to Kubernetes (In Prep of the CKAD cert) -{" "}
-                    <a className="text-blue-500" href="https://verify.acloud.guru/77471179F841" target="_blank">
+                    CloudGuru, Certified Kubernetes Application Developer (In
+                    Prep of the CKAD cert) -{" "}
+                    <a
+                      className="text-blue-500"
+                      href="https://verify.acloud.guru/B54D6859D482"
+                      target="_blank"
+                    >
+                      Credential
+                    </a>
+                  </li>
+
+                  <li>
+                    CloudGuru, Introduction to Kubernetes (In Prep of the CKAD
+                    cert) -{" "}
+                    <a
+                      className="text-blue-500"
+                      href="https://verify.acloud.guru/77471179F841"
+                      target="_blank"
+                    >
                       Credential
                     </a>
                   </li>
@@ -188,7 +209,11 @@ const AboutPage = ({ data }) => {
                     href="https://www.linkedin.com/in/edwards-moses/"
                     target="_blank"
                   >
-                    <svg viewBox="0 0 24 24" fill="currentColor" className="flex-none w-6 h-6 transition">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="flex-none w-6 h-6 transition"
+                    >
                       <path d="M18.335 18.339H15.67v-4.177c0-.996-.02-2.278-1.39-2.278-1.389 0-1.601 1.084-1.601 2.205v4.25h-2.666V9.75h2.56v1.17h.035c.358-.674 1.228-1.387 2.528-1.387 2.7 0 3.2 1.778 3.2 4.091v4.715zM7.003 8.575a1.546 1.546 0 01-1.548-1.549 1.548 1.548 0 111.547 1.549zm1.336 9.764H5.666V9.75H8.34v8.589zM19.67 3H4.329C3.593 3 3 3.58 3 4.297v15.406C3 20.42 3.594 21 4.328 21h15.338C20.4 21 21 20.42 21 19.703V4.297C21 3.58 20.4 3 19.666 3h.003z"></path>
                     </svg>
                     <span className="ml-4">LinkedIn</span>
