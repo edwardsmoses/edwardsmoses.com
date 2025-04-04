@@ -13,6 +13,7 @@ export const WebsiteCopy = {
             "hi_welcome_versionF":
               "👋 Hi there! Welcome, I'm Edwards, a Certified Google and Stripe Professional Developer. Let's work together!",
             "hi_welcome_versionG": "👋 Hi, I'm Edwards, a Certified AWS Associate Developer. Let's work together!",
+            "hi_welcome_versionH": "👋 Hi, I'm Edwards, a Certified CKAD Kubernetes Developer. Let's work together!",
         },
         tracked_events: {
             "hi_welcome_versionOriginal": "onPageLoadHiOriginal",
@@ -23,6 +24,7 @@ export const WebsiteCopy = {
             "hi_welcome_versionE": "onPageLoadHiThereStripe",
             "hi_welcome_versionF": "onPageLoadHiThereGoogleCloudAndStripe",
             "hi_welcome_versionG": "onPageLoadHiThereAWSCertified",
+            "hi_welcome_versionH": "onPageLoadHiThereCKADKubernetes",
         }
     },
     "BookButton": {
