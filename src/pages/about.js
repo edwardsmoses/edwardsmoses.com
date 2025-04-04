@@ -66,7 +66,7 @@ const AboutPage = ({ data }) => {
                 <h3>Credentials Collection 🎖️</h3>
                 <ul className="text-sm list-disc list-inside text-slate-900 dark:text-app-brand-white">
                   <li>
-                    CKAD: Certified Kubernetes Application Developer
+                    CKAD: Certified Kubernetes Application Developer -{" "}
                     <a
                       className="text-blue-500"
                       href="https://www.credly.com/badges/0c002800-de62-452f-8ca6-cf0e9cb260f1"
