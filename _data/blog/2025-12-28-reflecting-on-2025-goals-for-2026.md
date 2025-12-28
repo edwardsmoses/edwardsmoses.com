@@ -1,10 +1,10 @@
 ---
 template: BlogPost
-path: /reflecting-on-2024-goals-for-2025
-date: 2024-12-31T13:13:13.13Z
-title: Reflecting on 2024 - My Goals and Aspirations for 2025
+path: /reflecting-on-2025-goals-for-2026
+date: 2025-12-38T08:41:13.13Z
+title: Reflecting on 2025 - Year in Review
 thumbnail: >-
-  /assets/pexels-viridianaor-29996984.jpg
+  /assets/pexels-viridianaor-29996961.jpg
 ---
 
 <!--StartFragment-->
