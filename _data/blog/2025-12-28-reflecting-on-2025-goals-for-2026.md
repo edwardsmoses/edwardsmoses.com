@@ -9,13 +9,17 @@ thumbnail: >-
 
 <!--StartFragment-->
 
-It's the end of the year again, and 30 draws ever closer, I'm not sure how to feel about that yet, but there's no stopping time. 
-Anyways, as always, let's get to it, the year is winding down, let's reflect on 2025, what went well, what went terribly, and plan for 2026. If you've had read the [2024](https://edwardsmoses.com/reflecting-on-2024-goals-for-2025) version of this, you would notice the same sentence structure, pardon me, I just did a copy-paste of last year, and started editing from there :-)
+It's the end of the year again, and 30 draws ever closer; I'm not sure how to feel about that yet, but there's no stopping time. 
+
+Anyways, as always, let's get to it, the year is winding down, let's reflect on 2025, and plans for 2026. 
+If you read the [2024](https://edwardsmoses.com/reflecting-on-2024-goals-for-2025) version of this, you would notice the same structure, pardon me, I just did a copy-paste of last year, and started editing from there :-)
 
 
-Per tradition, I'll start with the most significant event of the year: traveling out of my home country, Nigeria for the first time, and the perspective shift was… interesting, nothing dramatic, but seeing how diverse we as humans can be. 
+Per tradition, I'll start with the most significant event of the year: traveling out of my home country, Nigeria for the first time, and the perspective shift was… interesting, nothing dramatic, but seeing a totally different culture. 
 
-I traveled to Qatar, and one small detail that hit me was learning their weekends were on Friday and Saturday, and Sunday the start of the work week; that felt so strange at first, because I had always taken Sat and Sun as weekends for granted. It made me realize how many “obvious” things in life are just cultural defaults, and not the same in other parts of the world, and makes me wonder what other assumptions I carry around without noticing.
+I traveled to Qatar, and one small detail that hit me was learning their weekends were on Friday and Saturday, and Sunday the start of the work week; that felt so strange at first, because I had always taken Sat and Sun being weekends for granted. 
+
+It made me realize how many “obvious” things in life are just cultural defaults, and not the same in other parts of the world, and makes me wonder what other assumptions I carry around without noticing.
 
 I'll hope to travel to more places in 2026 as well. 
 
@@ -24,23 +28,25 @@ I'll hope to travel to more places in 2026 as well.
 
 If you've come from last year, you'd be expecting the Work section here, well, surprise .) 
 
-This year saw me improve my driving skills, I got to move around a lot, and that improved my driving confidence a lot, parking which used to feel like a mini-crisis got noticeably easier, still trying to perfect the parallel park though, once I got down on lock, I"ll definitely let you folks know.
+This year saw me improve my driving skills, I got to move around a lot, and that improved my driving confidence a lot, parking which used to feel like a mini-crisis got much much easier, still trying to perfect the parallel park though, once I got down on lock, I'll definitely let you folks know.
 
 ## Work
 
-Now, we move on to Work, as it was last year, full-time freelancing is still my gig, and I'm incredibly grateful for the folks I've worked with, this year was tough, dealing with weird esoteric bugs that only appear in production; this year, a lot of my time went into maintaining existing projects, no new projects came around, lot of new features launched on the projects I worked on, but also making sure that existing features remained reliable as usage grew, whether that be adding redundancy, adding fallback mechanisms, for when things didn't work out. 
+Now, we move on to Work, as it was last year, full-time freelancing is still my gig, and I'm incredibly grateful for the folks I work with, and the opportunities I have had. 
+
+This year was tough, dealing with weird esoteric bugs that only appear in production; a lot of my time went into maintaining existing projects, no new projects came around, lot of new features launched on the projects I worked on, but also making sure that existing features remained reliable as usage grew, whether that be adding redundancy, adding fallback mechanisms for when things didn't work out. 
 
 It's reminded me that great software often feels invisible when everything works well, and painfully obvious when it doesn't. 
 
 ## Learning
 
-This year, learning has been constant, I continued my studies with UOPeople, balancing my course work alongside with my work, but it helped reinforce fundamentals that I often take for granted when working professionally.
+This year, learning has been constant, I continued my studies with UOPeople, balancing my course work alongside with my work, but it helped reinforce fundamentals that I often take for granted when working.
 
 On the technical side, I spent time deepening my understanding of systems, how things fail in practice, not just in theory. Some of this was intentional learning; a lot of it came from being forced to figure things out mid-incident.
 
 Also, as I mentioned, last year, while I didn't get to finish reading the 'DDA' book, I did make progress on it, and also got to finish another interesting read, Software engineering at Google, which was full of reminders about how good engineering is as much about process and culture as it is about code. 
 
-I mentioned last year, that I planned to branch out into building desktop apps, and thankfully, I managed that; (plug): meet [Clipbridge](https://github.com/edwardsmoses/clipboard_sync_mobile), it solved a problem I had faced, where I needed to copy something from my mac to my Android phone, I intend to continue working on this next year. Let's see where that takes me. 
+I mentioned last year, that I planned to branch out into building desktop apps, and thankfully, I managed that; (plug): meet [Clipbridge](https://github.com/edwardsmoses/clipboard_sync_mobile), it solved a problem I face, where I need to copy something from my mac to my Android phone, I intend to continue working on this next year. Let's see where that takes me. 
 
 
 ## Health
@@ -54,18 +60,18 @@ As I promised myself last year, I finally did go through with the health checkup
 
 This year, no significant effort was made to improve my relationships, I hope to get better at this next year, and be more intentional about relationship-building. 
 
-I did have a meaningful moment though: A friend of mine got married, and I had the privilege of been one of his groomsmen, and it was one of those moments that quitely reminded me how fast life is moving, as this role was one I saw “older people” play when I was younger. 
+I did have a meaningful moment though: A friend of mine got married, and I had the privilege of been one of his groomsmen, and it was one of those moments that quietly reminded me how fast life is moving, as this role was one I saw “older people” play when I was younger. 
 
 Anyways, move aside reflecting .) The wedding was a blast! I wish them the very best!
 
 
 ## Signing out
 
-Going into 2026, I don’t have an overwhelming list of goals. I want to:
+Going into 2026, I don’t have an overwhelming list of goals. I just want to:
 
-	•	Keep building, whether that be at work, my health, and my relationships
-	•	Get better at managing my time and energy
-	•	Write a bit more consistently on this blog
+- Keep building, whether that be at work, my health, and my relationships
+- Write a bit more consistently on this blog
+- Travel to another country
 
 Nothing revolutionary, just doubling down on what’s been working.
 
