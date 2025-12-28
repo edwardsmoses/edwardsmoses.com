@@ -64,6 +64,16 @@ I did have a meaningful moment though: A friend of mine got married, and I had t
 
 Anyways, move aside reflecting .) The wedding was a blast! I wish them the very best!
 
+## 2025
+
+As I did last year, looking at the [goals](https://edwardsmoses.com/reflecting-on-2024-goals-for-2025#2025:~:text=them%20in%202025.-,2025,-A%20new%20year) I set for this year: 
+
+- ~~Re-certify my certificates, especially my expiring Google Cloud and Stripe certification~~
+- ~~Take my Kubernetes certification~~
+- ~~Travel out of my country, Nigeria~~
+- ~~Reach another financial milestone in my savings journey~~
+- Become proficient at swimming
+
 
 ## Signing out
 
