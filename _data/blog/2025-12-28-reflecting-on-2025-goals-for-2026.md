@@ -15,7 +15,7 @@ Anyways, as always, let's get to it, the year is winding down, let's reflect on 
 If you read the [2024](https://edwardsmoses.com/reflecting-on-2024-goals-for-2025) version of this, you would notice the same structure, pardon me, I just did a copy-paste of last year, and started editing from there :-)
 
 
-Per tradition, I'll start with the most significant event of the year: traveling out of my home country, Nigeria, for the first time, and the perspective shift was… interesting, nothing dramatic, but living in a different environment, definitely gives one an "hmm, so this is different" moment. 
+Per tradition, I'll start with the most significant event of the year: traveling out of my home country, Nigeria, for the first time, and the perspective shift was… interesting, nothing dramatic, but living in a different environment definitely gives one that "hmm, so this is different" moment. 
 
 I traveled to Qatar, and one small detail that hit me was learning their weekends were on Friday and Saturday, and Sunday the start of the work week; that felt so strange at first, because I had always taken Sat and Sun being weekends for granted. 
 
@@ -81,7 +81,7 @@ Going into 2026, I don’t have an overwhelming list of goals. I just want to:
 
 - Keep building, whether that be at work, my health, and my relationships
 - Write a bit more consistently on this blog
-- Travel to another country
+- Traveling to another country
 
 Nothing revolutionary, just doubling down on what’s been working.
 
