@@ -1,7 +1,7 @@
 ---
 template: BlogPost
 path: /reflecting-on-2025-goals-for-2026
-date: 2025-12-38T08:41:13.13Z
+date: 2025-12-28T08:41:13.13Z
 title: Reflecting on 2025 - Year in Review
 thumbnail: >-
   /assets/pexels-viridianaor-29996961.jpg
