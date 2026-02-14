@@ -27,7 +27,7 @@ export default () => {
         className="text-xs font-medium lg:text-base whitespace-nowrap"
         activeClassName="font-bold !text-app-black dark:!text-white"
       >
-        Fav links
+        Stuff I read
       </Link>
 
       <Link

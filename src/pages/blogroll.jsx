@@ -25,13 +25,19 @@ const Blogroll = () => {
     <Layout>
       <SEO />
       <Helmet>
-        <title>Blogroll Feed | Edwards Moses</title>
+        <title>Stuff I read | Edwards Moses</title>
       </Helmet>
 
       <section className="max-w-3xl mx-auto pb-14">
-        <h1 className="mt-5 mb-4 text-3xl tracking-tight font-display font-medium sm:text-5xl">
-          Blogroll <i>Feed</i>
+        <h1 className="mt-5 mb-2 text-3xl tracking-tight font-display font-medium sm:text-5xl">
+          Stuff I read and found <i>interesting</i>
         </h1>
+        <p className="mb-10 text-sm text-gray-600 dark:text-gray-300">
+          the initial title on this was 'blogroll feed', but that felt too
+          generic. <br />
+          this section is really just a brain-dump of interesting stuff i found,
+          even stuff i don't fully understand, and my thoughts on them.
+        </p>
 
         <ul className="m-0 list-none p-0 space-y-4">
           {entries.map((entry) => (
@@ -48,7 +54,7 @@ const Blogroll = () => {
                 {entry.url}
               </a>
 
-              <p className="mb-0 mt-2 leading-7 text-app-black dark:text-gray-200">
+              <p className="mb-0 mt-2 leading-5 text-app-black dark:text-gray-200 text-base">
                 {entry.thoughts}
               </p>
 
@@ -61,6 +67,11 @@ const Blogroll = () => {
             </li>
           ))}
         </ul>
+
+        <p className="mt-16 text-[10px] text-gray-600 italic dark:text-gray-300">
+          ps: coded and added early morning at 1:50AM on a Valentine morning.. i
+          wonder how long this text will be here.
+        </p>
       </section>
     </Layout>
   );
