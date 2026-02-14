@@ -23,6 +23,14 @@ export default () => {
       </Link>
 
       <Link
+        to="/blogroll"
+        className="text-xs font-medium lg:text-base whitespace-nowrap"
+        activeClassName="font-bold !text-app-black dark:!text-white"
+      >
+        Blogroll
+      </Link>
+
+      <Link
         to="/about"
         className="text-xs font-medium lg:text-base whitespace-nowrap"
         activeClassName="font-bold !text-app-black dark:!text-white"

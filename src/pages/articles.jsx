@@ -2,7 +2,7 @@ import React from "react";
 import Helmet from "react-helmet";
 import { SEO } from "../components/seo";
 import Layout from "../components/layout";
-import { graphql } from "gatsby";
+import { Link, graphql } from "gatsby";
 
 import PostLink from "../components/post-link";
 
@@ -27,6 +27,13 @@ const Articles = ({
           All <i>Articles</i>
         </h2>
 
+        <div className="mx-5 mt-6 mb-2 rounded-lg border border-dashed border-gray-300 bg-app-brand-white px-4 py-3 text-sm dark:border-gray-700 dark:bg-app-black">
+          Looking for links from around the web? Visit{" "}
+          <Link to="/blogroll" className="font-semibold underline underline-offset-2">
+            the Blogroll Feed
+          </Link>{" "}
+          for short notes on external articles I found interesting.
+        </div>
 
         <div className="relative">
           <div className="grid gap-8 mx-auto mt-12 lg:grid-cols-3">{Posts}</div>
