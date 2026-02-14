@@ -27,12 +27,14 @@ const Articles = ({
           All <i>Articles</i>
         </h2>
 
-        <div className="mx-5 mt-6 mb-2 rounded-lg border border-dashed border-gray-300 bg-app-brand-white px-4 py-3 text-sm dark:border-gray-700 dark:bg-app-black">
-          Looking for links from around the web? Visit{" "}
-          <Link to="/blogroll" className="font-semibold underline underline-offset-2">
-            the Blogroll Feed
+        <div className="mx-5 mt-6 rounded-lg border border-dashed border-gray-300 bg-app-brand-white px-4 py-3 text-sm dark:border-gray-700 dark:bg-app-black">
+          Looking for stuff i'm reading from around the web?{"  "}
+          <Link
+            to="/blogroll"
+            className="font-semibold underline underline-offset-2"
+          >
+            check this out.
           </Link>{" "}
-          for short notes on external articles I found interesting.
         </div>
 
         <div className="relative">
@@ -41,7 +43,7 @@ const Articles = ({
       </Layout>
     </>
   );
-}
+};
 
 export const pageQuery = graphql`
   query ArticlesPageQuery {
@@ -69,6 +71,5 @@ export const pageQuery = graphql`
     }
   }
 `;
-
 
 export default Articles;
