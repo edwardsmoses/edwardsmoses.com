@@ -1,5 +1,11 @@
 export const BLOGROLL_FEED_ENTRIES = [
   {
+    url: 'https://mollyg.substack.com/p/six-rules-for-company-goal-setting?utm_source=post-email-title&publication_id=701791&post_id=189687724&utm_campaign=email-post-title&isFreemail=true&r=9t7xv&triedRedirect=true&utm_medium=email',
+    publishedAt: '2026-03-04',
+    thoughts:
+      "this article is interesting because it drives home the importance of ruthless goal setting in driving company success, alignment is always key",
+  },
+  {
     url: "https://allenpike.com/2026/a-broken-heart/?utm_source=bonobopress&utm_medium=newsletter&utm_campaign=2215",
     publishedAt: "2026-02-16",
     thoughts:
