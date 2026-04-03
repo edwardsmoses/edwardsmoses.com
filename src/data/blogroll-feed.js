@@ -1,5 +1,10 @@
 export const BLOGROLL_FEED_ENTRIES = [
   {
+    url: 'http://hintjens.com/blog:16?utm_source=substack&utm_medium=email',
+    publishedAt: '2026-04-03',
+    thoughts: 'a short interesting read on the importance of simplicity in design, and how it can lead to some powerful unexpected outcomes, ',
+  },
+  {
     url: 'https://mollyg.substack.com/p/six-rules-for-company-goal-setting',
     publishedAt: '2026-03-04',
     thoughts:
