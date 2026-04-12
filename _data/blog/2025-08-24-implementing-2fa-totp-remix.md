@@ -3,14 +3,14 @@ template: BlogPost
 path: /implementing-2fa-totp-with-remix
 date: 2026-04-12T23:59:59.203Z
 title: Implementing Two-Factor Authentication (2FA) with TOTP in a Remix app
-thumbnail: https://images.credly.com/images/cc8adc83-1dc6-4d57-8e20-22171247e052/blob
+thumbnail: /assets/totp/edwardsmoses.com_pexels-zulfugarkarimov-33440144.jpg
 ---
 
 <!--StartFragment-->
 
 ## **Introduction**
 
-I've always wondered how 2FA actually worked.You open Google Authenticator or Microsoft Authenticator, scan a QR code, and suddenly the app starts generating a 6-digit code that keeps changing every few seconds; it felt like magic. From the user's side, the whole thing feels simple. From the app side, though, I wanted to understand the moving pieces properly.
+I've always wondered how 2FA actually worked.You open Google Authenticator,  scan a QR code, and suddenly the app starts generating a 6-digit code that keeps changing every few seconds; it felt like magic. From the user's side, the whole thing feels simple. From the app side, though, I wanted to understand the moving pieces properly.
 
 So I decided to build a small demo app, `totp-demo` to see the whole flow end-to-end: login with email and password, turn on 2FA from settings, scan a QR code, verify the first code, and then enforce that TOTP step on the next login.
 
