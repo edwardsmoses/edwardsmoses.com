@@ -2,7 +2,7 @@ import React from "react";
 import Helmet from "react-helmet";
 import { SEO } from "../components/seo";
 import Layout from "../components/layout";
-import { graphql } from "gatsby";
+import { Link, graphql } from "gatsby";
 
 import PostLink from "../components/post-link";
 
@@ -27,6 +27,15 @@ const Articles = ({
           All <i>Articles</i>
         </h2>
 
+        <div className="mx-5 mt-6 rounded-lg border border-dashed border-gray-300 bg-app-brand-white px-4 py-3 text-sm dark:border-gray-700 dark:bg-app-black">
+          Looking for stuff i'm reading from around the web?{"  "}
+          <Link
+            to="/blogroll"
+            className="font-semibold underline underline-offset-2"
+          >
+            check this out.
+          </Link>{" "}
+        </div>
 
         <div className="relative">
           <div className="grid gap-8 mx-auto mt-12 lg:grid-cols-3">{Posts}</div>
@@ -34,7 +43,7 @@ const Articles = ({
       </Layout>
     </>
   );
-}
+};
 
 export const pageQuery = graphql`
   query ArticlesPageQuery {
@@ -62,6 +71,5 @@ export const pageQuery = graphql`
     }
   }
 `;
-
 
 export default Articles;
