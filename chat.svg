@@ -1,0 +1,278 @@
+<svg
+  width="560"
+  height="320"
+  viewBox="0 0 560 320"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title id="title">Animated chat intro for Edwards Moses</title>
+  <desc id="desc">
+    A simple animated chat-style introduction for Edwards Moses with five short message bubbles about his work and
+    writing.
+  </desc>
+
+  <metadata>
+    {
+      "name": "Edwards Moses",
+      "location": "Lagos, Nigeria",
+      "role": "Freelance software developer",
+      "focus": ["React", "React Native", ".NET", "Remix", "Firebase"],
+      "site": "https://edwardsmoses.com"
+    }
+  </metadata>
+
+  <style>
+    svg {
+      font-family: sans-serif;
+      overflow: visible;
+    }
+
+    text {
+      fill: #f3f4f6;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+
+    .bubble {
+      fill: #434348;
+    }
+
+    .subtle {
+      fill: #d1d5db;
+      font-weight: 500;
+    }
+
+    .accent {
+      fill: #60a5fa;
+    }
+
+    .emoji {
+      font-family: sans-serif;
+    }
+
+    .typing,
+    .message {
+      opacity: 0;
+    }
+
+    .typing-1 {
+      animation: typing-1 8.2s infinite;
+    }
+
+    .msg-1 {
+      animation: msg-1 8.2s infinite;
+    }
+
+    .msg-2 {
+      animation: msg-2 8.2s infinite;
+    }
+
+    .typing-2 {
+      animation: typing-2 8.2s infinite;
+    }
+
+    .msg-3 {
+      animation: msg-3 8.2s infinite;
+    }
+
+    .msg-4 {
+      animation: msg-4 8.2s infinite;
+    }
+
+    .msg-5 {
+      animation: msg-5 8.2s infinite;
+    }
+
+    @keyframes typing-1 {
+      0%,
+      3% {
+        opacity: 0;
+        transform: translate(12px, 8px);
+      }
+      7%,
+      13% {
+        opacity: 1;
+        transform: translate(12px, 0);
+      }
+      16%,
+      100% {
+        opacity: 0;
+        transform: translate(12px, 0);
+      }
+    }
+
+    @keyframes msg-1 {
+      0%,
+      13% {
+        opacity: 0;
+        transform: translate(12px, 8px);
+      }
+      17%,
+      95% {
+        opacity: 1;
+        transform: translate(12px, 0);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(12px, 0);
+      }
+    }
+
+    @keyframes msg-2 {
+      0%,
+      24% {
+        opacity: 0;
+        transform: translate(12px, 56px);
+      }
+      29%,
+      95% {
+        opacity: 1;
+        transform: translate(12px, 48px);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(12px, 48px);
+      }
+    }
+
+    @keyframes typing-2 {
+      0%,
+      37% {
+        opacity: 0;
+        transform: translate(12px, 120px);
+      }
+      41%,
+      47% {
+        opacity: 1;
+        transform: translate(12px, 112px);
+      }
+      50%,
+      100% {
+        opacity: 0;
+        transform: translate(12px, 112px);
+      }
+    }
+
+    @keyframes msg-3 {
+      0%,
+      47% {
+        opacity: 0;
+        transform: translate(12px, 128px);
+      }
+      52%,
+      95% {
+        opacity: 1;
+        transform: translate(12px, 120px);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(12px, 120px);
+      }
+    }
+
+    @keyframes msg-4 {
+      0%,
+      59% {
+        opacity: 0;
+        transform: translate(12px, 208px);
+      }
+      64%,
+      95% {
+        opacity: 1;
+        transform: translate(12px, 200px);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(12px, 200px);
+      }
+    }
+
+    @keyframes msg-5 {
+      0%,
+      71% {
+        opacity: 0;
+        transform: translate(12px, 272px);
+      }
+      76%,
+      95% {
+        opacity: 1;
+        transform: translate(12px, 264px);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(12px, 264px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .typing {
+        display: none;
+      }
+
+      .message {
+        opacity: 1;
+      }
+
+      .msg-1,
+      .msg-2,
+      .msg-3,
+      .msg-4,
+      .msg-5 {
+        animation: none;
+      }
+    }
+  </style>
+
+  <defs>
+    <g id="typing-bubble">
+      <rect x="8" width="70" height="42" rx="20" class="bubble" />
+      <circle cx="13" cy="33" r="8" class="bubble" />
+      <circle cx="3.5" cy="42" r="3.5" class="bubble" />
+      <circle cx="28" cy="21" r="5" fill="#a3a3a3">
+        <animate attributeName="opacity" values="0.45;1;0.45" dur="0.9s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="43" cy="21" r="5" fill="#a3a3a3">
+        <animate attributeName="opacity" values="0.45;1;0.45" dur="0.9s" begin="0.15s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="58" cy="21" r="5" fill="#a3a3a3">
+        <animate attributeName="opacity" values="0.45;1;0.45" dur="0.9s" begin="0.3s" repeatCount="indefinite" />
+      </circle>
+    </g>
+  </defs>
+
+  <g class="typing typing-1">
+    <use href="#typing-bubble" />
+  </g>
+
+  <g class="message msg-1">
+    <rect width="176" height="42" rx="18" class="bubble" />
+    <text x="16" y="27"><tspan class="emoji">👋</tspan> I'm Edwards</text>
+  </g>
+
+  <g class="message msg-2">
+    <rect width="324" height="66" rx="18" class="bubble" />
+    <text x="16" y="27">I'm a software dev</text>
+    <text x="16" y="50" class="subtle">based in Lagos, Nigeria.</text>
+  </g>
+
+  <g class="typing typing-2">
+    <use href="#typing-bubble" />
+  </g>
+
+  <g class="message msg-3">
+    <rect width="225" height="42" rx="18" class="bubble" />
+    <text x="16" y="27">I build web and mobile</text>
+  </g>
+
+    <g class="typing typing-2">
+    <use href="#typing-bubble" />
+  </g>
+
+  <g class="message msg-4">
+    <rect width="260" height="42" rx="18" class="bubble" />
+    <text x="16" y="27">I write @ edwardsmoses.com</text>
+  </g>
+</svg>
