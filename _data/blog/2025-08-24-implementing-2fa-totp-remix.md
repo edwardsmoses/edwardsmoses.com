@@ -1,7 +1,7 @@
 ---
 template: BlogPost
 path: /implementing-2fa-totp-with-remix
-date: 2025-08-24T14:35:36.203Z
+date: 2026-04-12T23:59:59.203Z
 title: Implementing Two-Factor Authentication (2FA) with TOTP in a Remix app
 thumbnail: https://images.credly.com/images/cc8adc83-1dc6-4d57-8e20-22171247e052/blob
 ---
@@ -10,13 +10,13 @@ thumbnail: https://images.credly.com/images/cc8adc83-1dc6-4d57-8e20-22171247e052
 
 ## **Introduction**
 
-I've always wondered how TOTP for 2FA actually worked.
+I've always wondered how 2FA actually worked.You open Google Authenticator or Microsoft Authenticator, scan a QR code, and suddenly the app starts generating a 6-digit code that keeps changing every few seconds; it felt like magic. From the user's side, the whole thing feels simple. From the app side, though, I wanted to understand the moving pieces properly.
 
-You open Google Authenticator or Microsoft Authenticator, scan a QR code, and suddenly the app starts generating a 6-digit code that keeps changing every few seconds. From the user's side, the whole thing feels simple. From the app side, though, I wanted to understand the moving pieces properly.
+So I decided to build a small demo app, `totp-demo` to see the whole flow end-to-end: login with email and password, turn on 2FA from settings, scan a QR code, verify the first code, and then enforce that TOTP step on the next login.
 
-So I built a small demo app called `totp-demo` to see the whole flow end-to-end: login with email and password, turn on 2FA from settings, scan a QR code, verify the first code, and then enforce that TOTP step on the next login.
+ Hopefully, by the end, if we don't get lost, we'd have a working 2FA system! 
 
-That's what this article covers. We'll keep the auth system small, back it with SQLite, and wire the TOTP flow in a way that still feels close to a real project.
+We'll keep the auth system super simple, back it with SQLite, and wire the up TOTP flow.
 
 ## Getting started
 
@@ -27,7 +27,7 @@ npx create-react-router@latest totp-demo
 cd totp-demo
 ```
 
-If you've used Remix for a while, the route/action flow will still feel familiar, which made this a nice place to experiment.
+I use Remix on a daily, so the route/action flow feels very familiar, but using the latest version to see what's new as well. 
 
 I also used this as an excuse to finally try [Jujutsu](https://jj-vcs.github.io/jj/latest/). I've heard enough good things about it for a while now, so I figured I might as well let this demo be the project where I stop procrastinating.
 
@@ -68,7 +68,7 @@ jj describe -m "chore: start of totp demo"
 
 ## Installing the packages
 
-For this demo, I wanted the smallest set of dependencies that still made the app feel real.
+For this demo, I wanted the smallest set of dependencies: .
 
 - `speakeasy` handles the TOTP secret generation and token verification.
 - `qrcode` turns the `otpauth://` URL into an image that an authenticator app can scan.
@@ -89,7 +89,7 @@ SESSION_SECRET=super-secret-but-not-for-production
 
 ## Setting up the demo database
 
-Since I wanted this article rooted in an actual project, I didn't want to wave the data layer away with "assume auth already exists".
+Since I wanted this rooted in an 'actual' project, I didn't want to wave the data layer away with "assume auth already exists".
 
 I'm keeping the demo database intentionally small. We only need a single `users` table with the normal login bits and the two fields that matter for 2FA:
 
@@ -101,6 +101,15 @@ Create `app/utils/db.server.ts`:
 ```ts
 import Database from "better-sqlite3";
 import { hashSync } from "bcryptjs";
+
+type User = {
+  id: number;
+  email: string;
+  password_hash: string;
+  two_factor_enabled: boolean;
+  two_factor_secret?: string;
+  two_factor_temp_secret?: string;
+}
 
 const db = new Database("totp-demo.sqlite");
 
@@ -131,12 +140,12 @@ if (!existingUser) {
   ).run("demo@example.com", hashSync("password123", 10));
 }
 
-export function findUserByEmail(email: string) {
-  return db.prepare("SELECT * FROM users WHERE email = ?").get(email);
+export function findUserByEmail(email: string): User | undefined {
+  return db.prepare("SELECT * FROM users WHERE email = ?").get(email) as User | undefined;
 }
 
-export function findUserById(id: number) {
-  return db.prepare("SELECT * FROM users WHERE id = ?").get(id);
+export function findUserById(id: number): User | undefined {
+  return db.prepare("SELECT * FROM users WHERE id = ?").get(id) as User | undefined;
 }
 
 export function setTemporaryTwoFactorSecret(userId: number, secret: string) {
@@ -174,6 +183,11 @@ export function clearTwoFactor(userId: number) {
     `
   ).run(userId);
 }
+```
+If you wanna get rid of the red-lines, you can install the types:
+
+```bash
+npm i --save-dev @types/better-sqlite3
 ```
 
 For the demo, I'm seeding a single user directly from the DB helper, so I don't have to build registration too. That gives us a stable account to test against:
@@ -215,7 +229,7 @@ const sessionStorage = createCookieSessionStorage({
     sameSite: "lax",
     path: "/",
     secure: false,
-    secrets: [process.env.SESSION_SECRET || "not-secure"],
+    secrets: [process.env.SESSION_SECRET || ""],
   },
 });
 
@@ -247,7 +261,7 @@ I'm using the same cookie for both states; the only thing that changes is which 
 
 ## Building the login route
 
-Now for the actual auth flow.
+We making some progress, nothing visible yet, let's move to the actual auth flow. 
 
 The `login` route checks the email and password. If the user doesn't have 2FA turned on, we set `userId` in session and redirect home. If they do have 2FA enabled, we set `pending2faUserId` instead and redirect to `/verify-2fa`.
 
@@ -259,7 +273,7 @@ import { Form, redirect, useActionData, useNavigation } from "react-router";
 import { findUserByEmail } from "~/utils/db.server";
 import { getSession, commitSession } from "~/utils/session.server";
 
-export async function action({ request }) {
+export async function action({ request }: { request: Request }) {
   const formData = await request.formData();
   const email = formData.get("email")?.toString().trim() || "";
   const password = formData.get("password")?.toString() || "";
@@ -320,6 +334,29 @@ export default function Login() {
 
 I like this split because the password step stays boring. The only extra branch is whether we stop there or send the user to the second factor page.
 
+So, the below bit was something new, I'm used to the previous filesystem always routing for Remix, but in the new React Router flow, that needs to be explicitly [configured](https://reactrouter.com/start/framework/routing).
+
+First, we want to install: 
+
+```bash
+npm i @react-router/fs-routes
+```
+
+Then, we want to replace `app/routes.ts` with:
+
+```ts
+import { type RouteConfig, index } from "@react-router/dev/routes";
+import { flatRoutes } from "@react-router/fs-routes";
+
+export default [...(await flatRoutes())] satisfies RouteConfig;
+
+```
+
+I'm definitely not winning any design awards for this login page:
+
+![our current login page](/assets/totp/edwardsmoses_CleanShot 2026-04-12 at 23.50.49.png)
+
+
 ## Generating the QR code and turning on 2FA
 
 Once the user is logged in, we can give them a page to enable 2FA.
@@ -350,20 +387,28 @@ async function qrCodeForSecret(userEmail: string, secret: string) {
   return QRCode.toDataURL(otpAuthUrl);
 }
 
-export async function loader({ request }) {
+export async function loader({ request }: { request: Request }) {
   const userId = await requireUserId(request);
   const user = findUserById(userId);
+
+  if (!user) {
+    throw new Response("User not found", { status: 404 });
+  }
 
   return {
     twoFactorEnabled: Boolean(user.two_factor_enabled),
   };
 }
 
-export async function action({ request }) {
+export async function action({ request }: { request: Request }) {
   const userId = await requireUserId(request);
   const user = findUserById(userId);
   const formData = await request.formData();
   const intent = formData.get("intent");
+
+  if (!user) {
+    throw new Response("User not found", { status: 404 });
+  }
 
   if (intent === "generate") {
     const secret = speakeasy.generateSecret({
@@ -374,7 +419,7 @@ export async function action({ request }) {
     setTemporaryTwoFactorSecret(userId, secret.base32);
 
     return {
-      qrCodeDataUrl: await QRCode.toDataURL(secret.otpauth_url),
+      qrCodeDataUrl: await QRCode.toDataURL(secret.otpauth_url || ""),
       success: false,
     };
   }
@@ -399,7 +444,7 @@ export async function action({ request }) {
           "That code didn't match. Try the current code from your authenticator app.",
         qrCodeDataUrl: await qrCodeForSecret(
           user.email,
-          user.two_factor_temp_secret
+          user.two_factor_temp_secret,
         ),
       };
     }
@@ -460,8 +505,8 @@ export default function TwoFactorSettings() {
     </div>
   );
 }
-```
 
+```
 A couple of useful things are happening here:
 
 - `speakeasy.generateSecret()` creates the shared secret
@@ -471,9 +516,22 @@ A couple of useful things are happening here:
 
 That temporary secret field is doing a real job for us. If the user abandons setup halfway through, we haven't fully enabled 2FA yet, and we haven't accidentally made the account harder to access.
 
+If you haven't already, let's also install the types for the packages we're using in this route:
+
+```bash
+npm i --save-dev @types/qrcode
+npm i --save-dev @types/speakeasy
+```
+
+Okay, now we have the QR code displayed, yay progress!!
+
+![yay, progress!](/assets/totp/edwardsmoses_CleanShot 2026-04-13 at 00.00.06.png)
+
+
+
 ## Verifying the TOTP code during login
 
-Now for the part we actually care about enforcing.
+Now for the enforcing part. 
 
 When a user with 2FA enabled logs in, we redirect them to `/verify-2fa`. On this route, we read `pending2faUserId` from session, look up the stored secret, and verify the submitted token.
 
@@ -487,7 +545,7 @@ import { Form, redirect, useActionData, useNavigation } from "react-router";
 import { findUserById } from "~/utils/db.server";
 import { getSession, commitSession } from "~/utils/session.server";
 
-export async function loader({ request }) {
+export async function loader({ request }: { request: Request }) {
   const session = await getSession(request.headers.get("Cookie"));
 
   if (!session.get("pending2faUserId")) {
@@ -497,7 +555,7 @@ export async function loader({ request }) {
   return null;
 }
 
-export async function action({ request }) {
+export async function action({ request }: { request: Request }) {
   const session = await getSession(request.headers.get("Cookie"));
   const pendingUserId = session.get("pending2faUserId");
   const token = (await request.formData()).get("token")?.toString() || "";
@@ -561,7 +619,7 @@ export default function VerifyTwoFactor() {
 }
 ```
 
-That completes the loop.
+And, we have a winner on our hands! With this, the loop is completed. 
 
 At this point, the app behaves the way I wanted from the start:
 
@@ -569,7 +627,8 @@ At this point, the app behaves the way I wanted from the start:
 - password + TOTP for accounts with 2FA enabled
 - setup only becomes permanent after the first successful verification
 
-## A quick production note
+
+## A quick note
 
 For this demo, I'm storing the TOTP secret directly in SQLite so the flow is easy to follow.
 
@@ -579,7 +638,7 @@ In a real application, I'd treat that secret much more carefully:
 - make sure disable / reset flows are deliberate
 - add backup codes so users don't get stranded when they lose a device
 
-I'm intentionally leaving recovery codes out of this walkthrough so the core TOTP flow stays easy to follow.
+I'm intentionally leaving recovery codes and more complex logic / edge-cases out of this walkthrough so the core TOTP flow stays easy to follow.
 
 ## Testing the flow
 
@@ -605,17 +664,29 @@ If you can get through those cases cleanly, the implementation is in a pretty so
 
 ## Wrapping up
 
-This was a fun one.
+This was a really fun one.
 
-TOTP feels a lot less magical once you build it yourself. At the end of the day, the flow is just:
+TOTP feels a lot less magical once I got hands-on. At the end of the day, the flow is just:
 
 - generate a shared secret
 - let the user scan it
 - verify one code to confirm setup
 - ask for the code again on future logins
 
-The nice part is how well this fits the Remix model. Route actions are a good home for the verification logic, sessions make the "pending 2FA" state easy to model, and a tiny SQLite demo is enough to make the whole thing feel real.
+The nice part is how well this fits the Remix model.
 
 If you're adding this to an existing app, the main pieces to lift from the demo are the same ones that made this one work: temporary secret during setup, permanent secret after verification, and a separate login state for users who are halfway through authentication.
+
+Here's the repo, if you wanna grab and run the project: [Totp Remix demo](https://github.com/edwardsmoses/totp-remix-demo)
+
+I'd like to chat with anyone who has implemented this in a production system, any weird edge-cases you have encountered ? 
+
+Drop a comment below, I'd love to know. 
+
+Until next time, folks!!
+
+
+
+*PS: Not any closer to figuring out Jujutsu, yet, the mental model still feels foreign..*
 
 <!--EndFragment-->
