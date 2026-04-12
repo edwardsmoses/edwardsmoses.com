@@ -1,0 +1,446 @@
+<svg
+  width="640"
+  height="388"
+  viewBox="0 0 640 388"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title id="title">Animated premium chat intro for Edwards Moses</title>
+  <desc id="desc">
+    A GitHub profile README chat graphic introducing Edwards Moses with an avatar, three message beats, and a compact
+    row of labeled call-to-action pills.
+  </desc>
+
+  <metadata>
+    {
+      "name": "Edwards Moses",
+      "location": "Lagos, Nigeria",
+      "role": "Full-stack developer",
+      "companyLabel": "Toptal",
+      "companyHref": "https://www.toptal.com/resume/edwards-moses",
+      "avatarHref": "https://edwardsmoses.com/assets/edwards_moses_avatar.png",
+      "links": [
+        { "label": "Portfolio", "href": "https://portfolio.edwardsmoses.com/#projects" },
+        { "label": "Articles", "href": "https://edwardsmoses.com/articles" },
+        { "label": "Email", "href": "mailto:hi@edwardsmoses.com" },
+        { "label": "Toptal", "href": "https://www.toptal.com/resume/edwards-moses" }
+      ],
+      "signoff": "Open to build",
+      "themeVariables": {
+        "--chat-hero": "#151b23",
+        "--chat-support": "#26262f",
+        "--chat-support-alt": "#18263d",
+        "--chat-accent": "#2f6df6"
+      }
+    }
+  </metadata>
+
+  <style>
+    svg {
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow: visible;
+    }
+
+    text {
+      letter-spacing: -0.02em;
+    }
+
+    .identity-shell {
+      fill: rgba(10, 14, 20, 0.88);
+      stroke: rgba(255, 255, 255, 0.08);
+    }
+
+    .status-shell {
+      fill: rgba(11, 18, 27, 0.72);
+      stroke: rgba(124, 171, 255, 0.18);
+    }
+
+    .hero-shell {
+      fill: #151b23;
+      stroke: rgba(255, 255, 255, 0.06);
+    }
+
+    .support-shell {
+      fill: #2a2b32;
+      stroke: rgba(255, 255, 255, 0.06);
+    }
+
+    .support-alt-shell {
+      fill: #18263d;
+      stroke: rgba(124, 171, 255, 0.16);
+    }
+
+    .typing-shell {
+      fill: #20242c;
+      stroke: rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-pill {
+      fill: rgba(12, 18, 26, 0.86);
+      stroke: rgba(255, 255, 255, 0.12);
+    }
+
+    .footer-pill-primary {
+      fill: #2f6df6;
+    }
+
+    .name {
+      fill: #f8fafc;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .location {
+      fill: #98a2b3;
+      font-size: 12px;
+    }
+
+    .status {
+      fill: #d6deea;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .kicker {
+      fill: #88b0ff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      fill: #f8fafc;
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: -0.045em;
+    }
+
+    .hero-copy {
+      fill: rgba(248, 250, 252, 0.78);
+      font-size: 16px;
+    }
+
+    .body {
+      fill: #eef2f8;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .secondary {
+      fill: #a9b4c6;
+      font-size: 14px;
+    }
+
+    .pill-label {
+      fill: #eef2f8;
+      font-size: 13px;
+      font-weight: 700;
+      text-anchor: middle;
+    }
+
+    .pill-label-primary {
+      fill: #ffffff;
+    }
+
+    .dot {
+      fill: #97a3b7;
+    }
+
+    .motion {
+      display: inline;
+    }
+
+    .static-final {
+      display: none;
+    }
+
+    @media (prefers-color-scheme: light) {
+      .identity-shell {
+        fill: rgba(255, 255, 255, 0.82);
+        stroke: rgba(15, 23, 42, 0.08);
+      }
+
+      .status-shell {
+        fill: rgba(255, 255, 255, 0.78);
+        stroke: rgba(47, 109, 246, 0.14);
+      }
+
+      .hero-shell {
+        fill: #101828;
+      }
+
+      .support-shell {
+        fill: #eef2f8;
+        stroke: rgba(15, 23, 42, 0.08);
+      }
+
+      .support-alt-shell {
+        fill: #e7f0ff;
+        stroke: rgba(47, 109, 246, 0.14);
+      }
+
+      .typing-shell {
+        fill: #eef2f8;
+        stroke: rgba(15, 23, 42, 0.08);
+      }
+
+      .footer-pill {
+        fill: rgba(255, 255, 255, 0.92);
+        stroke: rgba(15, 23, 42, 0.12);
+      }
+
+      .name,
+      .status {
+        fill: #101828;
+      }
+
+      .location {
+        fill: #5c6678;
+      }
+
+      .body {
+        fill: #101828;
+      }
+
+      .secondary {
+        fill: #5c6678;
+      }
+
+      .pill-label {
+        fill: #101828;
+      }
+
+      .pill-label-primary {
+        fill: #ffffff;
+      }
+
+      .dot {
+        fill: #8f99ac;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .motion {
+        display: none;
+      }
+
+      .static-final {
+        display: inline;
+      }
+    }
+  </style>
+
+  <defs>
+    <clipPath id="avatar-clip">
+      <circle cx="36" cy="40" r="16" />
+    </clipPath>
+
+    <filter id="soft-shadow" x="-18%" y="-20%" width="136%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#020617" flood-opacity="0.2" />
+    </filter>
+
+    <filter id="glow-shadow" x="-30%" y="-30%" width="160%" height="180%">
+      <feGaussianBlur stdDeviation="24" />
+    </filter>
+
+    <g id="typing">
+      <rect width="84" height="36" rx="18" class="typing-shell" filter="url(#soft-shadow)" />
+      <circle cx="27" cy="18" r="4.5" class="dot">
+        <animate attributeName="opacity" values="0.35;1;0.35" dur="0.9s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="42" cy="18" r="4.5" class="dot">
+        <animate attributeName="opacity" values="0.35;1;0.35" dur="0.9s" begin="0.15s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="57" cy="18" r="4.5" class="dot">
+        <animate attributeName="opacity" values="0.35;1;0.35" dur="0.9s" begin="0.3s" repeatCount="indefinite" />
+      </circle>
+    </g>
+
+    <g id="hero">
+      <rect width="392" height="106" rx="30" class="hero-shell" filter="url(#soft-shadow)" />
+      <rect x="24" y="18" width="44" height="4" rx="2" fill="#88b0ff" opacity="0.9" />
+      <text x="24" y="38" class="kicker">Intro</text>
+      <text x="24" y="67" class="hero-title">I'm Edwards.</text>
+      <text x="24" y="88" class="hero-copy">I design and ship web + mobile products</text>
+      <text x="24" y="106" class="hero-copy">for teams that care about craft and clarity.</text>
+    </g>
+
+    <g id="support-a">
+      <rect width="352" height="62" rx="24" class="support-shell" filter="url(#soft-shadow)" />
+      <text x="22" y="24" class="kicker">Base</text>
+      <text x="22" y="47" class="body">Lagos, Nigeria. Working with teams globally.</text>
+    </g>
+
+    <g id="support-b">
+      <rect width="474" height="84" rx="26" class="support-alt-shell" filter="url(#soft-shadow)" />
+      <text x="24" y="24" class="kicker">Focus</text>
+      <text x="24" y="49" class="body">React, React Native, and pragmatic backend systems.</text>
+      <text x="24" y="69" class="secondary">Shipping with teams through Toptal and direct builds.</text>
+    </g>
+
+    <g id="footer">
+      <g transform="translate(0 0)">
+        <rect width="92" height="34" rx="17" class="footer-pill-primary" />
+        <text x="46" y="22" class="pill-label pill-label-primary">Portfolio</text>
+      </g>
+      <g transform="translate(104 0)">
+        <rect width="84" height="34" rx="17" class="footer-pill" />
+        <text x="42" y="22" class="pill-label">Articles</text>
+      </g>
+      <g transform="translate(200 0)">
+        <rect width="70" height="34" rx="17" class="footer-pill" />
+        <text x="35" y="22" class="pill-label">Email</text>
+      </g>
+      <g transform="translate(282 0)">
+        <rect width="74" height="34" rx="17" class="footer-pill" />
+        <text x="37" y="22" class="pill-label">Toptal</text>
+      </g>
+    </g>
+  </defs>
+
+  <ellipse cx="480" cy="72" rx="96" ry="62" fill="#3f77ff" opacity="0.18" filter="url(#glow-shadow)" />
+  <ellipse cx="110" cy="316" rx="82" ry="52" fill="#f6b35d" opacity="0.12" filter="url(#glow-shadow)" />
+
+  <g aria-hidden="true">
+    <rect x="12" y="16" width="222" height="48" rx="20" class="identity-shell" />
+    <image
+      href="data:image/jpeg;base64,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"
+      x="20"
+      y="24"
+      width="32"
+      height="32"
+      clip-path="url(#avatar-clip)"
+      preserveAspectRatio="xMidYMid slice"
+    />
+    <circle cx="36" cy="40" r="16" fill="none" stroke="rgba(255,255,255,0.12)" />
+    <text x="64" y="39" class="name">Edwards Moses</text>
+    <text x="64" y="55" class="location">Lagos, Nigeria</text>
+
+    <rect x="512" y="24" width="110" height="32" rx="16" class="status-shell" />
+    <circle cx="530" cy="40" r="4" fill="#2fb36a">
+      <animate attributeName="opacity" values="0.45;1;0.45" dur="1.8s" repeatCount="indefinite" />
+      <animate attributeName="r" values="4;4.8;4" dur="1.8s" repeatCount="indefinite" />
+    </circle>
+    <text x="540" y="44" class="status">Open to build</text>
+  </g>
+
+  <g class="motion" aria-hidden="true">
+    <g transform="translate(12 122)">
+      <g opacity="0">
+        <use href="#typing" />
+        <animate attributeName="opacity" dur="6.4s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.02;0.05;0.14;0.17;1" />
+        <animateTransform
+          attributeName="transform"
+          type="translate"
+          dur="6.4s"
+          repeatCount="indefinite"
+          values="0 12;0 0;0 0;0 -4;0 -4"
+          keyTimes="0;0.05;0.14;0.17;1"
+          calcMode="spline"
+          keySplines="0.16 1 0.3 1;0 0 1 1;0.4 0 1 1;0 0 1 1"
+        />
+      </g>
+    </g>
+
+    <g transform="translate(12 72)">
+      <g opacity="0">
+        <use href="#hero" />
+        <animate attributeName="opacity" dur="6.4s" repeatCount="indefinite" values="0;0;1;1;1;0" keyTimes="0;0.13;0.21;0.94;0.98;1" />
+        <animateTransform
+          attributeName="transform"
+          type="translate"
+          dur="6.4s"
+          repeatCount="indefinite"
+          values="0 16;0 0;0 0;0 0;0 -2;0 -2"
+          keyTimes="0;0.21;0.78;0.9;0.98;1"
+          calcMode="spline"
+          keySplines="0.18 1 0.3 1;0 0 1 1;0.33 0 0.2 1;0 0 1 1;0 0 1 1"
+        />
+      </g>
+    </g>
+
+    <g transform="translate(176 194)">
+      <g opacity="0">
+        <use href="#support-a" />
+        <animate attributeName="opacity" dur="6.4s" repeatCount="indefinite" values="0;0;1;1;1;0" keyTimes="0;0.24;0.31;0.94;0.98;1" />
+        <animateTransform
+          attributeName="transform"
+          type="translate"
+          dur="6.4s"
+          repeatCount="indefinite"
+          values="0 16;0 0;0 0;0 -2;0 -2"
+          keyTimes="0;0.31;0.84;0.94;1"
+          calcMode="spline"
+          keySplines="0.16 1 0.3 1;0 0 1 1;0.33 0 0.2 1;0 0 1 1"
+        />
+      </g>
+    </g>
+
+    <g transform="translate(452 268)">
+      <g opacity="0">
+        <use href="#typing" />
+        <animate attributeName="opacity" dur="6.4s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.32;0.36;0.45;0.48;1" />
+        <animateTransform
+          attributeName="transform"
+          type="translate"
+          dur="6.4s"
+          repeatCount="indefinite"
+          values="0 12;0 0;0 0;0 -4;0 -4"
+          keyTimes="0;0.36;0.45;0.48;1"
+          calcMode="spline"
+          keySplines="0.16 1 0.3 1;0 0 1 1;0.4 0 1 1;0 0 1 1"
+        />
+      </g>
+    </g>
+
+    <g transform="translate(44 268)">
+      <g opacity="0">
+        <use href="#support-b" />
+        <animate attributeName="opacity" dur="6.4s" repeatCount="indefinite" values="0;0;1;1;1;0" keyTimes="0;0.45;0.54;0.94;0.98;1" />
+        <animateTransform
+          attributeName="transform"
+          type="translate"
+          dur="6.4s"
+          repeatCount="indefinite"
+          values="0 16;0 0;0 0;0 -2;0 -2"
+          keyTimes="0;0.54;0.86;0.94;1"
+          calcMode="spline"
+          keySplines="0.16 1 0.3 1;0 0 1 1;0.33 0 0.2 1;0 0 1 1"
+        />
+      </g>
+    </g>
+
+    <g transform="translate(224 344)" opacity="0">
+      <use href="#footer" />
+      <animate attributeName="opacity" dur="6.4s" repeatCount="indefinite" values="0;0;1;1;1;0" keyTimes="0;0.52;0.6;0.94;0.98;1" />
+      <animateTransform
+        attributeName="transform"
+        type="translate"
+        dur="6.4s"
+        repeatCount="indefinite"
+        values="0 16;0 0;0 0;0 -2;0 -2"
+        keyTimes="0;0.6;0.88;0.94;1"
+        calcMode="spline"
+        keySplines="0.16 1 0.3 1;0 0 1 1;0.33 0 0.2 1;0 0 1 1"
+      />
+    </g>
+  </g>
+
+  <g class="static-final">
+    <g transform="translate(12 72)">
+      <use href="#hero" />
+    </g>
+    <g transform="translate(176 194)">
+      <use href="#support-a" />
+    </g>
+    <g transform="translate(44 268)">
+      <use href="#support-b" />
+    </g>
+    <g transform="translate(224 344)">
+      <use href="#footer" />
+    </g>
+  </g>
+</svg>
