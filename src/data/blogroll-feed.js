@@ -1,12 +1,19 @@
 export const BLOGROLL_FEED_ENTRIES = [
   {
-    url: 'http://hintjens.com/blog:16?utm_source=substack&utm_medium=email',
-    publishedAt: '2026-04-03',
-    thoughts: 'a short interesting read on the importance of simplicity in design, and how it can lead to some powerful unexpected outcomes, ',
+    url: "https://smoores.dev/post/making_react_prosemirror_really_really_fast/?utm_source=bonobopress&utm_medium=newsletter&utm_campaign=2250",
+    publishedAt: "2026-04-14",
+    thoughts:
+      "deeply understanding the fundamentals is still a valuable skill, understanding how your software runs, is still an important skill, not sure how long that skill will be relevant, but at least , it is for now. ",
   },
   {
-    url: 'https://mollyg.substack.com/p/six-rules-for-company-goal-setting',
-    publishedAt: '2026-03-04',
+    url: "http://hintjens.com/blog:16?utm_source=substack&utm_medium=email",
+    publishedAt: "2026-04-03",
+    thoughts:
+      "a short interesting read on the importance of simplicity in design, and how it can lead to some powerful unexpected outcomes, ",
+  },
+  {
+    url: "https://mollyg.substack.com/p/six-rules-for-company-goal-setting",
+    publishedAt: "2026-03-04",
     thoughts:
       "this article is interesting because it drives home the importance of ruthless goal setting in driving company success, alignment is always key",
   },
