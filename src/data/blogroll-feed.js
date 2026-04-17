@@ -1,5 +1,10 @@
 export const BLOGROLL_FEED_ENTRIES = [
   {
+    url: "https://pckt.blog/b/jcalabro/april-2026-outage-post-mortem-219ebg2",
+    publishedAt: "2026-04-18",
+    thought: "no words, just wow!! people be genius'ing",
+  },
+  {
     url: "https://smoores.dev/post/making_react_prosemirror_really_really_fast/?utm_source=bonobopress&utm_medium=newsletter&utm_campaign=2250",
     publishedAt: "2026-04-14",
     thoughts:
