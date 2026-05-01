@@ -26,4 +26,10 @@ Git aliases are stored in the user's configuration in the `~/.gitconfig` file (f
 	gbr = !git branch | grep -v master | xargs git branch -D
 	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
     cm = !git add -A && git commit -m 
+    ph = push
+    pl = pull
 ```
+
+#### Updates: Fri May 1, 2026
+
+Was typing `git push`, and made a mistake and used `git ph`, and it occurred to me, won't that be a nice alias for git push, instead of typing everything, just git ph; so there goes. 
