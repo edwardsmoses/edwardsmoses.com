@@ -1,4 +1,9 @@
 export const BLOGROLL_FEED_ENTRIES = [
+  {
+    url: "https://surfingcomplexity.blog/2026/05/02/how-incidents-can-teach-us-about-whats-already-working-well/",
+    publishedAt: "2026-05-05",
+    thought: "questions .. well thought out questions are really powerful, they draw out insights that otherwise be hidden .. even to the person with the knowledge. "
+  },
    {
     url: "https://www.ncregister.com/commentaries/schnell-repairing-the-ruins",
     publishedAt: "2026-05-05",
