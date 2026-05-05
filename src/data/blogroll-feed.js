@@ -1,4 +1,9 @@
 export const BLOGROLL_FEED_ENTRIES = [
+   {
+    url: "https://www.ncregister.com/commentaries/schnell-repairing-the-ruins",
+    publishedAt: "2026-05-05",
+    thought: "just an excerpt from the article: 'The same commitment belongs at home. A dinner table free of devices, conversation across generations, reading aloud together, and the habit of asking children not only what they think but why — these are small schools of freedom. They teach that education is not the production of impressive sentences. It is the formation of honest minds. '",
+  },
   {
     url: "https://pckt.blog/b/jcalabro/april-2026-outage-post-mortem-219ebg2",
     publishedAt: "2026-04-18",
