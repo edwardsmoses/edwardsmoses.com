@@ -28,8 +28,14 @@ Git aliases are stored in the user's configuration in the `~/.gitconfig` file (f
     cm = !git add -A && git commit -m 
     ph = push
     pl = pull
+    maincopy = !git fetch origin && git reset --hard origin/main
+    maincopyp = !git fetch origin && git reset --hard origin/main && git push --force-with-lease origin HEAD
 ```
 
 #### Updates: Fri May 1, 2026
 
 Was typing `git push`, and made a mistake and used `git ph`, and it occurred to me, won't that be a nice alias for git push, instead of typing everything, just git ph; so there goes. 
+
+### Updates: Fri May 6, 2026
+
+New aliases I added, when I need to match main on my current branch, and forego all current changes. 
