@@ -1,5 +1,10 @@
 export const BLOGROLL_FEED_ENTRIES = [
   {
+    url: 'https://davidoks.blog/p/why-airlines-are-always-going-bankrupt',
+    publishedAt: '2026-05-06',
+    thoughts: "outside our regular programming ... pretty interesting read..",
+  },
+  {
     url: "https://surfingcomplexity.blog/2026/05/02/how-incidents-can-teach-us-about-whats-already-working-well/",
     publishedAt: "2026-05-05",
     thoughts: "questions .. well thought out questions are really powerful, they draw out insights that otherwise be hidden .. even to the person with the knowledge. "
