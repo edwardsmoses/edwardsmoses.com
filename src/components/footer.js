@@ -43,7 +43,7 @@ const Footer = () => {
             </svg>
           </a>
         </div>
-        <div className="mt-8 md:mt-0 md:order-2">
+        <div className="flex items-center mt-8 space-x-4 md:mt-0 md:order-2">
           <OutboundLink
             href="https://github.com/edwardsmoses/edwardsmoses.com"
             target="_blank"
@@ -53,6 +53,12 @@ const Footer = () => {
               View Source
             </p>
           </OutboundLink>
+          <a
+            href="https://www.toptal.com/developers/resume/edwards-moses#BDmReK"
+            className="text-base text-gray-400 underline underline-offset-4"
+          >
+            Hire me on Toptal
+          </a>
         </div>
         <div className="flex flex-row mt-8 space-x-3 md:mt-0 md:order-1">
           <ThemeChanger />
