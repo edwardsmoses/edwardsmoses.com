@@ -1,6 +1,25 @@
 {
-  "title": "Edwards Moses -  Web, Mobile - React & React Native Software Developer",
+  "title": "Edwards Moses | React & React Native Software Consultant",
+  "shortTitle": "Edwards Moses",
   "author": "Edwards Moses",
   "siteUrl": "https://edwardsmoses.com",
-  "description": "I'm Edwards Moses from Lagos, Nigeria. I've 8+ years of professional experience as a Full-Stack Software Developer. I focus on developing Web & Mobile apps for companies using React & React Native."
+  "description": "Lagos-based React, React Native and full-stack software consultant helping companies design, build and improve web and mobile products.",
+  "image": "/assets/i.JPG",
+  "twitterUsername": "@atedwardsmoses",
+  "jobTitle": "React, React Native and Full-Stack Software Consultant",
+  "location": "Lagos, Nigeria",
+  "sameAs": [
+    "https://github.com/edwardsmoses",
+    "https://www.linkedin.com/in/edwards-moses/",
+    "https://twitter.com/atedwardsmoses",
+    "https://www.toptal.com/resume/edwards-moses"
+  ],
+  "knowsAbout": [
+    "React",
+    "React Native",
+    "Firebase",
+    "Node.js",
+    "Full-stack web development",
+    "Mobile app development"
+  ]
 }

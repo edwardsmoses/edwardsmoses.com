@@ -1,5 +1,4 @@
 import React from "react";
-import Helmet from "react-helmet";
 import { SEO } from "../components/seo";
 import Layout from "../components/layout";
 import { Link, graphql } from "gatsby";
@@ -18,14 +17,17 @@ const Articles = ({
   return (
     <>
       <Layout>
-        <SEO articlesList={edges.map((edge) => edge.node.frontmatter)} />
-        <Helmet>
-          <title>All Articles | Edwards Moses</title>
-        </Helmet>
+        <SEO
+          collectionItems={edges.map((edge) => edge.node.frontmatter)}
+          title="React, React Native & Full-Stack Articles"
+          description="Practical guides on React, React Native, Firebase, Remix and full-stack engineering, written from experience building production software."
+          pathname="/articles/"
+          pageType="CollectionPage"
+        />
 
-        <h2 className="mt-5 mb-3 text-3xl tracking-tight font-display font-medium ml-5 sm:text-4xl border-b border-gray-300 pb-1 pl-1">
+        <h1 className="mt-5 mb-3 text-3xl tracking-tight font-display font-medium ml-5 sm:text-4xl border-b border-gray-300 pb-1 pl-1">
           All <i>Articles</i>
-        </h2>
+        </h1>
 
         <div className="mx-5 mt-6 rounded-lg border border-dashed border-gray-300 bg-app-brand-white px-4 py-3 text-sm dark:border-gray-700 dark:bg-app-black">
           Looking for stuff i'm reading from around the web?{"  "}
@@ -59,7 +61,8 @@ export const pageQuery = graphql`
           id
           excerpt(pruneLength: 250)
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date
+            displayDate: date(formatString: "MMMM DD, YYYY")
             path
             title
             thumbnail

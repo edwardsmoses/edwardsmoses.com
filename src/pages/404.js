@@ -1,15 +1,19 @@
-import React from "react"
-import Helmet from 'react-helmet';
-import Layout from "../components/layout"
+import React from "react";
+import Layout from "../components/layout";
 import { Link } from "gatsby";
+import { SEO } from "../components/seo";
 
 const notFound = () => {
   return (
     <Layout>
-      <Helmet>
-        <title>Page not found</title>
-      </Helmet>
-      <div style={{textAlign: "center", padding:"5vh 0", lineHeight: "1.5"}}>
+      <SEO
+        title="Page Not Found"
+        description="The requested page could not be found."
+        pathname="/404/"
+        noIndex
+      />
+      <div style={{ textAlign: "center", padding: "5vh 0", lineHeight: "1.5" }}>
+        <h1>Page not found</h1>
         <svg
           width="256"
           height="256"
@@ -37,10 +41,13 @@ const notFound = () => {
             fill="currentColor"
           />
         </svg>
-        <p>Either you are in a wrong page or you have lost. Lets go back <Link to="/">home</Link> safely</p>
+        <p>
+          Either you are in a wrong page or you have lost. Lets go back{" "}
+          <Link to="/">home</Link> safely
+        </p>
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default notFound
+export default notFound;

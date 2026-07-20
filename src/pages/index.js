@@ -18,9 +18,14 @@ const IndexPage = ({
 
   const Posts = edges
     .filter((edge) => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-    .sort((a, b) => new Date(b.node.frontmatter.date) - new Date(a.node.frontmatter.date)) // Sort posts by date, newest first
+    .sort(
+      (a, b) =>
+        new Date(b.node.frontmatter.date) - new Date(a.node.frontmatter.date)
+    ) // Sort posts by date, newest first
     .slice(0, 6) // Display only the recent six posts
-    .map((edge) => <PostLink key={edge.node.id} post={edge.node} />);
+    .map((edge) => (
+      <PostLink key={edge.node.id} post={edge.node} headingLevel="h3" />
+    ));
 
   return (
     <Layout
@@ -30,7 +35,7 @@ const IndexPage = ({
         </div>
       }
     >
-      <SEO />
+      <SEO pageType="ProfilePage" />
 
       <section id="articles" className="pb-10 -mt-24">
         <h2 className="mt-16 text-3xl tracking-tight font-display sm:text-4xl">
@@ -74,7 +79,8 @@ export const pageQuery = graphql`
           id
           excerpt(pruneLength: 250)
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date
+            displayDate: date(formatString: "MMMM DD, YYYY")
             path
             title
             thumbnail

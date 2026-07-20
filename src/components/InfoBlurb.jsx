@@ -29,14 +29,14 @@ export const InfoBlurb = () => {
                       <img
                         src="/assets/i.JPG"
                         alt="Edwards Moses - Web & Mobile — React & React Native Consultant"
-                        class="rounded-full bg-blue-900 object-cover h-20 w-20"
+                        className="rounded-full bg-blue-900 object-cover h-20 w-20"
                       />
                     </a>
 
-                    <h1 className="text-4xl font-bold tracking-tight text-blue-900 sm:text-5xl">
+                    <h2 className="text-4xl font-bold tracking-tight text-blue-900 sm:text-5xl">
                       Edwards Moses <br />
                       Web & Mobile — React & React Native Consultant
-                    </h1>
+                    </h2>
                     <p className="mt-6 text-base text-blue-900 info-blurb-info-about-me">
                       I'm Edwards, based in Lagos, Nigeria. <br />
                       <b>Freelancer Software Developer</b> — collaborating with teams to craft extraordinary products.
@@ -51,7 +51,7 @@ export const InfoBlurb = () => {
                         projects
                       </OutboundLink>{" "}
                       and{" "}
-                      <Link href="/articles" className="underline underline-offset-4">
+                      <Link to="/articles" className="underline underline-offset-4">
                         articles
                       </Link>{" "}
                       to see what I've been up to lately.

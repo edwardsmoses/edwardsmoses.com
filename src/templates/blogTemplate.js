@@ -9,7 +9,8 @@ export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }) {
   const { markdownRemark } = data; // data.markdownRemark holds your post data
-  const { frontmatter, html } = markdownRemark;
+  const { excerpt, frontmatter, html } = markdownRemark;
+  const articleDescription = frontmatter.metaDescription || excerpt;
 
   const commentBox = React.createRef();
   const canvasBox = React.createRef();
@@ -30,7 +31,6 @@ export default function Template({
     }
   }, []);
 
-
   React.useEffect(() => {
     const scriptEl = document.createElement("script");
     scriptEl.async = true;
@@ -42,20 +42,38 @@ export default function Template({
 
   return (
     <Layout>
-      <SEO article={frontmatter} />
+      <SEO article={{ ...frontmatter, description: articleDescription }} />
       <div className="blog-post-container">
         <article className="post">
-
-          <div className="blog-post-content-article-date">{frontmatter.date}</div>
-          <h1 className="blog-post-content-article-title">{frontmatter.title}</h1>
+          <div className="blog-post-content-article-date">
+            Published{" "}
+            <time dateTime={frontmatter.date}>{frontmatter.displayDate}</time>
+            {frontmatter.updated && (
+              <>
+                {" · "}Updated{" "}
+                <time dateTime={frontmatter.updated}>
+                  {frontmatter.displayUpdated}
+                </time>
+              </>
+            )}
+          </div>
+          <h1 className="blog-post-content-article-title">
+            {frontmatter.title}
+          </h1>
 
           {!!frontmatter.thumbnail && (
-            <div className="post-thumbnail blog-post-content-image" style={{ backgroundImage: `url(${frontmatter.thumbnail})` }} />
+            <div
+              className="post-thumbnail blog-post-content-image"
+              style={{ backgroundImage: `url(${frontmatter.thumbnail})` }}
+            />
           )}
-          <div className="prose blog-post-content lg:prose-xl dark:prose-invert dark:text-gray-300! blog-post-content-article" dangerouslySetInnerHTML={{ __html: html }} />
+          <div
+            className="prose blog-post-content lg:prose-xl dark:prose-invert dark:text-gray-300! blog-post-content-article"
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
 
           <div className="commentsWrapper">
-            <h1 className="post-title">Comments</h1>
+            <h2 className="post-title">Comments</h2>
             <Comment commentBox={commentBox} />
           </div>
 
@@ -68,16 +86,20 @@ export default function Template({
 }
 
 export const pageQuery = graphql`
-  query($path: String!) {
+  query ($path: String!) {
     site {
       siteMetadata {
         title
       }
     }
     markdownRemark(frontmatter: { path: { eq: $path } }) {
+      excerpt(pruneLength: 160)
       html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
+        date
+        displayDate: date(formatString: "MMMM DD, YYYY")
+        updated
+        displayUpdated: updated(formatString: "MMMM DD, YYYY")
         path
         title
         thumbnail

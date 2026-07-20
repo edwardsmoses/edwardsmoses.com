@@ -22,14 +22,46 @@ collections:
             label: Site Title
             required: true
           - widget: string
+            name: shortTitle
+            label: Short Site Title
+            required: true
+          - widget: string
+            name: author
+            label: Author
+            required: true
+          - widget: string
             name: siteUrl
             label: Website URL
             required: true
           - widget: text
             name: description
             label: Description
-            default: ''
+            default: ""
             required: false
+          - widget: image
+            name: image
+            label: Default Social Image
+            required: true
+          - widget: string
+            name: twitterUsername
+            label: Twitter Username
+            required: true
+          - widget: string
+            name: jobTitle
+            label: Job Title
+            required: true
+          - widget: string
+            name: location
+            label: Location
+            required: true
+          - widget: list
+            name: sameAs
+            label: Profile URLs
+            required: true
+          - widget: list
+            name: knowsAbout
+            label: Areas of Expertise
+            required: true
           - widget: object
             name: home
             label: Homepage Options
@@ -37,31 +69,30 @@ collections:
               - widget: string
                 name: title
                 label: Title
-                default: ''
+                default: ""
                 required: false
               - widget: markdown
                 name: description
                 label: Description
-                default: ''
+                default: ""
                 required: false
   - name: blog
     label: Blog
     folder: _data/blog
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     create: true
     fields:
-      - {
-          label: Template,
-          name: template,
-          widget: hidden,
-          default: BlogPost,
-        }
+      - { label: Template, name: template, widget: hidden, default: BlogPost }
       - name: path
         label: Path
         widget: string
-        pattern: [/, 'Must start with /']
+        pattern: [/, "Must start with /"]
         hint: "Path must start with /"
       - { name: date, label: Date, widget: datetime }
+      - name: updated
+        label: Last Updated
+        widget: datetime
+        required: false
       - { name: title, label: Title }
       - label: Meta Description
         name: metaDescription

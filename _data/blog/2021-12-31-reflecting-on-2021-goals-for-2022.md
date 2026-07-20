@@ -20,7 +20,7 @@ This year, the most significant event in my life was been asked by Matt to start
 
 
 
-# Work
+## Work
 
 I've been working at Learnflo for more than three years now. We have been mostly bootstrapped all the time - which has been quite challenging. 
 
@@ -40,7 +40,7 @@ Next year, I plan to get better at being a better enabler of others in the team.
 
 
 
-# Health
+## Health
 
 I entered 2021 with the pounds and more I gained in 2020. I had, at many points in the year, tried to start a regular workout routine, and the most consistent I was, was at 2 weeks straight - but I couldn't just do it. 
 
@@ -50,7 +50,7 @@ I plan to do better next year.
 
 
 
-# Learning new things
+## Learning new things
 
 This year, I had set out to learn machine learning - believing that it would be a great compliment to my programming experience.  It was interesting - but I can't say I enjoyed it. I hope to pick it up sometime in the future. 
 
@@ -69,7 +69,7 @@ I also started learning Rust, a wonderful programming language that helps you wr
 
 
 
-# 2022
+## 2022
 
 A new year is a new beginning. My overarching goals for the year are to continue learning rust and get better at it,     enough to contribute to open-source Rust projects. 
 

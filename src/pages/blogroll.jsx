@@ -1,5 +1,4 @@
 import React from "react";
-import Helmet from "react-helmet";
 import Layout from "../components/layout";
 import { SEO } from "../components/seo";
 import { BLOGROLL_FEED_ENTRIES } from "../data/blogroll-feed";
@@ -12,6 +11,7 @@ const humanizeDate = (rawDate) => {
   return new Intl.DateTimeFormat("en-US", {
     day: "2-digit",
     month: "long",
+    timeZone: "UTC",
     year: "numeric",
   }).format(new Date(rawDate));
 };
@@ -23,10 +23,16 @@ const Blogroll = () => {
 
   return (
     <Layout>
-      <SEO />
-      <Helmet>
-        <title>Stuff I read | Edwards Moses</title>
-      </Helmet>
+      <SEO
+        collectionItems={entries.map((entry) => ({
+          externalLink: entry.url,
+          title: entry.url,
+        }))}
+        title="Stuff I Read — Engineering & Product Notes"
+        description="A curated log of engineering, product and business writing Edwards Moses found useful, with short notes on why each piece was worth reading."
+        pathname="/blogroll/"
+        pageType="CollectionPage"
+      />
 
       <section className="max-w-3xl mx-auto pb-14">
         <h1 className="mt-5 mb-2 text-3xl tracking-tight font-display font-medium sm:text-5xl">

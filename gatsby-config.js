@@ -4,6 +4,43 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
+const normalizePagePath = (pagePath) => {
+  if (pagePath === "/") {
+    return pagePath;
+  }
+
+  return `/${pagePath.replace(/^\/+|\/+$/g, "")}`;
+};
+
+const serializeSitemap = ({ site, allSitePage, allMarkdownRemark }) => {
+  const postsByPath = new Map(
+    allMarkdownRemark.nodes
+      .filter(({ frontmatter }) => frontmatter && frontmatter.path)
+      .map(({ frontmatter }) => [
+        normalizePagePath(frontmatter.path),
+        frontmatter,
+      ])
+  );
+
+  return allSitePage.nodes
+    .filter(({ path }) => {
+      const post = postsByPath.get(normalizePagePath(path));
+      return !post || !post.externalLink;
+    })
+    .map(({ path }) => {
+      const post = postsByPath.get(normalizePagePath(path));
+      const lastmodISO = post && (post.updated || post.date);
+
+      return {
+        url: new URL(
+          path,
+          `${site.siteMetadata.siteUrl.replace(/\/$/, "")}/`
+        ).toString(),
+        ...(lastmodISO ? { lastmodISO } : {}),
+      };
+    });
+};
+
 module.exports = {
   /* Your site config here */
   siteMetadata: require("./site-meta-data.json"),
@@ -39,13 +76,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: "UA-86119661-11",
-        head: true,
-      },
-    },
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Edwards Moses`,
@@ -62,12 +92,6 @@ module.exports = {
     `gatsby-plugin-anchor-links`,
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-plugin-react-helmet-canonical-urls`,
-      options: {
-        siteUrl: `https://edwardsmoses.com`,
-      },
-    },
-    {
       resolve: "gatsby-plugin-load-script",
       options: {
         src: "/gradient.js",
@@ -78,7 +102,9 @@ module.exports = {
       options: {
         host: `https://edwardsmoses.com`,
         sitemap: `https://edwardsmoses.com/sitemap.xml`,
-        policy: [{ userAgent: "*", allow: "/", disallow: ["/confirmation", "/admin"] }],
+        policy: [
+          { userAgent: "*", allow: "/", disallow: ["/confirmation", "/admin"] },
+        ],
       },
     },
     {
@@ -86,10 +112,8 @@ module.exports = {
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
-          "UA-86119661-11", // Google Analytics / GA
-          "AW-10977570295", // Google Ads / Adwords / AW
-          "G-KPS455BYW5", //GA4 Measurement iD
-          "5392885394", //GA4 Stream ID
+          "G-KPS455BYW5", // Google Analytics 4
+          "AW-10977570295", // Google Ads
         ],
         // This object is used for configuration specific to this plugin
         pluginConfig: {
@@ -102,22 +126,51 @@ module.exports = {
       resolve: "gatsby-plugin-mixpanel",
       options: {
         apiToken: "4486b11e469d4b4420462814dbdcadc6",
-        enableOnDevMode: true, 
-        pageViews: "all", 
-        trackPageViewsAs: 'Page view',
+        enableOnDevMode: true,
+        pageViews: "all",
+        trackPageViewsAs: "Page view",
       },
     },
     {
-      resolve: 'gatsby-plugin-load-script',
+      resolve: "gatsby-plugin-load-script",
       options: {
-        src: 'https://static.mobilemonkey.com/js/mm_2859918c-e24c-4d90-8833-817ff193496e-58488972.js',
+        src: "https://static.mobilemonkey.com/js/mm_2859918c-e24c-4d90-8833-817ff193496e-58488972.js",
       },
     },
     `gatsby-plugin-netlify-cms`,
     "gatsby-plugin-netlify",
     "gatsby-plugin-dark-mode",
-    // siteURL is a must for sitemap generation
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: [`/admin`, `/admin/**`],
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+            allSitePage {
+              nodes {
+                path
+              }
+            }
+            allMarkdownRemark {
+              nodes {
+                frontmatter {
+                  date
+                  externalLink
+                  path
+                  updated
+                }
+              }
+            }
+          }
+        `,
+        serialize: serializeSitemap,
+      },
+    },
     `gatsby-plugin-offline`,
     `gatsby-plugin-postcss`, //Plugin for integrating POSTCss and Tailwind....
   ],

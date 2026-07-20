@@ -1,224 +1,243 @@
 import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
 import { Helmet } from "react-helmet";
-import { StaticQuery, graphql } from "gatsby";
-import moment from 'moment';
-import { YEARS_OF_EXPERIENCE } from "../copy/copy-constants";
 
-export const SEO = ({ article, articlesList }) => {
+const cleanDescription = (value) => value?.replace(/\s+/g, " ").trim();
+
+const absoluteUrl = (siteUrl, value = "/") => {
+  if (/^https?:\/\//i.test(value)) {
+    return value;
+  }
+
+  return new URL(value, `${siteUrl.replace(/\/$/, "")}/`).toString();
+};
+
+const isoDate = (value) => {
+  if (!value) {
+    return undefined;
+  }
+
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? undefined : date.toISOString();
+};
+
+export const SEO = ({
+  article,
+  collectionItems,
+  description,
+  image,
+  noIndex = false,
+  pageType = "WebPage",
+  pathname = "/",
+  title,
+}) => {
+  const {
+    site: { siteMetadata },
+  } = useStaticQuery(graphql`
+    query SeoMetadataQuery {
+      site {
+        siteMetadata {
+          author
+          description
+          image
+          jobTitle
+          knowsAbout
+          location
+          sameAs
+          shortTitle
+          siteUrl
+          title
+          twitterUsername
+        }
+      }
+    }
+  `);
+
+  const siteUrl = siteMetadata.siteUrl.replace(/\/$/, "");
+  const canonicalUrl = absoluteUrl(siteUrl, article?.path || pathname);
+  const pageTitle = article?.title || title;
+  const metaTitle = pageTitle
+    ? `${pageTitle} | ${siteMetadata.shortTitle}`
+    : siteMetadata.title;
+  const metaDescription =
+    cleanDescription(
+      description || article?.description || article?.metaDescription
+    ) || siteMetadata.description;
+  const requestedImage = image || article?.thumbnail || siteMetadata.image;
+  const socialImage = /\.svg(?:[?#]|$)/i.test(requestedImage)
+    ? siteMetadata.image
+    : requestedImage;
+  const imageUrl = absoluteUrl(siteUrl, socialImage);
+  const publishedAt = isoDate(article?.date);
+  const modifiedAt = isoDate(article?.updated);
+  const personId = `${siteUrl}/#person`;
+  const websiteId = `${siteUrl}/#website`;
+  const webpageId = `${canonicalUrl}#webpage`;
+  const articleId = article ? `${canonicalUrl}#article` : undefined;
+
+  const person = {
+    "@type": "Person",
+    "@id": personId,
+    name: siteMetadata.author,
+    url: siteUrl,
+    image: {
+      "@type": "ImageObject",
+      url: absoluteUrl(siteUrl, siteMetadata.image),
+    },
+    jobTitle: siteMetadata.jobTitle,
+    homeLocation: {
+      "@type": "Place",
+      name: siteMetadata.location,
+    },
+    sameAs: siteMetadata.sameAs,
+    knowsAbout: siteMetadata.knowsAbout,
+  };
+
+  const website = {
+    "@type": "WebSite",
+    "@id": websiteId,
+    url: siteUrl,
+    name: siteMetadata.shortTitle,
+    description: siteMetadata.description,
+    inLanguage: "en",
+    publisher: { "@id": personId },
+  };
+
+  const webpage = {
+    "@type": pageType,
+    "@id": webpageId,
+    url: canonicalUrl,
+    name: pageTitle || siteMetadata.title,
+    description: metaDescription,
+    inLanguage: "en",
+    isPartOf: { "@id": websiteId },
+    about: { "@id": personId },
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: imageUrl,
+    },
+  };
+
+  if (pageType === "ProfilePage" || pageType === "AboutPage") {
+    webpage.mainEntity = { "@id": personId };
+  }
+
+  const graph = [person, website, webpage];
+
+  if (article) {
+    webpage.mainEntity = { "@id": articleId };
+    graph.push({
+      "@type": "BlogPosting",
+      "@id": articleId,
+      url: canonicalUrl,
+      headline: article.title,
+      name: article.title,
+      description: metaDescription,
+      image: [imageUrl],
+      inLanguage: "en",
+      mainEntityOfPage: { "@id": webpageId },
+      isPartOf: { "@id": websiteId },
+      author: { "@id": personId },
+      publisher: { "@id": personId },
+      ...(publishedAt ? { datePublished: publishedAt } : {}),
+      ...(modifiedAt ? { dateModified: modifiedAt } : {}),
+    });
+  }
+
+  if (collectionItems?.length) {
+    const itemListId = `${canonicalUrl}#articles`;
+    webpage.mainEntity = { "@id": itemListId };
+    graph.push({
+      "@type": "ItemList",
+      "@id": itemListId,
+      itemListElement: collectionItems.map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: item.title,
+        url: absoluteUrl(siteUrl, item.externalLink || item.path),
+      })),
+    });
+  }
+
+  if (canonicalUrl !== `${siteUrl}/`) {
+    const breadcrumbItems = [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${siteUrl}/`,
+      },
+    ];
+
+    if (article) {
+      breadcrumbItems.push({
+        "@type": "ListItem",
+        position: 2,
+        name: "Articles",
+        item: `${siteUrl}/articles/`,
+      });
+    }
+
+    breadcrumbItems.push({
+      "@type": "ListItem",
+      position: breadcrumbItems.length + 1,
+      name: pageTitle || siteMetadata.shortTitle,
+      item: canonicalUrl,
+    });
+
+    graph.push({
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      itemListElement: breadcrumbItems,
+    });
+  }
+
   return (
-    <StaticQuery
-      query={graphql`
-        query HeadingQuery {
-          site {
-            siteMetadata {
-              title
-              description
-              siteUrl
-              author
-            }
-          }
-        }
-      `}
-      render={({}) => {
-        const { siteUrl, title, articleTitle, description, author } = {
-          title: "Edwards Moses -  Web, Mobile - React & React Native Software Developer",
-          articleTitle: article?.title,
-          author: "Edwards Moses",
-          siteUrl: "https://edwardsmoses.com",
-          description:
-            article?.metaDescription ||
-            `I'm Edwards Moses from Lagos, Nigeria. I've ${YEARS_OF_EXPERIENCE}+ years of professional experience as a Full-Stack Software Developer. I focus on developing Web & Mobile apps for companies using React & React Native.`,
-        };
+    <Helmet htmlAttributes={{ lang: "en" }}>
+      <title>{metaTitle}</title>
+      <link rel="canonical" href={canonicalUrl} />
+      <meta name="description" content={metaDescription} />
+      <meta name="author" content={siteMetadata.author} />
+      {noIndex && <meta name="robots" content="noindex, follow" />}
 
-        // schema.org in JSONLD format
-        // https://developers.google.com/search/docs/guides/intro-structured-data
-        // You can fill out the 'author', 'creator' with more data or another type (e.g. 'Organization')
+      <meta property="og:title" content={metaTitle} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:type" content={article ? "article" : "website"} />
+      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:image" content={imageUrl} />
+      <meta
+        property="og:image:alt"
+        content={pageTitle || siteMetadata.shortTitle}
+      />
+      <meta property="og:site_name" content={siteMetadata.shortTitle} />
+      <meta property="og:locale" content="en_US" />
 
-        const schemaOrgWebPage = {
-          "@context": "http://schema.org",
-          "@type": "WebPage",
-          url: siteUrl,
-          headline: title,
-          inLanguage: "en-us",
-          mainEntityOfPage: siteUrl,
-          description: description,
-          name: title,
-          author: {
-            "@type": "Person",
-            name: author,
-          },
-          copyrightHolder: {
-            "@type": "Person",
-            name: author,
-          },
-          copyrightYear: new Date().getFullYear(),
-          creator: {
-            "@type": "Person",
-            name: author,
-          },
-          publisher: {
-            "@type": "Person",
-            name: author,
-          },
-          image: {
-            "@type": "ImageObject",
-            url: `${siteUrl}/assets/i.JPG`,
-          },
-        };
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content={siteMetadata.twitterUsername} />
+      <meta name="twitter:creator" content={siteMetadata.twitterUsername} />
+      <meta name="twitter:title" content={metaTitle} />
+      <meta name="twitter:description" content={metaDescription} />
+      <meta name="twitter:image" content={imageUrl} />
+      <meta
+        name="twitter:image:alt"
+        content={pageTitle || siteMetadata.shortTitle}
+      />
 
-        // Initial breadcrumb list
+      {publishedAt && (
+        <meta property="article:published_time" content={publishedAt} />
+      )}
+      {modifiedAt && (
+        <meta property="article:modified_time" content={modifiedAt} />
+      )}
 
-        const itemListElement = [
-          {
-            "@type": "ListItem",
-            item: {
-              "@id": siteUrl,
-              name: "Homepage",
-            },
-            position: 1,
-          },
-        ];
-
-        let schemaArticle = null;
-        let schemaArticleList = null;
-
-        if (article) {
-          schemaArticle = {
-            "@context": "http://schema.org",
-            "@type": "Article",
-            author: {
-              "@type": "Person",
-              name: author,
-              url: `${siteUrl}`,
-            },
-            copyrightHolder: {
-              "@type": "Person",
-              name: author,
-            },
-            copyrightYear: moment(article.date).year(),
-            creator: {
-              "@type": "Person",
-              name: author,
-            },
-            publisher: {
-              "@type": "Person",
-              name: author,
-              logo: {
-                "@type": "ImageObject",
-                url: `${siteUrl}/icons/edwards_moses_avatar.png`,
-              },
-            },
-            datePublished:moment(article.date).format('YYYY-MM-DDTHH:mm:ssZ'),
-            dateModified: moment(article.date).format('YYYY-MM-DDTHH:mm:ssZ'),
-            description: article.description || article.metaDescription,
-            headline: article.title,
-            inLanguage: "en-us",
-            url: `${siteUrl}/${article.path}`,
-            name: article.title,
-            image: {
-              "@type": "ImageObject",
-              url: `${siteUrl}/${article.thumbnail}`,
-            },
-            mainEntityOfPage: `${siteUrl}/${article.path}`,
-          };
-
-          // Push current blogpost into breadcrumb list
-          itemListElement.push({
-            "@type": "ListItem",
-            item: {
-              "@id": `${siteUrl}/${article.path}`,
-              name: article.title,
-            },
-            position: 2,
-          });
-        }
-
-        if (articlesList) {
-          schemaArticleList = articlesList.map((artC) => {
-            return {
-              "@context": "http://schema.org",
-              "@type": "Article",
-              author: {
-                "@type": "Person",
-                name: author,
-                url: `${siteUrl}`,
-              },
-              copyrightHolder: {
-                "@type": "Person",
-                name: author,
-              },
-              copyrightYear: moment(artC.date).year(),
-              creator: {
-                "@type": "Person",
-                name: author,
-              },
-              publisher: {
-                "@type": "Person",
-                name: author,
-                logo: {
-                  "@type": "ImageObject",
-                  url: `${siteUrl}/icons/edwards_moses_avatar.png`,
-                },
-              },
-              datePublished: moment(artC.date).format('YYYY-MM-DDTHH:mm:ssZ'),
-              dateModified: moment(artC.date).format('YYYY-MM-DDTHH:mm:ssZ'),
-              description: artC.description || artC.metaDescription,
-              headline: artC.title,
-              inLanguage: "en-us",
-              url: `${siteUrl}/${artC.path}`,
-              name: artC.title,
-              image: {
-                "@type": "ImageObject",
-                url: `${siteUrl}/${artC.thumbnail}`,
-              },
-              mainEntityOfPage: `${siteUrl}/${artC.path}`,
-            };
-          });
-
-          // Push articles page into breadcrumb list
-          itemListElement.push({
-            "@type": "ListItem",
-            item: {
-              "@id": `${siteUrl}/articles`,
-              name: "All Article",
-            },
-            position: 2,
-          });
-        }
-
-        const breadcrumb = {
-          "@context": "http://schema.org",
-          "@type": "BreadcrumbList",
-          description: "Breadcrumbs list",
-          name: "Breadcrumbs",
-          itemListElement,
-        };
-
-        const siteTitle = `${articleTitle ? `${articleTitle} • ` : ""} ${title}`;
-
-        return (
-          <>
-            <Helmet>
-              <title>{siteTitle}</title>
-              <meta name="description" content={description} />
-              <meta
-                name="keywords"
-                content="edwardsmoses,react developer,react native developer,build a mobile app, edwards moses, edwards, full stack developer, firebase developer,react native consultancy, app development, mobile app development, website development"
-              />
-              <meta property="og:title" content={siteTitle} />
-              <meta property="og:description" content={description} />
-              <meta property="og:type" content="website" />
-              <meta name="twitter:title" content={siteTitle} />
-              <meta name="twitter:description" content={description} />
-
-              {!article && <script type="application/ld+json">{JSON.stringify(schemaOrgWebPage)}</script>}
-              {article && <script type="application/ld+json">{JSON.stringify(schemaArticle)}</script>}
-              {articlesList && <script type="application/ld+json">{JSON.stringify(schemaArticleList)}</script>}
-              <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
-            </Helmet>
-          </>
-        );
-      }}
-    />
+      {!noIndex && (
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": graph,
+          })}
+        </script>
+      )}
+    </Helmet>
   );
 };

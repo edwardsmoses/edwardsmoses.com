@@ -1,15 +1,13 @@
 import React from "react";
-import Helmet from "react-helmet";
 import { SEO } from "../components/seo";
 import Layout from "../components/layout";
-import { graphql } from "gatsby";
 import moment from "moment";
 
 import Stories from "react-insta-stories";
 import { STORIES_DATA } from "../utils/stories";
 import { useMixpanel } from "gatsby-plugin-mixpanel";
 
-const AboutPage = ({ data }) => {
+const AboutPage = () => {
   const mixpanel = useMixpanel();
 
   const stories = STORIES_DATA.map((story) => {
@@ -25,10 +23,12 @@ const AboutPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO />
-      <Helmet>
-        <title>About — Edwards Moses</title>
-      </Helmet>
+      <SEO
+        title="About — React & React Native Consultant"
+        description="Learn about Edwards Moses, a Lagos-based software consultant with a decade of experience building React, React Native and full-stack products."
+        pathname="/about/"
+        pageType="AboutPage"
+      />
       <div className="relative px-4 sm:px-8 lg:px-12">
         <div className="max-w-2xl mx-auto lg:max-w-5xl">
           <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
@@ -63,7 +63,7 @@ const AboutPage = ({ data }) => {
               </div>
               <div className="mt-6 space-y-3 text-base text-zinc-600 dark:!text-zinc-100">
                 <hr />
-                <h3>Credentials Collection 🎖️</h3>
+                <h2>Credentials Collection 🎖️</h2>
                 <ul className="text-sm list-disc list-inside text-slate-900 dark:text-app-brand-white">
                   <li>
                     CKAD: Certified Kubernetes Application Developer -{" "}
@@ -159,7 +159,7 @@ const AboutPage = ({ data }) => {
 
               <div className="mt-6 space-y-3 text-base text-zinc-600  dark:!text-zinc-100">
                 <hr />
-                <h3>Stories</h3>
+                <h2>Stories</h2>
                 <Stories
                   stories={stories}
                   loop
@@ -260,14 +260,3 @@ const AboutPage = ({ data }) => {
 };
 
 export default AboutPage;
-
-export const pageQuery = graphql`
-  query AboutPageQuery {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
-  }
-`;
