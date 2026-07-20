@@ -9,7 +9,7 @@ const services = [
       "Have an idea? I’ve been building software for nearly a decade. Let's work together - let's get your project launched!",
     icon: () => {
       return (
-        <div className="flex p-2 rounded-md bg-app-brand-yellow w-min">
+        <div className="service-icon">
           <svg
             className="self-center w-8 h-8 mx-auto text-white"
             viewBox="0 0 24 24"
@@ -38,7 +38,7 @@ const services = [
       "Have an app? Want to build a next set of features? Let’s discuss your requirements, share ideas — I love to help!",
     icon: () => {
       return (
-        <div className="flex p-2 rounded-md bg-app-brand-yellow w-min">
+        <div className="service-icon">
           <svg
             className="self-center mx-auto text-white h-7 w-7"
             viewBox="0 -3.4 105.608 105.608"
@@ -80,7 +80,7 @@ const services = [
       "I can help pick up excess workload to get your project delivered on schedule and on budget. Let's team up to ensure your project exceeds expectations",
     icon: () => {
       return (
-        <div className="flex p-2 rounded-md bg-app-brand-yellow w-min">
+        <div className="service-icon">
           <svg
             version="1.1"
             id="Layer_1"
@@ -106,35 +106,35 @@ const services = [
 
 export const MyServices = () => {
   return (
-    <section id="my-services" className="pb-14">
+    <section id="my-services" className="py-16">
       <div className="mx-auto max-w-7xl">
         <div className="max-w-2xl mx-auto prose md:text-center dark:prose-invert">
-          <h2 id="secondary-features-title" className="mb-0 text-5xl tracking-tight font-display">
+          <h2 id="secondary-features-title" className="mb-0 text-5xl tracking-tight text-balance font-display">
             How can{" "}
             <span className="relative inline-block">
               <span className="lines"></span>I help
             </span>
           </h2>
-          <p className="mt-3 mb-1 text-xl tracking-tight">
+          <p className="mt-3 mb-1 text-xl tracking-tight text-pretty">
             With close to a decade of experience working with a range of companies and industries, I'll help launch your
             product whichever way I can.
           </p>
           <a
             href="https://edwardsmoses.com/behind-the-scenes-working-with-me-as-my-client"
-            className="text-app-brand-yellow font-display"
+            className="font-semibold text-app-brand-yellow dark:text-[#d8bb7b] underline decoration-current/30 underline-offset-4 transition-colors hover:text-app-brand"
           >
             Learn more about my process
           </a>
         </div>
         <div className="block mt-8">
-          <div className="flex flex-col space-x-0 space-y-4 lg:grid lg:grid-cols-3 lg:space-y-0 lg:space-x-4">
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
             {services.map((service, index) => (
-              <div key={index} className="px-2 py-2 bg-gray-50 rounded-xl">
+              <div key={index} className="service-card">
                 <service.icon />
-                <p className="mt-3 mb-0 text-2xl font-medium font-display text-slate-900" style={{ color: "#000" }}>
+                <h3 className="mt-4 mb-0 text-2xl font-semibold leading-8 text-slate-900 dark:text-white font-display text-balance">
                   {service.title}
-                </p>
-                <p className="mt-2 mb-0 text-base text-slate-600" style={{ color: "#000" }}>
+                </h3>
+                <p className="mt-2 mb-0 text-base leading-6 text-slate-600 dark:text-slate-300 text-pretty">
                   {service.description}
                 </p>
               </div>

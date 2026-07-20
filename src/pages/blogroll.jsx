@@ -35,10 +35,10 @@ const Blogroll = () => {
       />
 
       <section className="max-w-3xl mx-auto pb-14">
-        <h1 className="mt-5 mb-2 text-3xl tracking-tight font-display font-medium sm:text-5xl">
+        <h1 className="mt-5 mb-2 text-3xl font-medium tracking-tight text-balance font-display sm:text-5xl">
           Stuff I read and found <i>interesting</i>
         </h1>
-        <p className="mb-10 text-sm text-gray-600 dark:text-gray-300">
+        <p className="mb-10 text-sm leading-6 text-gray-600 text-pretty dark:text-gray-300">
           the initial title on this was 'blogroll feed', but that felt too
           generic. <br />
           this section is really just a brain-dump of interesting stuff i found,
@@ -49,22 +49,22 @@ const Blogroll = () => {
           {entries.map((entry) => (
             <li
               key={`${entry.url}-${entry.publishedAt}`}
-              className="rounded-xl border border-gray-200 px-5 py-3 dark:border-gray-700"
+              className="reading-card"
             >
               <a
                 href={entry.url}
                 target="_blank"
                 rel="noreferrer"
-                className="text-xl font-semibold underline decoration-app-brand-yellow underline-offset-4 hover:text-app-brand-yellow dark:text-app-brand-white"
+                className="reading-card__link"
               >
                 {entry.url}
               </a>
 
-              <p className="mb-0 mt-2 leading-5 text-app-black dark:text-gray-200 text-base">
+              <p className="mb-0 mt-3 text-base leading-6 text-app-black text-pretty dark:text-gray-200">
                 {entry.thoughts}
               </p>
 
-              <div className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+              <div className="mt-2 text-xs text-gray-600 tabular-nums dark:text-gray-400">
                 i shared on{" "}
                 <time dateTime={entry.publishedAt}>
                   {humanizeDate(entry.publishedAt)}
@@ -74,7 +74,7 @@ const Blogroll = () => {
           ))}
         </ul>
 
-        <p className="mt-16 text-[10px] text-gray-600 italic dark:text-gray-300">
+        <p className="mt-16 text-[11px] leading-5 text-gray-600 italic dark:text-gray-300">
           ps: coded and added early morning at 1:50AM on a Valentine morning.. i
           wonder how long this text will be here.
         </p>

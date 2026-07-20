@@ -45,7 +45,7 @@ export default function Template({
       <SEO article={{ ...frontmatter, description: articleDescription }} />
       <div className="blog-post-container">
         <article className="post">
-          <div className="blog-post-content-article-date">
+          <div className="blog-post-content-article-date tabular-nums">
             Published{" "}
             <time dateTime={frontmatter.date}>{frontmatter.displayDate}</time>
             {frontmatter.updated && (
@@ -57,13 +57,13 @@ export default function Template({
               </>
             )}
           </div>
-          <h1 className="blog-post-content-article-title">
+          <h1 className="blog-post-content-article-title text-balance">
             {frontmatter.title}
           </h1>
 
           {!!frontmatter.thumbnail && (
             <div
-              className="post-thumbnail blog-post-content-image"
+              className="post-thumbnail blog-post-content-image image-outline"
               style={{ backgroundImage: `url(${frontmatter.thumbnail})` }}
             />
           )}

@@ -7,8 +7,11 @@ module.exports = {
         "app-black": "#242531",
         "app-purple": "#8847fb",
         "app-brand": "#22293a",
-        "app-brand-white": "#fffff9",
-        "app-brand-yellow": "#b69962",
+        "app-brand-white": "#fffcf5",
+        "app-brand-yellow": "#8a672e",
+      },
+      fontFamily: {
+        display: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       scale: {
         "-1": "-1",
@@ -19,6 +22,6 @@ module.exports = {
     extend: {},
   },
   plugins: [
-    require('@tailwindcss/typography'),
+    require("@tailwindcss/typography"),
   ],
 };

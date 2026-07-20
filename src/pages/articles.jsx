@@ -25,22 +25,22 @@ const Articles = ({
           pageType="CollectionPage"
         />
 
-        <h1 className="mt-5 mb-3 text-3xl tracking-tight font-display font-medium ml-5 sm:text-4xl border-b border-gray-300 pb-1 pl-1">
+        <h1 className="page-heading">
           All <i>Articles</i>
         </h1>
 
-        <div className="mx-5 mt-6 rounded-lg border border-dashed border-gray-300 bg-app-brand-white px-4 py-3 text-sm dark:border-gray-700 dark:bg-app-black">
-          Looking for stuff i'm reading from around the web?{"  "}
+        <div className="collection-note">
+          Looking for stuff I’m reading from around the web?{"  "}
           <Link
             to="/blogroll"
-            className="font-semibold underline underline-offset-2"
+            className="font-semibold underline decoration-current/30 underline-offset-4 transition-colors"
           >
             check this out.
           </Link>{" "}
         </div>
 
         <div className="relative">
-          <div className="grid gap-8 mx-auto mt-12 lg:grid-cols-3">{Posts}</div>
+          <div className="grid gap-7 mx-auto mt-10 md:grid-cols-2 lg:grid-cols-3">{Posts}</div>
         </div>
       </Layout>
     </>

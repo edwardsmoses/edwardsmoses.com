@@ -74,14 +74,14 @@ export const Testimonials = () => {
 
   return (
     <>
-      <section className="relative py-32 mt-8 overflow-hidden bg-testimonial-brand">
+      <section className="relative py-24 mt-8 overflow-hidden bg-testimonial-brand">
         <div className="relative mx-auto">
           <div className="max-w-lg mx-auto text-center">
-            <h2 className="text-3xl tracking-tight text-white font-display sm:text-4xl">
+            <h2 className="text-3xl tracking-tight text-app-brand text-balance font-display sm:text-4xl">
               Don't take <i>my word</i> for it
             </h2>
-            <p className="mt-4 text-lg tracking-tight text-white">
-              I've had the immense pleasure to work with great people and companies. Here's are few words they had to
+            <p className="mt-4 text-lg leading-7 tracking-tight text-app-brand text-pretty">
+              I've had the immense pleasure to work with great people and companies. Here are a few words they had to
               say about working with me.
             </p>
           </div>
@@ -91,15 +91,25 @@ export const Testimonials = () => {
                 <ul className="space-y-7 sm:space-y-8">
                   {column.map((testimonial, testimonialIndex) => (
                     <li key={testimonialIndex}>
-                      <figure className="relative p-6 bg-white shadow-xl rounded-2xl bg-testimonial-card shadow-slate-900/10 fade-in">
-                        <img src="/assets/quote.png" className="absolute right-0 bottom-1 quote opacity-20" />
+                      <figure className="testimonial-card">
+                        <img
+                          src="/assets/quote.png"
+                          alt=""
+                          aria-hidden="true"
+                          className="absolute right-0 bottom-1 quote opacity-10"
+                        />
                         <blockquote className="relative">
-                          <p className="text-lg tracking-tight" style={{ color: "#000" }}>
+                          <p className="m-0 text-lg leading-7 tracking-tight text-app-brand text-pretty">
                             {testimonial.content}
                           </p>
                         </blockquote>
                         <figcaption className="relative flex items-center justify-between pt-6 mt-6 border-t border-slate-100">
-                          <a href={testimonial.author.link || "#"} target="_blank" className="hover:no-underline">
+                          <a
+                            href={testimonial.author.link || "#"}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="rounded-md text-app-brand hover:no-underline"
+                          >
                             <div className="text-base font-display">{testimonial.author.name}</div>
                             <div className="mt-1 text-sm">{testimonial.author.role}</div>
                           </a>
@@ -116,17 +126,19 @@ export const Testimonials = () => {
               <div className="flex flex-col px-3 mx-auto space-y-2 md:px-0">
                 <OutboundLink
                   href="https://calendly.com/edwardsmoses/30min"
-                  target="blank"
+                  target="_blank"
+                  rel="noreferrer"
                   onClick={handleTrackEvent}
-                  className="flex items-center justify-center px-8 py-3 text-xl font-medium bg-white border border-transparent rounded-md md:py-4 md:text-lg md:px-10 min-w-min hover:no-underline hover:opacity-80 dark:text-black"
+                  className="action-link action-link--light"
                 >
-                  {buttonCopy[copyVersion]} {"->"}
+                  {buttonCopy[copyVersion]} <span aria-hidden="true">→</span>
                 </OutboundLink>
 
                 <OutboundLink
                   href="https://portfolio.edwardsmoses.com/#projects"
-                  target="blank"
-                  className="flex items-start justify-start mx-2 text-base border-b border-white md:items-center md:justify-center md:text-xl min-w-min hover:no-underline hover:opacity-80 md:mx-10 text-app-brand-white tracking-tightest"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="testimonial-secondary-link"
                 >
                   or check out the projects I've been a part of
                 </OutboundLink>

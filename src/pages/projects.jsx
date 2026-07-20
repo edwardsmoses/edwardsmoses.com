@@ -40,11 +40,11 @@ export default function Projects() {
         />
 
         <div className="lg:order-first lg:row-span-2">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            my Projects
+          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 text-balance dark:text-zinc-100 sm:text-5xl">
+            My projects
           </h1>
-          <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400 mb-16">
-            <p>
+          <div className="mt-6 mb-16 space-y-7 text-base text-zinc-600 dark:text-zinc-300">
+            <p className="leading-7 text-pretty">
               I’ve worked on tons of projects over the years but these are the
               ones ('one' for now) that I’ve founded and most proud of. <br />
               Many of them are open-source, so if you see something that sparks
@@ -71,22 +71,24 @@ export default function Projects() {
                     </Card.Link>
                   </h2>
                   <Card.Description>{project.description}</Card.Description>
-                  <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
+                  <p className="relative z-10 flex mt-6 text-sm font-medium text-zinc-600 transition-colors group-hover:text-app-brand-yellow group-focus-within:text-app-brand-yellow dark:text-zinc-200 dark:group-hover:text-[#d8bb7b]">
                     <LinkIcon className="h-6 w-6 flex-none" />
                     <span className="ml-2">{project.link.label}</span>
                   </p>
                 </Card>
-                <div>
+                <div className="relative z-30 mt-8">
                   <a
                     href="https://www.producthunt.com/posts/firebaseelevate?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-firebaseelevate"
                     target="_blank"
                     rel="noreferrer"
+                    className="inline-flex min-h-[54px] rounded-xl transition-transform duration-150 ease-out active:scale-[0.96] motion-reduce:transform-none"
                   >
                     <img
                       src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=381786&theme=light"
                       alt="FirebaseElevate - Elevate&#0032;your&#0032;Firebase&#0032;experience&#0033; | Product Hunt"
                       width="250"
                       height="54"
+                      className="rounded-xl image-outline"
                       style={{
                         width: 250,
                         height: 54,

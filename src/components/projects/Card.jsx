@@ -1,6 +1,5 @@
 import React from "react";
 
-import { Link } from "gatsby";
 import clsx from "clsx";
 
 function ChevronRightIcon(props) {
@@ -18,9 +17,9 @@ export function Card({ as: Component = "div", className, children }) {
 Card.Link = function CardLink({ children, ...props }) {
   return (
     <>
-      <div className="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
-      <a {...props} target="_blank" rel="noreferrer">
-        <span className="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl" />
+      <div className="pointer-events-none absolute -inset-y-4 -inset-x-4 z-0 scale-95 rounded-2xl bg-white opacity-0 shadow-[0_0_0_1px_rgba(0,0,0,0.06),0_12px_30px_-20px_rgba(0,0,0,0.35)] transition-[transform,opacity] duration-200 ease-out group-hover:scale-100 group-hover:opacity-100 group-focus-within:scale-100 group-focus-within:opacity-100 dark:bg-zinc-800/70 dark:shadow-[0_0_0_1px_rgba(255,255,255,0.08)] sm:-inset-x-6" />
+      <a {...props} target="_blank" rel="noreferrer" className="rounded-md">
+        <span className="absolute inset-0 z-20 rounded-2xl" />
         <span className="relative z-10">{children}</span>
       </a>
     </>

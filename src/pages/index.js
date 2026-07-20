@@ -28,30 +28,24 @@ const IndexPage = ({
     ));
 
   return (
-    <Layout
-      header={
-        <div className="-mt-16">
-          <Hero_WorkWithMe />
-        </div>
-      }
-    >
+    <Layout header={<Hero_WorkWithMe />}>
       <SEO pageType="ProfilePage" />
 
-      <section id="articles" className="pb-10 -mt-24">
-        <h2 className="mt-16 text-3xl tracking-tight font-display sm:text-4xl">
+      <section id="articles" className="pb-16">
+        <h2 className="mt-0 text-3xl tracking-tight text-balance font-display sm:text-4xl">
           Recent <i>Articles</i>
         </h2>
-        <div className="grid gap-8 mx-auto mt-12 lg:grid-cols-3">{Posts}</div>
+        <div className="grid gap-7 mx-auto mt-10 md:grid-cols-2 lg:grid-cols-3">{Posts}</div>
 
-        <div className="flex justify-center mb-5 mt-14">
+        <div className="flex justify-center mb-5 mt-12">
           <Link
             to="/articles"
             onClick={() => {
               mixpanel.track("viewedAllArticles");
             }}
-            className="flex items-center justify-center px-8 py-3 mx-auto text-xl font-medium border border-transparent rounded-md bg-app-brand-yellow text-app-brand-white md:py-4 md:text-lg md:px-20 min-w-min hover:no-underline hover:opacity-80 "
+            className="action-link action-link--gold mx-auto md:px-14"
           >
-            View all articles {"->"}
+            View all articles <span aria-hidden="true">→</span>
           </Link>
         </div>
       </section>
