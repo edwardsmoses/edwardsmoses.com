@@ -61,29 +61,6 @@ const AboutPage = () => {
                   how an idea evolves into an app in the hands of the users.
                 </p>
               </div>
-              <div
-                style={{
-                  position: "relative",
-                  width: "100%",
-                  minWidth: "360px",
-                  minHeight: "480px",
-                  aspectRatio: "3 / 2",
-                }}
-              >
-                <iframe
-                  src="https://parry.vote/embed/kbal?lang=de"
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    width: "100%",
-                    height: "100%",
-                    border: "1px solid #E8E8E8",
-                    borderRadius: "12px",
-                  }}
-                  title="Parry – Karte"
-                  loading="lazy"
-                />
-              </div>
               <div className="mt-6 space-y-3 text-base text-zinc-600 dark:!text-zinc-100">
                 <hr />
                 <h2>Credentials Collection 🎖️</h2>
