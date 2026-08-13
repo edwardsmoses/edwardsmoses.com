@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 
 import "./css/services.css";
 
@@ -119,12 +120,12 @@ export const MyServices = () => {
             With close to a decade of experience working with a range of companies and industries, I'll help launch your
             product whichever way I can.
           </p>
-          <a
-            href="https://edwardsmoses.com/behind-the-scenes-working-with-me-as-my-client"
+          <Link
+            to="/process"
             className="font-semibold text-app-brand-yellow dark:text-[#d8bb7b] underline decoration-current/30 underline-offset-4 transition-colors hover:text-app-brand"
           >
             Learn more about my process
-          </a>
+          </Link>
         </div>
         <div className="block mt-8">
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
