@@ -3,6 +3,7 @@ template: BlogPost
 path: /unit-testing-firestore-rules
 date: 2022-09-10T12:11:25.330Z
 title: Unit Testing your Cloud Firestore Security Rules - Firebase
+metaDescription: How to unit test Firestore security rules so auth and data access stay safe as your app grows.
 thumbnail: /assets/cloudfirestore.png
 ---
 ## Introduction

@@ -3,7 +3,7 @@ template: BlogPost
 path: /integrating-magic-links-with-firebase-react-native
 date: 2024-07-19T01:05:32.403Z
 title: Integrating Magic Links with Firebase and React Native
-metaDescription: How to setup dynamic links with Firebase and React Native
+metaDescription: Implement passwordless magic-link login in React Native with Firebase Auth, deep links, and a clean sign-in UX.
 thumbnail: /assets/edwardsmoses-dynamic-links-firebase-react-native-greg-rosenke-4TpmzpI8Du0-unsplash.jpg
 ---
 

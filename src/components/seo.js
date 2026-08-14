@@ -40,6 +40,7 @@ export const SEO = ({
           author
           description
           image
+          personImage
           jobTitle
           knowsAbout
           location
@@ -54,7 +55,16 @@ export const SEO = ({
   `);
 
   const siteUrl = siteMetadata.siteUrl.replace(/\/$/, "");
-  const canonicalUrl = absoluteUrl(siteUrl, article?.path || pathname);
+  const withTrailingSlash = (url) => {
+    const [base, hash] = url.split("#");
+    if (base === siteUrl || base === `${siteUrl}/`)
+      return `${siteUrl}/` + (hash ? `#${hash}` : "");
+    const slashed = base.endsWith("/") ? base : `${base}/`;
+    return hash ? `${slashed}#${hash}` : slashed;
+  };
+  const canonicalUrl = withTrailingSlash(
+    absoluteUrl(siteUrl, article?.path || pathname)
+  );
   const pageTitle = article?.title || title;
   const metaTitle = pageTitle
     ? `${pageTitle} | ${siteMetadata.shortTitle}`
@@ -68,21 +78,27 @@ export const SEO = ({
     ? siteMetadata.image
     : requestedImage;
   const imageUrl = absoluteUrl(siteUrl, socialImage);
+  const defaultImageUrl = absoluteUrl(siteUrl, siteMetadata.image);
+  const usesDefaultOgCard = imageUrl === defaultImageUrl;
   const publishedAt = isoDate(article?.date);
   const modifiedAt = isoDate(article?.updated);
   const personId = `${siteUrl}/#person`;
   const websiteId = `${siteUrl}/#website`;
   const webpageId = `${canonicalUrl}#webpage`;
   const articleId = article ? `${canonicalUrl}#article` : undefined;
+  const personImageUrl = absoluteUrl(
+    siteUrl,
+    siteMetadata.personImage || siteMetadata.image
+  );
 
   const person = {
     "@type": "Person",
     "@id": personId,
     name: siteMetadata.author,
-    url: siteUrl,
+    url: `${siteUrl}/`,
     image: {
       "@type": "ImageObject",
-      url: absoluteUrl(siteUrl, siteMetadata.image),
+      url: personImageUrl,
     },
     jobTitle: siteMetadata.jobTitle,
     homeLocation: {
@@ -96,7 +112,7 @@ export const SEO = ({
   const website = {
     "@type": "WebSite",
     "@id": websiteId,
-    url: siteUrl,
+    url: `${siteUrl}/`,
     name: siteMetadata.shortTitle,
     description: siteMetadata.description,
     inLanguage: "en",
@@ -154,7 +170,9 @@ export const SEO = ({
         "@type": "ListItem",
         position: index + 1,
         name: item.title,
-        url: absoluteUrl(siteUrl, item.externalLink || item.path),
+        url: item.externalLink
+          ? absoluteUrl(siteUrl, item.externalLink)
+          : withTrailingSlash(absoluteUrl(siteUrl, item.path)),
       })),
     });
   }
@@ -205,6 +223,8 @@ export const SEO = ({
       <meta property="og:type" content={article ? "article" : "website"} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={imageUrl} />
+      {usesDefaultOgCard && <meta property="og:image:width" content="1200" />}
+      {usesDefaultOgCard && <meta property="og:image:height" content="630" />}
       <meta
         property="og:image:alt"
         content={pageTitle || siteMetadata.shortTitle}

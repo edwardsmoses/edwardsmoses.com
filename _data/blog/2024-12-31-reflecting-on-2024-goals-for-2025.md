@@ -3,6 +3,7 @@ template: BlogPost
 path: /reflecting-on-2024-goals-for-2025
 date: 2024-12-31T13:13:13.13Z
 title: Reflecting on 2024 - My Goals and Aspirations for 2025
+metaDescription: A look back at 2024 as a freelance software consultant, plus concrete goals for 2025.
 thumbnail: >-
   /assets/pexels-viridianaor-29996984.jpg
 ---

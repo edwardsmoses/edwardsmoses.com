@@ -3,6 +3,7 @@ template: BlogPost
 path: /productivity-apps-i-use-in-2022
 date: 2022-08-04T07:10:25.139Z
 title: My Productivity Apps I use in 2022
+metaDescription: The day-to-day productivity stack Edwards Moses used in 2022 as a freelance developer.
 thumbnail: /assets/notionhomepage.jpg
 ---
 

@@ -20,7 +20,7 @@ const Articles = ({
         <SEO
           collectionItems={edges.map((edge) => edge.node.frontmatter)}
           title="React, React Native & Full-Stack Articles"
-          description="Practical guides on React, React Native, Firebase, Remix and full-stack engineering, written from experience building production software."
+          description="Practical guides on React, React Native, Remix, Firebase, Stripe, and shipping production software — written by Edwards Moses."
           pathname="/articles/"
           pageType="CollectionPage"
         />

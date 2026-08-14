@@ -3,7 +3,7 @@ template: BlogPost
 path: /creating-browser-extension-using-react-and-typescript-with-plasmo-framework
 date: 2022-10-16T11:12:18.502Z
 title: Creating a Browser Extension using React and Typescript - with the Plasmo Framework
-metaDescription: How to get started creating a Browser extension using React and Typescript. The Plasmo Framework helps you to build extensions with ease using React.
+metaDescription: Build a browser extension with React and TypeScript using the Plasmo framework, from setup to a working extension.
 thumbnail: /assets/edwards_browser_extensions.png
 ---
 

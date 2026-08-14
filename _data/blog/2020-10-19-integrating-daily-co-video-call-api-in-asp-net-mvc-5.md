@@ -3,7 +3,7 @@ template: BlogPost
 path: /integrating-daily-co-video-call-api-in-asp-net-mvc
 date: 2020-10-19T01:09:05.469Z
 title: Integrating Daily.Co Video Call API in ASP.NET MVC 5
-metaDescription: "How to Integrate Daily.Co Video Call API in .NET MVC Application. "
+metaDescription: "Add Daily.co video calling to an ASP.NET MVC app with a practical integration walkthrough."
 thumbnail: /assets/kentaro-toma-jiuiiv0N5F0-unsplash.jpg
 ---
 

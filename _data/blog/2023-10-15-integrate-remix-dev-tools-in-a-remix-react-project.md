@@ -3,6 +3,7 @@ template: BlogPost
 path: /integrating-remix-dev-tools-into-a-remix-react-app
 date: 2023-10-15T08:33:01.203Z
 title: Integrate Remix Dev Tools into a Remix React app
+metaDescription: Add Remix Dev Tools to speed up debugging routes, loaders, and server/client boundaries in Remix apps.
 thumbnail: /assets/edwardsmoses-remix-react-dev-tools.png
 ---
 

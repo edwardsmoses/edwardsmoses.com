@@ -3,7 +3,7 @@ template: BlogPost
 path: /auto-incrementing-version-code-for-android
 date: 2022-05-22T00:51:52.613Z
 title: Automatically Incrementing Android Bundle Version Code
-metaDescription: How to automatically increase version code for Android Bundles
+metaDescription: Automatically bump Android versionCode in CI so Play Store uploads never fail on version conflicts.
 thumbnail: /assets/w7rq7.png
 ---
 When uploading Android bundles (.aab) file to the Playstore, it's important that the Version code be higher than a previously uploaded bundle.

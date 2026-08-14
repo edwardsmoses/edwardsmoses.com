@@ -3,7 +3,7 @@ template: BlogPost
 path: /personal-git-alias-faster-git-workflow
 date: 2022-04-24T01:32:32.755Z
 title: My Personal Git Alias(es) I use for faster Git workflow
-metaDescription: Personal list of Git Aliases I use day-to-day in my Git workflow
+metaDescription: A practical list of Git aliases that speed up everyday commits, rebases, and branch management.
 thumbnail: https://miro.medium.com/max/1400/1*oMC83-7fB27k1tTMxDfRaQ.png
 ---
 ### Setting Git Alias - How?

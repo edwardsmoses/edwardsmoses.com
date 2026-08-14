@@ -5,10 +5,7 @@ date: 2020-11-17T13:45:45.030Z
 title: >-
   Fixing UnintentionalCodeFirst Exception, ASP.NET MVC, Microsoft Azure App
   Service
-metaDescription: >-
-  Bug: After deployment to Azure AppService, MVC Applications that are built
-  using Database First throw an Exception:
-  System.Data.Entity.Infrastructure.UnintentionalCodeFirstException.
+metaDescription: Resolve Entity Framework UnintentionalCodeFirstException when deploying ASP.NET MVC to Azure App Service.
 thumbnail: /assets/azure.jpg
 ---
 Bug: After deployment to Azure AppService, ASP.NET MVC App built using Database First throws an Exception: System.Data.Entity.Infrastructure.UnintentionalCodeFirstException.

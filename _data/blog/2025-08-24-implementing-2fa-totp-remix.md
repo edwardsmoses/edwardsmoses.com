@@ -3,6 +3,7 @@ template: BlogPost
 path: /implementing-2fa-totp-with-remix
 date: 2026-04-12T23:59:59.203Z
 title: Implementing Two-Factor Authentication (2FA) with TOTP in a Remix app
+metaDescription: Step-by-step guide to adding TOTP-based 2FA in a Remix app: QR setup, authenticator codes, sessions, and secure verification flows.
 thumbnail: /assets/totp/edwardsmoses.com_pexels-zulfugarkarimov-33440144.jpg
 ---
 

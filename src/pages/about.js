@@ -25,7 +25,7 @@ const AboutPage = () => {
     <Layout>
       <SEO
         title="About — React & React Native Consultant"
-        description="Learn about Edwards Moses, a Lagos-based software consultant with a decade of experience building React, React Native and full-stack products."
+        description="Edwards Moses is a Lagos-based software consultant with a decade building React, React Native, and full-stack products across eCommerce, logistics, eLearning, and more."
         pathname="/about/"
         pageType="AboutPage"
       />
@@ -77,8 +77,7 @@ const AboutPage = () => {
                   </li>
 
                   <li>
-                    CloudGuru, Certified Kubernetes Application Developer (In
-                    Prep of the CKAD cert) -{" "}
+                    CloudGuru, Certified Kubernetes Application Developer -{" "}
                     <a
                       className="text-blue-500"
                       href="https://verify.acloud.guru/B54D6859D482"
@@ -89,8 +88,7 @@ const AboutPage = () => {
                   </li>
 
                   <li>
-                    CloudGuru, Introduction to Kubernetes (In Prep of the CKAD
-                    cert) -{" "}
+                    CloudGuru, Introduction to Kubernetes -{" "}
                     <a
                       className="text-blue-500"
                       href="https://verify.acloud.guru/77471179F841"

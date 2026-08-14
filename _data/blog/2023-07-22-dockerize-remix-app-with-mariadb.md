@@ -3,6 +3,7 @@ template: BlogPost
 path: /dockerize-a-remix-react-app-with-mariadb
 date: 2023-07-22T13:24:56.203Z
 title: Dockerize a Remix React app with MariaDB
+metaDescription: Containerize a Remix + MariaDB stack with Docker Compose for local development and predictable deploys.
 thumbnail: /assets/edwardsmoses_docker_remix.png
 ---
 

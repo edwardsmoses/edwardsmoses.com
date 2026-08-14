@@ -70,7 +70,7 @@ assert.strictEqual(meta(home, "twitter:card"), "summary_large_image");
 assert.strictEqual(meta(home, "og:url"), "https://edwardsmoses.com/");
 assert.strictEqual(
   meta(home, "og:image"),
-  "https://edwardsmoses.com/assets/i.JPG"
+  "https://edwardsmoses.com/assets/edwardsmoses-og-card.jpg"
 );
 assert(home.includes("G-KPS455BYW5"), "GA4 measurement ID is missing");
 assert(
@@ -130,7 +130,7 @@ assert.strictEqual(
 const article = readPublic("implementing-2fa-totp-with-remix", "index.html");
 assert.strictEqual(
   canonical(article),
-  "https://edwardsmoses.com/implementing-2fa-totp-with-remix"
+  "https://edwardsmoses.com/implementing-2fa-totp-with-remix/"
 );
 assert.strictEqual(meta(article, "og:type"), "article");
 assert(
@@ -175,7 +175,7 @@ const svgThumbnailArticle = readPublic(
 );
 assert.strictEqual(
   meta(svgThumbnailArticle, "og:image"),
-  "https://edwardsmoses.com/assets/i.JPG"
+  "https://edwardsmoses.com/assets/edwardsmoses-og-card.jpg"
 );
 
 const notFound = readPublic("404.html");

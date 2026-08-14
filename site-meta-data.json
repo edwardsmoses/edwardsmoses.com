@@ -3,8 +3,9 @@
   "shortTitle": "Edwards Moses",
   "author": "Edwards Moses",
   "siteUrl": "https://edwardsmoses.com",
-  "description": "Lagos-based React, React Native and full-stack software consultant helping companies design, build and improve web and mobile products.",
-  "image": "/assets/i.JPG",
+  "description": "Lagos-based React, React Native, and full-stack consultant. I help startups and teams ship web & mobile products, improve existing apps, and clear delivery bottlenecks.",
+  "image": "/assets/edwardsmoses-og-card.jpg",
+  "personImage": "/assets/i.JPG",
   "twitterUsername": "@atedwardsmoses",
   "jobTitle": "React, React Native and Full-Stack Software Consultant",
   "location": "Lagos, Nigeria",
@@ -12,13 +13,22 @@
     "https://github.com/edwardsmoses",
     "https://www.linkedin.com/in/edwards-moses/",
     "https://twitter.com/atedwardsmoses",
-    "https://www.toptal.com/resume/edwards-moses"
+    "https://www.toptal.com/resume/edwards-moses",
+    "https://portfolio.edwardsmoses.com/"
   ],
   "knowsAbout": [
     "React",
     "React Native",
-    "Firebase",
+    "Expo",
+    "Remix",
+    "TypeScript",
     "Node.js",
+    "Go",
+    "Firebase",
+    "Stripe",
+    "Kubernetes",
+    "AWS",
+    "Google Cloud",
     "Full-stack web development",
     "Mobile app development"
   ]

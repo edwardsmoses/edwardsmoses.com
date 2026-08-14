@@ -3,7 +3,7 @@ template: BlogPost
 path: /integrating-magic-links-with-supabase-postmark-and-remix
 date: 2024-07-27T09:41:32.403Z
 title: Integrating Email Magic Link Authentication with Supabase, Postmark in a Remix React app
-metaDescription: How to setup magic sign-in links with Supabase, Postmark and Remix
+metaDescription: Set up magic-link authentication in Remix using Supabase Auth and Postmark for reliable email delivery.
 thumbnail: /assets/edwardsmoses-vaida-krau-lCCesILyHS4-unsplash.jpg
 ---
 

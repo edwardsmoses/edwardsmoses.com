@@ -3,7 +3,7 @@ template: BlogPost
 path: /behind-the-scenes-working-with-me-as-my-client
 date: 2022-09-18T15:11:02.123Z
 title: "Behind the Scenes: Working with me - How it’s like as my client"
-metaDescription: "What is it like working with me as a client?"
+metaDescription: "How engagements with Edwards Moses work: communication, delivery cadence, documentation, and what clients can expect."
 thumbnail: /assets/skiing.svg
 ---
 

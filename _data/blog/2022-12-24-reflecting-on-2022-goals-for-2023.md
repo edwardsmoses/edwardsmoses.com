@@ -3,6 +3,7 @@ template: BlogPost
 path: /reflecting-on-2022-goals-for-2023
 date: 2022-12-24T15:42:44.808Z
 title: Reflecting on 2022 - My Goals and Aspirations for 2023
+metaDescription: Personal and professional reflection on 2022, with goals that shaped the next year of consulting work.
 thumbnail: >-
   /assets/edwards-moses-pexels-2023-engin-akyurt.jpg
 ---

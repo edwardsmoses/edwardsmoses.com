@@ -3,9 +3,7 @@ template: BlogPost
 path: /automated-backups-cloud-firestore
 date: 2022-12-24T17:24:36.203Z
 title: How to Set Up Automated Backups for Cloud Firestore Database
-metaDescription: Build daily Cloud Firestore backups with a scheduled Firebase
-  Cloud Function and Google Cloud Storage, including lower-cost storage
-  configuration.
+metaDescription: Build daily Cloud Firestore backups with scheduled jobs so you can recover quickly after data loss.
 thumbnail: /assets/edwards-moses-pexels-pixabay-270348.jpg
 ---
 

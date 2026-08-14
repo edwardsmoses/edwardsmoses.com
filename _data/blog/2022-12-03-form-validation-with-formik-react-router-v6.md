@@ -3,7 +3,7 @@ template: BlogPost
 path: /form-validation-with-react-router-v6
 date: 2022-12-03T11:42:19.959Z
 title: Form Validation with Formik, Yup & React Router v6
-metaDescription: In this article, we will explore how to use Formik and Yup with the new React router version, and we will provide code examples to help you get started quickly
+metaDescription: Wire Formik and Yup validation into React Router v6 forms without fighting navigation or loaders.
 thumbnail: /assets/react_router_v6.png
 ---
 

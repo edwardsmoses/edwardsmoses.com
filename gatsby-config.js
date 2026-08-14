@@ -31,11 +31,12 @@ const serializeSitemap = ({ site, allSitePage, allMarkdownRemark }) => {
       const post = postsByPath.get(normalizePagePath(path));
       const lastmodISO = post && (post.updated || post.date);
 
+      const siteUrl = site.siteMetadata.siteUrl.replace(/\/$/, "");
+      const sitemapPath =
+        path === "/" ? "/" : `/${path.replace(/^\/+|\/+$/g, "")}/`;
+
       return {
-        url: new URL(
-          path,
-          `${site.siteMetadata.siteUrl.replace(/\/$/, "")}/`
-        ).toString(),
+        url: new URL(sitemapPath, `${siteUrl}/`).toString(),
         ...(lastmodISO ? { lastmodISO } : {}),
       };
     });

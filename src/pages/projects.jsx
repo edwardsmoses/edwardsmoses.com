@@ -33,8 +33,8 @@ export default function Projects() {
     <>
       <Layout>
         <SEO
-          title="Software Projects"
-          description="Explore software projects built by Edwards Moses, including FirebaseElevate, an open-source browser extension that improves the Firestore experience."
+          title="Software Projects — React, React Native & Full-Stack"
+          description="Selected software projects by Edwards Moses: open-source tools, client apps, and full-stack work across web and mobile."
           pathname="/projects/"
           pageType="CollectionPage"
         />

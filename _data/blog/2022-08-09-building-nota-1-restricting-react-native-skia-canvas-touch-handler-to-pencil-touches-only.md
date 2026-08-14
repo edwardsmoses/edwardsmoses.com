@@ -4,7 +4,7 @@ path: /building-nota-restricting-shopify-react-native-skia-canvas-touch-handler-
 date: 2022-08-09T20:50:57.918Z
 title: "Building Nota #1 - Restricting React Native Skia Canvas Touch Handler to
   Pencil touches only"
-metaDescription: Restricting React Native Skia Canvas Touch Handler to Pencil touches only
+metaDescription: Limit Shopify React Native Skia canvas input to Pencil-only touches for a note-taking UX.
 thumbnail: /assets/nota-look-august-9th-min.jpg
 ---
 This will be the first part of a series of articles where I write about my journey building Nota. 

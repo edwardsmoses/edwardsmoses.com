@@ -7,7 +7,7 @@ const ContactPage = () => {
     <Layout>
       <SEO
         title="Contact — React & React Native Consulting"
-        description="Contact Edwards Moses to discuss React, React Native, web or mobile development, prototyping, or improvements to an existing product."
+        description="Book a call with Edwards Moses to discuss React, React Native, full-stack builds, prototyping, or improving an existing web or mobile product."
         pathname="/contact/"
         pageType="ContactPage"
       />

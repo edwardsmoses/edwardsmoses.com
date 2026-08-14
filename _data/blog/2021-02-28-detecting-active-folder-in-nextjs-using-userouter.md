@@ -3,9 +3,7 @@ template: BlogPost
 path: /detecting-the-active-folder-using-nextjs-using-useRouter
 date: 2021-02-28T21:24:32.212Z
 title: Detecting the Active Folder in NextJS using useRouter
-metaDescription: >-
-  How to determine the active folder of the Current URL using useRouter in
-  NextJS
+metaDescription: Highlight active nav items in Next.js by detecting the current folder/route with useRouter.
 thumbnail: /assets/cover-1--2-.png
 ---
 Recently, while working on an application, I came across having to determine the folder of the current URL and assign a class to the 'Active Link' in the Navbar to be styled differently from other links.

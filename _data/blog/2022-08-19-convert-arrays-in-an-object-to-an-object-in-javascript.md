@@ -3,6 +3,7 @@ template: BlogPost
 path: /converting-arrays-in-an-object-to-objects
 date: 2022-08-19T21:30:14.312Z
 title: Convert Arrays in an Object to an Object in Javascript
+metaDescription: A quick JavaScript pattern for converting array values nested in an object into keyed objects.
 thumbnail: /assets/cover_image.png
 ---
 I was working with an object in Javascript, and I needed to convert all arrays in the object to an object itself no matter the level the Array was present in the object. Here's what I came up with:

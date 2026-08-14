@@ -3,6 +3,7 @@ template: BlogPost
 path: /migrating-to-dnd-kit-from-react-sortable-hoc
 date: 2023-04-27T03:03:46.203Z
 title: Migrating to React DND Kit from React Sortable Hoc
+metaDescription: Migrate drag-and-drop lists from react-sortable-hoc to dnd-kit with fewer bugs and better accessibility.
 thumbnail: /assets/edwardsmoses_react_dnd_kit.png
 ---
 

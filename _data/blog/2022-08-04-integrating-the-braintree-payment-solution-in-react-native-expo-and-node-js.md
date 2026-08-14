@@ -3,8 +3,7 @@ template: BlogPost
 path: /braintree-payment-integration-react-native-expo
 date: 2022-08-04T07:52:56.482Z
 title: Integrating the Braintree Payment solution in React Native/Expo and Node.js
-metaDescription: A guide to getting you started with Braintree Payment Gateway
-  integration in Typescript-based applications (React Native & Node.js)
+metaDescription: Get started with Braintree payments in a React Native Expo app and a Node.js backend.
 thumbnail: /assets/braintreehomepage.jpg
 ---
 ## **Introduction**
