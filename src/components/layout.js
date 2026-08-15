@@ -6,7 +6,7 @@ import Footer from "../components/footer";
 import Navigation from "../components/navigation";
 import "prismjs/themes/prism-okaidia.css";
 
-export default ({ children, header }) => {
+const Layout = ({ children, header }) => {
   return (
     <>
       <div className="site-wrapper topSiteWrapper">
@@ -36,3 +36,5 @@ export default ({ children, header }) => {
     </>
   );
 };
+
+export default Layout;

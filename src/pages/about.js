@@ -1,5 +1,5 @@
 import React from "react";
-import { SEO } from "../components/seo";
+import { Seo } from "../components/seo";
 import Layout from "../components/layout";
 import moment from "moment";
 
@@ -23,7 +23,7 @@ const AboutPage = () => {
 
   return (
     <Layout>
-      <SEO
+      <Seo
         title="About — React & React Native Consultant"
         description="Edwards Moses is a Lagos-based software consultant with a decade building React, React Native, and full-stack products across eCommerce, logistics, eLearning, and more."
         pathname="/about/"
@@ -71,6 +71,7 @@ const AboutPage = () => {
                       className="text-blue-500"
                       href="https://www.credly.com/badges/0c002800-de62-452f-8ca6-cf0e9cb260f1"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       Credential
                     </a>
@@ -82,6 +83,7 @@ const AboutPage = () => {
                       className="text-blue-500"
                       href="https://verify.acloud.guru/B54D6859D482"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       Credential
                     </a>
@@ -93,6 +95,7 @@ const AboutPage = () => {
                       className="text-blue-500"
                       href="https://verify.acloud.guru/77471179F841"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       Credential
                     </a>
@@ -104,6 +107,7 @@ const AboutPage = () => {
                       className="text-blue-500"
                       href="https://google.accredible.com/cfd9602d-5a55-4631-bcad-d2600224d38b"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       Credential
                     </a>
@@ -115,6 +119,7 @@ const AboutPage = () => {
                       className="text-blue-500"
                       href="https://www.credly.com/badges/5afc14f5-2ec3-4ef7-bc82-b73b1d2ef6fd/public_url"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       Credential
                     </a>
@@ -126,6 +131,7 @@ const AboutPage = () => {
                       className="text-blue-500"
                       href="https://stripecertifications.credential.net/a6e25aca-1787-47c6-95ff-ac12b4ff3cb4#gs.6h3r5a"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       Credential
                     </a>
@@ -137,6 +143,7 @@ const AboutPage = () => {
                       className="text-blue-500"
                       href="https://coursera.org/share/de165814b64faf96c045f06f2bbf12cd"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       Credential
                     </a>
@@ -148,6 +155,7 @@ const AboutPage = () => {
                       className="text-blue-500"
                       href="https://www.credly.com/badges/1b2ef4b5-29f3-4d8f-b5b4-f70691d51cdd/linked_in_profile"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       Credential
                     </a>
@@ -176,7 +184,7 @@ const AboutPage = () => {
               </div>
             </div>
             <div className="lg:pl-20">
-              <ul role="list">
+              <ul>
                 <li className="flex">
                   <a
                     className="about-social-link"

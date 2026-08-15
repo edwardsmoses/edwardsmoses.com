@@ -1,11 +1,11 @@
 import React from "react";
 import Layout from "../components/layout";
-import { SEO } from "../components/seo";
+import { Seo } from "../components/seo";
 
 const ContactPage = () => {
   return (
     <Layout>
-      <SEO
+      <Seo
         title="Contact — React & React Native Consulting"
         description="Book a call with Edwards Moses to discuss React, React Native, full-stack builds, prototyping, or improving an existing web or mobile product."
         pathname="/contact/"

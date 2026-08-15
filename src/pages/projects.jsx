@@ -1,5 +1,5 @@
 import React from "react";
-import { SEO } from "../components/seo";
+import { Seo } from "../components/seo";
 import Layout from "../components/layout";
 
 import { Card } from "../components/projects/Card";
@@ -32,7 +32,7 @@ export default function Projects() {
   return (
     <>
       <Layout>
-        <SEO
+        <Seo
           title="Software Projects — React, React Native & Full-Stack"
           description="Selected software projects by Edwards Moses: open-source tools, client apps, and full-stack work across web and mobile."
           pathname="/projects/"
@@ -55,10 +55,7 @@ export default function Projects() {
         </div>
 
         <div className="relative px-4 sm:px-8 lg:px-12">
-          <ul
-            role="list"
-            className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
-          >
+          <ul className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
             {projects.map((project) => (
               <li className="flex flex-col" key={project.name}>
                 <Card>

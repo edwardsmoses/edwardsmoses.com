@@ -1,11 +1,11 @@
 import React from "react";
 import Layout from "../components/layout";
-import { SEO } from "../components/seo";
+import { Seo } from "../components/seo";
 
 const ProcessPage = () => {
   return (
     <Layout>
-      <SEO
+      <Seo
         title="How we work — React & React Native consulting"
         description="How Edwards Moses works with clients: a one-week working session, weekly sprints, daily updates, store launch, and post-launch retainers."
         pathname="/process/"

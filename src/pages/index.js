@@ -2,8 +2,8 @@ import React from "react";
 import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import PostLink from "../components/post-link";
-import { Hero_WorkWithMe } from "../components/heroWorkWithMe";
-import { SEO } from "../components/seo";
+import { HeroWorkWithMe } from "../components/heroWorkWithMe";
+import { Seo } from "../components/seo";
 import { MyServices } from "../components/myservices";
 import { Testimonials } from "../components/testimonial";
 
@@ -28,8 +28,8 @@ const IndexPage = ({
     ));
 
   return (
-    <Layout header={<Hero_WorkWithMe />}>
-      <SEO pageType="ProfilePage" />
+    <Layout header={<HeroWorkWithMe />}>
+      <Seo pageType="ProfilePage" />
 
       <section id="articles" className="pb-16">
         <h2 className="mt-0 text-3xl tracking-tight text-balance font-display sm:text-4xl">
