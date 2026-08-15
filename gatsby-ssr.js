@@ -58,10 +58,5 @@ exports.onRenderBody = ({ setPreBodyComponents, setPostBodyComponents }) => {
       async: true,
       src: "/gradient.js",
     }),
-    React.createElement("script", {
-      key: "mobilemonkey-script",
-      async: true,
-      src: "https://static.mobilemonkey.com/js/mm_2859918c-e24c-4d90-8833-817ff193496e-58488972.js",
-    }),
   ]);
 };
