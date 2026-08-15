@@ -1,4 +1,5 @@
 module.exports = {
+  customSyntax: "postcss-scss",
   extends: ["stylelint-config-recommended"],
   rules: {
     "at-rule-no-unknown": [
@@ -10,10 +11,12 @@ module.exports = {
           "variants",
           "responsive",
           "screen",
+          "custom-variant",
+          "plugin",
+          "theme",
         ],
       },
     ],
-    "declaration-block-trailing-semicolon": null,
     "no-descending-specificity": null,
   },
 };

@@ -28,9 +28,7 @@ const PostLinkHeader = ({ headingLevel: Heading = "h2", post }) => {
         {post.frontmatter.title}
       </Heading>
       {description && (
-        <p className="article-card__description">
-          {description}
-        </p>
+        <p className="article-card__description">{description}</p>
       )}
     </div>
   );

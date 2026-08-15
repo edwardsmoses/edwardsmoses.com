@@ -40,7 +40,9 @@ const Articles = ({
         </div>
 
         <div className="relative">
-          <div className="grid gap-7 mx-auto mt-10 md:grid-cols-2 lg:grid-cols-3">{Posts}</div>
+          <div className="grid gap-7 mx-auto mt-10 md:grid-cols-2 lg:grid-cols-3">
+            {Posts}
+          </div>
         </div>
       </Layout>
     </>
@@ -55,7 +57,7 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
       edges {
         node {
           id

@@ -504,7 +504,7 @@ body.dark .navigation-cta:hover {
 .grids {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 32px;
+  gap: 32px;
   margin-top: 32px;
 }
 .card {
@@ -864,7 +864,7 @@ body.dark .footer-social-link {
 }
 .two-grids {
   display: grid;
-  grid-gap: 32px;
+  gap: 32px;
   &.-contact {
     .post-thumbnail {
       min-height: 240px !important;
@@ -879,7 +879,7 @@ body.dark .footer-social-link {
   height: 1px;
   padding: 0;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
 }
@@ -1055,7 +1055,7 @@ body.dark .theme-icon--sun {
   cursor: pointer;
   position: absolute;
   top: -18px;
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
   font-weight: 600;
   box-shadow: 0 4px 12px -8px rgba(0, 0, 0, 0.8);
   transition-property: background-color, scale;
@@ -1149,7 +1149,7 @@ body.dark .theme-icon--sun {
   .two-grids {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 64px;
+    gap: 64px;
   }
 }
 

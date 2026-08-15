@@ -12,14 +12,14 @@ const normalizePagePath = (pagePath) => {
   return `/${pagePath.replace(/^\/+|\/+$/g, "")}`;
 };
 
-const serializeSitemap = ({ site, allSitePage, allMarkdownRemark }) => {
+const resolveSitemapPages = ({ allSitePage, allMarkdownRemark }) => {
   const postsByPath = new Map(
     allMarkdownRemark.nodes
       .filter(({ frontmatter }) => frontmatter && frontmatter.path)
       .map(({ frontmatter }) => [
         normalizePagePath(frontmatter.path),
         frontmatter,
-      ])
+      ]),
   );
 
   return allSitePage.nodes
@@ -31,19 +31,21 @@ const serializeSitemap = ({ site, allSitePage, allMarkdownRemark }) => {
       const post = postsByPath.get(normalizePagePath(path));
       const lastmodISO = post && (post.updated || post.date);
 
-      const siteUrl = site.siteMetadata.siteUrl.replace(/\/$/, "");
-      const sitemapPath =
-        path === "/" ? "/" : `/${path.replace(/^\/+|\/+$/g, "")}/`;
-
       return {
-        url: new URL(sitemapPath, `${siteUrl}/`).toString(),
+        path,
         ...(lastmodISO ? { lastmodISO } : {}),
       };
     });
 };
 
+const serializeSitemap = ({ path, lastmodISO }) => ({
+  url: path === "/" ? "/" : `/${path.replace(/^\/+|\/+$/g, "")}/`,
+  ...(lastmodISO ? { lastmodISO } : {}),
+});
+
 module.exports = {
   /* Your site config here */
+  trailingSlash: "always",
   siteMetadata: require("./site-meta-data.json"),
   plugins: [
     {
@@ -89,20 +91,12 @@ module.exports = {
       },
     },
     `gatsby-plugin-sass`,
-    `gatsby-plugin-smoothscroll`,
-    `gatsby-plugin-anchor-links`,
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: "gatsby-plugin-load-script",
-      options: {
-        src: "/gradient.js",
-      },
-    },
     {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
         host: `https://edwardsmoses.com`,
-        sitemap: `https://edwardsmoses.com/sitemap.xml`,
+        sitemap: `https://edwardsmoses.com/sitemap-index.xml`,
         policy: [
           { userAgent: "*", allow: "/", disallow: ["/confirmation", "/admin"] },
         ],
@@ -132,19 +126,11 @@ module.exports = {
         trackPageViewsAs: "Page view",
       },
     },
-    {
-      resolve: "gatsby-plugin-load-script",
-      options: {
-        src: "https://static.mobilemonkey.com/js/mm_2859918c-e24c-4d90-8833-817ff193496e-58488972.js",
-      },
-    },
-    `gatsby-plugin-netlify-cms`,
     "gatsby-plugin-netlify",
-    "gatsby-plugin-dark-mode",
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        exclude: [`/admin`, `/admin/**`],
+        excludes: [`/admin`, `/admin/**`],
         query: `
           {
             site {
@@ -169,6 +155,7 @@ module.exports = {
             }
           }
         `,
+        resolvePages: resolveSitemapPages,
         serialize: serializeSitemap,
       },
     },
