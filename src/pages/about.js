@@ -1,26 +1,8 @@
 import React from "react";
 import { Seo } from "../components/seo";
 import Layout from "../components/layout";
-import moment from "moment";
-
-import Stories from "react-insta-stories";
-import { STORIES_DATA } from "../utils/stories";
-import { useMixpanel } from "gatsby-plugin-mixpanel";
 
 const AboutPage = () => {
-  const mixpanel = useMixpanel();
-
-  const stories = STORIES_DATA.map((story) => {
-    return {
-      url: story.url,
-      duration: 5000,
-      header: {
-        heading: story.heading,
-        subheading: moment(new Date(story.dateAdded * 1000)).fromNow(),
-      },
-    };
-  });
-
   return (
     <Layout>
       <Seo
@@ -161,26 +143,7 @@ const AboutPage = () => {
                     </a>
                   </li>
                 </ul>
-              </div>
-
-              <div className="mt-6 space-y-3 text-base text-zinc-600  dark:!text-zinc-100">
-                <hr />
-                <h2>Stories</h2>
-                <div className="stories-frame">
-                  <Stories
-                    stories={stories}
-                    width="100%"
-                    height="min(640px, 155vw)"
-                    loop
-                    keyboardNavigation
-                    onStoryStart={() => {
-                      mixpanel.track("viewedStory");
-                    }}
-                    onStoryEnd={() => {
-                      mixpanel.track("viewedStoryEnd");
-                    }}
-                  />
-                </div>
+                <hr className="credentials-divider" />
               </div>
             </div>
             <div className="lg:pl-20">

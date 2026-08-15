@@ -39,7 +39,7 @@ const IndexPage = ({
           {Posts}
         </div>
 
-        <div className="flex justify-center mb-5 mt-12">
+        <div className="articles-cta flex justify-center mb-5">
           <Link
             to="/articles"
             onClick={() => {

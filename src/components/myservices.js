@@ -127,7 +127,7 @@ export const MyServices = () => {
             Learn more about my process
           </Link>
         </div>
-        <div className="block mt-8">
+        <div className="services-grid block">
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
             {services.map((service, index) => (
               <div key={index} className="service-card">

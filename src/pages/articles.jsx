@@ -40,7 +40,7 @@ const Articles = ({
         </div>
 
         <div className="relative">
-          <div className="grid gap-7 mx-auto mt-10 md:grid-cols-2 lg:grid-cols-3">
+          <div className="articles-grid grid gap-7 mx-auto md:grid-cols-2 lg:grid-cols-3">
             {Posts}
           </div>
         </div>

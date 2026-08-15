@@ -250,6 +250,10 @@ a {
   padding: 28px clamp(20px, 4vw, 32px) 88px;
   text-align: center;
   background: radial-gradient(circle at 50% 18%, rgba(182, 153, 98, 0.12), transparent 42%);
+
+  > h1 {
+    margin-inline: auto;
+  }
 }
 
 .hero-eyebrow {
@@ -614,6 +618,22 @@ body.dark .navigation-cta:hover {
   font-variant-numeric: tabular-nums;
 }
 
+.articles-cta {
+  margin-block-start: 3rem;
+}
+
+.articles-grid {
+  margin-block-start: 2.5rem;
+}
+
+.services-grid {
+  margin-block-start: 2rem;
+}
+
+.testimonial-cta {
+  margin-block-start: 3.5rem;
+}
+
 .service-card {
   padding: 22px;
   border-radius: 20px;
@@ -729,6 +749,10 @@ body.dark .about-page a.text-blue-500 {
   color: #93c5fd;
 }
 
+.credentials-divider {
+  margin-block-start: 1.5rem;
+}
+
 .about-social-link:hover {
   color: var(--primary-color);
   text-decoration: none;
@@ -745,14 +769,6 @@ body.dark .about-social-link {
 .info-social-link:hover {
   color: #0e2542;
   text-decoration: none;
-}
-
-.stories-frame {
-  width: 100%;
-  max-width: 360px;
-  overflow: hidden;
-  border-radius: 20px;
-  box-shadow: var(--shadow-border);
 }
 
 .info-panel {
