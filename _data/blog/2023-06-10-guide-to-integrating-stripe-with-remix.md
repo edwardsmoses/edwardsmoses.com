@@ -3,7 +3,7 @@ template: BlogPost
 path: /guide-to-accepting-payments-with-stripe-in-remix-run
 date: 2023-06-10T10:07:46.203Z
 title: Accepting Payments with Stripe in Remix Run
-metaDescription: Integrate Stripe Checkout and webhooks in Remix: products, payments, and a production-ready payment flow.
+metaDescription: "Integrate Stripe Checkout and webhooks in Remix: products, payments, and a production-ready payment flow."
 thumbnail: /assets/edwardsmoses_stripe_remix.png
 ---
 

@@ -3,7 +3,7 @@ template: BlogPost
 path: /ultimate-checklist-for-successful-google-play-store-listing
 date: 2022-10-01T11:47:26.790Z
 title: The Ultimate Checklist To A Successful Google Play Store Listing
-metaDescription: A practical Google Play listing checklist: store listing details, screenshots, privacy, and review-ready submission.
+metaDescription: "A practical Google Play listing checklist: store listing details, screenshots, privacy, and review-ready submission."
 thumbnail: /assets/pathum-danthanarayana-t8tomke6xzu-unsplash.jpg
 ---
 

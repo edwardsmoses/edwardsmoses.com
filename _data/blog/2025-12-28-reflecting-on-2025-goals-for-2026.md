@@ -3,7 +3,7 @@ template: BlogPost
 path: /reflecting-on-2025-goals-for-2026
 date: 2025-12-28T08:41:13.13Z
 title: Reflecting on 2025 - Year in Review
-metaDescription: Year-in-review for 2025: lessons from consulting, certifications, shipping, and goals for 2026.
+metaDescription: "Year-in-review for 2025: lessons from consulting, certifications, shipping, and goals for 2026."
 thumbnail: >-
   /assets/pexels-viridianaor-29996961.jpg
 ---
