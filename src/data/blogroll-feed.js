@@ -1,6 +1,6 @@
 export const BLOGROLL_FEED_ENTRIES = [
   {
-    url: 'https://tailscale.com/blog/sqlite-wal-reset-bug?utm_source=twitter&utm_medium=owned-social&utm_campaign=blog',
+    url: 'https://tailscale.com/blog/sqlite-wal-reset-bug',
     'publishedAt': '2026-05-06',
     thoughts: "one of the major reasons why i love my job.. finding and hunting down bugs like this, bugs that almost impossible to find, take time to replicate, and the obvious triggers are not the actual triggers, a very interesting read, and why expertise can still be important even in the age of AI",
   },
