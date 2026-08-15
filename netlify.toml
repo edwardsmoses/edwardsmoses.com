@@ -1,12 +1,17 @@
 [build]
   publish = "public"
   command = "npm run build"
-  
+
 [build.environment]
-  NODE_VERSION = "10"
+  NODE_VERSION = "24"
 
 [[plugins]]
   package = "netlify-plugin-gatsby-cache"
+
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap-index.xml"
+  status = 301
 
 # Redirect with a 302
 [[redirects]]
@@ -28,7 +33,3 @@
   from = "/hire-me"
   to = "https://portfolio.edwardsmoses.com/s/UZqEkRqv-full-stack-web-app-development"
   status = 302
-  
-  
-
-  

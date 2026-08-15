@@ -122,7 +122,7 @@ export const Testimonials = () => {
             ))}
           </ul>
           <div>
-            <div className="flex justify-center mb-5 mt-14">
+            <div className="testimonial-cta flex justify-center mb-5">
               <div className="flex flex-col px-3 mx-auto space-y-2 md:px-0">
                 <OutboundLink
                   href="https://calendly.com/edwardsmoses/30min"

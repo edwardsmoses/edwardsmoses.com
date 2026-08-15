@@ -26,14 +26,14 @@ const meta = (html, key) => {
   const tag = tags(html, "meta").find(
     (candidate) =>
       attribute(candidate, "name") === key ||
-      attribute(candidate, "property") === key
+      attribute(candidate, "property") === key,
   );
   return tag ? attribute(tag, "content") : undefined;
 };
 
 const canonical = (html) => {
   const links = tags(html, "link").filter(
-    (candidate) => attribute(candidate, "rel") === "canonical"
+    (candidate) => attribute(candidate, "rel") === "canonical",
   );
   assert.strictEqual(links.length, 1, "expected exactly one canonical link");
   return attribute(links[0], "href");
@@ -63,19 +63,19 @@ const schemaTypes = (document) =>
 const home = readPublic("index.html");
 assert.strictEqual(
   title(home),
-  "Edwards Moses | React & React Native Software Consultant"
+  "Edwards Moses | React & React Native Software Consultant",
 );
 assert.strictEqual(canonical(home), "https://edwardsmoses.com/");
 assert.strictEqual(meta(home, "twitter:card"), "summary_large_image");
 assert.strictEqual(meta(home, "og:url"), "https://edwardsmoses.com/");
 assert.strictEqual(
   meta(home, "og:image"),
-  "https://edwardsmoses.com/assets/edwardsmoses-og-card.jpg"
+  "https://edwardsmoses.com/assets/edwardsmoses-og-card.jpg",
 );
 assert(home.includes("G-KPS455BYW5"), "GA4 measurement ID is missing");
 assert(
   !home.includes("UA-86119661-11"),
-  "legacy Universal Analytics ID remains"
+  "legacy Universal Analytics ID remains",
 );
 assert(!home.includes("5392885394"), "duplicate numeric analytics ID remains");
 
@@ -112,70 +112,70 @@ const publicRoutes = [
 });
 
 const routeDescriptions = [home, about, articles, ...publicRoutes].map((html) =>
-  meta(html, "description")
+  meta(html, "description"),
 );
 assert.strictEqual(
   new Set(routeDescriptions).size,
   routeDescriptions.length,
-  "public routes should have distinct meta descriptions"
+  "public routes should have distinct meta descriptions",
 );
 
 const routeTitles = [home, about, articles, ...publicRoutes].map(title);
 assert.strictEqual(
   new Set(routeTitles).size,
   routeTitles.length,
-  "public routes should have distinct titles"
+  "public routes should have distinct titles",
 );
 
 const article = readPublic("implementing-2fa-totp-with-remix", "index.html");
 assert.strictEqual(
   canonical(article),
-  "https://edwardsmoses.com/implementing-2fa-totp-with-remix/"
+  "https://edwardsmoses.com/implementing-2fa-totp-with-remix/",
 );
 assert.strictEqual(meta(article, "og:type"), "article");
 assert(
   meta(article, "description").length > 50,
-  "article excerpt fallback is too short"
+  "article excerpt fallback is too short",
 );
 assert.notStrictEqual(meta(article, "description"), meta(home, "description"));
 assert.strictEqual(
   meta(article, "og:image"),
-  "https://edwardsmoses.com/assets/totp/edwardsmoses.com_pexels-zulfugarkarimov-33440144.jpg"
+  "https://edwardsmoses.com/assets/totp/edwardsmoses.com_pexels-zulfugarkarimov-33440144.jpg",
 );
 assert.strictEqual((article.match(/<h1\b/gi) || []).length, 1);
 
 const [articleSchema] = jsonLd(article);
 const articleGraph = articleSchema["@graph"];
 const blogPosting = articleGraph.find(
-  (entry) => entry["@type"] === "BlogPosting"
+  (entry) => entry["@type"] === "BlogPosting",
 );
 const breadcrumbs = articleGraph.find(
-  (entry) => entry["@type"] === "BreadcrumbList"
+  (entry) => entry["@type"] === "BreadcrumbList",
 );
 assert(blogPosting, "BlogPosting schema is missing");
 assert(blogPosting.datePublished, "BlogPosting datePublished is missing");
 assert(
   !blogPosting.dateModified,
-  "dateModified must require an explicit updated date"
+  "dateModified must require an explicit updated date",
 );
 assert.strictEqual(breadcrumbs.itemListElement.length, 3);
 
 const remoteImageArticle = readPublic(
   "personal-git-alias-faster-git-workflow",
-  "index.html"
+  "index.html",
 );
 assert.strictEqual(
   meta(remoteImageArticle, "og:image"),
-  "https://miro.medium.com/max/1400/1*oMC83-7fB27k1tTMxDfRaQ.png"
+  "https://miro.medium.com/max/1400/1*oMC83-7fB27k1tTMxDfRaQ.png",
 );
 
 const svgThumbnailArticle = readPublic(
   "behind-the-scenes-working-with-me-as-my-client",
-  "index.html"
+  "index.html",
 );
 assert.strictEqual(
   meta(svgThumbnailArticle, "og:image"),
-  "https://edwardsmoses.com/assets/edwardsmoses-og-card.jpg"
+  "https://edwardsmoses.com/assets/edwardsmoses-og-card.jpg",
 );
 
 const notFound = readPublic("404.html");
@@ -183,44 +183,47 @@ assert.strictEqual(meta(notFound, "robots"), "noindex, follow");
 assert.strictEqual(
   jsonLd(notFound).length,
   0,
-  "noindex pages should not emit JSON-LD"
+  "noindex pages should not emit JSON-LD",
 );
 
 for (const html of [home, about, articles, article, remoteImageArticle]) {
   assert(
     !html.includes("https://edwardsmoses.com//"),
-    "double-slash site URL found"
+    "double-slash site URL found",
   );
   assert(
     !html.includes("https://edwardsmoses.com/https://"),
-    "external URL was prefixed with the site URL"
+    "external URL was prefixed with the site URL",
   );
 }
 
 assert(
   !fs.existsSync(
-    publicPath("achieving-the-ckad-kubernetes-cert", "index.html")
+    publicPath("achieving-the-ckad-kubernetes-cert", "index.html"),
   ),
-  "external CKAD placeholder was generated as an indexable page"
+  "external CKAD placeholder was generated as an indexable page",
 );
 assert(
   !fs.existsSync(publicPath("interview-with-go-solo", "index.html")),
-  "external GoSolo placeholder was generated as an indexable page"
+  "external GoSolo placeholder was generated as an indexable page",
 );
 
 const redirects = readPublic("_redirects");
 assert(
   /\/achieving-the-ckad-kubernetes-cert\s+https:\/\/www\.credly\.com\/badges\/0c002800-de62-452f-8ca6-cf0e9cb260f1\s+301/.test(
-    redirects
-  )
+    redirects,
+  ),
 );
 assert(
   /\/interview-with-go-solo\s+https:\/\/gosolo\.subkit\.com\/edwards-moses\/\s+301/.test(
-    redirects
-  )
+    redirects,
+  ),
 );
 
-const sitemap = readPublic("sitemap.xml");
+const sitemapIndex = readPublic("sitemap-index.xml");
+assert(sitemapIndex.includes("https://edwardsmoses.com/sitemap-0.xml"));
+
+const sitemap = readPublic("sitemap-0.xml");
 assert(!sitemap.includes("<changefreq>"));
 assert(!sitemap.includes("<priority>"));
 assert(!sitemap.includes("/achieving-the-ckad-kubernetes-cert"));
@@ -232,17 +235,17 @@ const articleDescriptions = fs
   .readdirSync(path.join(root, "_data", "blog"))
   .filter((fileName) => fileName.endsWith(".md"))
   .map((fileName) =>
-    fs.readFileSync(path.join(root, "_data", "blog", fileName), "utf8")
+    fs.readFileSync(path.join(root, "_data", "blog", fileName), "utf8"),
   )
   .filter((source) => !/^externalLink:/m.test(source))
   .map((source) => source.match(/^path:\s*(\S+)/m)[1].replace(/^\/|\/$/g, ""))
   .map((articlePath) =>
-    meta(readPublic(articlePath, "index.html"), "description")
+    meta(readPublic(articlePath, "index.html"), "description"),
   );
 assert.strictEqual(
   new Set(articleDescriptions).size,
   articleDescriptions.length,
-  "article meta descriptions should be distinct"
+  "article meta descriptions should be distinct",
 );
 
 console.log("SEO output checks passed.");

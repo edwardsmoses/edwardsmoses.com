@@ -2,8 +2,8 @@ import React from "react";
 import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import PostLink from "../components/post-link";
-import { Hero_WorkWithMe } from "../components/heroWorkWithMe";
-import { SEO } from "../components/seo";
+import { HeroWorkWithMe } from "../components/heroWorkWithMe";
+import { Seo } from "../components/seo";
 import { MyServices } from "../components/myservices";
 import { Testimonials } from "../components/testimonial";
 
@@ -20,7 +20,7 @@ const IndexPage = ({
     .filter((edge) => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
     .sort(
       (a, b) =>
-        new Date(b.node.frontmatter.date) - new Date(a.node.frontmatter.date)
+        new Date(b.node.frontmatter.date) - new Date(a.node.frontmatter.date),
     ) // Sort posts by date, newest first
     .slice(0, 6) // Display only the recent six posts
     .map((edge) => (
@@ -28,16 +28,18 @@ const IndexPage = ({
     ));
 
   return (
-    <Layout header={<Hero_WorkWithMe />}>
-      <SEO pageType="ProfilePage" />
+    <Layout header={<HeroWorkWithMe />}>
+      <Seo pageType="ProfilePage" />
 
       <section id="articles" className="pb-16">
         <h2 className="mt-0 text-3xl tracking-tight text-balance font-display sm:text-4xl">
           Recent <i>Articles</i>
         </h2>
-        <div className="grid gap-7 mx-auto mt-10 md:grid-cols-2 lg:grid-cols-3">{Posts}</div>
+        <div className="grid gap-7 mx-auto mt-10 md:grid-cols-2 lg:grid-cols-3">
+          {Posts}
+        </div>
 
-        <div className="flex justify-center mb-5 mt-12">
+        <div className="articles-cta flex justify-center mb-5">
           <Link
             to="/articles"
             onClick={() => {
@@ -67,7 +69,7 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
       edges {
         node {
           id

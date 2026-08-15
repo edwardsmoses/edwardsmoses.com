@@ -1,12 +1,12 @@
 import React from "react";
 import Layout from "../components/layout";
 import { Link } from "gatsby";
-import { SEO } from "../components/seo";
+import { Seo } from "../components/seo";
 
 const notFound = () => {
   return (
     <Layout>
-      <SEO
+      <Seo
         title="Page Not Found"
         description="The requested page could not be found."
         pathname="/404/"

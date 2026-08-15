@@ -21,7 +21,7 @@ const isoDate = (value) => {
   return Number.isNaN(date.getTime()) ? undefined : date.toISOString();
 };
 
-export const SEO = ({
+export const Seo = ({
   article,
   collectionItems,
   description,

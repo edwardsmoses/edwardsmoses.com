@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/layout";
-import { SEO } from "../components/seo";
+import { Seo } from "../components/seo";
 import { BLOGROLL_FEED_ENTRIES } from "../data/blogroll-feed";
 
 const humanizeDate = (rawDate) => {
@@ -23,7 +23,7 @@ const Blogroll = () => {
 
   return (
     <Layout>
-      <SEO
+      <Seo
         collectionItems={entries.map((entry) => ({
           externalLink: entry.url,
           title: entry.url,

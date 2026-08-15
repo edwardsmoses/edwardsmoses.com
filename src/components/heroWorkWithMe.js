@@ -2,7 +2,7 @@ import React from "react";
 import { useABTest } from "../hooks/useABTest";
 import { WebsiteCopy } from "../copy/copy-constants";
 
-export const Hero_WorkWithMe = () => {
+export const HeroWorkWithMe = () => {
   const hiCopy = WebsiteCopy.HiWelcome.text_copies;
   const { copyVersion: hiCopyVersion, handleTrackEvent: handleTrackEventHiCopy } = useABTest(
     WebsiteCopy.HiWelcome.tracked_events

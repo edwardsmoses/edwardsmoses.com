@@ -6,9 +6,11 @@ import { useABTest } from "../hooks/useABTest";
 import { WebsiteCopy } from "../copy/copy-constants";
 import { useMixpanel } from "gatsby-plugin-mixpanel";
 
-export default () => {
+const Navigation = () => {
   const copy = WebsiteCopy.NavigationCallToAction.text_copies;
-  const { copyVersion, handleTrackEvent } = useABTest(WebsiteCopy.NavigationCallToAction.tracked_events);
+  const { copyVersion, handleTrackEvent } = useABTest(
+    WebsiteCopy.NavigationCallToAction.tracked_events,
+  );
 
   const mixpanel = useMixpanel();
 
@@ -62,3 +64,5 @@ export default () => {
     </nav>
   );
 };
+
+export default Navigation;

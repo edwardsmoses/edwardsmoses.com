@@ -1,5 +1,5 @@
 import React from "react";
-import { SEO } from "../components/seo";
+import { Seo } from "../components/seo";
 import Layout from "../components/layout";
 import { Link, graphql } from "gatsby";
 
@@ -17,7 +17,7 @@ const Articles = ({
   return (
     <>
       <Layout>
-        <SEO
+        <Seo
           collectionItems={edges.map((edge) => edge.node.frontmatter)}
           title="React, React Native & Full-Stack Articles"
           description="Practical guides on React, React Native, Remix, Firebase, Stripe, and shipping production software — written by Edwards Moses."
@@ -40,7 +40,9 @@ const Articles = ({
         </div>
 
         <div className="relative">
-          <div className="grid gap-7 mx-auto mt-10 md:grid-cols-2 lg:grid-cols-3">{Posts}</div>
+          <div className="articles-grid grid gap-7 mx-auto md:grid-cols-2 lg:grid-cols-3">
+            {Posts}
+          </div>
         </div>
       </Layout>
     </>
@@ -55,7 +57,7 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
       edges {
         node {
           id
