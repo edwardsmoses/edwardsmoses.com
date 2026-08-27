@@ -26,41 +26,41 @@ To begin, we want to set up the Firebase console to enable email link sign-in:
   - Under the **Sign-in method** tab, enable the **Email/Password** provider. Note that email/password sign-in must be enabled to use email link sign-in.
   - In the same section, enable the **Email link (passwordless sign-in)** method.
 
-![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 11.09.01.png)
+![Firebase email link sign-in method](/assets/firebase-email-link-sign-in-method.png)
 <sub><sup>_a little bit of trivia, this is the firebase project I used in the app that got me into Toptal. that's what I now use for all my firebase testing_ </sup></sub>
 
 - Under the **Settings** tab, and under the **Authorized domains** section:
 - Add the domains for the `url` in the magic link setup, or use the default domains, `project_name.web.app`.
 
-![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 11.17.47.png)
+![Firebase authorized domains settings](/assets/firebase-authorized-domains.png)
 
 ### Configuring Firebase Dynamic Links
 
 I assume you'd already have your React Native project up and running already. 
 
 We want to use the values from our app, and add to the Firebase console. 
-![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 14.12.59.png)
+![Firebase project app values](/assets/firebase-project-app-values.png)
 
 - For iOS, add your app with the following details on the Firebase console:
   - Bundle ID
   - Apple Developer Team ID
-    ![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 14.17.55.png)
+    ![Firebase iOS app configuration](/assets/firebase-ios-app-configuration.png)
 
 - For Android - you just need to have an Android app configured with a package name
 
 - Next, we want to enable Firebase dynamic links, enter the domain you want to use. In this case, I'm using: `edwardsmosesapp.page.link`
-  ![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 15.03.18.png)
+  ![Firebase Dynamic Links domain configuration](/assets/firebase-dynamic-links-domain.png)
 
 ## Setting up our React Native project
 
 We want to setup our Xcode project configuration for the firebase universal links.
 
 - Open the Xcode project, and in the **Capabilities** tab, enable **Associated Domains**
-  ![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 14.21.46.png)
+  ![Xcode Associated Domains capability](/assets/xcode-associated-domains-capability.png)
 
   - Add the following to the associated domains list: your dynamic links domain, mine is `edwardsmosesapp.page.link`
 
-  ![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 15.05.25.png)
+  ![Xcode associated domain entry](/assets/xcode-associated-domain-entry.png)
 
 ### Installing Packages
 
@@ -101,7 +101,7 @@ npx pod install
 ```
 
 When running the above command, if you run into the below error: you can follow the steps in this section: <https://rnfirebase.io/#altering-cocoapods-to-use-frameworks>
-![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 14.33.21.png)
+![React Native Firebase CocoaPods error](/assets/react-native-firebase-cocoapods-error.png)
 <sub><sup>_guess who ran into the above error_</sup></sub>
 
 If you haven't yet configured your Firebase project, follow the below steps in the documentation:
@@ -237,11 +237,15 @@ const styles = StyleSheet.create({
 ```
 
 Here's our how our app looks:
-![screenshots](/assets/edwardsmoses-Simulator Screenshot - iPhone 15 Pro Max - 2024-07-20 at 14.57.42.png)
+
+![The React Native app before signing in with a Firebase magic link](/assets/firebase-magic-link-app-screen-ios.png)
+
 <sub><sup>_definitely not winning any awards for the aesthetics on this app_</sup></sub>
 
 If you have everything configured sucessfully, you should get a link in your email.
-![screenshots](/assets/edwardsmoses-Screenshot 2024-07-20 at 15.09.34.png)
+
+![The Firebase magic-link email received on an iPhone](/assets/firebase-magic-link-email-ios.png)
+
 <sub><sup>_guess how I'm spending my weekend._</sup></sub>
 
 ### Handling the Link Inside the App

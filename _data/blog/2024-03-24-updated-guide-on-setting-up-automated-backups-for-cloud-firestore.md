@@ -33,7 +33,7 @@ Where:
 - `your-database-name` is the name of the Firestore database we want to backup. If you're using the default Firestore instance, it's likely to be `(default)`
 - `5w` is how long we want to keep this backup for, this value can be setup up to 14 weeks.
 
-![screenshots](/assets/edwards_moses.com_Screenshot 2024-03-28 202526.png)
+![Firestore backup schedule creation output](/assets/firestore-backup-schedule-created.png)
 
 ## Verifying the Setup
 
@@ -44,7 +44,7 @@ gcloud alpha firestore backups schedules list \
 --database='(default)'
 ```
 
-![screenshots](/assets/edwards_moses.com_Screenshot 2024-03-28 202731.png)
+![Firestore backup schedule list output](/assets/firestore-backup-schedule-list.png)
 
 ## Viewing Available Backups
 

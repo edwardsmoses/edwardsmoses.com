@@ -294,7 +294,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 Now, that we have the magic link functional, we want to configure Postmark as the SMTP provider for supabase.
 
 You want to head over to the Auth settings of your Supabase project, and enable Custom SMTP.
-![screenshots](</assets/edwardsmoses.com-Screenshot 2024-07-27 at 11.42.19.png>)
+![Supabase custom SMTP toggle](/assets/supabase-custom-smtp-toggle.png)
 
 Then, we want to configure the Sender details and the SMTP Provider settings.
 
@@ -303,7 +303,7 @@ Then, we want to configure the Sender details and the SMTP Provider settings.
 - Port Number: `587`
 
 Then, you'd want to use your Postmark Server API Token as the SMTP username and password.
-![screenshots](</assets/edwardsmoses.com-Screenshot 2024-07-27 at 11.50.23.png>)
+![Supabase Postmark SMTP settings](/assets/supabase-postmark-smtp-settings.png)
 
 ### Done 🥳
 

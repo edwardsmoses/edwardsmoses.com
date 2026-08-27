@@ -70,17 +70,17 @@ export default AppExport;
 
 And we're done! You should something similar to the below:
 
-![screenshots](/assets/edwardsmoses-remix-Screenshot 2023-10-15 090329.png)
+![Remix Dev Tools panel](/assets/remix-dev-tools-screen-1.png)
 
 when expanded:
 
-![screenshots](/assets/edwardsmoses-remix-Screenshot 2023-10-15 090406.png)
+![Expanded Remix Dev Tools panel](/assets/remix-dev-tools-screen-2.png)
 
 Here, the Active Page tab stands out. It offers a deep dive into the current page I'm on. A particularly handy feature is its ability to highlight route boundaries as I hover over them.
 
 Plus, it provides a glimpse into the Loader data for each route.
 
-![screenshots](/assets/edwardsmoses-remix-Screenshot 2023-10-15 091433.png)
+![Remix Dev Tools active page details](/assets/remix-dev-tools-screen-3.png)
 
 ### Server Logging
 
@@ -130,7 +130,7 @@ if (process.env.NODE_ENV === 'development') {
 
 And with the above, we should have the 'Server Logs' functional in your Terminal. Here's an example of how it'd look like:
 
-![screenshots](/assets/edwardsmoses-remix-Screenshot 2023-10-15 100936.png)
+![Remix Dev Tools server logs](/assets/remix-dev-tools-server-logs.png)
 
 You can check out this article `server.js` [file here.](https://github.com/edwardsmoses/remix-run-stripe-sample/blob/remix-dev-tools/server.js)
 

@@ -46,11 +46,11 @@ jj git init
 
 That gave me the first clean snapshot of the project:
 
-![Jujutsu repository initialized](/assets/totp/edwardsmoses.com_CleanShot 2025-08-24 at 15.30.21.png)
+![Jujutsu repository initialized](/assets/totp/totp-jujutsu-init.png)
 
 And `jj st` gives the status view of the working tree:
 
-![Jujutsu status output](/assets/totp/edwardsmoses.com_CleanShot 2025-08-24 at 15.39.43.png)
+![Jujutsu status output](/assets/totp/totp-jujutsu-status.png)
 
 Before the first describe, I configured identity:
 
@@ -65,7 +65,7 @@ And then:
 jj describe -m "chore: start of totp demo"
 ```
 
-![Jujutsu first describe](/assets/totp/edwardsmoses.com_CleanShot 2025-08-24 at 15.49.53.png)
+![Jujutsu first describe](/assets/totp/totp-jujutsu-first-description.png)
 
 ## Installing the packages
 
@@ -355,7 +355,7 @@ export default [...(await flatRoutes())] satisfies RouteConfig;
 
 I'm definitely not winning any design awards for this login page:
 
-![our current login page](/assets/totp/edwardsmoses_CleanShot 2026-04-12 at 23.50.49.png)
+![Our current login page](/assets/totp/totp-login-screen.png)
 
 
 ## Generating the QR code and turning on 2FA
@@ -526,7 +526,7 @@ npm i --save-dev @types/speakeasy
 
 Okay, now we have the QR code displayed, yay progress!!
 
-![yay, progress!](/assets/totp/edwardsmoses_CleanShot 2026-04-13 at 00.00.06.png)
+![Two-factor authentication setup progress](/assets/totp/totp-setup-progress.png)
 
 
 
