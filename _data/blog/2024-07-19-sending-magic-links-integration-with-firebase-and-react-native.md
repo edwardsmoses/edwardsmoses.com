@@ -373,7 +373,9 @@ xcrun simctl openurl booted {paste_the_link_here}
 ```
 
 And here we have it, the user is automatically signed into the app:
-![screenshots](/assets/edwardsmoses-Simulator Screenshot - iPhone 15 Pro Max - 2024-07-20 at 15.37.18.png)
+
+![The React Native app after signing in successfully with a Firebase magic link](/assets/firebase-magic-link-success-ios.png)
+
 <sub><sup>_interesting coincidence: what's the similarity between both screenshots. hint: peep the minute_</sup></sub>
 
 ### Conclusion
