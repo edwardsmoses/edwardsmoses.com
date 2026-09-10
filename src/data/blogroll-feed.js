@@ -1,9 +1,13 @@
 export const BLOGROLL_FEED_ENTRIES = [
+   {
+    url: 'https://ordinaryabundance.com/',
+    publishedAt: '2026-09-10',
+    thoughts: "how much of a blessing is it to be blind to the abundance we have around us.",
+  },
   {
     url: 'https://stolen-thoughts.com',
     publishedAt: '2026-08-18',
     thoughts: "this must have been an interesting endeavor; i wonder the possible practical applications from this, maybe a way to distill a model. would be interesting to know how they chose to obfuscate the data they extracted during this process..",
-
   },
   {
     url: 'https://tailscale.com/blog/sqlite-wal-reset-bug',
