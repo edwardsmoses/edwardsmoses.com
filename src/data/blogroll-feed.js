@@ -1,33 +1,44 @@
 export const BLOGROLL_FEED_ENTRIES = [
-   {
-    url: 'https://ordinaryabundance.com/',
-    publishedAt: '2026-09-10',
-    thoughts: "how much of a blessing is it to be blind to the abundance we have around us.",
+  {
+    url: "https://michaelheap.com/i-dont-want-the-details",
+    publishedAt: "2026-09-28",
+    thoughts:
+      "pretty interesting read.. how do you systemically reduce failures in your org. reminds me of when we accidentally shipped an in-progress work. questions we asked ourselves. how do we alert everybody when a ship is happening. and the change we made as a result of that question has saved us many times",
   },
   {
-    url: 'https://stolen-thoughts.com',
-    publishedAt: '2026-08-18',
-    thoughts: "this must have been an interesting endeavor; i wonder the possible practical applications from this, maybe a way to distill a model. would be interesting to know how they chose to obfuscate the data they extracted during this process..",
+    url: "https://ordinaryabundance.com/",
+    publishedAt: "2026-09-10",
+    thoughts:
+      "how much of a blessing is it to be blind to the abundance we have around us.",
   },
   {
-    url: 'https://tailscale.com/blog/sqlite-wal-reset-bug',
-    'publishedAt': '2026-08-15',
-    thoughts: "one of the major reasons why i love my job.. finding and hunting down bugs like this, bugs that almost impossible to find, take time to replicate, and the obvious triggers are not the actual triggers, a very interesting read, and why expertise can still be important even in the age of AI",
+    url: "https://stolen-thoughts.com",
+    publishedAt: "2026-08-18",
+    thoughts:
+      "this must have been an interesting endeavor; i wonder the possible practical applications from this, maybe a way to distill a model. would be interesting to know how they chose to obfuscate the data they extracted during this process..",
   },
   {
-    url: 'https://davidoks.blog/p/why-airlines-are-always-going-bankrupt',
-    publishedAt: '2026-05-06',
+    url: "https://tailscale.com/blog/sqlite-wal-reset-bug",
+    publishedAt: "2026-08-15",
+    thoughts:
+      "one of the major reasons why i love my job.. finding and hunting down bugs like this, bugs that almost impossible to find, take time to replicate, and the obvious triggers are not the actual triggers, a very interesting read, and why expertise can still be important even in the age of AI",
+  },
+  {
+    url: "https://davidoks.blog/p/why-airlines-are-always-going-bankrupt",
+    publishedAt: "2026-05-06",
     thoughts: "outside our regular programming ... pretty interesting read..",
   },
   {
     url: "https://surfingcomplexity.blog/2026/05/02/how-incidents-can-teach-us-about-whats-already-working-well/",
     publishedAt: "2026-05-05",
-    thoughts: "questions .. well thought out questions are really powerful, they draw out insights that otherwise be hidden .. even to the person with the knowledge. "
+    thoughts:
+      "questions .. well thought out questions are really powerful, they draw out insights that otherwise be hidden .. even to the person with the knowledge. ",
   },
-   {
+  {
     url: "https://www.ncregister.com/commentaries/schnell-repairing-the-ruins",
     publishedAt: "2026-05-05",
-    thoughts: "just an excerpt from the article: 'The same commitment belongs at home. A dinner table free of devices, conversation across generations, reading aloud together, and the habit of asking children not only what they think but why — these are small schools of freedom. They teach that education is not the production of impressive sentences. It is the formation of honest minds. '",
+    thoughts:
+      "just an excerpt from the article: 'The same commitment belongs at home. A dinner table free of devices, conversation across generations, reading aloud together, and the habit of asking children not only what they think but why — these are small schools of freedom. They teach that education is not the production of impressive sentences. It is the formation of honest minds. '",
   },
   {
     url: "https://pckt.blog/b/jcalabro/april-2026-outage-post-mortem-219ebg2",
