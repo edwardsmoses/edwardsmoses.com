@@ -3,6 +3,8 @@ template: BlogPost
 path: /how-i-use-rex-with-codex
 date: 2026-10-23T10:00:00.000Z
 title: How I Use Rex with Codex
+thumbnail: /assets/rex-superlogical-card.png
+hideFeaturedImage: true
 metaDescription: "How Rex clicked for me: prompts for starting local apps, testing worktrees, watching deployments, running experiments, and updating my Mac."
 ---
 

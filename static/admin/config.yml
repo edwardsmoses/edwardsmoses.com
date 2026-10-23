@@ -106,4 +106,10 @@ collections:
         media_library:
           config:
             multiple: false
+      - label: Hide Featured Image in Article
+        name: hideFeaturedImage
+        widget: boolean
+        default: false
+        required: false
+        hint: Keep the image on article cards and social previews without showing it above the article body.
       - { name: body, label: Body, widget: markdown }
