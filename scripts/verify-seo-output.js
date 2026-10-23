@@ -160,6 +160,51 @@ assert(
 );
 assert.strictEqual(breadcrumbs.itemListElement.length, 3);
 
+const rexArticle = readPublic("how-i-use-rex-with-codex", "index.html");
+const rexCardImage = "/assets/rex-superlogical-card.png";
+const hasFeaturedImage = (html) =>
+  tags(html, "div").some((tag) =>
+    (attribute(tag, "class") || "").split(/\s+/).includes("post-thumbnail"),
+  );
+
+for (const listing of [home, articles]) {
+  assert(
+    tags(listing, "img").some((tag) => attribute(tag, "src") === rexCardImage),
+    "Rex card image should appear on both article listings",
+  );
+}
+assert(
+  !hasFeaturedImage(rexArticle),
+  "Rex should not repeat its card image as a header",
+);
+assert(
+  hasFeaturedImage(article),
+  "existing articles should keep their featured headers",
+);
+assert(
+  !tags(rexArticle, "img").some(
+    (tag) => attribute(tag, "src") === rexCardImage,
+  ),
+  "Rex card image should stay outside the article body",
+);
+assert.strictEqual(
+  tags(rexArticle, "img").filter(
+    (tag) =>
+      attribute(tag, "src") === "/assets/rex-superlogical-screenshot.webp",
+  ).length,
+  1,
+  "Rex should retain its existing inline screenshot exactly once",
+);
+assert.strictEqual(
+  meta(rexArticle, "og:image"),
+  `https://edwardsmoses.com${rexCardImage}`,
+  "Rex social previews should use its card image",
+);
+assert(
+  fs.existsSync(publicPath("assets", "rex-superlogical-card.png")),
+  "Rex card image should be copied to the built site",
+);
+
 const remoteImageArticle = readPublic(
   "personal-git-alias-faster-git-workflow",
   "index.html",

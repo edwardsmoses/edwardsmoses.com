@@ -3,6 +3,7 @@ const path = require(`path`);
 exports.createSchemaCustomization = ({ actions }) => {
   actions.createTypes(`
     type MarkdownRemarkFrontmatter {
+      hideFeaturedImage: Boolean
       updated: Date @dateformat
     }
   `);

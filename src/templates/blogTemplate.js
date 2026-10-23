@@ -69,7 +69,7 @@ export default function Template({
             {frontmatter.title}
           </h1>
 
-          {!!frontmatter.thumbnail && (
+          {!!frontmatter.thumbnail && !frontmatter.hideFeaturedImage && (
             <div
               className="post-thumbnail blog-post-content-image image-outline"
               style={{ backgroundImage: `url(${frontmatter.thumbnail})` }}
@@ -111,6 +111,7 @@ export const pageQuery = graphql`
         path
         title
         thumbnail
+        hideFeaturedImage
         metaDescription
       }
     }
