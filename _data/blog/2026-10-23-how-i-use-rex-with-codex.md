@@ -92,8 +92,6 @@ Then I thought, while we were already doing this:
 
 That turned into a review of the outdated packages, an update plan, and the upgrades running in a named Rex tab. I could return to it to see the downloads and installation progress, while Codex checked the results and dealt with the follow-up issues.
 
-When an installer needed my administrator password, I entered it directly in Rex, and then Codex continued. After the upgrades, we reran the certificate checks and checked that the updated tools still started correctly.
-
 What started as a question about a security report became a broader maintenance session. I could keep giving the next instruction from the same conversation and see the work happening in the terminal.
 
 ## Trying out an idea
@@ -125,8 +123,6 @@ There is one thing I am still getting used to, and I'm not quite sure I would ca
 I ask for a local environment, and services appear in the right tabs. I ask for a release watch, and there is a terminal collecting logs and a later update about what it found. In use, it feels like one thing.
 
 The distinction I have so far is that Rex keeps the terminal sessions and processes available and gives software a way to control and inspect them. Codex works out which commands to run, prepares the configuration or scripts, and interprets the results.
-
-For the monitoring example, the collector script runs in Rex, and the scheduled Codex reviews are another part of the workflow. Rex's [agent documentation](https://www.superlogical.com/rex/docs/automate/agent-skill) helps explain how the agent controls the terminal.
 
 I can describe that distinction, but I am still building an instinct for it when I use the two together. I expect more usage will give me a clearer picture of where one stops and the other takes over.
 
