@@ -10,6 +10,11 @@ I recently got an invite to try [Rex](https://www.superlogical.com/updates/publi
 
 The invite came with an invitation to their Discord, so I joined and looked around for examples of how people were using it. I couldn't find a channel dedicated to use cases when I first joined, though there is one now. Without something concrete to try, I left it alone.
 
+<figure class="article-figure">
+  <img class="article-figure__image" src="/assets/rex-superlogical-screenshot.webp" alt="Rex with Codex reviewing code, lazygit showing a diff, and a Snake game in three split panes" width="2114" height="1278" decoding="async">
+  <figcaption class="article-figure__caption">Screenshot from <a href="https://www.superlogical.com/updates/public-testing-beginning">Superlogical's Rex announcement</a>.</figcaption>
+</figure>
+
 A few hours later, I was working on a project that needed several things running locally: the web frontend, an API server, background jobs, and the Expo development server. Then the app in the iOS Simulator needed to connect to the local API, with the background jobs using the right local services too.
 
 Usually, that means opening terminals, moving into the right directories, starting each process, checking ports, and remembering which environment variables need changing. It is a familiar routine, but there are quite a few small things to get right before I can actually test anything.
