@@ -3,153 +3,147 @@ template: BlogPost
 path: /how-i-use-rex-with-codex
 date: 2026-10-23T10:00:00.000Z
 title: How I Use Rex with Codex
-metaDescription: How I use Rex with Codex to run web, server, and mobile checkouts, inspect staging uploads, monitor releases, and keep long-running work visible.
+metaDescription: "How Rex clicked for me: using Codex to start a local app stack, test separate worktrees, and keep servers, logs, and follow-up work together."
 ---
 
-One question keeps coming up in my Codex chats:
+On 19 October, I got an invite to try [Rex](https://www.superlogical.com/updates/public-testing-beginning), the terminal multiplexer from [Superlogical](https://www.superlogical.com/). At first, I wasn't particularly excited. I didn't quite grok where it would fit into how I worked.
 
-> Is Rex running the checkout where these updates are?
+I joined their Discord and looked around for examples of how people were using it. I couldn't find a channel dedicated to use cases when I first joined, though there is one now. Without something concrete to try, I left it alone.
 
-It sounds like a small question. But when a feature spans a web app, an API, and a mobile app, having the code ready is only part of getting it ready to test. The right processes need to be running from the right directories, talking to each other, with somewhere sensible to look when something fails.
+A few hours later, I was working on a project that needed several things running locally: the web frontend, an API server, background jobs, and the Expo development server. Then the app in the iOS Simulator needed to connect to the local API, with the background jobs using the right local services too.
 
-[Rex](https://www.superlogical.com/rex/docs/installation) has become where I keep that work visible. I ask Codex to start services, refresh a checkout, run a staging test, or investigate a failure. Codex uses Rex's CLI, and I can open the same sessions to see what is happening or take over an interactive step.
+Usually, that means opening terminals, moving into the right directories, starting each process, checking ports, and remembering which environment variables need changing. It is a familiar routine, but there are quite a few small things to get right before I can actually test anything.
 
-Looking back through those chats, a few patterns stand out.
+And then it occurred to me: this was something I could try with Rex.
 
-## Getting the whole project running together
-
-One of my requests was straightforward:
+So I gave Codex a request:
 
 > Let's use Rex to spin up all of this, the web, server and mobile.
 
-That became a named session containing the web frontend, API, React Native bundler, and a local Redis instance. An Overview tab held the local URLs, checkout locations, and restart instructions. Later testing also needed Stripe forwarding.
+From that one request, Codex put together a Rex session with tabs for the different services, started them from the relevant checkouts, and connected the web and mobile apps to the local API. It opened the mobile app in the simulator through its development client too.
 
-The arrangement looked roughly like this:
+It even started a separate Redis instance, on its own port, and configured the development queues to use it. The Redis installation was already on my machine; Codex handled starting and wiring up the instance for this project.
 
-```text
-Account-linking workspace
-├── Overview
-├── Web
-├── Server
-├── Mobile
-├── Redis
-└── Stripe
-```
+That was the part that surprised me. I had asked for the application to be brought up, and it had worked through the supporting setup as well.
 
-The useful part was being able to come back to that session and find each part of the application. I could open the frontend, reload the mobile app from its terminal, or inspect the server output while testing the same flow.
+Okay, now I had a use case.
 
-There was still setup work behind it: pointing the frontend and mobile app at the local API, choosing ports, and making sure local workers used the intended queues. A session name doesn't configure those connections. It gives me a place to keep them together once they are configured.
+## Trying another worktree
 
-I also use separate sessions for separate investigations. When reviewing a horizontal-video change, I asked for a different Rex session for that PR. That let us bring up its frontend without replacing the workspace I was already using.
+The next thing that clicked was how useful this could be when testing different worktrees of the same project.
 
-One wrinkle I ran into: creating a session and displaying it in the Mac app are separate steps. With Rex's Remote Control setting off, Codex could start the services but couldn't switch the visible app to their session. I selected it manually and continued testing.
+I might have one version running while reviewing a PR, then want to try another branch without dismantling the first setup. Each checkout needs its own processes, and those processes need to avoid fighting over ports or accidentally sharing the wrong queues.
 
-## Checking what is actually running
+With Rex, I can ask Codex to create another session for that worktree and do the setup there. One session holds one version of the application, another holds the version I want to compare it with. I can move between them and see what each is running.
 
-The checkout question became a recurring part of the workflow for a reason.
+The request becomes something like:
 
-During one review, checking the running processes showed that the web app was current, while the API and mobile bundler were still using earlier revisions. The updates had been pushed, but those terminals hadn't followed them.
+> Bring up this PR in a separate Rex session. Use separate ports, point the mobile app at its local API, and give its background workers their own Redis setup. Keep the existing session running.
 
-Now, when I ask Codex to refresh Rex, the useful result includes the checkout, revision, and listening port for each service. Then we restart the relevant processes and check that the endpoints respond or the mobile bundle compiles.
+There is still configuration involved. Git worktrees give me separate checkouts; the ports and running services need to be configured separately. Codex can handle that work through Rex and leave the result somewhere I can inspect.
 
-That also helps separate a stale process from another kind of stale state.
+For a project using Docker, container names, published ports, and any volumes that need to stay separate also need attention. A new Rex session doesn't automatically isolate them. In the setup above, Redis was a normal local `redis-server` process on a dedicated port.
 
-In one simulator test, the latest mobile checkout was running, but onboarding still showed the older flow. The cause turned out to be an experiment assignment saved on the device. Restarting the bundler couldn't clear it. We checked the persisted state, reset the relevant assignment, and later did a clean reinstall when I wanted a fresh onboarding test.
+That makes the useful part easier to describe: I can hand off much of the setup and keep each running version organised, instead of carrying all of those details around in my head.
 
-That was a useful reminder: “the terminal is on the latest code” answers one question. There can still be browser storage, simulator data, or a previously downloaded update affecting what I see.
+I also tried this for a horizontal-video PR. I asked for a separate Rex session, and we brought up that PR's frontend while leaving the other workspace available. The worker and sign-in setup were still separate steps, but the review already had somewhere to live.
 
-## Leaving commands and results somewhere I can inspect
+## Is this actually the latest checkout?
 
-I increasingly ask for work to happen in a named Rex tab: a build, a test run, a deployment check, or a results summary.
+Once I started using it this way, I kept asking another question:
 
-Rex calls a tab a **window** and a terminal pane a **block**. Its [CLI documentation](https://www.superlogical.com/rex/docs/automate/cli) explains the naming and how to target each one.
+> Is Rex running the checkout where these updates are?
 
-A shortened version of the pattern looks like this:
+During one review, the answer was only partly yes. The web app was current, but the API and mobile development server were still running from earlier revisions. The commits had been pushed; the running processes needed refreshing.
 
-```sh
-# rex_session is the full session ID returned by Rex.
-# project_dir is the absolute path to the checkout being tested.
-started=$(rex window new -s "$rex_session" Tests -c "$project_dir" \
-  --keep-open --focus=false --json -- npm test)
+Now, when I ask Codex to update the session, I want it to check the directory and revision behind each service, restart what needs restarting, and confirm that it is ready. An Overview tab with the local URLs and restart instructions has been useful here too.
 
-test_block=$(printf '%s' "$started" | jq -er '.block_ids[0]')
+There was another small rabbit hole after that. The latest mobile code was running, but onboarding still showed an older flow. I initially wondered whether the checkout was wrong again.
 
-rex capture -s "$rex_session" -b "$test_block" --trim --unwrap
-rex block call -s "$rex_session" -b "$test_block" process
-```
+It turned out that the simulator had an experiment assignment saved in the app's local storage. Restarting the development server wasn't going to change that. We checked the saved state, reset the relevant assignment, and later reinstalled the app when I wanted a fresh onboarding test.
 
-The project supplies the actual test command; this example uses `npm test` and `jq` to extract the returned pane ID.
+So there are two things to keep track of: the code the process is serving, and the state the application has already saved. Having the terminals together made the first one easier to check, which helped us get to the second.
 
-`--keep-open` leaves the result available after the command exits. `--focus=false` lets the work start without pulling me away from the tab I'm reading.
+## After deploying, keep an eye on it
 
-Codex can read the pane with `capture` and inspect its process state. I can read it myself too. For longer jobs, we also save output to log files, because a terminal's current screen doesn't contain its entire history.
+Continuing to use the combination, I realised I could take it a little further. Once an update was deployed, I could ask Codex to keep an eye on the logs through Rex while I tested it.
 
-That last distinction matters. A tab remaining open doesn't mean its command is still running, and a few promising lines don't establish that a test completed successfully. We check the process result and the relevant artifacts before calling it done.
+For an account-linking release, my request was to watch for account-linking failures, email errors, and HTTP failures while the mobile testing happened. Another check focused on Stripe webhook delivery and fulfillment on the web side.
 
-## Using the staging connection that is already open
+The Heroku watch started with the platform's normal [log-streaming command](https://devcenter.heroku.com/articles/logging#real-time-tail), wrapped in a small script running in a named Rex tab. That script collected the relevant events, saved sanitised operational details, checked the application's health endpoint, and reconnected if the stream dropped.
 
-Another recurring request is to continue from an existing Rex session.
+In that particular setup, the health check ran every minute. I also had a scheduled Codex review every five minutes to look at the new events, check whether the stream was still receiving logs, and flag meaningful problems. The watch had a two-hour limit.
 
-While working on direct photo and video uploads to Cloudflare R2, I already had a staging database proxy running in Rex. I asked Codex to use that session to apply the migration.
+That detail helped me understand what I was asking for. The collector kept running between reviews. Codex came back to inspect what it had collected. I could open the same Rex tab myself whenever I wanted to see what was happening.
 
-It opened a second pane for the migration while keeping the proxy alive. We checked the schema, applied the migration, and then used the workspace for the staging deployment and upload checks. Once the database connection was no longer needed, we stopped the proxy.
+A request for another release might look like this:
 
-I then asked for an actual example: create a staging incident and upload some photos and videos.
+> Check which release is live, then keep its logs running in a named Rex tab while I test. Watch for the errors relevant to this change, check health periodically, and review new events every five minutes for the next two hours. Let me know about new problems or gaps in the watch, and stop it when we're done.
 
-That gave me something concrete to inspect. The checks exercised upload reservation, direct upload to R2, verification, and reading the uploaded bytes back. They also checked duplicate handling and a video being verified by the worker without an app completion call. We left a labelled example available for review.
+I like being able to deploy something and continue the conversation with “what happened when I tried that?” The release, log output, and checks are there to work from, rather than having to collect them all after a failure.
 
-Those checks established the staging backend and storage behavior. Testing native mobile uploads through interruption and recovery was still separate work.
+I've used Rex tabs for checking Node versions on Heroku and following application rebuilds too. A quiet monitoring window still only tells me about the period and flows we observed, so I want that time range included in the result.
 
-Rex was useful throughout because the connection, migration, deployment output, and test results were accessible in the same workspace.
+And once we are done, I ask Codex to close the session. Otherwise, I would eventually end up with a very organised collection of terminals doing things I no longer remember starting :-)
 
-## Keeping logs open while I test
+## Continuing from a terminal that is already open
 
-After a deployment, my next request is often some version of:
+Another useful moment came while working on direct photo and video uploads to Cloudflare R2.
 
-> Keep the server monitoring running in Rex while we test.
+I already had a staging database proxy running in Rex. I asked Codex to use that session to apply the migration, and it opened another pane while keeping the proxy available. Afterward, we used the same workspace for the staging deployment and upload checks, then stopped the proxy when it was no longer needed.
 
-For an account-linking release, that meant watching for account-link failures, email errors, and HTTP failures while the mobile testing happened. A separate web check focused on Stripe webhook delivery and fulfillment errors.
+I then wanted to see an actual example: create a staging incident and upload some photos and videos to it.
 
-The useful output includes which release is running, which errors the watch is looking for, and how long the observation lasts. A short clean sample gives me evidence about that window; it doesn't establish that every production flow works.
+We did that through the API, checked the files in R2, downloaded them to compare the bytes, and checked duplicate handling. One video was verified by the background worker without the app calling the completion endpoint. We left a labelled example available for me to inspect.
 
-For runtime maintenance, I've also used Rex tabs to check the actual Node versions on Heroku, follow rebuilds from deployed commits, and inspect the checks afterward. The terminal output helps connect the intended update to what the running application actually reports.
+That tested the staging backend and storage path. The native mobile upload behavior still needed its own testing, particularly around interruptions and recovery.
 
-This also gives the work a clear end. Once a monitoring task was finished, I asked Codex to close its Rex session. I want the tabs that remain open to have a reason to be there.
+What I liked was being able to continue from the connection I already had open, then follow the task through to an example I could look at.
 
-## Remote maintenance, with room for me to step in
+## The parts I still need to do myself
 
-My remote workflow started with another small request: connect Rex to an exe.dev machine over SSH.
+I also asked Codex to connect a Rex terminal to an exe.dev machine over SSH. In that setup, the SSH client runs in a local Rex tab, and I can move between the remote shell and my local terminals.
 
-In that setup, a local Rex tab runs `ssh`. I can keep the VM shell beside the local terminals and return to either as the task moves between machines.
+When creating the SSH key needed a passphrase, Codex left the terminal at that step and I entered it directly in Rex. The same thing happened during a Homebrew update when an installer needed my administrator password, and during an npm release when sign-in needed my involvement.
 
-The connection also showed a practical advantage of sharing the terminal with Codex. When SSH key creation needed a passphrase, I entered it directly in Rex. The same pattern came up during Homebrew maintenance when an installer needed my administrator password, and during an npm release when authentication needed my involvement.
+That interaction feels quite natural. Codex gets the task to the point where I need to do something, I do it in the terminal or browser, and then it can continue checking the result.
 
-Codex could prepare the command, leave it at the interactive step, and continue checking the result after I finished. I didn't have to move the whole task into a separate terminal or paste credentials into chat.
+For the Homebrew update, having a named upgrade tab was also handy. It took a while, and I could return to it to see how things were progressing.
 
-For the broader Homebrew update, the named upgrade tab also gave me somewhere to inspect progress while the maintenance took longer than a normal command.
+## Following an investigation a little further
 
-## Running an investigation that outlasts a single prompt
+The longest example so far has been some work on [Rill](https://userill.dev).
 
-The most involved example so far has been a context-handling investigation for [Rill](https://userill.dev).
+I wanted to compare different ways of trimming the context sent to the model during browser tasks. I asked Codex to use Rex for the benchmark and compare cost per correctly verified run, latency, and any evidence lost along the way.
 
-I asked Codex to benchmark structural filtering and bounded history against the existing trimming behavior, using Rex. The comparison needed to look at cost per correctly verified run, latency, and any evidence lost along the way.
+We ran 48 trials across six synthetic cases and four variants. The logs and recordings were saved, and the comparison was opened in a `Benchmark-results` tab.
 
-We ran 48 trials across six synthetic cases and four variants, with two repetitions. The work stayed available through a benchmark session, saved logs, recordings, and a `Benchmark-results` tab.
+There were useful surprises. Some filtering removed facts that the model needed to verify the task. In another run, the browser reached the final page and reported the right result, but the recording stopped on the preceding page. That led to a separate recorder investigation.
 
-It was a small diagnostic experiment. The interesting outcome was that reducing context could remove facts needed to verify the task. In another run, the browser reached the final page and reported the right result, but the saved video ended on the preceding page. We kept that run outside the fully verified count and investigated the recorder separately.
+It was a small diagnostic experiment, but it showed me another use for this setup. I could come back with a question about a result, and the command output and artifacts were still there to work from.
 
-That is the kind of task where I appreciate having the work in Rex. I can ask a follow-up about a result, and there is still a session, a command, and a set of artifacts to inspect. The conversation can continue from the evidence already collected.
+## Getting Codex set up
 
-## A small setup detail
-
-Rex provides an [agent skill](https://www.superlogical.com/rex/docs/automate/agent-skill) for Codex and other coding agents. Its documented setup command is:
+Rex has an [agent skill](https://www.superlogical.com/rex/docs/automate/agent-skill) that teaches Codex how to work with its sessions, tabs, and panes. The setup command is:
 
 ```sh
 rex skill setup
 ```
 
-The skill gets its command guide from the installed Rex version. That is helpful while the CLI evolves. When Codex is running outside a Rex terminal, it can discover sessions with `rex whoami --json` and `rex ls --json`, then target the chosen session explicitly.
+The skill reads its command guide from the installed version of Rex, which helps while things are changing during the beta.
 
-Outside Rex, I've also had to use the CLI bundled with Rex Beta because `rex` wasn't on Codex's `PATH`. Rex's [PATH documentation](https://www.superlogical.com/rex/docs/automate/cli#path) is useful if you hit the same problem.
+One small thing I ran into: Codex was running outside Rex, and `rex` wasn't on its `PATH`. We used the CLI bundled with Rex Beta. The [CLI documentation](https://www.superlogical.com/rex/docs/automate/cli#path) covers the PATH setup if you hit that too.
 
-I still spend most of my attention on the application I'm testing and the conversation about what to change. Rex gives the commands behind that work a place I can return to: the server that's running, the build that failed, the staging example ready to inspect, or the log stream waiting while I try the next step.
+## One thing I'm still figuring out
+
+There is one thing I am still getting used to, and I'm not quite sure I would call it a con: the boundary between what Rex is doing and what Codex is doing can feel blurry.
+
+I ask for a local environment, and services appear in the right tabs. I ask for a release watch, and there is a terminal collecting logs and a later update about what it found. In use, it feels like one thing.
+
+The distinction I have so far is that Rex keeps the terminal sessions and processes available and gives software a way to control and inspect them. Codex works out which commands to run, prepares the configuration or scripts, and interprets the results. The deployment tools and log commands do their usual jobs inside that setup.
+
+For the monitoring example, the collector script runs in Rex, and the scheduled Codex reviews are another part of the workflow. Rex's [agent documentation](https://www.superlogical.com/rex/docs/automate/agent-skill) helps explain how the agent controls the terminal.
+
+I can describe that distinction, but I am still building an instinct for it when I use the two together. I expect more usage will give me a clearer picture of where one stops and the other takes over.
+
+For now, a surprising number of my requests end with “can we use Rex for this?” Getting several local services running was enough to make it click. Being able to leave that work open and follow it through testing, deployment, and the next question has kept me using it.
