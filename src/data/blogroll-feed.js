@@ -1,5 +1,11 @@
 export const BLOGROLL_FEED_ENTRIES = [
   {
+    url: "https://itsallaboutthebit.com/i-am-sorry-but-you-still-have-to-think/",
+    publishedAt: "2026-10-26",
+    thoughts:
+      "fascinating read. i recently read another article arguing that programming is dead, and the author made a well-written case for it. i'm partial to this one because of my inherent bias as a programmer, but it's becoming clearer every day that nobody knows anything for sure. we're all fumbling around in the dark.",
+  },
+  {
     url: "https://michaelheap.com/i-dont-want-the-details",
     publishedAt: "2026-09-28",
     thoughts:
